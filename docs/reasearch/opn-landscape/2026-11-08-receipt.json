@@ -1,0 +1,67 @@
+{
+  "markdownPath": "/Users/bilibili/Documents/workspace/github/jununfly/ZOnePersonNetwork/docs/reasearch/opn-landscape/2026-11-08-draft.md",
+  "htmlPath": "/Users/bilibili/Documents/workspace/github/jununfly/ZOnePersonNetwork/docs/reasearch/opn-landscape/2026-11-08-draft.html",
+  "reportHash": "8b24672fa5ff9d1e575af0e477da2dc6944b066075cede02fca6cd70787bc08e",
+  "publishCount": 1,
+  "evaluation": {
+    "reportHash": "8b24672fa5ff9d1e575af0e477da2dc6944b066075cede02fca6cd70787bc08e",
+    "reportFamily": "technical-c4/v1",
+    "compilerVersion": "research/v1",
+    "healthy": true,
+    "correctness": {
+      "revisionPinned": true,
+      "provenanceComplete": true,
+      "criticalClaimsEvidence": true,
+      "scoringAxesSeparated": true,
+      "publishExactlyOnce": true,
+      "receiptConsistent": true
+    },
+    "evidenceCount": 49,
+    "unknownCount": 81,
+    "navigationFailureCount": 0,
+    "collection": {
+      "filesRead": 22,
+      "sourceBytesRead": 246964,
+      "durationMs": 37238,
+      "cacheHit": false
+    }
+  },
+  "qualityGate": {
+    "healthy": true,
+    "schema": "technical-research-quality-gate/v1",
+    "briefSchema": "technical-decision-brief/v1",
+    "reportFamily": "technical-c4/v1",
+    "checks": {
+      "decisionFrame": true,
+      "diagramCoverage": true,
+      "candidateScoresFromLedger": true,
+      "criticalClaimsEvidence": true,
+      "comparisonTraceability": true,
+      "recommendationTraceability": true,
+      "metricCoverage": true,
+      "riskRegisterCoverage": true,
+      "unknownsSurfaced": true
+    },
+    "counts": {
+      "concepts": 10,
+      "candidates": 10,
+      "cards": 10,
+      "claims": 38,
+      "comparisons": 12,
+      "recommendations": 6,
+      "metrics": 10,
+      "riskRegister": 8,
+      "ledgerEvidence": 49,
+      "ledgerUnknownCriteria": 81,
+      "graduationCriteria": 0,
+      "versionSkew": false
+    },
+    "brief": {
+      "schema": "technical-decision-brief/v1",
+      "stage": "problem-discovery",
+      "constraintCount": 9,
+      "optionCount": 4,
+      "goalCount": 5
+    }
+  }
+}

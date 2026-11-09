@@ -1,0 +1,67 @@
+{
+  "markdownPath": "/Users/bilibili/Documents/workspace/github/jununfly/ZOnePersonNetwork/docs/reasearch/orca/2026-11-08-draft.md",
+  "htmlPath": "/Users/bilibili/Documents/workspace/github/jununfly/ZOnePersonNetwork/docs/reasearch/orca/2026-11-08-draft.html",
+  "reportHash": "f92f792855ab4d4b3baf4e55bd607d29e9cd5603b1fa02b78322ee1af53d2a51",
+  "publishCount": 1,
+  "evaluation": {
+    "reportHash": "f92f792855ab4d4b3baf4e55bd607d29e9cd5603b1fa02b78322ee1af53d2a51",
+    "reportFamily": "technical-c4/v1",
+    "compilerVersion": "research/v1",
+    "healthy": true,
+    "correctness": {
+      "revisionPinned": true,
+      "provenanceComplete": true,
+      "criticalClaimsEvidence": true,
+      "scoringAxesSeparated": true,
+      "publishExactlyOnce": true,
+      "receiptConsistent": true
+    },
+    "evidenceCount": 10,
+    "unknownCount": 0,
+    "navigationFailureCount": 0,
+    "collection": {
+      "filesRead": 2,
+      "sourceBytesRead": 60229,
+      "durationMs": 87764,
+      "cacheHit": false
+    }
+  },
+  "qualityGate": {
+    "healthy": true,
+    "schema": "technical-research-quality-gate/v1",
+    "briefSchema": "technical-decision-brief/v1",
+    "reportFamily": "technical-c4/v1",
+    "checks": {
+      "decisionFrame": true,
+      "diagramCoverage": true,
+      "candidateScoresFromLedger": true,
+      "criticalClaimsEvidence": true,
+      "comparisonTraceability": true,
+      "recommendationTraceability": true,
+      "metricCoverage": true,
+      "riskRegisterCoverage": true,
+      "unknownsSurfaced": true
+    },
+    "counts": {
+      "concepts": 9,
+      "candidates": 1,
+      "cards": 1,
+      "claims": 19,
+      "comparisons": 11,
+      "recommendations": 6,
+      "metrics": 10,
+      "riskRegister": 7,
+      "ledgerEvidence": 10,
+      "ledgerUnknownCriteria": 0,
+      "graduationCriteria": 5,
+      "versionSkew": false
+    },
+    "brief": {
+      "schema": "technical-decision-brief/v1",
+      "stage": "experience-version",
+      "constraintCount": 8,
+      "optionCount": 5,
+      "goalCount": 5
+    }
+  }
+}

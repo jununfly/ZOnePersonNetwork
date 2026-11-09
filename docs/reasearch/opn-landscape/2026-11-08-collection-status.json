@@ -1,0 +1,243 @@
+{
+  "schema": "zj-research-collection-status/v1",
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "state": "fresh-collection",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "Cross-project product/technical module landscape for rebuilding a personal collaboration network (个人即协同网络): which product modules exist, how they are implemented, what can be reused instead of built from zero, and where the Human/Coding-Agent boundary sits. Problem-discovery stage; no adoption ranking and no solution design.",
+    "criteria": [
+      {
+        "id": "mod-task-workitem",
+        "question": "Which projects declare a task/work-item module, and what lifecycle or board semantics does it expose?",
+        "critical": true,
+        "keywords": [
+          "Roles, work items, messages, progress and history",
+          "Items with a life cycle",
+          "Create a work item, point it at a repo",
+          "Each card is a task",
+          "A board of tasks",
+          "Work item lifecycle"
+        ]
+      },
+      {
+        "id": "mod-identity-scope",
+        "question": "How are people, agents, rooms and scopes modeled as distinct identities?",
+        "critical": true,
+        "keywords": [
+          "Personal and shared scopes",
+          "Each person and each room has its own scoped memory",
+          "role agents (product manager",
+          "Who can hold a role",
+          "their own isolated workspace",
+          "稳定身份"
+        ]
+      },
+      {
+        "id": "mod-session-context",
+        "question": "What session lifecycle, restart safety and context handoff are declared?",
+        "critical": true,
+        "keywords": [
+          "session-blackboard convention",
+          "Restart-safe.",
+          "quitting Agetor doesn't stop them",
+          "Session lifecycle",
+          "durable sandbox"
+        ]
+      },
+      {
+        "id": "mod-execution-workspace",
+        "question": "What execution isolation unit is used (worktree, sandbox, pane) and how is parallel work arranged?",
+        "critical": true,
+        "keywords": [
+          "isolated git worktrees",
+          "each task in its own git worktree",
+          "Manage multiple AI coding agents",
+          "issues, worktrees, sessions"
+        ]
+      },
+      {
+        "id": "mod-approval-human",
+        "question": "Which Human approval, security posture or intervention gates are declared?",
+        "critical": true,
+        "keywords": [
+          "pauses for human approval",
+          "no tool approval gates",
+          "approve to push, reject with feedback",
+          "security posture",
+          "owner approvals",
+          "Human action script"
+        ]
+      },
+      {
+        "id": "mod-result-provenance",
+        "question": "How are results, reviews, audit history and provenance recorded?",
+        "critical": true,
+        "keywords": [
+          "append-only ledger",
+          "The plugin keeps the history, not the agents",
+          "review workflow",
+          "everything it does is audited",
+          "append-only (the database refuses UPDATE",
+          "Result/review semantics"
+        ]
+      },
+      {
+        "id": "mod-memory-knowledge",
+        "question": "What shared memory or knowledge layer exists, and what is its source of truth?",
+        "critical": true,
+        "keywords": [
+          "scoped memory",
+          "shared knowledge base",
+          "Memory and code understanding",
+          "Your apps, memory and skills",
+          "shared coordination context"
+        ]
+      },
+      {
+        "id": "mod-observability",
+        "question": "How are progress, status, stalls and health made observable?",
+        "critical": true,
+        "keywords": [
+          "progress and history",
+          "the board does",
+          "Status and limits",
+          "Stay in the loop",
+          "Crons, watches, and inbound webhooks",
+          "Health scorecard"
+        ]
+      },
+      {
+        "id": "mod-config-strategy",
+        "question": "How are skills, configuration, policies and deployment directories owned?",
+        "critical": true,
+        "keywords": [
+          "Shared skills",
+          "deployment directory",
+          "MCP v2.0 Complete Rewrite",
+          "Skills are scope-owned",
+          "开源选择门"
+        ]
+      },
+      {
+        "id": "mod-runtime-integration",
+        "question": "What runtime and integration shape is declared (local-first, own cloud, interface abstraction)?",
+        "critical": true,
+        "keywords": [
+          "sits behind an interface",
+          "Everything runs on your machine",
+          "Local-first by default",
+          "no cloud relay",
+          "own cloud",
+          "语义所有权"
+        ]
+      },
+      {
+        "id": "mod-agent-protocol",
+        "question": "Is there an explicit agent-to-agent protocol, typed message format or agent discovery surface?",
+        "critical": true,
+        "keywords": [
+          "Typed messages with record ids",
+          "Agent Discovery",
+          "JSON-RPC 2.0 specification",
+          "Build an Agent Network with Multiple Agents",
+          "A2A protocol establishes"
+        ]
+      },
+      {
+        "id": "mod-tech-design",
+        "question": "What technical design facts are declared: core loop, persistence substrate, tool surface, storage?",
+        "critical": true,
+        "keywords": [
+          "Every turn runs through a central core",
+          "Postgres persistence layer",
+          "One local API.",
+          "embedded Postgres",
+          "pure Markdown on a cloud-synced directory",
+          "small, fixed tool surface"
+        ]
+      },
+      {
+        "id": "ref-capability-map",
+        "question": "What product requirement map and selective-reuse capability map does the ZAgenticOPN reference project define?",
+        "critical": true,
+        "keywords": [
+          "agent-self-service-collaboration",
+          "Feature 1 C 路线"
+        ]
+      }
+    ],
+    "repositories": [
+      {
+        "owner": "yc-software",
+        "name": "qm"
+      },
+      {
+        "owner": "makifbaysal",
+        "name": "tasktrooper"
+      },
+      {
+        "owner": "JF3Env",
+        "name": "opencode-coordination"
+      },
+      {
+        "owner": "alamops",
+        "name": "agetor"
+      },
+      {
+        "owner": "lanes-sh",
+        "name": "app"
+      },
+      {
+        "owner": "usemozzie",
+        "name": "mozzie"
+      },
+      {
+        "owner": "songs-aaa",
+        "name": "shared-memory-vault"
+      },
+      {
+        "owner": "themanojdesai",
+        "name": "python-a2a"
+      },
+      {
+        "owner": "standardagents",
+        "name": "dmux"
+      },
+      {
+        "owner": "jununfly",
+        "name": "ZAgenticOPN"
+      }
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {
+      "maxFiles": 120,
+      "maxBytes": 8000000,
+      "deadlineMs": 600000
+    }
+  },
+  "briefFingerprint": "b4367c64557fe12337effb03ed60298f8a6d48451a4f877f34b542d8b0dfc4a8",
+  "preflight": {
+    "schema": "zj-research-github-preflight/v1",
+    "provider": "github",
+    "authentication": {
+      "mode": "authenticated",
+      "tokenConfigured": true
+    },
+    "rateLimit": {
+      "resource": "core",
+      "limit": 5000,
+      "remaining": 4900,
+      "resetAt": "2026-11-08T04:36:53Z"
+    },
+    "canCollect": true
+  },
+  "ledger": {
+    "relationship": "fresh-collection",
+    "source": null
+  },
+  "fallback": {
+    "automatic": false,
+    "oldLedgerUsed": false
+  }
+}

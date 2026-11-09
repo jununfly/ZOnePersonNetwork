@@ -1,0 +1,61 @@
+{
+  "schema": "technical-decision-brief/v1",
+  "user": {
+    "actor": "zj（jununfly/ZOnePersonNetwork 的 owner 与技术架构决策者）",
+    "job": "判断 stablyai/orca 能否、以及以何种形态作为 ZOnePersonNetwork 的多 Agent 编排与执行层：整体采用为工作台、复用单元能力、与现有轻量控制面组合、仅作参考，还是不采用"
+  },
+  "baseline": {
+    "workflow": "ZOnePersonNetwork 当前是仅有 README.md 的空仓库；上一轮 ZAgenticOPN 调研（pin 2ff40cc）显示其定位是 owner-only 的 Experience Version 协调控制面，拥有 Work Item 事实、严格 activation JSON-Call、Human 显式 reopen 与产品 SQLite，并明确不提供自动发现、跨设备共享状态、多项目协调。当前跨 Agent 任务交接仍靠人工搬运上下文与 ad-hoc 文档，执行侧的并行 worktree 隔离、diff 注解和 CLI 编排尚未落地。",
+    "failureModes": [
+      "任务拆分后多个 Agent 共用工作区，改动互相干扰且无法回溯到独立 worktree",
+      "Agent 产出缺少逐行 diff 注解与结构化反馈回路，Human 只能整段复述上下文",
+      "控制面事实（Work Item / claim / review）与执行层工作区状态被混在同一系统里，所有权不清",
+      "若整体采用一个 4 万文件级、每日发版的桌面/移动/远程运行时，升级、凭证、remote relay 与 telemetry 责任会一次性内化",
+      "orca 的 main 在同一天内三次变动，采用基线不固定会导致文档、契约与实测结果不可复现"
+    ]
+  },
+  "targetOutcome": "一个可观测、可丢弃的同设备纵向切片：ZOnePersonNetwork 内至少两个 Agent 在互相隔离的 worktree 并行执行，结果通过结构化 diff 注解回传 Human，且 Work Item / claim / review 事实仍由轻量控制面持有；全过程不 fork orca 源码、不引入 remote relay 或生产凭证、不把 118k stars 当作能力证明。",
+  "goals": [
+    "区分执行编排层与协作控制面语义，避免把工作台当成 Work Item 事实的 owner",
+    "为整体采用、单元能力复用、组合、仅参考、不采用五条路径给出 constraint → evidence → tradeoff → decision",
+    "把 popularity、topic relevance、product fit、semantic match、组合可行性、证据强度、所有权成本分开",
+    "把 pinned compiler 的运行时偏差、证据集中在 README 的覆盖限制、每日发版的基线漂移显式记录",
+    "给出可复现的验证场景、阈值、Human 审批/凭证/隔离安全门与阶段退出条件"
+  ],
+  "nonGoals": [
+    "不 fork / vendoring orca 源码，也不把 4 万文件级仓库纳入 ZOnePersonNetwork",
+    "不批准生产部署、多用户、团队权限、云 relay 或移动配对上线",
+    "不设计 HA / RBAC / SLO / 灾备等后续生命周期能力",
+    "不因热度高就默认替代 ZAgenticOPN 的 Work Item 控制面，也不在本报告里裁决两者取舍的最终架构",
+    "不实现代码、不安装 orca、不执行任何 remote/credentials 相关动作、不自动 commit 或 push",
+    "不把 sealed 范围外的 SECURITY.md / CONTRIBUTING.md / AGENTS.md 内容写成已验证能力",
+    "不把 stars / topicMatch / README 长度 / 文件数量当作能力评分"
+  ],
+  "constraints": [
+    {"id": "layer", "statement": "Work Item、claim、review 与协作事实的语义所有权必须留在轻量控制面；orca 只能作为执行与编排层候选"},
+    {"id": "evidence", "statement": "GitHub 能力结论只能引用 commit 4f06ffd6 的 v2 sealed Evidence ID；非 sealed 一手阅读明确标注，只用于风险与验证门"},
+    {"id": "runtime-deviation", "statement": "本轮采集使用 listTree 修复副本而非 pinned artifact，必须在报告与偏差记录中显式披露并保留上游修复待办"},
+    {"id": "baseline", "statement": "orca 每日发版，采用前必须把 source_commit 与 release version 固定进 ADR；跨轮 ledger 指纹不可混用"},
+    {"id": "security", "statement": "Agent 可创建 worktree、启动 worker、驱动桌面应用与调度 automations；凭证、审批、危险操作、隔离、provenance 与恢复必须保留 Human 门与 fail-closed 回执"},
+    {"id": "lifecycle", "statement": "按 Experience Version 定深：一个可丢弃纵向切片，不引入生产运维义务或 dogfood/release 的版本偏斜承诺"},
+    {"id": "ownership-cost", "statement": "整体采用意味着继承 TypeScript/Electron 桌面、mobile、SSH/remote、每日发版与 4 万文件级仓库的升级与治理责任"},
+    {"id": "popularity", "statement": "stars=118626 与 topicMatch=0 是 sealed 原值，不参与能力或成熟度排序"}
+  ],
+  "assumptions": [
+    "ALIGNMENT ITEM：zj 只给了仓库 URL 与输出目录，未给决策问题；本报告沿用上一轮语境，假设其 job 是评估 orca 作为 ZOnePersonNetwork 的多 Agent 编排与执行层。若真实目标是替换 ZAgenticOPN 控制面，选项排序需重做。",
+    "ALIGNMENT ITEM：假设 ZOnePersonNetwork 仍是单人 owner、同设备、单项目的早期工作区。",
+    "ALIGNMENT ITEM：假设首个落地是 Experience Version 可丢弃切片，而不是把 orca 作为长期工作台承诺。",
+    "ALIGNMENT ITEM：假设以 GitHub main 的 sealed commit 为证据基线，本地不存在 orca checkout，因此无本地/远端漂移问题，但存在每日发版导致的跨轮漂移。",
+    "ALIGNMENT ITEM：假设 zj 继续使用 WorkBuddy 与 Codex 一类 CLI agent，并遵循不自动 commit/push 的协作约定。",
+    "假设 orca 的 README 声明代表产品意图而非已验证实现；实现层结论一律保留为待验证。"
+  ],
+  "stage": "experience-version",
+  "decisionScope": "选择 orca 在 ZOnePersonNetwork 的采用形态（整体工作台 / 单元能力复用 / 与轻量控制面组合 / 仅参考 / 不采用），并定义集成 seam、所有权边界、安全门、验证门与阶段退出条件",
+  "options": [
+    {"id": "whole-product", "name": "整体采用：把 orca 作为 ZOnePersonNetwork 的主工作台与默认运行时"},
+    {"id": "unit-capability", "name": "单元能力复用：只吸收 worktree 隔离、coordinator/worker 拆分、CLI 编排与逐行 diff 注解的设计/接口"},
+    {"id": "hybrid", "name": "组合：orca 承担执行编排与工作区，轻量控制面继续持有 Work Item / claim / review 事实，中间用 narrow adapter 连接"},
+    {"id": "reference-only", "name": "仅作设计参考：读其契约与治理方式，不接入运行时"},
+    {"id": "no-adoption", "name": "不采用：维持人工交接，等实现层证据与基线稳定后再评估"}
+  ]
+}

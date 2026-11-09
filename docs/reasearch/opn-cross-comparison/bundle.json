@@ -1,0 +1,5425 @@
+{
+  "schema": "zj-graphical-cross-comparison/bundle/v1",
+  "scene-set": {
+    "id": "SCENE-SET::zopn-v1",
+    "version-pin": "v1 (PROVISIONAL — zj draft 2026-11-09, pending ratification)",
+    "source": "zj 2026-11-08 charter 模块草案 + opn-landscape 13-维度 brief（Human 给定草稿，待 ratify）",
+    "derived-from-graphs": false,
+    "scenes": [
+      {
+        "id": "SC::task-workitem",
+        "start": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+        "end": "该工作以可推进的状态存在于协作面板上，可被认领与流转",
+        "observable": "工作项可见、状态机可前进（如 available→claimed→…→completed）"
+      },
+      {
+        "id": "SC::identity-scope",
+        "start": "需要把人、Agent、设备组织进一个协作 scope",
+        "end": "成员与 scope 边界被定义且可鉴权",
+        "observable": "身份/成员/scope 可被查询且权限生效"
+      },
+      {
+        "id": "SC::session-context",
+        "start": "一次协作需要跨多轮/多 Agent 携带上下文",
+        "end": "上下文被建立、携带并在中断后恢复",
+        "observable": "恢复后上下文一致、不丢状态"
+      },
+      {
+        "id": "SC::execution-workspace",
+        "start": "Agent 需要执行一个任务",
+        "end": "任务在隔离工作区完成，资源被编排分配",
+        "observable": "执行在隔离边界内发生、互不污染"
+      },
+      {
+        "id": "SC::approval-human",
+        "start": "Agent 产出需要人工确认或存在高风险动作",
+        "end": "人工 gate 被触发、决策被记录",
+        "observable": "审批/拒绝/干预可审计、有账本"
+      },
+      {
+        "id": "SC::result-provenance",
+        "start": "任务产生结果与产物",
+        "end": "结果被 review、附 provenance 并验收",
+        "observable": "产物可复核、来源可追溯"
+      },
+      {
+        "id": "SC::memory-knowledge",
+        "start": "协作中产生可复用事实/经验",
+        "end": "知识被沉淀、可检索、可复用",
+        "observable": "检索命中既有知识、复用生效"
+      },
+      {
+        "id": "SC::observability",
+        "start": "需要诊断一次协作发生了什么",
+        "end": "状态可视化、事件可回放",
+        "observable": "事件流/状态可重放、可定位"
+      },
+      {
+        "id": "SC::config-strategy",
+        "start": "需要定义规则/skill/版本策略",
+        "end": "策略被加载并约束行为",
+        "observable": "策略生效、版本偏斜被管控"
+      },
+      {
+        "id": "SC::runtime-integration",
+        "start": "需要在某主机/平台部署并随上游升级",
+        "end": "运行时被安装、可升级、host adapter 工作",
+        "observable": "安装成功、升级可用、跨平台可运行"
+      },
+      {
+        "id": "SC::agent-protocol",
+        "start": "多个 Agent 需要彼此通信或被发现",
+        "end": "消息/契约被交换、Agent 可发现",
+        "observable": "Agent 间能交换结构化消息或经协议发现"
+      },
+      {
+        "id": "SC::tech-design",
+        "start": "需要评估项目的工程设计与质量门",
+        "end": "核心循环/持久化/工具面/测试门被声明",
+        "observable": "技术设计事实可核验、质量门可观察"
+      }
+    ],
+    "context-entries": [
+      {
+        "id": "CTX::zopn-single-user",
+        "scope": "domain",
+        "kind": "constraint",
+        "statement": "ZOnePersonNetwork 目标为单人个人协同网络；真实产品边界（单人/跨设备/多项目）是 alignment item",
+        "evidence-ref": "docs/reasearch/2026-11-08-research-charter.md"
+      },
+      {
+        "id": "CTX::zopn-no-adopt-verdict",
+        "scope": "domain",
+        "kind": "constraint",
+        "statement": "本横比仪器只产出场景×项目差异条目；采用/启动裁决属母模型 zj-open-source-capability-fit，不在本报告内",
+        "evidence-ref": "SKILL.md 范围闸门 1/2"
+      }
+    ]
+  },
+  "graphs": [
+    {
+      "project": "orca",
+      "version-pin": "v1.4.253 @ 27eb5e2a6c5017c6fdcba4fee16bf54256550c6f",
+      "nodes": [
+        {
+          "id": "F::execution-workspace",
+          "kind": "feature",
+          "statement": "Agent 需要执行一个任务",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::execution-workspace-impl",
+          "kind": "capability",
+          "statement": "orca 在该场景的实现能力单元",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": "EVID::2ed6d70d48ae1d10a19026a0"
+        },
+        {
+          "id": "F::result-provenance",
+          "kind": "feature",
+          "statement": "任务产生结果与产物",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::result-provenance-impl",
+          "kind": "capability",
+          "statement": "orca 在该场景的实现能力单元",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": "EVID::a16d037b586eabaa4c616d4a"
+        },
+        {
+          "id": "F::config-strategy",
+          "kind": "feature",
+          "statement": "需要定义规则/skill/版本策略",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::config-strategy-impl",
+          "kind": "capability",
+          "statement": "orca 在该场景的实现能力单元",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": "EVID::17641629769edf434adb6a32"
+        },
+        {
+          "id": "F::runtime-integration",
+          "kind": "feature",
+          "statement": "需要在某主机/平台部署并随上游升级",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::runtime-integration-impl",
+          "kind": "capability",
+          "statement": "orca 在该场景的实现能力单元",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": "EVID::0a6cfe851c86d1535e2d2fdc"
+        },
+        {
+          "id": "F::agent-protocol",
+          "kind": "feature",
+          "statement": "多个 Agent 需要彼此通信或被发现",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::agent-protocol-impl",
+          "kind": "capability",
+          "statement": "orca 在该场景的实现能力单元",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": "EVID::d716c3704d37f7d2b36d2a19"
+        },
+        {
+          "id": "F::tech-design",
+          "kind": "feature",
+          "statement": "需要评估项目的工程设计与质量门",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::tech-design-impl",
+          "kind": "capability",
+          "statement": "orca 在该场景的实现能力单元",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": "EVID::bde86e5bbc69853b1656c85c"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::execution-workspace",
+          "members": [
+            "F::execution-workspace",
+            "T::execution-workspace-impl"
+          ],
+          "scenario": {
+            "start": "Agent 需要执行一个任务",
+            "end": "任务在隔离工作区完成，资源被编排分配",
+            "observable": "执行在隔离边界内发生、互不污染"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::result-provenance",
+          "members": [
+            "F::result-provenance",
+            "T::result-provenance-impl"
+          ],
+          "scenario": {
+            "start": "任务产生结果与产物",
+            "end": "结果被 review、附 provenance 并验收",
+            "observable": "产物可复核、来源可追溯"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::config-strategy",
+          "members": [
+            "F::config-strategy",
+            "T::config-strategy-impl"
+          ],
+          "scenario": {
+            "start": "需要定义规则/skill/版本策略",
+            "end": "策略被加载并约束行为",
+            "observable": "策略生效、版本偏斜被管控"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::runtime-integration",
+          "members": [
+            "F::runtime-integration",
+            "T::runtime-integration-impl"
+          ],
+          "scenario": {
+            "start": "需要在某主机/平台部署并随上游升级",
+            "end": "运行时被安装、可升级、host adapter 工作",
+            "observable": "安装成功、升级可用、跨平台可运行"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::agent-protocol",
+          "members": [
+            "F::agent-protocol",
+            "T::agent-protocol-impl"
+          ],
+          "scenario": {
+            "start": "多个 Agent 需要彼此通信或被发现",
+            "end": "消息/契约被交换、Agent 可发现",
+            "observable": "Agent 间能交换结构化消息或经协议发现"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::tech-design",
+          "members": [
+            "F::tech-design",
+            "T::tech-design-impl"
+          ],
+          "scenario": {
+            "start": "需要评估项目的工程设计与质量门",
+            "end": "核心循环/持久化/工具面/测试门被声明",
+            "observable": "技术设计事实可核验、质量门可观察"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [
+        {
+          "id": "D::orca-exec-req-rt",
+          "from": "T::execution-workspace-impl",
+          "to": "T::runtime-integration-impl",
+          "relation": "requires",
+          "evidence-ref": ""
+        }
+      ],
+      "relation-constraints": [],
+      "context-entries": [
+        {
+          "id": "CTX::orca-daily-release",
+          "scope": "project",
+          "kind": "constraint",
+          "statement": "orca 日更发布，changelog 才是真实特性清单，特性列表非稳定契约",
+          "evidence-ref": "2ed6d70d48ae1d10a19026a0/17641629769edf434adb6a32 (sealed)"
+        },
+        {
+          "id": "CTX::orca-privacy",
+          "scope": "project",
+          "kind": "constraint",
+          "statement": "隐私姿态仅以文档链接形式声明，telemetry 实际行为未实测",
+          "evidence-ref": "be542a3a9b72fd240e344418 (sealed, README only)"
+        }
+      ],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "loop-now",
+      "version-pin": "main @ b7d6811877e6d7341ac539934ae87028df87b1e6 (collected HEAD; requested tag v0.2.0 = 8f504f61e8db628dacb52a4a00e6dc29567aa5af, collect ignores brief.repositories[].revision)",
+      "nodes": [
+        {
+          "id": "F::task-workitem",
+          "kind": "feature",
+          "statement": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::task-workitem-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": "EVID::3605745b0cae1cc75dd59c80"
+        },
+        {
+          "id": "F::identity-scope",
+          "kind": "feature",
+          "statement": "需要把人、Agent、设备组织进一个协作 scope",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::identity-scope-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": "EVID::04f8095af68eacbb57dceb95"
+        },
+        {
+          "id": "F::session-context",
+          "kind": "feature",
+          "statement": "一次协作需要跨多轮/多 Agent 携带上下文",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::session-context-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": "EVID::fc13fdb5c6a479f214a8e2a7"
+        },
+        {
+          "id": "F::execution-workspace",
+          "kind": "feature",
+          "statement": "Agent 需要执行一个任务",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::execution-workspace-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": "EVID::598de2204e4d84a75a0020d4"
+        },
+        {
+          "id": "F::approval-human",
+          "kind": "feature",
+          "statement": "Agent 产出需要人工确认或存在高风险动作",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::approval-human-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": "EVID::d3d21a128f2d058198f00504"
+        },
+        {
+          "id": "F::result-provenance",
+          "kind": "feature",
+          "statement": "任务产生结果与产物",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::result-provenance-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": "EVID::0794e7e8dbb753920bae8a05"
+        },
+        {
+          "id": "F::memory-knowledge",
+          "kind": "feature",
+          "statement": "协作中产生可复用事实/经验",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::memory-knowledge-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": "EVID::5d1c4de928a7b36251220b69"
+        },
+        {
+          "id": "F::observability",
+          "kind": "feature",
+          "statement": "需要诊断一次协作发生了什么",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::observability-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": "EVID::033b3e9e285ecc2cfabae1c4"
+        },
+        {
+          "id": "F::config-strategy",
+          "kind": "feature",
+          "statement": "需要定义规则/skill/版本策略",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::config-strategy-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": "EVID::8c6bfd4d937cb7ce3db39c7c"
+        },
+        {
+          "id": "F::runtime-integration",
+          "kind": "feature",
+          "statement": "需要在某主机/平台部署并随上游升级",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::runtime-integration-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": "EVID::56ca86a50db2ccf35d17f401"
+        },
+        {
+          "id": "F::agent-protocol",
+          "kind": "feature",
+          "statement": "多个 Agent 需要彼此通信或被发现",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::agent-protocol-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": "EVID::9dc520a2e8d7dc377efa824a"
+        },
+        {
+          "id": "F::tech-design",
+          "kind": "feature",
+          "statement": "需要评估项目的工程设计与质量门",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::tech-design-impl",
+          "kind": "capability",
+          "statement": "loop-now 在该场景的实现能力单元",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": "EVID::d9483e0eea626b05f453e1a3"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::task-workitem",
+          "members": [
+            "F::task-workitem",
+            "T::task-workitem-impl"
+          ],
+          "scenario": {
+            "start": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+            "end": "该工作以可推进的状态存在于协作面板上，可被认领与流转",
+            "observable": "工作项可见、状态机可前进（如 available→claimed→…→completed）"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::identity-scope",
+          "members": [
+            "F::identity-scope",
+            "T::identity-scope-impl"
+          ],
+          "scenario": {
+            "start": "需要把人、Agent、设备组织进一个协作 scope",
+            "end": "成员与 scope 边界被定义且可鉴权",
+            "observable": "身份/成员/scope 可被查询且权限生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::session-context",
+          "members": [
+            "F::session-context",
+            "T::session-context-impl"
+          ],
+          "scenario": {
+            "start": "一次协作需要跨多轮/多 Agent 携带上下文",
+            "end": "上下文被建立、携带并在中断后恢复",
+            "observable": "恢复后上下文一致、不丢状态"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::execution-workspace",
+          "members": [
+            "F::execution-workspace",
+            "T::execution-workspace-impl"
+          ],
+          "scenario": {
+            "start": "Agent 需要执行一个任务",
+            "end": "任务在隔离工作区完成，资源被编排分配",
+            "observable": "执行在隔离边界内发生、互不污染"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::approval-human",
+          "members": [
+            "F::approval-human",
+            "T::approval-human-impl"
+          ],
+          "scenario": {
+            "start": "Agent 产出需要人工确认或存在高风险动作",
+            "end": "人工 gate 被触发、决策被记录",
+            "observable": "审批/拒绝/干预可审计、有账本"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::result-provenance",
+          "members": [
+            "F::result-provenance",
+            "T::result-provenance-impl"
+          ],
+          "scenario": {
+            "start": "任务产生结果与产物",
+            "end": "结果被 review、附 provenance 并验收",
+            "observable": "产物可复核、来源可追溯"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::memory-knowledge",
+          "members": [
+            "F::memory-knowledge",
+            "T::memory-knowledge-impl"
+          ],
+          "scenario": {
+            "start": "协作中产生可复用事实/经验",
+            "end": "知识被沉淀、可检索、可复用",
+            "observable": "检索命中既有知识、复用生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::observability",
+          "members": [
+            "F::observability",
+            "T::observability-impl"
+          ],
+          "scenario": {
+            "start": "需要诊断一次协作发生了什么",
+            "end": "状态可视化、事件可回放",
+            "observable": "事件流/状态可重放、可定位"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::config-strategy",
+          "members": [
+            "F::config-strategy",
+            "T::config-strategy-impl"
+          ],
+          "scenario": {
+            "start": "需要定义规则/skill/版本策略",
+            "end": "策略被加载并约束行为",
+            "observable": "策略生效、版本偏斜被管控"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::runtime-integration",
+          "members": [
+            "F::runtime-integration",
+            "T::runtime-integration-impl"
+          ],
+          "scenario": {
+            "start": "需要在某主机/平台部署并随上游升级",
+            "end": "运行时被安装、可升级、host adapter 工作",
+            "observable": "安装成功、升级可用、跨平台可运行"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::agent-protocol",
+          "members": [
+            "F::agent-protocol",
+            "T::agent-protocol-impl"
+          ],
+          "scenario": {
+            "start": "多个 Agent 需要彼此通信或被发现",
+            "end": "消息/契约被交换、Agent 可发现",
+            "observable": "Agent 间能交换结构化消息或经协议发现"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::tech-design",
+          "members": [
+            "F::tech-design",
+            "T::tech-design-impl"
+          ],
+          "scenario": {
+            "start": "需要评估项目的工程设计与质量门",
+            "end": "核心循环/持久化/工具面/测试门被声明",
+            "observable": "技术设计事实可核验、质量门可观察"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [
+        {
+          "id": "D::loop-now-exec-req-rt",
+          "from": "T::execution-workspace-impl",
+          "to": "T::runtime-integration-impl",
+          "relation": "requires",
+          "evidence-ref": ""
+        }
+      ],
+      "relation-constraints": [],
+      "context-entries": [
+        {
+          "id": "CTX::loopnow-pin-deviation",
+          "scope": "project",
+          "kind": "constraint",
+          "statement": "钉偏差（不静默接受）：请求 collect 钉 v0.2.0(8f504f61e8db628dacb52a4a00e6dc29567aa5af)，但 collect 路径完全忽略 brief.repositories[].revision（researchBriefFingerprint 归一化只留 owner/name；resolveRevision 恒用 default_branch），实际钉到 main HEAD b7d6811877e6d7341ac539934ae87028df87b1e6。本结论由 collect/test_tag_pin.py 红测实证。Evidence 有效但版本钉≠请求 tag。",
+          "evidence-ref": "collect/ledger-loop-now.json repositories[].revision=b7d6811877e6d7341ac539934ae87028df87b1e6 (main)"
+        },
+        {
+          "id": "CTX::loopnow-no-sandbox",
+          "scope": "project",
+          "kind": "constraint",
+          "statement": "插件直接执行代码，无 sandbox；安装源须可信（README 明确「no sandbox: plugins execute code, install sources you trust」）",
+          "evidence-ref": "loop-now README@v0.2.0 / plugins/SPEC.md (sealed)"
+        },
+        {
+          "id": "CTX::loopnow-signals",
+          "scope": "project",
+          "kind": "constraint",
+          "statement": "sealed 后确认覆盖：tasks/workflow/Manager 协调(任务流转)、Build a team/Organize agents by project/permissions/tool access(身份 scope)、Keep work in context/regular conversation/workspace/session(会话上下文)、working directory/LOOP_NOW_WORK_ROOT/runs on your machine(执行工作区)、Reviewer/review/Ask me through Inbox(人工审批)、saved artifacts/delivery/messages(结果 provenance)、Skills/project instructions(知识复用)、inspect tool calls/run timeline/model usage(可观测)、plugins/configSchema/x-scope: project/Global settings(配置策略)、desktop app/Docker Compose/SQLite/loopctl(运行时集成)、Inbox/subscribe to events/plugin-host-protocol/RPC(agent 协议)、Go server/SQLite/React+TypeScript+Vite/architecture(技术设计)",
+          "evidence-ref": "collect/ledger-loop-now.json (sealed)"
+        }
+      ],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "multica",
+      "version-pin": "main @ 41885a6d816834663dad8e6944658e2ac8555844 (collected HEAD; requested tag v0.8.1 = b1ea927def64, collect ignores brief.repositories[].revision)",
+      "nodes": [
+        {
+          "id": "F::task-workitem",
+          "kind": "feature",
+          "statement": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::task-workitem-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": "EVID::a67400762c931df62135608d"
+        },
+        {
+          "id": "F::identity-scope",
+          "kind": "feature",
+          "statement": "需要把人、Agent、设备组织进一个协作 scope",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::identity-scope-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": "EVID::13e2a530ce5b9d6344871613"
+        },
+        {
+          "id": "F::session-context",
+          "kind": "feature",
+          "statement": "一次协作需要跨多轮/多 Agent 携带上下文",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::session-context-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": "EVID::fcf4cce4e1d126ce88bdffec"
+        },
+        {
+          "id": "F::execution-workspace",
+          "kind": "feature",
+          "statement": "Agent 需要执行一个任务",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::execution-workspace-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": "EVID::76fd261e3f84f3c9e33a84c6"
+        },
+        {
+          "id": "F::approval-human",
+          "kind": "feature",
+          "statement": "Agent 产出需要人工确认或存在高风险动作",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::approval-human-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": "EVID::2cc46ac299adc52b807b122e"
+        },
+        {
+          "id": "F::result-provenance",
+          "kind": "feature",
+          "statement": "任务产生结果与产物",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::result-provenance-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": "EVID::5c1fa749e640c3dec0dbd328"
+        },
+        {
+          "id": "F::memory-knowledge",
+          "kind": "feature",
+          "statement": "协作中产生可复用事实/经验",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::memory-knowledge-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": "EVID::0c8c6d5548bf9d364a4fec2b"
+        },
+        {
+          "id": "F::observability",
+          "kind": "feature",
+          "statement": "需要诊断一次协作发生了什么",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::observability-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": "EVID::71dfad6640e6f45a720f8a69"
+        },
+        {
+          "id": "F::config-strategy",
+          "kind": "feature",
+          "statement": "需要定义规则/skill/版本策略",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::config-strategy-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": "EVID::fb5092388de5fedd9b3c1581"
+        },
+        {
+          "id": "F::runtime-integration",
+          "kind": "feature",
+          "statement": "需要在某主机/平台部署并随上游升级",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::runtime-integration-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": "EVID::8d8aec7e4652ff51053e99ec"
+        },
+        {
+          "id": "F::agent-protocol",
+          "kind": "feature",
+          "statement": "多个 Agent 需要彼此通信或被发现",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::agent-protocol-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": "EVID::8a9c13151d95b91275e847a8"
+        },
+        {
+          "id": "F::tech-design",
+          "kind": "feature",
+          "statement": "需要评估项目的工程设计与质量门",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::tech-design-impl",
+          "kind": "capability",
+          "statement": "multica 在该场景的实现能力单元",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": "EVID::153a37839b2cad51bf212d2d"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::task-workitem",
+          "members": [
+            "F::task-workitem",
+            "T::task-workitem-impl"
+          ],
+          "scenario": {
+            "start": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+            "end": "该工作以可推进的状态存在于协作面板上，可被认领与流转",
+            "observable": "工作项可见、状态机可前进（如 available→claimed→…→completed）"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::identity-scope",
+          "members": [
+            "F::identity-scope",
+            "T::identity-scope-impl"
+          ],
+          "scenario": {
+            "start": "需要把人、Agent、设备组织进一个协作 scope",
+            "end": "成员与 scope 边界被定义且可鉴权",
+            "observable": "身份/成员/scope 可被查询且权限生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::session-context",
+          "members": [
+            "F::session-context",
+            "T::session-context-impl"
+          ],
+          "scenario": {
+            "start": "一次协作需要跨多轮/多 Agent 携带上下文",
+            "end": "上下文被建立、携带并在中断后恢复",
+            "observable": "恢复后上下文一致、不丢状态"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::execution-workspace",
+          "members": [
+            "F::execution-workspace",
+            "T::execution-workspace-impl"
+          ],
+          "scenario": {
+            "start": "Agent 需要执行一个任务",
+            "end": "任务在隔离工作区完成，资源被编排分配",
+            "observable": "执行在隔离边界内发生、互不污染"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::approval-human",
+          "members": [
+            "F::approval-human",
+            "T::approval-human-impl"
+          ],
+          "scenario": {
+            "start": "Agent 产出需要人工确认或存在高风险动作",
+            "end": "人工 gate 被触发、决策被记录",
+            "observable": "审批/拒绝/干预可审计、有账本"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::result-provenance",
+          "members": [
+            "F::result-provenance",
+            "T::result-provenance-impl"
+          ],
+          "scenario": {
+            "start": "任务产生结果与产物",
+            "end": "结果被 review、附 provenance 并验收",
+            "observable": "产物可复核、来源可追溯"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::memory-knowledge",
+          "members": [
+            "F::memory-knowledge",
+            "T::memory-knowledge-impl"
+          ],
+          "scenario": {
+            "start": "协作中产生可复用事实/经验",
+            "end": "知识被沉淀、可检索、可复用",
+            "observable": "检索命中既有知识、复用生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::observability",
+          "members": [
+            "F::observability",
+            "T::observability-impl"
+          ],
+          "scenario": {
+            "start": "需要诊断一次协作发生了什么",
+            "end": "状态可视化、事件可回放",
+            "observable": "事件流/状态可重放、可定位"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::config-strategy",
+          "members": [
+            "F::config-strategy",
+            "T::config-strategy-impl"
+          ],
+          "scenario": {
+            "start": "需要定义规则/skill/版本策略",
+            "end": "策略被加载并约束行为",
+            "observable": "策略生效、版本偏斜被管控"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::runtime-integration",
+          "members": [
+            "F::runtime-integration",
+            "T::runtime-integration-impl"
+          ],
+          "scenario": {
+            "start": "需要在某主机/平台部署并随上游升级",
+            "end": "运行时被安装、可升级、host adapter 工作",
+            "observable": "安装成功、升级可用、跨平台可运行"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::agent-protocol",
+          "members": [
+            "F::agent-protocol",
+            "T::agent-protocol-impl"
+          ],
+          "scenario": {
+            "start": "多个 Agent 需要彼此通信或被发现",
+            "end": "消息/契约被交换、Agent 可发现",
+            "observable": "Agent 间能交换结构化消息或经协议发现"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::tech-design",
+          "members": [
+            "F::tech-design",
+            "T::tech-design-impl"
+          ],
+          "scenario": {
+            "start": "需要评估项目的工程设计与质量门",
+            "end": "核心循环/持久化/工具面/测试门被声明",
+            "observable": "技术设计事实可核验、质量门可观察"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [
+        {
+          "id": "D::multica-exec-req-rt",
+          "from": "T::execution-workspace-impl",
+          "to": "T::runtime-integration-impl",
+          "relation": "requires",
+          "evidence-ref": ""
+        }
+      ],
+      "relation-constraints": [],
+      "context-entries": [
+        {
+          "id": "CTX::multica-pin-deviation",
+          "scope": "project",
+          "kind": "constraint",
+          "statement": "钉偏差（不静默接受）：请求 collect 钉 v0.8.1(b1ea927def64)，但 collect 路径完全忽略 brief.repositories[].revision（researchBriefFingerprint 归一化只留 owner/name；resolveRevision 恒用 default_branch），实际钉到 main HEAD 41885a6d81（v0.8.1 之后约 2 天）。本结论由 collect/test_tag_pin.py 红测实证。Evidence 有效但版本钉≠请求 tag；若要钉具体 release 须改编译器 collect（接入 brief revision）而非改 brief 形状。",
+          "evidence-ref": "collect/ledger-multica.json repositories[].revision=41885a6d81 (main)"
+        },
+        {
+          "id": "CTX::multica-evidence-anchored",
+          "scope": "project",
+          "kind": "constraint",
+          "statement": "弱证据已解决（v2→v3 brief 迭代）：原 5 条 Evidence 因 keyword 路径子串误命中 docs/lark-*.md（谈媒体/配额维护）被判 native 仅因有 sealed ID；现全部 12 场景统一锚定根 README.md（canonical/英文/切题），用路径唯一 keyword 'readme.md'（不匹配 README.ja/zh，也不匹配 Dockerfile）强制选取，5 条摘录已复核为对应场景原文（review gate / assign issue / squads / diff 连 issue / 运行成本）。multica 更深能力文档在 server/internal/service/builtin_skills/multica-platform/references/*.md，但不在 docs/ 下、非 canonical，进不了 sealed ledger，如需更细证据须带外一手阅读。",
+          "evidence-ref": "collect/ledger-multica.json (sealed, all README.md)"
+        },
+        {
+          "id": "CTX::multica-signals",
+          "scope": "project",
+          "kind": "constraint",
+          "statement": "sealed 后确认覆盖：issues/board + assign(任务流转)、team/members/roles/access-scopes/security-model(身份与 scope)、projects 挂载 repo+doc 上下文 + 运行内对话(会话上下文)、local daemon runtime 在你的机器(执行工作区)、review gate + Inbox(人工审批)、diff/PR 挂回 issue(结果 provenance)、Skills 可复用 playbook(知识复用)、Execution log 可重放 + usage analytics(可观测)、workspaces/squads/autopilots cron/Slack-Feishu-Lark 集成(配置策略)、self-host Docker/Helm + desktop/mobile/web + 26 CLI(运行时集成)、Go backend(Chi+WebSocket)+PostgreSQL17+Next.js16+CI(技术设计)",
+          "evidence-ref": "collect/ledger-multica.json (sealed)"
+        },
+        {
+          "id": "CTX::multica-license",
+          "scope": "project",
+          "kind": "constraint",
+          "statement": "授权为 Multica License（Apache-2.0 全文 + 附加条件：覆盖托管服务、商业内嵌、品牌使用）；非纯 OSS，自托管/修改/构建允许，但商业分发与品牌需看 LICENSE/NOTICE — 采用候选须评估",
+          "evidence-ref": "multica LICENSE/NOTICE@main (sealed)"
+        }
+      ],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "ZAgenticOPN",
+      "version-pin": "2ff40cc052aae12fc7a324f89691e9f194985d24",
+      "nodes": [
+        {
+          "id": "F::task-workitem",
+          "kind": "feature",
+          "statement": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::task-workitem-impl",
+          "kind": "capability",
+          "statement": "ZAgenticOPN 在该场景的实现能力单元",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": "EVID::3f9dde435394108a69009858"
+        },
+        {
+          "id": "F::identity-scope",
+          "kind": "feature",
+          "statement": "需要把人、Agent、设备组织进一个协作 scope",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::identity-scope-impl",
+          "kind": "capability",
+          "statement": "ZAgenticOPN 在该场景的实现能力单元",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": "EVID::37c46d46405b7d6055e568d5"
+        },
+        {
+          "id": "F::approval-human",
+          "kind": "feature",
+          "statement": "Agent 产出需要人工确认或存在高风险动作",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::approval-human-impl",
+          "kind": "capability",
+          "statement": "ZAgenticOPN 在该场景的实现能力单元",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": "EVID::06b3135da98d7a9bec7b65a9"
+        },
+        {
+          "id": "F::result-provenance",
+          "kind": "feature",
+          "statement": "任务产生结果与产物",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::result-provenance-impl",
+          "kind": "capability",
+          "statement": "ZAgenticOPN 在该场景的实现能力单元",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": "EVID::ddea4d90bb2b7e250b08b616"
+        },
+        {
+          "id": "F::memory-knowledge",
+          "kind": "feature",
+          "statement": "协作中产生可复用事实/经验",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::memory-knowledge-impl",
+          "kind": "capability",
+          "statement": "ZAgenticOPN 在该场景的实现能力单元",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": "EVID::1b866cefa58726959ce1cd73"
+        },
+        {
+          "id": "F::observability",
+          "kind": "feature",
+          "statement": "需要诊断一次协作发生了什么",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::observability-impl",
+          "kind": "capability",
+          "statement": "ZAgenticOPN 在该场景的实现能力单元",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": "EVID::0a8445acfd470fba8cb2c18a"
+        },
+        {
+          "id": "F::config-strategy",
+          "kind": "feature",
+          "statement": "需要定义规则/skill/版本策略",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::config-strategy-impl",
+          "kind": "capability",
+          "statement": "ZAgenticOPN 在该场景的实现能力单元",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": "EVID::6814fc75fc59e1f02bb5f756"
+        },
+        {
+          "id": "F::runtime-integration",
+          "kind": "feature",
+          "statement": "需要在某主机/平台部署并随上游升级",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::runtime-integration-impl",
+          "kind": "capability",
+          "statement": "ZAgenticOPN 在该场景的实现能力单元",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": "EVID::5da1a8117f4c7765b67113c4"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::task-workitem",
+          "members": [
+            "F::task-workitem",
+            "T::task-workitem-impl"
+          ],
+          "scenario": {
+            "start": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+            "end": "该工作以可推进的状态存在于协作面板上，可被认领与流转",
+            "observable": "工作项可见、状态机可前进（如 available→claimed→…→completed）"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::identity-scope",
+          "members": [
+            "F::identity-scope",
+            "T::identity-scope-impl"
+          ],
+          "scenario": {
+            "start": "需要把人、Agent、设备组织进一个协作 scope",
+            "end": "成员与 scope 边界被定义且可鉴权",
+            "observable": "身份/成员/scope 可被查询且权限生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::approval-human",
+          "members": [
+            "F::approval-human",
+            "T::approval-human-impl"
+          ],
+          "scenario": {
+            "start": "Agent 产出需要人工确认或存在高风险动作",
+            "end": "人工 gate 被触发、决策被记录",
+            "observable": "审批/拒绝/干预可审计、有账本"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::result-provenance",
+          "members": [
+            "F::result-provenance",
+            "T::result-provenance-impl"
+          ],
+          "scenario": {
+            "start": "任务产生结果与产物",
+            "end": "结果被 review、附 provenance 并验收",
+            "observable": "产物可复核、来源可追溯"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::memory-knowledge",
+          "members": [
+            "F::memory-knowledge",
+            "T::memory-knowledge-impl"
+          ],
+          "scenario": {
+            "start": "协作中产生可复用事实/经验",
+            "end": "知识被沉淀、可检索、可复用",
+            "observable": "检索命中既有知识、复用生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::observability",
+          "members": [
+            "F::observability",
+            "T::observability-impl"
+          ],
+          "scenario": {
+            "start": "需要诊断一次协作发生了什么",
+            "end": "状态可视化、事件可回放",
+            "observable": "事件流/状态可重放、可定位"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::config-strategy",
+          "members": [
+            "F::config-strategy",
+            "T::config-strategy-impl"
+          ],
+          "scenario": {
+            "start": "需要定义规则/skill/版本策略",
+            "end": "策略被加载并约束行为",
+            "observable": "策略生效、版本偏斜被管控"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::runtime-integration",
+          "members": [
+            "F::runtime-integration",
+            "T::runtime-integration-impl"
+          ],
+          "scenario": {
+            "start": "需要在某主机/平台部署并随上游升级",
+            "end": "运行时被安装、可升级、host adapter 工作",
+            "observable": "安装成功、升级可用、跨平台可运行"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [],
+      "relation-constraints": [],
+      "context-entries": [
+        {
+          "id": "CTX::zagenticopn-capability-map",
+          "scope": "project",
+          "kind": "constraint",
+          "statement": "参照物能力地图把 qm 列为 L3 运行时/资源层可抽取单位能力来源，但不能替代 Work Item authority",
+          "evidence-ref": "984e472faa61310787ad09a9 (sealed, ref-capability-map)"
+        }
+      ],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "herdr",
+      "version-pin": "master ee5bfb5041bb3e4a49d591c72308aae3c81ecdde",
+      "nodes": [
+        {
+          "id": "F::session-context",
+          "kind": "feature",
+          "statement": "一次协作需要跨多轮/多 Agent 携带上下文",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::session-context-impl",
+          "kind": "capability",
+          "statement": "herdr 在该场景的实现能力单元",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": "EVID::8108ad662e318f347dfb172f"
+        },
+        {
+          "id": "F::execution-workspace",
+          "kind": "feature",
+          "statement": "Agent 需要执行一个任务",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::execution-workspace-impl",
+          "kind": "capability",
+          "statement": "herdr 在该场景的实现能力单元",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": "EVID::47182a0e1869703551a60363"
+        },
+        {
+          "id": "F::observability",
+          "kind": "feature",
+          "statement": "需要诊断一次协作发生了什么",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::observability-impl",
+          "kind": "capability",
+          "statement": "herdr 在该场景的实现能力单元",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": "EVID::be630dc8ed685d364a63d139"
+        },
+        {
+          "id": "F::config-strategy",
+          "kind": "feature",
+          "statement": "需要定义规则/skill/版本策略",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::config-strategy-impl",
+          "kind": "capability",
+          "statement": "herdr 在该场景的实现能力单元",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": "EVID::6965f9991cffb4f28ee08f14"
+        },
+        {
+          "id": "F::runtime-integration",
+          "kind": "feature",
+          "statement": "需要在某主机/平台部署并随上游升级",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::runtime-integration-impl",
+          "kind": "capability",
+          "statement": "herdr 在该场景的实现能力单元",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": "EVID::daac3c9036fb77b32c5b40bf"
+        },
+        {
+          "id": "F::agent-protocol",
+          "kind": "feature",
+          "statement": "多个 Agent 需要彼此通信或被发现",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::agent-protocol-impl",
+          "kind": "capability",
+          "statement": "herdr 在该场景的实现能力单元",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": "EVID::e3545bea44fa352f51b5393e"
+        },
+        {
+          "id": "F::tech-design",
+          "kind": "feature",
+          "statement": "需要评估项目的工程设计与质量门",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::tech-design-impl",
+          "kind": "capability",
+          "statement": "herdr 在该场景的实现能力单元",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": "EVID::96de34e84950a4b0c05ef927"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::session-context",
+          "members": [
+            "F::session-context",
+            "T::session-context-impl"
+          ],
+          "scenario": {
+            "start": "一次协作需要跨多轮/多 Agent 携带上下文",
+            "end": "上下文被建立、携带并在中断后恢复",
+            "observable": "恢复后上下文一致、不丢状态"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::execution-workspace",
+          "members": [
+            "F::execution-workspace",
+            "T::execution-workspace-impl"
+          ],
+          "scenario": {
+            "start": "Agent 需要执行一个任务",
+            "end": "任务在隔离工作区完成，资源被编排分配",
+            "observable": "执行在隔离边界内发生、互不污染"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::observability",
+          "members": [
+            "F::observability",
+            "T::observability-impl"
+          ],
+          "scenario": {
+            "start": "需要诊断一次协作发生了什么",
+            "end": "状态可视化、事件可回放",
+            "observable": "事件流/状态可重放、可定位"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::config-strategy",
+          "members": [
+            "F::config-strategy",
+            "T::config-strategy-impl"
+          ],
+          "scenario": {
+            "start": "需要定义规则/skill/版本策略",
+            "end": "策略被加载并约束行为",
+            "observable": "策略生效、版本偏斜被管控"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::runtime-integration",
+          "members": [
+            "F::runtime-integration",
+            "T::runtime-integration-impl"
+          ],
+          "scenario": {
+            "start": "需要在某主机/平台部署并随上游升级",
+            "end": "运行时被安装、可升级、host adapter 工作",
+            "observable": "安装成功、升级可用、跨平台可运行"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::agent-protocol",
+          "members": [
+            "F::agent-protocol",
+            "T::agent-protocol-impl"
+          ],
+          "scenario": {
+            "start": "多个 Agent 需要彼此通信或被发现",
+            "end": "消息/契约被交换、Agent 可发现",
+            "observable": "Agent 间能交换结构化消息或经协议发现"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::tech-design",
+          "members": [
+            "F::tech-design",
+            "T::tech-design-impl"
+          ],
+          "scenario": {
+            "start": "需要评估项目的工程设计与质量门",
+            "end": "核心循环/持久化/工具面/测试门被声明",
+            "observable": "技术设计事实可核验、质量门可观察"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [
+        {
+          "id": "D::herdr-exec-req-rt",
+          "from": "T::execution-workspace-impl",
+          "to": "T::runtime-integration-impl",
+          "relation": "requires",
+          "evidence-ref": ""
+        }
+      ],
+      "relation-constraints": [],
+      "context-entries": [
+        {
+          "id": "CTX::herdr-pr-gate",
+          "scope": "project",
+          "kind": "external-dep",
+          "statement": "上游不接受 unsolicited implementation PR，定制/修复几乎只能 fork，ownership cost 高",
+          "evidence-ref": "herdr CONTRIBUTING.md (non-sealed, findings §non-sealed)"
+        }
+      ],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "qm",
+      "version-pin": "605c259b28d54ee750c526b11925ddea3e0e6f59",
+      "nodes": [
+        {
+          "id": "F::identity-scope",
+          "kind": "feature",
+          "statement": "需要把人、Agent、设备组织进一个协作 scope",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::identity-scope-impl",
+          "kind": "capability",
+          "statement": "qm 在该场景的实现能力单元",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": "EVID::114f13c4c8afc8424cdc1971"
+        },
+        {
+          "id": "F::session-context",
+          "kind": "feature",
+          "statement": "一次协作需要跨多轮/多 Agent 携带上下文",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::session-context-impl",
+          "kind": "capability",
+          "statement": "qm 在该场景的实现能力单元",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": "EVID::1fcc9288e24457d7fa94240e"
+        },
+        {
+          "id": "F::approval-human",
+          "kind": "feature",
+          "statement": "Agent 产出需要人工确认或存在高风险动作",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::approval-human-impl",
+          "kind": "capability",
+          "statement": "qm 在该场景的实现能力单元",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": "EVID::c8500b3857eb0e93cc9d25d3"
+        },
+        {
+          "id": "F::result-provenance",
+          "kind": "feature",
+          "statement": "任务产生结果与产物",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::result-provenance-impl",
+          "kind": "capability",
+          "statement": "qm 在该场景的实现能力单元",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": "EVID::fec47fe206b51915b2e19fb4"
+        },
+        {
+          "id": "F::memory-knowledge",
+          "kind": "feature",
+          "statement": "协作中产生可复用事实/经验",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::memory-knowledge-impl",
+          "kind": "capability",
+          "statement": "qm 在该场景的实现能力单元",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": "EVID::e878e5271a78993966d88f0b"
+        },
+        {
+          "id": "F::observability",
+          "kind": "feature",
+          "statement": "需要诊断一次协作发生了什么",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::observability-impl",
+          "kind": "capability",
+          "statement": "qm 在该场景的实现能力单元",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": "EVID::b30ee3590bb6aaead44befb3"
+        },
+        {
+          "id": "F::config-strategy",
+          "kind": "feature",
+          "statement": "需要定义规则/skill/版本策略",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::config-strategy-impl",
+          "kind": "capability",
+          "statement": "qm 在该场景的实现能力单元",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": "EVID::ad01939f1a7e220edf96928f"
+        },
+        {
+          "id": "F::runtime-integration",
+          "kind": "feature",
+          "statement": "需要在某主机/平台部署并随上游升级",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::runtime-integration-impl",
+          "kind": "capability",
+          "statement": "qm 在该场景的实现能力单元",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": "EVID::3ae4f38b4de2d1769a598bc0"
+        },
+        {
+          "id": "F::tech-design",
+          "kind": "feature",
+          "statement": "需要评估项目的工程设计与质量门",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::tech-design-impl",
+          "kind": "capability",
+          "statement": "qm 在该场景的实现能力单元",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": "EVID::e38a7af1b2e8472ed82f40dd"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::identity-scope",
+          "members": [
+            "F::identity-scope",
+            "T::identity-scope-impl"
+          ],
+          "scenario": {
+            "start": "需要把人、Agent、设备组织进一个协作 scope",
+            "end": "成员与 scope 边界被定义且可鉴权",
+            "observable": "身份/成员/scope 可被查询且权限生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::session-context",
+          "members": [
+            "F::session-context",
+            "T::session-context-impl"
+          ],
+          "scenario": {
+            "start": "一次协作需要跨多轮/多 Agent 携带上下文",
+            "end": "上下文被建立、携带并在中断后恢复",
+            "observable": "恢复后上下文一致、不丢状态"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::approval-human",
+          "members": [
+            "F::approval-human",
+            "T::approval-human-impl"
+          ],
+          "scenario": {
+            "start": "Agent 产出需要人工确认或存在高风险动作",
+            "end": "人工 gate 被触发、决策被记录",
+            "observable": "审批/拒绝/干预可审计、有账本"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::result-provenance",
+          "members": [
+            "F::result-provenance",
+            "T::result-provenance-impl"
+          ],
+          "scenario": {
+            "start": "任务产生结果与产物",
+            "end": "结果被 review、附 provenance 并验收",
+            "observable": "产物可复核、来源可追溯"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::memory-knowledge",
+          "members": [
+            "F::memory-knowledge",
+            "T::memory-knowledge-impl"
+          ],
+          "scenario": {
+            "start": "协作中产生可复用事实/经验",
+            "end": "知识被沉淀、可检索、可复用",
+            "observable": "检索命中既有知识、复用生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::observability",
+          "members": [
+            "F::observability",
+            "T::observability-impl"
+          ],
+          "scenario": {
+            "start": "需要诊断一次协作发生了什么",
+            "end": "状态可视化、事件可回放",
+            "observable": "事件流/状态可重放、可定位"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::config-strategy",
+          "members": [
+            "F::config-strategy",
+            "T::config-strategy-impl"
+          ],
+          "scenario": {
+            "start": "需要定义规则/skill/版本策略",
+            "end": "策略被加载并约束行为",
+            "observable": "策略生效、版本偏斜被管控"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::runtime-integration",
+          "members": [
+            "F::runtime-integration",
+            "T::runtime-integration-impl"
+          ],
+          "scenario": {
+            "start": "需要在某主机/平台部署并随上游升级",
+            "end": "运行时被安装、可升级、host adapter 工作",
+            "observable": "安装成功、升级可用、跨平台可运行"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::tech-design",
+          "members": [
+            "F::tech-design",
+            "T::tech-design-impl"
+          ],
+          "scenario": {
+            "start": "需要评估项目的工程设计与质量门",
+            "end": "核心循环/持久化/工具面/测试门被声明",
+            "observable": "技术设计事实可核验、质量门可观察"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [],
+      "relation-constraints": [],
+      "context-entries": [],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "tasktrooper",
+      "version-pin": "ae5fb965c4758bbb25d2fac7f10f9bb26cb63823",
+      "nodes": [
+        {
+          "id": "F::task-workitem",
+          "kind": "feature",
+          "statement": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::task-workitem-impl",
+          "kind": "capability",
+          "statement": "tasktrooper 在该场景的实现能力单元",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": "EVID::90b8b4fc0e74bc12214889c4"
+        },
+        {
+          "id": "F::identity-scope",
+          "kind": "feature",
+          "statement": "需要把人、Agent、设备组织进一个协作 scope",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::identity-scope-impl",
+          "kind": "capability",
+          "statement": "tasktrooper 在该场景的实现能力单元",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": "EVID::4a0faa66eee9f3c15434dc32"
+        },
+        {
+          "id": "F::memory-knowledge",
+          "kind": "feature",
+          "statement": "协作中产生可复用事实/经验",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::memory-knowledge-impl",
+          "kind": "capability",
+          "statement": "tasktrooper 在该场景的实现能力单元",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": "EVID::d2423363b8e0d64ec8ce61cc"
+        },
+        {
+          "id": "F::observability",
+          "kind": "feature",
+          "statement": "需要诊断一次协作发生了什么",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::observability-impl",
+          "kind": "capability",
+          "statement": "tasktrooper 在该场景的实现能力单元",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": "EVID::6a0463be6d4575650cc64979"
+        },
+        {
+          "id": "F::runtime-integration",
+          "kind": "feature",
+          "statement": "需要在某主机/平台部署并随上游升级",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::runtime-integration-impl",
+          "kind": "capability",
+          "statement": "tasktrooper 在该场景的实现能力单元",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": "EVID::e9a31903a5338a7b6eae212a"
+        },
+        {
+          "id": "F::tech-design",
+          "kind": "feature",
+          "statement": "需要评估项目的工程设计与质量门",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::tech-design-impl",
+          "kind": "capability",
+          "statement": "tasktrooper 在该场景的实现能力单元",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": "EVID::834655c524dca5a255ddaf1f"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::task-workitem",
+          "members": [
+            "F::task-workitem",
+            "T::task-workitem-impl"
+          ],
+          "scenario": {
+            "start": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+            "end": "该工作以可推进的状态存在于协作面板上，可被认领与流转",
+            "observable": "工作项可见、状态机可前进（如 available→claimed→…→completed）"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::identity-scope",
+          "members": [
+            "F::identity-scope",
+            "T::identity-scope-impl"
+          ],
+          "scenario": {
+            "start": "需要把人、Agent、设备组织进一个协作 scope",
+            "end": "成员与 scope 边界被定义且可鉴权",
+            "observable": "身份/成员/scope 可被查询且权限生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::memory-knowledge",
+          "members": [
+            "F::memory-knowledge",
+            "T::memory-knowledge-impl"
+          ],
+          "scenario": {
+            "start": "协作中产生可复用事实/经验",
+            "end": "知识被沉淀、可检索、可复用",
+            "observable": "检索命中既有知识、复用生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::observability",
+          "members": [
+            "F::observability",
+            "T::observability-impl"
+          ],
+          "scenario": {
+            "start": "需要诊断一次协作发生了什么",
+            "end": "状态可视化、事件可回放",
+            "observable": "事件流/状态可重放、可定位"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::runtime-integration",
+          "members": [
+            "F::runtime-integration",
+            "T::runtime-integration-impl"
+          ],
+          "scenario": {
+            "start": "需要在某主机/平台部署并随上游升级",
+            "end": "运行时被安装、可升级、host adapter 工作",
+            "observable": "安装成功、升级可用、跨平台可运行"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::tech-design",
+          "members": [
+            "F::tech-design",
+            "T::tech-design-impl"
+          ],
+          "scenario": {
+            "start": "需要评估项目的工程设计与质量门",
+            "end": "核心循环/持久化/工具面/测试门被声明",
+            "observable": "技术设计事实可核验、质量门可观察"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [],
+      "relation-constraints": [],
+      "context-entries": [],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "opencode-coordination",
+      "version-pin": "2c9dd06f21716d8fc5885a266b119e58e78f2a0d",
+      "nodes": [
+        {
+          "id": "F::task-workitem",
+          "kind": "feature",
+          "statement": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::task-workitem-impl",
+          "kind": "capability",
+          "statement": "opencode-coordination 在该场景的实现能力单元",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": "EVID::9101cfa7145332b317a9353e"
+        },
+        {
+          "id": "F::identity-scope",
+          "kind": "feature",
+          "statement": "需要把人、Agent、设备组织进一个协作 scope",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::identity-scope-impl",
+          "kind": "capability",
+          "statement": "opencode-coordination 在该场景的实现能力单元",
+          "acceptance": "身份/成员/scope 可被查询且权限生效",
+          "evidence-ref": "EVID::0b5fa995933066879753a0a5"
+        },
+        {
+          "id": "F::approval-human",
+          "kind": "feature",
+          "statement": "Agent 产出需要人工确认或存在高风险动作",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::approval-human-impl",
+          "kind": "capability",
+          "statement": "opencode-coordination 在该场景的实现能力单元",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": "EVID::1a1c6d9852edef2c3f970f42"
+        },
+        {
+          "id": "F::result-provenance",
+          "kind": "feature",
+          "statement": "任务产生结果与产物",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::result-provenance-impl",
+          "kind": "capability",
+          "statement": "opencode-coordination 在该场景的实现能力单元",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": "EVID::01ccf2212f91bcc504af0818"
+        },
+        {
+          "id": "F::observability",
+          "kind": "feature",
+          "statement": "需要诊断一次协作发生了什么",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::observability-impl",
+          "kind": "capability",
+          "statement": "opencode-coordination 在该场景的实现能力单元",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": "EVID::d537234df40dcab3100b4eac"
+        },
+        {
+          "id": "F::agent-protocol",
+          "kind": "feature",
+          "statement": "多个 Agent 需要彼此通信或被发现",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::agent-protocol-impl",
+          "kind": "capability",
+          "statement": "opencode-coordination 在该场景的实现能力单元",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": "EVID::4e9888715cf937cdeac6384a"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::task-workitem",
+          "members": [
+            "F::task-workitem",
+            "T::task-workitem-impl"
+          ],
+          "scenario": {
+            "start": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+            "end": "该工作以可推进的状态存在于协作面板上，可被认领与流转",
+            "observable": "工作项可见、状态机可前进（如 available→claimed→…→completed）"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::identity-scope",
+          "members": [
+            "F::identity-scope",
+            "T::identity-scope-impl"
+          ],
+          "scenario": {
+            "start": "需要把人、Agent、设备组织进一个协作 scope",
+            "end": "成员与 scope 边界被定义且可鉴权",
+            "observable": "身份/成员/scope 可被查询且权限生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::approval-human",
+          "members": [
+            "F::approval-human",
+            "T::approval-human-impl"
+          ],
+          "scenario": {
+            "start": "Agent 产出需要人工确认或存在高风险动作",
+            "end": "人工 gate 被触发、决策被记录",
+            "observable": "审批/拒绝/干预可审计、有账本"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::result-provenance",
+          "members": [
+            "F::result-provenance",
+            "T::result-provenance-impl"
+          ],
+          "scenario": {
+            "start": "任务产生结果与产物",
+            "end": "结果被 review、附 provenance 并验收",
+            "observable": "产物可复核、来源可追溯"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::observability",
+          "members": [
+            "F::observability",
+            "T::observability-impl"
+          ],
+          "scenario": {
+            "start": "需要诊断一次协作发生了什么",
+            "end": "状态可视化、事件可回放",
+            "observable": "事件流/状态可重放、可定位"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::agent-protocol",
+          "members": [
+            "F::agent-protocol",
+            "T::agent-protocol-impl"
+          ],
+          "scenario": {
+            "start": "多个 Agent 需要彼此通信或被发现",
+            "end": "消息/契约被交换、Agent 可发现",
+            "observable": "Agent 间能交换结构化消息或经协议发现"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [],
+      "relation-constraints": [],
+      "context-entries": [],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "agetor",
+      "version-pin": "897b70afb6f7671dc418c6d1053dbf8fbc3c81e0",
+      "nodes": [
+        {
+          "id": "F::session-context",
+          "kind": "feature",
+          "statement": "一次协作需要跨多轮/多 Agent 携带上下文",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::session-context-impl",
+          "kind": "capability",
+          "statement": "agetor 在该场景的实现能力单元",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": "EVID::7d2249b75c4ec5bac9284bda"
+        },
+        {
+          "id": "F::execution-workspace",
+          "kind": "feature",
+          "statement": "Agent 需要执行一个任务",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::execution-workspace-impl",
+          "kind": "capability",
+          "statement": "agetor 在该场景的实现能力单元",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": "EVID::e6275d13fae90b3ea49ca276"
+        },
+        {
+          "id": "F::observability",
+          "kind": "feature",
+          "statement": "需要诊断一次协作发生了什么",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::observability-impl",
+          "kind": "capability",
+          "statement": "agetor 在该场景的实现能力单元",
+          "acceptance": "事件流/状态可重放、可定位",
+          "evidence-ref": "EVID::74a1e19ab3d67925c43d706c"
+        },
+        {
+          "id": "F::runtime-integration",
+          "kind": "feature",
+          "statement": "需要在某主机/平台部署并随上游升级",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::runtime-integration-impl",
+          "kind": "capability",
+          "statement": "agetor 在该场景的实现能力单元",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": "EVID::f44a67122e779c35ee472959"
+        },
+        {
+          "id": "F::tech-design",
+          "kind": "feature",
+          "statement": "需要评估项目的工程设计与质量门",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::tech-design-impl",
+          "kind": "capability",
+          "statement": "agetor 在该场景的实现能力单元",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": "EVID::c699464bb705742695f91592"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::session-context",
+          "members": [
+            "F::session-context",
+            "T::session-context-impl"
+          ],
+          "scenario": {
+            "start": "一次协作需要跨多轮/多 Agent 携带上下文",
+            "end": "上下文被建立、携带并在中断后恢复",
+            "observable": "恢复后上下文一致、不丢状态"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::execution-workspace",
+          "members": [
+            "F::execution-workspace",
+            "T::execution-workspace-impl"
+          ],
+          "scenario": {
+            "start": "Agent 需要执行一个任务",
+            "end": "任务在隔离工作区完成，资源被编排分配",
+            "observable": "执行在隔离边界内发生、互不污染"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::observability",
+          "members": [
+            "F::observability",
+            "T::observability-impl"
+          ],
+          "scenario": {
+            "start": "需要诊断一次协作发生了什么",
+            "end": "状态可视化、事件可回放",
+            "observable": "事件流/状态可重放、可定位"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::runtime-integration",
+          "members": [
+            "F::runtime-integration",
+            "T::runtime-integration-impl"
+          ],
+          "scenario": {
+            "start": "需要在某主机/平台部署并随上游升级",
+            "end": "运行时被安装、可升级、host adapter 工作",
+            "observable": "安装成功、升级可用、跨平台可运行"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::tech-design",
+          "members": [
+            "F::tech-design",
+            "T::tech-design-impl"
+          ],
+          "scenario": {
+            "start": "需要评估项目的工程设计与质量门",
+            "end": "核心循环/持久化/工具面/测试门被声明",
+            "observable": "技术设计事实可核验、质量门可观察"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [
+        {
+          "id": "D::agetor-exec-req-rt",
+          "from": "T::execution-workspace-impl",
+          "to": "T::runtime-integration-impl",
+          "relation": "requires",
+          "evidence-ref": ""
+        }
+      ],
+      "relation-constraints": [],
+      "context-entries": [],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "lanes",
+      "version-pin": "7b9cb385d1100ded8a74986f81472f8856840578",
+      "nodes": [
+        {
+          "id": "F::task-workitem",
+          "kind": "feature",
+          "statement": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::task-workitem-impl",
+          "kind": "capability",
+          "statement": "lanes 在该场景的实现能力单元",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": "EVID::fc77e9f1b10477d753e74fab"
+        },
+        {
+          "id": "F::execution-workspace",
+          "kind": "feature",
+          "statement": "Agent 需要执行一个任务",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::execution-workspace-impl",
+          "kind": "capability",
+          "statement": "lanes 在该场景的实现能力单元",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": "EVID::a8434e60ad92db78fedb7af2"
+        },
+        {
+          "id": "F::memory-knowledge",
+          "kind": "feature",
+          "statement": "协作中产生可复用事实/经验",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::memory-knowledge-impl",
+          "kind": "capability",
+          "statement": "lanes 在该场景的实现能力单元",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": "EVID::ff178faee6ce5a1a5106b9e2"
+        },
+        {
+          "id": "F::runtime-integration",
+          "kind": "feature",
+          "statement": "需要在某主机/平台部署并随上游升级",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::runtime-integration-impl",
+          "kind": "capability",
+          "statement": "lanes 在该场景的实现能力单元",
+          "acceptance": "安装成功、升级可用、跨平台可运行",
+          "evidence-ref": "EVID::d9b7b1edd17eeefaa26756c3"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::task-workitem",
+          "members": [
+            "F::task-workitem",
+            "T::task-workitem-impl"
+          ],
+          "scenario": {
+            "start": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+            "end": "该工作以可推进的状态存在于协作面板上，可被认领与流转",
+            "observable": "工作项可见、状态机可前进（如 available→claimed→…→completed）"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::execution-workspace",
+          "members": [
+            "F::execution-workspace",
+            "T::execution-workspace-impl"
+          ],
+          "scenario": {
+            "start": "Agent 需要执行一个任务",
+            "end": "任务在隔离工作区完成，资源被编排分配",
+            "observable": "执行在隔离边界内发生、互不污染"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::memory-knowledge",
+          "members": [
+            "F::memory-knowledge",
+            "T::memory-knowledge-impl"
+          ],
+          "scenario": {
+            "start": "协作中产生可复用事实/经验",
+            "end": "知识被沉淀、可检索、可复用",
+            "observable": "检索命中既有知识、复用生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::runtime-integration",
+          "members": [
+            "F::runtime-integration",
+            "T::runtime-integration-impl"
+          ],
+          "scenario": {
+            "start": "需要在某主机/平台部署并随上游升级",
+            "end": "运行时被安装、可升级、host adapter 工作",
+            "observable": "安装成功、升级可用、跨平台可运行"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [
+        {
+          "id": "D::lanes-exec-req-rt",
+          "from": "T::execution-workspace-impl",
+          "to": "T::runtime-integration-impl",
+          "relation": "requires",
+          "evidence-ref": ""
+        }
+      ],
+      "relation-constraints": [],
+      "context-entries": [],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "mozzie",
+      "version-pin": "80f3515684722a8909fbc0c17a0526664ec0349a",
+      "nodes": [
+        {
+          "id": "F::task-workitem",
+          "kind": "feature",
+          "statement": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::task-workitem-impl",
+          "kind": "capability",
+          "statement": "mozzie 在该场景的实现能力单元",
+          "acceptance": "工作项可见、状态机可前进（如 available→claimed→…→completed）",
+          "evidence-ref": "EVID::14bb8d6ea36e18107fd51b3c"
+        },
+        {
+          "id": "F::execution-workspace",
+          "kind": "feature",
+          "statement": "Agent 需要执行一个任务",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::execution-workspace-impl",
+          "kind": "capability",
+          "statement": "mozzie 在该场景的实现能力单元",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": "EVID::6676d3f26c9b4f77443c5d2a"
+        },
+        {
+          "id": "F::approval-human",
+          "kind": "feature",
+          "statement": "Agent 产出需要人工确认或存在高风险动作",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::approval-human-impl",
+          "kind": "capability",
+          "statement": "mozzie 在该场景的实现能力单元",
+          "acceptance": "审批/拒绝/干预可审计、有账本",
+          "evidence-ref": "EVID::3e8488d208de54fdd00a11c0"
+        },
+        {
+          "id": "F::result-provenance",
+          "kind": "feature",
+          "statement": "任务产生结果与产物",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::result-provenance-impl",
+          "kind": "capability",
+          "statement": "mozzie 在该场景的实现能力单元",
+          "acceptance": "产物可复核、来源可追溯",
+          "evidence-ref": "EVID::0b70106e3349d69e694526f5"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::task-workitem",
+          "members": [
+            "F::task-workitem",
+            "T::task-workitem-impl"
+          ],
+          "scenario": {
+            "start": "用户想让一个或多个 Agent 协作完成一件可追踪的工作",
+            "end": "该工作以可推进的状态存在于协作面板上，可被认领与流转",
+            "observable": "工作项可见、状态机可前进（如 available→claimed→…→completed）"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::execution-workspace",
+          "members": [
+            "F::execution-workspace",
+            "T::execution-workspace-impl"
+          ],
+          "scenario": {
+            "start": "Agent 需要执行一个任务",
+            "end": "任务在隔离工作区完成，资源被编排分配",
+            "observable": "执行在隔离边界内发生、互不污染"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::approval-human",
+          "members": [
+            "F::approval-human",
+            "T::approval-human-impl"
+          ],
+          "scenario": {
+            "start": "Agent 产出需要人工确认或存在高风险动作",
+            "end": "人工 gate 被触发、决策被记录",
+            "observable": "审批/拒绝/干预可审计、有账本"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::result-provenance",
+          "members": [
+            "F::result-provenance",
+            "T::result-provenance-impl"
+          ],
+          "scenario": {
+            "start": "任务产生结果与产物",
+            "end": "结果被 review、附 provenance 并验收",
+            "observable": "产物可复核、来源可追溯"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [],
+      "relation-constraints": [],
+      "context-entries": [],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "mem-vault",
+      "version-pin": "59f0b12134622c0ad93ef59ef6373cfe587deaf3",
+      "nodes": [
+        {
+          "id": "F::session-context",
+          "kind": "feature",
+          "statement": "一次协作需要跨多轮/多 Agent 携带上下文",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::session-context-impl",
+          "kind": "capability",
+          "statement": "mem-vault 在该场景的实现能力单元",
+          "acceptance": "恢复后上下文一致、不丢状态",
+          "evidence-ref": "EVID::151608571341f37ee2297dcb"
+        },
+        {
+          "id": "F::memory-knowledge",
+          "kind": "feature",
+          "statement": "协作中产生可复用事实/经验",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::memory-knowledge-impl",
+          "kind": "capability",
+          "statement": "mem-vault 在该场景的实现能力单元",
+          "acceptance": "检索命中既有知识、复用生效",
+          "evidence-ref": "EVID::1eedaed644a280db74133572"
+        },
+        {
+          "id": "F::tech-design",
+          "kind": "feature",
+          "statement": "需要评估项目的工程设计与质量门",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::tech-design-impl",
+          "kind": "capability",
+          "statement": "mem-vault 在该场景的实现能力单元",
+          "acceptance": "技术设计事实可核验、质量门可观察",
+          "evidence-ref": "EVID::de5482ebaca9a76160284089"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::session-context",
+          "members": [
+            "F::session-context",
+            "T::session-context-impl"
+          ],
+          "scenario": {
+            "start": "一次协作需要跨多轮/多 Agent 携带上下文",
+            "end": "上下文被建立、携带并在中断后恢复",
+            "observable": "恢复后上下文一致、不丢状态"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::memory-knowledge",
+          "members": [
+            "F::memory-knowledge",
+            "T::memory-knowledge-impl"
+          ],
+          "scenario": {
+            "start": "协作中产生可复用事实/经验",
+            "end": "知识被沉淀、可检索、可复用",
+            "observable": "检索命中既有知识、复用生效"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::tech-design",
+          "members": [
+            "F::tech-design",
+            "T::tech-design-impl"
+          ],
+          "scenario": {
+            "start": "需要评估项目的工程设计与质量门",
+            "end": "核心循环/持久化/工具面/测试门被声明",
+            "observable": "技术设计事实可核验、质量门可观察"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [],
+      "relation-constraints": [],
+      "context-entries": [],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "python-a2a",
+      "version-pin": "40b969a465f85e8156793b7cfac16c5e23ed0b86",
+      "nodes": [
+        {
+          "id": "F::config-strategy",
+          "kind": "feature",
+          "statement": "需要定义规则/skill/版本策略",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::config-strategy-impl",
+          "kind": "capability",
+          "statement": "python-a2a 在该场景的实现能力单元",
+          "acceptance": "策略生效、版本偏斜被管控",
+          "evidence-ref": "EVID::8a03946eaf6653ada1427dc9"
+        },
+        {
+          "id": "F::agent-protocol",
+          "kind": "feature",
+          "statement": "多个 Agent 需要彼此通信或被发现",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::agent-protocol-impl",
+          "kind": "capability",
+          "statement": "python-a2a 在该场景的实现能力单元",
+          "acceptance": "Agent 间能交换结构化消息或经协议发现",
+          "evidence-ref": "EVID::5d423995e3d4b2ed0d8aab78"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::config-strategy",
+          "members": [
+            "F::config-strategy",
+            "T::config-strategy-impl"
+          ],
+          "scenario": {
+            "start": "需要定义规则/skill/版本策略",
+            "end": "策略被加载并约束行为",
+            "observable": "策略生效、版本偏斜被管控"
+          },
+          "evidence-ref": ""
+        },
+        {
+          "id": "S::agent-protocol",
+          "members": [
+            "F::agent-protocol",
+            "T::agent-protocol-impl"
+          ],
+          "scenario": {
+            "start": "多个 Agent 需要彼此通信或被发现",
+            "end": "消息/契约被交换、Agent 可发现",
+            "observable": "Agent 间能交换结构化消息或经协议发现"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [],
+      "relation-constraints": [],
+      "context-entries": [],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    },
+    {
+      "project": "dmux",
+      "version-pin": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+      "nodes": [
+        {
+          "id": "F::execution-workspace",
+          "kind": "feature",
+          "statement": "Agent 需要执行一个任务",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": ""
+        },
+        {
+          "id": "T::execution-workspace-impl",
+          "kind": "capability",
+          "statement": "dmux 在该场景的实现能力单元",
+          "acceptance": "执行在隔离边界内发生、互不污染",
+          "evidence-ref": "EVID::205fcc6c54e6dcc370eeeb85"
+        }
+      ],
+      "slice-edges": [
+        {
+          "id": "S::execution-workspace",
+          "members": [
+            "F::execution-workspace",
+            "T::execution-workspace-impl"
+          ],
+          "scenario": {
+            "start": "Agent 需要执行一个任务",
+            "end": "任务在隔离工作区完成，资源被编排分配",
+            "observable": "执行在隔离边界内发生、互不污染"
+          },
+          "evidence-ref": ""
+        }
+      ],
+      "cross-cutting-paths": [],
+      "dependency-edges": [],
+      "relation-constraints": [],
+      "context-entries": [],
+      "undeclared-relations": [],
+      "orphan-nodes": []
+    }
+  ],
+  "scene-mapping": [
+    {
+      "slice": "orca::S::execution-workspace",
+      "scene": "SC::execution-workspace",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "orca::S::result-provenance",
+      "scene": "SC::result-provenance",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "orca::S::config-strategy",
+      "scene": "SC::config-strategy",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "orca::S::runtime-integration",
+      "scene": "SC::runtime-integration",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "orca::S::agent-protocol",
+      "scene": "SC::agent-protocol",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "orca::S::tech-design",
+      "scene": "SC::tech-design",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::task-workitem",
+      "scene": "SC::task-workitem",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::identity-scope",
+      "scene": "SC::identity-scope",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::session-context",
+      "scene": "SC::session-context",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::execution-workspace",
+      "scene": "SC::execution-workspace",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::approval-human",
+      "scene": "SC::approval-human",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::result-provenance",
+      "scene": "SC::result-provenance",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::observability",
+      "scene": "SC::observability",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::config-strategy",
+      "scene": "SC::config-strategy",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::runtime-integration",
+      "scene": "SC::runtime-integration",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::agent-protocol",
+      "scene": "SC::agent-protocol",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "loop-now::S::tech-design",
+      "scene": "SC::tech-design",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::task-workitem",
+      "scene": "SC::task-workitem",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::identity-scope",
+      "scene": "SC::identity-scope",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::session-context",
+      "scene": "SC::session-context",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::execution-workspace",
+      "scene": "SC::execution-workspace",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::approval-human",
+      "scene": "SC::approval-human",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::result-provenance",
+      "scene": "SC::result-provenance",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::observability",
+      "scene": "SC::observability",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::config-strategy",
+      "scene": "SC::config-strategy",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::runtime-integration",
+      "scene": "SC::runtime-integration",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::agent-protocol",
+      "scene": "SC::agent-protocol",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "multica::S::tech-design",
+      "scene": "SC::tech-design",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "ZAgenticOPN::S::task-workitem",
+      "scene": "SC::task-workitem",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "ZAgenticOPN::S::identity-scope",
+      "scene": "SC::identity-scope",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "ZAgenticOPN::S::approval-human",
+      "scene": "SC::approval-human",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "ZAgenticOPN::S::result-provenance",
+      "scene": "SC::result-provenance",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "ZAgenticOPN::S::memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "ZAgenticOPN::S::observability",
+      "scene": "SC::observability",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "ZAgenticOPN::S::config-strategy",
+      "scene": "SC::config-strategy",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "ZAgenticOPN::S::runtime-integration",
+      "scene": "SC::runtime-integration",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "herdr::S::session-context",
+      "scene": "SC::session-context",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "herdr::S::execution-workspace",
+      "scene": "SC::execution-workspace",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "herdr::S::observability",
+      "scene": "SC::observability",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "herdr::S::config-strategy",
+      "scene": "SC::config-strategy",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "herdr::S::runtime-integration",
+      "scene": "SC::runtime-integration",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "herdr::S::agent-protocol",
+      "scene": "SC::agent-protocol",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "herdr::S::tech-design",
+      "scene": "SC::tech-design",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "qm::S::identity-scope",
+      "scene": "SC::identity-scope",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "qm::S::session-context",
+      "scene": "SC::session-context",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "qm::S::approval-human",
+      "scene": "SC::approval-human",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "qm::S::result-provenance",
+      "scene": "SC::result-provenance",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "qm::S::memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "qm::S::observability",
+      "scene": "SC::observability",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "qm::S::config-strategy",
+      "scene": "SC::config-strategy",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "qm::S::runtime-integration",
+      "scene": "SC::runtime-integration",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "qm::S::tech-design",
+      "scene": "SC::tech-design",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "tasktrooper::S::task-workitem",
+      "scene": "SC::task-workitem",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "tasktrooper::S::identity-scope",
+      "scene": "SC::identity-scope",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "tasktrooper::S::memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "tasktrooper::S::observability",
+      "scene": "SC::observability",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "tasktrooper::S::runtime-integration",
+      "scene": "SC::runtime-integration",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "tasktrooper::S::tech-design",
+      "scene": "SC::tech-design",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "opencode-coordination::S::task-workitem",
+      "scene": "SC::task-workitem",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "opencode-coordination::S::identity-scope",
+      "scene": "SC::identity-scope",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "opencode-coordination::S::approval-human",
+      "scene": "SC::approval-human",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "opencode-coordination::S::result-provenance",
+      "scene": "SC::result-provenance",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "opencode-coordination::S::observability",
+      "scene": "SC::observability",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "opencode-coordination::S::agent-protocol",
+      "scene": "SC::agent-protocol",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "agetor::S::session-context",
+      "scene": "SC::session-context",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "agetor::S::execution-workspace",
+      "scene": "SC::execution-workspace",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "agetor::S::observability",
+      "scene": "SC::observability",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "agetor::S::runtime-integration",
+      "scene": "SC::runtime-integration",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "agetor::S::tech-design",
+      "scene": "SC::tech-design",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "lanes::S::task-workitem",
+      "scene": "SC::task-workitem",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "lanes::S::execution-workspace",
+      "scene": "SC::execution-workspace",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "lanes::S::memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "lanes::S::runtime-integration",
+      "scene": "SC::runtime-integration",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "mozzie::S::task-workitem",
+      "scene": "SC::task-workitem",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "mozzie::S::execution-workspace",
+      "scene": "SC::execution-workspace",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "mozzie::S::approval-human",
+      "scene": "SC::approval-human",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "mozzie::S::result-provenance",
+      "scene": "SC::result-provenance",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "mem-vault::S::session-context",
+      "scene": "SC::session-context",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "mem-vault::S::memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "mem-vault::S::tech-design",
+      "scene": "SC::tech-design",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "python-a2a::S::config-strategy",
+      "scene": "SC::config-strategy",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "python-a2a::S::agent-protocol",
+      "scene": "SC::agent-protocol",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    },
+    {
+      "slice": "dmux::S::execution-workspace",
+      "scene": "SC::execution-workspace",
+      "ruling-ref": "SCENE-SET::zopn-v1",
+      "ruling-by": "zj"
+    }
+  ],
+  "equivalence-rulings": [],
+  "optional-scene-pool-review": {
+    "pool-size": 13,
+    "covered": 12,
+    "project-specific": 1,
+    "notes": "盲区核对（Human / zj）：本轮固定场景集取 12 个可观察场景，对应 opn-landscape 的 13 个模块维度；其中 ref-capability-map 是 ZAgenticOPN 参照物专属能力地图（仅其有 E），不作为通用场景，已降为 ZAgenticOPN 项目级 context-entry。agent-protocol / tech-design 保留为独立场景。盲区：仍有若干项目在若干场景为 unknown（见差异条目，多为早期一手阅读未做 sealed 采集者）；multica 与 loop-now 本轮已跑 zj-research collect 取得 12/12 sealed Evidence（multica 曾有的 Lark 子系统弱证据已通过 README 锚定 brief 修复，见 CTX::multica-evidence-anchored；两者均含钉偏差 context-entry）。未自行推断任何场景内语义等价。"
+  },
+  "difference-entries": [
+    {
+      "id": "DE::orca-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "orca",
+      "slice-ref": "",
+      "statement": "orca 在场景 task-workitem 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 stablyai/orca@v1.4.253 @ 27eb5e2a6c5017c6fdcba4fee16bf54256550c6f 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::orca-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "orca",
+      "slice-ref": "",
+      "statement": "orca 在场景 identity-scope 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 stablyai/orca@v1.4.253 @ 27eb5e2a6c5017c6fdcba4fee16bf54256550c6f 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::orca-session-context",
+      "scene": "SC::session-context",
+      "project": "orca",
+      "slice-ref": "",
+      "statement": "orca 在场景 session-context 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 stablyai/orca@v1.4.253 @ 27eb5e2a6c5017c6fdcba4fee16bf54256550c6f 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::orca-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "orca",
+      "slice-ref": "orca::S::execution-workspace",
+      "statement": "orca 在场景 execution-workspace 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::2ed6d70d48ae1d10a19026a0",
+        "EVID::75e13f823450ea22d6c7f09f",
+        "EVID::3dc1ea964ea53bfbc291171d",
+        "EVID::0a6cfe851c86d1535e2d2fdc"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::orca-approval-human",
+      "scene": "SC::approval-human",
+      "project": "orca",
+      "slice-ref": "",
+      "statement": "orca 在场景 approval-human 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 stablyai/orca@v1.4.253 @ 27eb5e2a6c5017c6fdcba4fee16bf54256550c6f 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::orca-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "orca",
+      "slice-ref": "orca::S::result-provenance",
+      "statement": "orca 在场景 result-provenance 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::a16d037b586eabaa4c616d4a"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::orca-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "orca",
+      "slice-ref": "",
+      "statement": "orca 在场景 memory-knowledge 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 stablyai/orca@v1.4.253 @ 27eb5e2a6c5017c6fdcba4fee16bf54256550c6f 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::orca-observability",
+      "scene": "SC::observability",
+      "project": "orca",
+      "slice-ref": "",
+      "statement": "orca 在场景 observability 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 stablyai/orca@v1.4.253 @ 27eb5e2a6c5017c6fdcba4fee16bf54256550c6f 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::orca-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "orca",
+      "slice-ref": "orca::S::config-strategy",
+      "statement": "orca 在场景 config-strategy 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::17641629769edf434adb6a32"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::orca-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "orca",
+      "slice-ref": "orca::S::runtime-integration",
+      "statement": "orca 在场景 runtime-integration 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::0a6cfe851c86d1535e2d2fdc",
+        "EVID::65802a5a91d96fbb669449e8"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::orca-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "orca",
+      "slice-ref": "orca::S::agent-protocol",
+      "statement": "orca 在场景 agent-protocol 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::d716c3704d37f7d2b36d2a19"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::orca-tech-design",
+      "scene": "SC::tech-design",
+      "project": "orca",
+      "slice-ref": "orca::S::tech-design",
+      "statement": "orca 在场景 tech-design 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::bde86e5bbc69853b1656c85c"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::task-workitem",
+      "statement": "loop-now 在场景 task-workitem 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::3605745b0cae1cc75dd59c80"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::identity-scope",
+      "statement": "loop-now 在场景 identity-scope 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::04f8095af68eacbb57dceb95"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-session-context",
+      "scene": "SC::session-context",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::session-context",
+      "statement": "loop-now 在场景 session-context 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::fc13fdb5c6a479f214a8e2a7"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::execution-workspace",
+      "statement": "loop-now 在场景 execution-workspace 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::598de2204e4d84a75a0020d4"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-approval-human",
+      "scene": "SC::approval-human",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::approval-human",
+      "statement": "loop-now 在场景 approval-human 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::d3d21a128f2d058198f00504"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::result-provenance",
+      "statement": "loop-now 在场景 result-provenance 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::0794e7e8dbb753920bae8a05"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::memory-knowledge",
+      "statement": "loop-now 在场景 memory-knowledge 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::5d1c4de928a7b36251220b69"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-observability",
+      "scene": "SC::observability",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::observability",
+      "statement": "loop-now 在场景 observability 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::033b3e9e285ecc2cfabae1c4"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::config-strategy",
+      "statement": "loop-now 在场景 config-strategy 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::8c6bfd4d937cb7ce3db39c7c"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::runtime-integration",
+      "statement": "loop-now 在场景 runtime-integration 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::56ca86a50db2ccf35d17f401"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::agent-protocol",
+      "statement": "loop-now 在场景 agent-protocol 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::9dc520a2e8d7dc377efa824a"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::loop-now-tech-design",
+      "scene": "SC::tech-design",
+      "project": "loop-now",
+      "slice-ref": "loop-now::S::tech-design",
+      "statement": "loop-now 在场景 tech-design 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::d9483e0eea626b05f453e1a3"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "multica",
+      "slice-ref": "multica::S::task-workitem",
+      "statement": "multica 在场景 task-workitem 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::a67400762c931df62135608d"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "multica",
+      "slice-ref": "multica::S::identity-scope",
+      "statement": "multica 在场景 identity-scope 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::13e2a530ce5b9d6344871613"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-session-context",
+      "scene": "SC::session-context",
+      "project": "multica",
+      "slice-ref": "multica::S::session-context",
+      "statement": "multica 在场景 session-context 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::fcf4cce4e1d126ce88bdffec"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "multica",
+      "slice-ref": "multica::S::execution-workspace",
+      "statement": "multica 在场景 execution-workspace 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::76fd261e3f84f3c9e33a84c6"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-approval-human",
+      "scene": "SC::approval-human",
+      "project": "multica",
+      "slice-ref": "multica::S::approval-human",
+      "statement": "multica 在场景 approval-human 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::2cc46ac299adc52b807b122e"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "multica",
+      "slice-ref": "multica::S::result-provenance",
+      "statement": "multica 在场景 result-provenance 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::5c1fa749e640c3dec0dbd328"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "multica",
+      "slice-ref": "multica::S::memory-knowledge",
+      "statement": "multica 在场景 memory-knowledge 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::0c8c6d5548bf9d364a4fec2b"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-observability",
+      "scene": "SC::observability",
+      "project": "multica",
+      "slice-ref": "multica::S::observability",
+      "statement": "multica 在场景 observability 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::71dfad6640e6f45a720f8a69"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "multica",
+      "slice-ref": "multica::S::config-strategy",
+      "statement": "multica 在场景 config-strategy 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::fb5092388de5fedd9b3c1581"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "multica",
+      "slice-ref": "multica::S::runtime-integration",
+      "statement": "multica 在场景 runtime-integration 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::8d8aec7e4652ff51053e99ec"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "multica",
+      "slice-ref": "multica::S::agent-protocol",
+      "statement": "multica 在场景 agent-protocol 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::8a9c13151d95b91275e847a8"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::multica-tech-design",
+      "scene": "SC::tech-design",
+      "project": "multica",
+      "slice-ref": "multica::S::tech-design",
+      "statement": "multica 在场景 tech-design 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::153a37839b2cad51bf212d2d"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "ZAgenticOPN",
+      "slice-ref": "ZAgenticOPN::S::task-workitem",
+      "statement": "ZAgenticOPN 在场景 task-workitem 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::3f9dde435394108a69009858"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "ZAgenticOPN",
+      "slice-ref": "ZAgenticOPN::S::identity-scope",
+      "statement": "ZAgenticOPN 在场景 identity-scope 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::37c46d46405b7d6055e568d5"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-session-context",
+      "scene": "SC::session-context",
+      "project": "ZAgenticOPN",
+      "slice-ref": "",
+      "statement": "ZAgenticOPN 在场景 session-context 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 jununfly/ZAgenticOPN@2ff40cc052aae12fc7a324f89691e9f194985d24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "ZAgenticOPN",
+      "slice-ref": "",
+      "statement": "ZAgenticOPN 在场景 execution-workspace 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 jununfly/ZAgenticOPN@2ff40cc052aae12fc7a324f89691e9f194985d24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-approval-human",
+      "scene": "SC::approval-human",
+      "project": "ZAgenticOPN",
+      "slice-ref": "ZAgenticOPN::S::approval-human",
+      "statement": "ZAgenticOPN 在场景 approval-human 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::06b3135da98d7a9bec7b65a9"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "ZAgenticOPN",
+      "slice-ref": "ZAgenticOPN::S::result-provenance",
+      "statement": "ZAgenticOPN 在场景 result-provenance 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::ddea4d90bb2b7e250b08b616"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "ZAgenticOPN",
+      "slice-ref": "ZAgenticOPN::S::memory-knowledge",
+      "statement": "ZAgenticOPN 在场景 memory-knowledge 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::1b866cefa58726959ce1cd73"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-observability",
+      "scene": "SC::observability",
+      "project": "ZAgenticOPN",
+      "slice-ref": "ZAgenticOPN::S::observability",
+      "statement": "ZAgenticOPN 在场景 observability 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::0a8445acfd470fba8cb2c18a"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "ZAgenticOPN",
+      "slice-ref": "ZAgenticOPN::S::config-strategy",
+      "statement": "ZAgenticOPN 在场景 config-strategy 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::6814fc75fc59e1f02bb5f756"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "ZAgenticOPN",
+      "slice-ref": "ZAgenticOPN::S::runtime-integration",
+      "statement": "ZAgenticOPN 在场景 runtime-integration 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::5da1a8117f4c7765b67113c4"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "ZAgenticOPN",
+      "slice-ref": "",
+      "statement": "ZAgenticOPN 在场景 agent-protocol 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 jununfly/ZAgenticOPN@2ff40cc052aae12fc7a324f89691e9f194985d24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::ZAgenticOPN-tech-design",
+      "scene": "SC::tech-design",
+      "project": "ZAgenticOPN",
+      "slice-ref": "",
+      "statement": "ZAgenticOPN 在场景 tech-design 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 jununfly/ZAgenticOPN@2ff40cc052aae12fc7a324f89691e9f194985d24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "herdr",
+      "slice-ref": "",
+      "statement": "herdr 在场景 task-workitem 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 herdrdev/herdr@master ee5bfb5041bb3e4a49d591c72308aae3c81ecdde 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "herdr",
+      "slice-ref": "",
+      "statement": "herdr 在场景 identity-scope 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 herdrdev/herdr@master ee5bfb5041bb3e4a49d591c72308aae3c81ecdde 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-session-context",
+      "scene": "SC::session-context",
+      "project": "herdr",
+      "slice-ref": "herdr::S::session-context",
+      "statement": "herdr 在场景 session-context 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::8108ad662e318f347dfb172f"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "herdr",
+      "slice-ref": "herdr::S::execution-workspace",
+      "statement": "herdr 在场景 execution-workspace 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::47182a0e1869703551a60363",
+        "EVID::e3545bea44fa352f51b5393e",
+        "EVID::905629f76105cc74192dc7ba"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-approval-human",
+      "scene": "SC::approval-human",
+      "project": "herdr",
+      "slice-ref": "",
+      "statement": "herdr 在场景 approval-human 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 herdrdev/herdr@master ee5bfb5041bb3e4a49d591c72308aae3c81ecdde 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "herdr",
+      "slice-ref": "",
+      "statement": "herdr 在场景 result-provenance 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 herdrdev/herdr@master ee5bfb5041bb3e4a49d591c72308aae3c81ecdde 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "herdr",
+      "slice-ref": "",
+      "statement": "herdr 在场景 memory-knowledge 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 herdrdev/herdr@master ee5bfb5041bb3e4a49d591c72308aae3c81ecdde 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-observability",
+      "scene": "SC::observability",
+      "project": "herdr",
+      "slice-ref": "herdr::S::observability",
+      "statement": "herdr 在场景 observability 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::be630dc8ed685d364a63d139",
+        "EVID::7f5eae80cae7a1a16ebadf0e"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "herdr",
+      "slice-ref": "herdr::S::config-strategy",
+      "statement": "herdr 在场景 config-strategy 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::6965f9991cffb4f28ee08f14",
+        "EVID::ffe7879a993380564295355d"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "herdr",
+      "slice-ref": "herdr::S::runtime-integration",
+      "statement": "herdr 在场景 runtime-integration 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::daac3c9036fb77b32c5b40bf",
+        "EVID::1590f5d5483d72a8fcdeaee5",
+        "EVID::90e06efa6fd8bbd7d30dfa16"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "herdr",
+      "slice-ref": "herdr::S::agent-protocol",
+      "statement": "herdr 在场景 agent-protocol 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::e3545bea44fa352f51b5393e",
+        "EVID::43a2fb182ecb9f6306f7c1d5"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::herdr-tech-design",
+      "scene": "SC::tech-design",
+      "project": "herdr",
+      "slice-ref": "herdr::S::tech-design",
+      "statement": "herdr 在场景 tech-design 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::96de34e84950a4b0c05ef927",
+        "EVID::4e2792d94dc3f81c170c6368",
+        "EVID::43a2fb182ecb9f6306f7c1d5",
+        "EVID::ca1d50cb753ed7b8ed717692"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "qm",
+      "slice-ref": "",
+      "statement": "qm 在场景 task-workitem 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 yc-software/qm@605c259b28d54ee750c526b11925ddea3e0e6f59 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "qm",
+      "slice-ref": "qm::S::identity-scope",
+      "statement": "qm 在场景 identity-scope 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::114f13c4c8afc8424cdc1971"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-session-context",
+      "scene": "SC::session-context",
+      "project": "qm",
+      "slice-ref": "qm::S::session-context",
+      "statement": "qm 在场景 session-context 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::1fcc9288e24457d7fa94240e"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "qm",
+      "slice-ref": "",
+      "statement": "qm 在场景 execution-workspace 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 yc-software/qm@605c259b28d54ee750c526b11925ddea3e0e6f59 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-approval-human",
+      "scene": "SC::approval-human",
+      "project": "qm",
+      "slice-ref": "qm::S::approval-human",
+      "statement": "qm 在场景 approval-human 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::c8500b3857eb0e93cc9d25d3"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "qm",
+      "slice-ref": "qm::S::result-provenance",
+      "statement": "qm 在场景 result-provenance 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::fec47fe206b51915b2e19fb4"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "qm",
+      "slice-ref": "qm::S::memory-knowledge",
+      "statement": "qm 在场景 memory-knowledge 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::e878e5271a78993966d88f0b"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-observability",
+      "scene": "SC::observability",
+      "project": "qm",
+      "slice-ref": "qm::S::observability",
+      "statement": "qm 在场景 observability 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::b30ee3590bb6aaead44befb3"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "qm",
+      "slice-ref": "qm::S::config-strategy",
+      "statement": "qm 在场景 config-strategy 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::ad01939f1a7e220edf96928f"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "qm",
+      "slice-ref": "qm::S::runtime-integration",
+      "statement": "qm 在场景 runtime-integration 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::3ae4f38b4de2d1769a598bc0"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "qm",
+      "slice-ref": "",
+      "statement": "qm 在场景 agent-protocol 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 yc-software/qm@605c259b28d54ee750c526b11925ddea3e0e6f59 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::qm-tech-design",
+      "scene": "SC::tech-design",
+      "project": "qm",
+      "slice-ref": "qm::S::tech-design",
+      "statement": "qm 在场景 tech-design 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::e38a7af1b2e8472ed82f40dd"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "tasktrooper",
+      "slice-ref": "tasktrooper::S::task-workitem",
+      "statement": "tasktrooper 在场景 task-workitem 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::90b8b4fc0e74bc12214889c4"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "tasktrooper",
+      "slice-ref": "tasktrooper::S::identity-scope",
+      "statement": "tasktrooper 在场景 identity-scope 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::4a0faa66eee9f3c15434dc32"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-session-context",
+      "scene": "SC::session-context",
+      "project": "tasktrooper",
+      "slice-ref": "",
+      "statement": "tasktrooper 在场景 session-context 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 makifbaysal/tasktrooper@ae5fb965c4758bbb25d2fac7f10f9bb26cb63823 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "tasktrooper",
+      "slice-ref": "",
+      "statement": "tasktrooper 在场景 execution-workspace 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 makifbaysal/tasktrooper@ae5fb965c4758bbb25d2fac7f10f9bb26cb63823 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-approval-human",
+      "scene": "SC::approval-human",
+      "project": "tasktrooper",
+      "slice-ref": "",
+      "statement": "tasktrooper 在场景 approval-human 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 makifbaysal/tasktrooper@ae5fb965c4758bbb25d2fac7f10f9bb26cb63823 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "tasktrooper",
+      "slice-ref": "",
+      "statement": "tasktrooper 在场景 result-provenance 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 makifbaysal/tasktrooper@ae5fb965c4758bbb25d2fac7f10f9bb26cb63823 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "tasktrooper",
+      "slice-ref": "tasktrooper::S::memory-knowledge",
+      "statement": "tasktrooper 在场景 memory-knowledge 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::d2423363b8e0d64ec8ce61cc"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-observability",
+      "scene": "SC::observability",
+      "project": "tasktrooper",
+      "slice-ref": "tasktrooper::S::observability",
+      "statement": "tasktrooper 在场景 observability 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::6a0463be6d4575650cc64979"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "tasktrooper",
+      "slice-ref": "",
+      "statement": "tasktrooper 在场景 config-strategy 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 makifbaysal/tasktrooper@ae5fb965c4758bbb25d2fac7f10f9bb26cb63823 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "tasktrooper",
+      "slice-ref": "tasktrooper::S::runtime-integration",
+      "statement": "tasktrooper 在场景 runtime-integration 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::e9a31903a5338a7b6eae212a"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "tasktrooper",
+      "slice-ref": "",
+      "statement": "tasktrooper 在场景 agent-protocol 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 makifbaysal/tasktrooper@ae5fb965c4758bbb25d2fac7f10f9bb26cb63823 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::tasktrooper-tech-design",
+      "scene": "SC::tech-design",
+      "project": "tasktrooper",
+      "slice-ref": "tasktrooper::S::tech-design",
+      "statement": "tasktrooper 在场景 tech-design 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::834655c524dca5a255ddaf1f"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "opencode-coordination",
+      "slice-ref": "opencode-coordination::S::task-workitem",
+      "statement": "opencode-coordination 在场景 task-workitem 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::9101cfa7145332b317a9353e"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "opencode-coordination",
+      "slice-ref": "opencode-coordination::S::identity-scope",
+      "statement": "opencode-coordination 在场景 identity-scope 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::0b5fa995933066879753a0a5"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-session-context",
+      "scene": "SC::session-context",
+      "project": "opencode-coordination",
+      "slice-ref": "",
+      "statement": "opencode-coordination 在场景 session-context 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 JF3Env/opencode-coordination@2c9dd06f21716d8fc5885a266b119e58e78f2a0d 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "opencode-coordination",
+      "slice-ref": "",
+      "statement": "opencode-coordination 在场景 execution-workspace 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 JF3Env/opencode-coordination@2c9dd06f21716d8fc5885a266b119e58e78f2a0d 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-approval-human",
+      "scene": "SC::approval-human",
+      "project": "opencode-coordination",
+      "slice-ref": "opencode-coordination::S::approval-human",
+      "statement": "opencode-coordination 在场景 approval-human 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::1a1c6d9852edef2c3f970f42"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "opencode-coordination",
+      "slice-ref": "opencode-coordination::S::result-provenance",
+      "statement": "opencode-coordination 在场景 result-provenance 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::01ccf2212f91bcc504af0818"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "opencode-coordination",
+      "slice-ref": "",
+      "statement": "opencode-coordination 在场景 memory-knowledge 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 JF3Env/opencode-coordination@2c9dd06f21716d8fc5885a266b119e58e78f2a0d 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-observability",
+      "scene": "SC::observability",
+      "project": "opencode-coordination",
+      "slice-ref": "opencode-coordination::S::observability",
+      "statement": "opencode-coordination 在场景 observability 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::d537234df40dcab3100b4eac"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "opencode-coordination",
+      "slice-ref": "",
+      "statement": "opencode-coordination 在场景 config-strategy 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 JF3Env/opencode-coordination@2c9dd06f21716d8fc5885a266b119e58e78f2a0d 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "opencode-coordination",
+      "slice-ref": "",
+      "statement": "opencode-coordination 在场景 runtime-integration 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 JF3Env/opencode-coordination@2c9dd06f21716d8fc5885a266b119e58e78f2a0d 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "opencode-coordination",
+      "slice-ref": "opencode-coordination::S::agent-protocol",
+      "statement": "opencode-coordination 在场景 agent-protocol 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::4e9888715cf937cdeac6384a"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::opencode-coordination-tech-design",
+      "scene": "SC::tech-design",
+      "project": "opencode-coordination",
+      "slice-ref": "",
+      "statement": "opencode-coordination 在场景 tech-design 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 JF3Env/opencode-coordination@2c9dd06f21716d8fc5885a266b119e58e78f2a0d 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "agetor",
+      "slice-ref": "",
+      "statement": "agetor 在场景 task-workitem 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 alamops/agetor@897b70afb6f7671dc418c6d1053dbf8fbc3c81e0 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "agetor",
+      "slice-ref": "",
+      "statement": "agetor 在场景 identity-scope 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 alamops/agetor@897b70afb6f7671dc418c6d1053dbf8fbc3c81e0 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-session-context",
+      "scene": "SC::session-context",
+      "project": "agetor",
+      "slice-ref": "agetor::S::session-context",
+      "statement": "agetor 在场景 session-context 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::7d2249b75c4ec5bac9284bda"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "agetor",
+      "slice-ref": "agetor::S::execution-workspace",
+      "statement": "agetor 在场景 execution-workspace 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::e6275d13fae90b3ea49ca276"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-approval-human",
+      "scene": "SC::approval-human",
+      "project": "agetor",
+      "slice-ref": "",
+      "statement": "agetor 在场景 approval-human 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 alamops/agetor@897b70afb6f7671dc418c6d1053dbf8fbc3c81e0 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "agetor",
+      "slice-ref": "",
+      "statement": "agetor 在场景 result-provenance 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 alamops/agetor@897b70afb6f7671dc418c6d1053dbf8fbc3c81e0 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "agetor",
+      "slice-ref": "",
+      "statement": "agetor 在场景 memory-knowledge 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 alamops/agetor@897b70afb6f7671dc418c6d1053dbf8fbc3c81e0 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-observability",
+      "scene": "SC::observability",
+      "project": "agetor",
+      "slice-ref": "agetor::S::observability",
+      "statement": "agetor 在场景 observability 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::74a1e19ab3d67925c43d706c"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "agetor",
+      "slice-ref": "",
+      "statement": "agetor 在场景 config-strategy 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 alamops/agetor@897b70afb6f7671dc418c6d1053dbf8fbc3c81e0 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "agetor",
+      "slice-ref": "agetor::S::runtime-integration",
+      "statement": "agetor 在场景 runtime-integration 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::f44a67122e779c35ee472959"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "agetor",
+      "slice-ref": "",
+      "statement": "agetor 在场景 agent-protocol 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 alamops/agetor@897b70afb6f7671dc418c6d1053dbf8fbc3c81e0 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::agetor-tech-design",
+      "scene": "SC::tech-design",
+      "project": "agetor",
+      "slice-ref": "agetor::S::tech-design",
+      "statement": "agetor 在场景 tech-design 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::c699464bb705742695f91592"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "lanes",
+      "slice-ref": "lanes::S::task-workitem",
+      "statement": "lanes 在场景 task-workitem 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::fc77e9f1b10477d753e74fab"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "lanes",
+      "slice-ref": "",
+      "statement": "lanes 在场景 identity-scope 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 lanes-sh/app@7b9cb385d1100ded8a74986f81472f8856840578 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-session-context",
+      "scene": "SC::session-context",
+      "project": "lanes",
+      "slice-ref": "",
+      "statement": "lanes 在场景 session-context 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 lanes-sh/app@7b9cb385d1100ded8a74986f81472f8856840578 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "lanes",
+      "slice-ref": "lanes::S::execution-workspace",
+      "statement": "lanes 在场景 execution-workspace 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::a8434e60ad92db78fedb7af2"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-approval-human",
+      "scene": "SC::approval-human",
+      "project": "lanes",
+      "slice-ref": "",
+      "statement": "lanes 在场景 approval-human 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 lanes-sh/app@7b9cb385d1100ded8a74986f81472f8856840578 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "lanes",
+      "slice-ref": "",
+      "statement": "lanes 在场景 result-provenance 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 lanes-sh/app@7b9cb385d1100ded8a74986f81472f8856840578 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "lanes",
+      "slice-ref": "lanes::S::memory-knowledge",
+      "statement": "lanes 在场景 memory-knowledge 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::ff178faee6ce5a1a5106b9e2"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-observability",
+      "scene": "SC::observability",
+      "project": "lanes",
+      "slice-ref": "",
+      "statement": "lanes 在场景 observability 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 lanes-sh/app@7b9cb385d1100ded8a74986f81472f8856840578 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "lanes",
+      "slice-ref": "",
+      "statement": "lanes 在场景 config-strategy 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 lanes-sh/app@7b9cb385d1100ded8a74986f81472f8856840578 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "lanes",
+      "slice-ref": "lanes::S::runtime-integration",
+      "statement": "lanes 在场景 runtime-integration 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::d9b7b1edd17eeefaa26756c3"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "lanes",
+      "slice-ref": "",
+      "statement": "lanes 在场景 agent-protocol 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 lanes-sh/app@7b9cb385d1100ded8a74986f81472f8856840578 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::lanes-tech-design",
+      "scene": "SC::tech-design",
+      "project": "lanes",
+      "slice-ref": "",
+      "statement": "lanes 在场景 tech-design 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 lanes-sh/app@7b9cb385d1100ded8a74986f81472f8856840578 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "mozzie",
+      "slice-ref": "mozzie::S::task-workitem",
+      "statement": "mozzie 在场景 task-workitem 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::14bb8d6ea36e18107fd51b3c"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "mozzie",
+      "slice-ref": "",
+      "statement": "mozzie 在场景 identity-scope 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 usemozzie/mozzie@80f3515684722a8909fbc0c17a0526664ec0349a 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-session-context",
+      "scene": "SC::session-context",
+      "project": "mozzie",
+      "slice-ref": "",
+      "statement": "mozzie 在场景 session-context 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 usemozzie/mozzie@80f3515684722a8909fbc0c17a0526664ec0349a 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "mozzie",
+      "slice-ref": "mozzie::S::execution-workspace",
+      "statement": "mozzie 在场景 execution-workspace 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::6676d3f26c9b4f77443c5d2a"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-approval-human",
+      "scene": "SC::approval-human",
+      "project": "mozzie",
+      "slice-ref": "mozzie::S::approval-human",
+      "statement": "mozzie 在场景 approval-human 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::3e8488d208de54fdd00a11c0"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "mozzie",
+      "slice-ref": "mozzie::S::result-provenance",
+      "statement": "mozzie 在场景 result-provenance 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::0b70106e3349d69e694526f5"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "mozzie",
+      "slice-ref": "",
+      "statement": "mozzie 在场景 memory-knowledge 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 usemozzie/mozzie@80f3515684722a8909fbc0c17a0526664ec0349a 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-observability",
+      "scene": "SC::observability",
+      "project": "mozzie",
+      "slice-ref": "",
+      "statement": "mozzie 在场景 observability 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 usemozzie/mozzie@80f3515684722a8909fbc0c17a0526664ec0349a 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "mozzie",
+      "slice-ref": "",
+      "statement": "mozzie 在场景 config-strategy 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 usemozzie/mozzie@80f3515684722a8909fbc0c17a0526664ec0349a 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "mozzie",
+      "slice-ref": "",
+      "statement": "mozzie 在场景 runtime-integration 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 usemozzie/mozzie@80f3515684722a8909fbc0c17a0526664ec0349a 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "mozzie",
+      "slice-ref": "",
+      "statement": "mozzie 在场景 agent-protocol 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 usemozzie/mozzie@80f3515684722a8909fbc0c17a0526664ec0349a 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mozzie-tech-design",
+      "scene": "SC::tech-design",
+      "project": "mozzie",
+      "slice-ref": "",
+      "statement": "mozzie 在场景 tech-design 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 usemozzie/mozzie@80f3515684722a8909fbc0c17a0526664ec0349a 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "mem-vault",
+      "slice-ref": "",
+      "statement": "mem-vault 在场景 task-workitem 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 songs-aaa/shared-memory-vault@59f0b12134622c0ad93ef59ef6373cfe587deaf3 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "mem-vault",
+      "slice-ref": "",
+      "statement": "mem-vault 在场景 identity-scope 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 songs-aaa/shared-memory-vault@59f0b12134622c0ad93ef59ef6373cfe587deaf3 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-session-context",
+      "scene": "SC::session-context",
+      "project": "mem-vault",
+      "slice-ref": "mem-vault::S::session-context",
+      "statement": "mem-vault 在场景 session-context 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::151608571341f37ee2297dcb"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "mem-vault",
+      "slice-ref": "",
+      "statement": "mem-vault 在场景 execution-workspace 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 songs-aaa/shared-memory-vault@59f0b12134622c0ad93ef59ef6373cfe587deaf3 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-approval-human",
+      "scene": "SC::approval-human",
+      "project": "mem-vault",
+      "slice-ref": "",
+      "statement": "mem-vault 在场景 approval-human 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 songs-aaa/shared-memory-vault@59f0b12134622c0ad93ef59ef6373cfe587deaf3 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "mem-vault",
+      "slice-ref": "",
+      "statement": "mem-vault 在场景 result-provenance 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 songs-aaa/shared-memory-vault@59f0b12134622c0ad93ef59ef6373cfe587deaf3 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "mem-vault",
+      "slice-ref": "mem-vault::S::memory-knowledge",
+      "statement": "mem-vault 在场景 memory-knowledge 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::1eedaed644a280db74133572"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-observability",
+      "scene": "SC::observability",
+      "project": "mem-vault",
+      "slice-ref": "",
+      "statement": "mem-vault 在场景 observability 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 songs-aaa/shared-memory-vault@59f0b12134622c0ad93ef59ef6373cfe587deaf3 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "mem-vault",
+      "slice-ref": "",
+      "statement": "mem-vault 在场景 config-strategy 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 songs-aaa/shared-memory-vault@59f0b12134622c0ad93ef59ef6373cfe587deaf3 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "mem-vault",
+      "slice-ref": "",
+      "statement": "mem-vault 在场景 runtime-integration 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 songs-aaa/shared-memory-vault@59f0b12134622c0ad93ef59ef6373cfe587deaf3 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "mem-vault",
+      "slice-ref": "",
+      "statement": "mem-vault 在场景 agent-protocol 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 songs-aaa/shared-memory-vault@59f0b12134622c0ad93ef59ef6373cfe587deaf3 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::mem-vault-tech-design",
+      "scene": "SC::tech-design",
+      "project": "mem-vault",
+      "slice-ref": "mem-vault::S::tech-design",
+      "statement": "mem-vault 在场景 tech-design 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::de5482ebaca9a76160284089"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "python-a2a",
+      "slice-ref": "",
+      "statement": "python-a2a 在场景 task-workitem 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 themanojdesai/python-a2a@40b969a465f85e8156793b7cfac16c5e23ed0b86 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "python-a2a",
+      "slice-ref": "",
+      "statement": "python-a2a 在场景 identity-scope 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 themanojdesai/python-a2a@40b969a465f85e8156793b7cfac16c5e23ed0b86 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-session-context",
+      "scene": "SC::session-context",
+      "project": "python-a2a",
+      "slice-ref": "",
+      "statement": "python-a2a 在场景 session-context 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 themanojdesai/python-a2a@40b969a465f85e8156793b7cfac16c5e23ed0b86 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "python-a2a",
+      "slice-ref": "",
+      "statement": "python-a2a 在场景 execution-workspace 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 themanojdesai/python-a2a@40b969a465f85e8156793b7cfac16c5e23ed0b86 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-approval-human",
+      "scene": "SC::approval-human",
+      "project": "python-a2a",
+      "slice-ref": "",
+      "statement": "python-a2a 在场景 approval-human 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 themanojdesai/python-a2a@40b969a465f85e8156793b7cfac16c5e23ed0b86 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "python-a2a",
+      "slice-ref": "",
+      "statement": "python-a2a 在场景 result-provenance 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 themanojdesai/python-a2a@40b969a465f85e8156793b7cfac16c5e23ed0b86 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "python-a2a",
+      "slice-ref": "",
+      "statement": "python-a2a 在场景 memory-knowledge 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 themanojdesai/python-a2a@40b969a465f85e8156793b7cfac16c5e23ed0b86 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-observability",
+      "scene": "SC::observability",
+      "project": "python-a2a",
+      "slice-ref": "",
+      "statement": "python-a2a 在场景 observability 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 themanojdesai/python-a2a@40b969a465f85e8156793b7cfac16c5e23ed0b86 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "python-a2a",
+      "slice-ref": "python-a2a::S::config-strategy",
+      "statement": "python-a2a 在场景 config-strategy 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::8a03946eaf6653ada1427dc9"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "python-a2a",
+      "slice-ref": "",
+      "statement": "python-a2a 在场景 runtime-integration 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 themanojdesai/python-a2a@40b969a465f85e8156793b7cfac16c5e23ed0b86 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "python-a2a",
+      "slice-ref": "python-a2a::S::agent-protocol",
+      "statement": "python-a2a 在场景 agent-protocol 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::5d423995e3d4b2ed0d8aab78"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::python-a2a-tech-design",
+      "scene": "SC::tech-design",
+      "project": "python-a2a",
+      "slice-ref": "",
+      "statement": "python-a2a 在场景 tech-design 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 themanojdesai/python-a2a@40b969a465f85e8156793b7cfac16c5e23ed0b86 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-task-workitem",
+      "scene": "SC::task-workitem",
+      "project": "dmux",
+      "slice-ref": "",
+      "statement": "dmux 在场景 task-workitem 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 standardagents/dmux@8cb3d926631a9349ab67f7ece41d218427ac7e24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-identity-scope",
+      "scene": "SC::identity-scope",
+      "project": "dmux",
+      "slice-ref": "",
+      "statement": "dmux 在场景 identity-scope 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 standardagents/dmux@8cb3d926631a9349ab67f7ece41d218427ac7e24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-session-context",
+      "scene": "SC::session-context",
+      "project": "dmux",
+      "slice-ref": "",
+      "statement": "dmux 在场景 session-context 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 standardagents/dmux@8cb3d926631a9349ab67f7ece41d218427ac7e24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-execution-workspace",
+      "scene": "SC::execution-workspace",
+      "project": "dmux",
+      "slice-ref": "dmux::S::execution-workspace",
+      "statement": "dmux 在场景 execution-workspace 的供给状态",
+      "verdict": "native",
+      "evidence-refs": [
+        "EVID::205fcc6c54e6dcc370eeeb85"
+      ],
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-approval-human",
+      "scene": "SC::approval-human",
+      "project": "dmux",
+      "slice-ref": "",
+      "statement": "dmux 在场景 approval-human 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 standardagents/dmux@8cb3d926631a9349ab67f7ece41d218427ac7e24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-result-provenance",
+      "scene": "SC::result-provenance",
+      "project": "dmux",
+      "slice-ref": "",
+      "statement": "dmux 在场景 result-provenance 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 standardagents/dmux@8cb3d926631a9349ab67f7ece41d218427ac7e24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-memory-knowledge",
+      "scene": "SC::memory-knowledge",
+      "project": "dmux",
+      "slice-ref": "",
+      "statement": "dmux 在场景 memory-knowledge 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 standardagents/dmux@8cb3d926631a9349ab67f7ece41d218427ac7e24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-observability",
+      "scene": "SC::observability",
+      "project": "dmux",
+      "slice-ref": "",
+      "statement": "dmux 在场景 observability 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 standardagents/dmux@8cb3d926631a9349ab67f7ece41d218427ac7e24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-config-strategy",
+      "scene": "SC::config-strategy",
+      "project": "dmux",
+      "slice-ref": "",
+      "statement": "dmux 在场景 config-strategy 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 standardagents/dmux@8cb3d926631a9349ab67f7ece41d218427ac7e24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-runtime-integration",
+      "scene": "SC::runtime-integration",
+      "project": "dmux",
+      "slice-ref": "",
+      "statement": "dmux 在场景 runtime-integration 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 standardagents/dmux@8cb3d926631a9349ab67f7ece41d218427ac7e24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-agent-protocol",
+      "scene": "SC::agent-protocol",
+      "project": "dmux",
+      "slice-ref": "",
+      "statement": "dmux 在场景 agent-protocol 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 standardagents/dmux@8cb3d926631a9349ab67f7ece41d218427ac7e24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    },
+    {
+      "id": "DE::dmux-tech-design",
+      "scene": "SC::tech-design",
+      "project": "dmux",
+      "slice-ref": "",
+      "statement": "dmux 在场景 tech-design 的供给状态",
+      "verdict": "unknown",
+      "evidence-refs": [],
+      "verification-plan": "对 standardagents/dmux@8cb3d926631a9349ab67f7ece41d218427ac7e24 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent",
+      "context-refs": [],
+      "context-verdicts": []
+    }
+  ],
+  "report-sections": [
+    {
+      "n": 1,
+      "title": "图清单与版本 pin",
+      "sources": [
+        "evidence"
+      ],
+      "body": "14 个项目图，版本钉见 bundle.graphs[].version-pin；域级 context-entries 见 scene-set.context-entries（zopn-single-user / zopn-no-adopt-verdict）。"
+    },
+    {
+      "n": 2,
+      "title": "场景映射表与映射裁决记录",
+      "sources": [
+        "human-ruling"
+      ],
+      "body": "每个项目对每个覆盖场景建一条竖切片 S::<scene>，映射到 SC::<scene>；映射裁决人=zj（Human 给定场景集）。完整映射见 bundle.scene-mapping。"
+    },
+    {
+      "n": 3,
+      "title": "差异条目清单",
+      "sources": [
+        "evidence"
+      ],
+      "body": "12 场景 × 14 项目 = 168 条差异条目；native 绑定 sealed Evidence ID，unknown 附 verification-plan。完整清单见 bundle.difference-entries。摘要见下节指标与 report 文本。"
+    },
+    {
+      "n": 4,
+      "title": "可选场景集核对留痕",
+      "sources": [
+        "human-ruling"
+      ],
+      "body": "见 bundle.optional-scene-pool-review.notes（zj 盲区核对）。"
+    },
+    {
+      "n": 5,
+      "title": "场景内语义等价裁决记录",
+      "sources": [
+        "human-ruling"
+      ],
+      "body": "未裁决任何场景内语义等价：等价裁决须引用双方 acceptance 且由 Human 裁决，本轮未做，避免自行推断（如 qm 与 ZAgenticOPN 均覆盖 identity-scope 但语义互不相容，不得判等价）。"
+    },
+    {
+      "n": 6,
+      "title": "摘要指标（标注不参与结论）",
+      "sources": [
+        "evidence"
+      ],
+      "body": "见 metrics.json；usage=display-only，not_for_conclusion=true，不得用于排序/裁决/回灌/优先级。"
+    },
+    {
+      "n": 7,
+      "title": "与母模型的可选回灌素材",
+      "sources": [
+        "assumption"
+      ],
+      "body": "本横比只给差异条目。回灌母模型 zj-open-source-capability-fit 的素材：① orca 在 execution-workspace / runtime-integration / agent-protocol 为 native（L2 执行编排层种子，契合'以 orca 启动'）；② identity-scope / task-workitem 控制面在 orca 为 unknown，须自研语义所有权层（痛点 2 的 0→1 集中在语义层）；③ multica / loop-now 本轮已 collect 取 12/12 sealed Evidence（multica 偏 L1 多-agent 团队/权限/集成，loop-now 偏本地桌面 agent 编排），可作为执行编排层参照；multica 曾有的 5 条 Lark 子系统弱证据已通过 README 锚定 brief 修复（见 CTX::multica-evidence-anchored），两者均存在版本钉偏差（collect 忽略 brief.repositories[].revision，由 test_tag_pin.py 实证，请求 tag≠实际 HEAD）。引用前需语义复核。注意：本文件不产采用裁决。"
+    },
+    {
+      "n": 8,
+      "title": "完成标准自检",
+      "sources": [
+        "human-ruling"
+      ],
+      "body": "第三方 Agent 可凭 bundle.difference-entries 逐条复核：每条含 scene/project/verdict/evidence-refs 或 verification-plan；来源分 evidence(原生绑定 sealed ID) / human-ruling(场景集与映射) / assumption(回灌素材)。场景集本身为 PROVISIONAL，签发前需 zj 一句话 ratify。"
+    }
+  ],
+  "summary-metrics-usage": "display-only"
+}

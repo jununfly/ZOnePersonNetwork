@@ -1,0 +1,63 @@
+{
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "ZAgenticOPN as a coordination control plane for ZOnePersonNetwork: adoption scope, reusable unit capabilities, ownership boundaries, and validation evidence",
+    "criteria": [
+      {
+        "id": "product-scope",
+        "question": "What product boundary, lifecycle stage, supported slice, and explicit non-goals does the repository declare?",
+        "critical": true,
+        "keywords": ["README.md", "Experience Version", "Current limits", "coordination control plane"]
+      },
+      {
+        "id": "activation",
+        "question": "How is Human-triggered activation, the strict JSON contract, scope resolution, discover, claim, and handoff defined and constrained?",
+        "critical": true,
+        "keywords": ["activation_contract.py", "activation_runner.py", "zagenticopn-activate", "pre_model_handoff_injection", "intent_id"]
+      },
+      {
+        "id": "coordination",
+        "question": "What work-item lifecycle, review, result publication, reopen, and private-context semantics does the coordination seam own?",
+        "critical": true,
+        "keywords": ["coordination.py", "experience-version-coordination.md", "Work Item lifecycle", "awaiting_agent_review", "reopen"]
+      },
+      {
+        "id": "state-ownership",
+        "question": "Where does shared state live, who owns it, and what atomicity, conflict, provenance, and migration guarantees are implemented?",
+        "critical": true,
+        "keywords": ["runtime_config.py", "shared.sqlite3", "active_work_claim", "shared_store_path", "work_items"]
+      },
+      {
+        "id": "integration-seam",
+        "question": "How do host integrations, the installed runtime, version matching, and install/rollback/uninstall keep the consuming project decoupled?",
+        "critical": true,
+        "keywords": ["install_release.py", "build_release_candidate.py", "user-prompt-submit.py", "release bundle", "doctor"]
+      },
+      {
+        "id": "security",
+        "question": "Which approval, checksum, permission, isolation, provenance, and recovery controls are implemented versus deferred?",
+        "critical": true,
+        "keywords": ["Uninstall.command", "confirmation_required", "sha256", "source_tree_dirty", "user-side-deployment-review.md"]
+      },
+      {
+        "id": "validation",
+        "question": "What test, conformance, scorecard, and real-experiment evidence exists, and which value gates remain unproven?",
+        "critical": true,
+        "keywords": ["test_coordination.py", "test_release.py", "experience-version-scorecard.md", "scorecard", "C1", "C8"]
+      },
+      {
+        "id": "lifecycle-gaps",
+        "question": "Which capabilities are explicitly deferred, out of scope, or documented as open problems for later lifecycle stages?",
+        "critical": true,
+        "keywords": ["agent-self-service-collaboration-experience-version.md", "roadmap.md", "Out of Scope", "Deferred", "deferred"]
+      }
+    ],
+    "repositories": [
+      {"owner": "jununfly", "name": "ZAgenticOPN"}
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {"maxFiles": 48, "maxBytes": 2000000, "deadlineMs": 180000}
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "schema": "technical-decision-brief/v1",
+  "user": {
+    "actor": "zj（ZOnePersonNetwork owner、技术架构决策者；ZAgenticOPN 两个痛点的亲历者）",
+    "job": "在重新开发「个人即协同网络」产品方向之前，只做调研：掌握多个类似项目的产品设计与技术设计，形成一张可复核的产品模块地图与复用边界判断，为之后的总体产品方案与技术方案讨论准备素材。本阶段不裁决架构、不排名采用形态、不写代码。"
+  },
+  "baseline": {
+    "workflow": "ZAgenticOPN 开发时产品概念明确，但应由哪些产品模块和功能构成不清晰，且大多数内容需要从 0 到 1 开发；两者叠加使 zj 与 Coding Agents 困在细节里。前三轮调研（zagenticopn / orca / herdr）用「某项目在 ZOnePersonNetwork 的采用形态」作 decision frame，产出三份单项目采用决策报告；该框架已由 2026-11-08-research-charter.md 判定作废，三份报告只保留事实层作素材。当前 ZOnePersonNetwork 仍是近似空仓库（README.md + docs/reasearch），无运行中的产品代码。",
+    "failureModes": [
+      "没有产品模块地图，概念无法拆成有边界的功能单元，讨论会反复回到「到底要做哪几块」",
+      "没有模块边界就无法判断哪些单元已有现成实现可复用，默认全部自研，0→1 工作量失控",
+      "实现细节反过来定义产品语义，Human 与 Coding Agent 都沉到派发、审批、状态机等细节里",
+      "N 份单项目采用决策报告拼不出横向模块矩阵，文档变多但方案讨论仍从零开始",
+      "把 unknown（本轮未采集到声明）写成 absent（项目没有该模块），或用 stars / README 长度推断模块构成",
+      "人机分工在不同项目里有四种冲突表达，未裁决就交给 Agent 实现，会反复返工"
+    ]
+  },
+  "targetOutcome": "一张跨 10 个 commit-pinned 项目的横向模块矩阵（13 个维度 × 49 条 sealed Evidence + 81 个显式 unknown），加上三层分工、复用边界推断、0→1 工作量落点、人机分工分歧清单与参照物闭环；使后续总体方案讨论可以直接从「模块清单 + 语义所有权边界」开始，而不是重新扫项目。",
+  "goals": [
+    "用同一套 criteria 对多个项目做横向对齐，回答「这类产品由哪些产品模块构成」而不是「要不要采用某项目」",
+    "把产品设计（模块与职责）与技术设计（数据模型、持久化、接口、隔离）分开记录，并标出实现层证据的覆盖限制",
+    "区分 native / adapted / unknown，明确哪些模块有多个现成实现、哪些必须自研语义，定位 0→1 工作量的真实落点",
+    "显式保留 81 个 unknown 与语义复核结果，不把未采集到的声明写成能力缺失",
+    "把 ZAgenticOPN 作为参照物重新纳入统一证据基座，验证其 capability-map 与 qm 的能力来源判断闭环"
+  ],
+  "nonGoals": [
+    "不做总体产品方案 / 技术方案、不定架构、不写 PRD、不裁决人机分工、不实现代码、不安装任何项目",
+    "不把多个项目排名成「采用 / 拒绝」，也不产出采用形态推荐、阶段晋级或版本偏斜承诺",
+    "不设计 HA / RBAC / SLO / 生产凭证 / 灾备 / 监控告警等后续生命周期能力",
+    "不把非 sealed 的 docs / SKILL / CONTRIBUTING 阅读写成已验证能力，不 post-process 编译器产出的 Markdown 或 HTML",
+    "不把 stars / topicMatch / README 长度 / evidence 条数当作能力分数，不把 unknown 降级为 absent",
+    "不自动 commit / push，等 zj 显式触发"
+  ],
+  "constraints": [
+    {"id": "decision-frame", "statement": "沿用 charter 的 Problem discovery 框架；前三轮「采用形态」结论层作废，只保留事实层作素材"},
+    {"id": "module-map", "statement": "统一 criteria 必须按 charter 的产品模块维度设计（任务与工作项、身份与 scope、会话上下文、执行与工作区、审批与人工介入、结果与产物、知识与记忆、可观测、配置与策略、运行时与集成），技术设计维度作为横切补充，不得退回架构层能力组合矩阵"},
+    {"id": "evidence", "statement": "GitHub 能力结论只能引用 commit-pinned sealed ledger 的 49 条 Evidence ID；非 sealed 一手阅读明确标注，只用于风险与验证门"},
+    {"id": "unknown", "statement": "81 个 unknownCriteria 必须显式保留并进入 informationGaps，不得写成 absent；unknown 不等于证据充分或能力缺失"},
+    {"id": "canonical-coverage", "statement": "40/49 Evidence 来自根 README 是编译器 canonical 路径过滤的结构性限制，必须在报告中披露，并给出 docs/**/*.md 的重采路径"},
+    {"id": "analysis-layer", "statement": "复用边界、0→1 工作量落点、三层分工与参照物闭环属于分析层推断，必须标注待验证，不得冒充 sealed 能力结论"},
+    {"id": "popularity", "statement": "stars 与 topicMatch 是 sealed 原值，不参与模块覆盖、复用边界或排序判断"},
+    {"id": "lifecycle", "statement": "Problem discovery 深度：不引入 dogfood/release 的 rollout、rollback、监控、版本偏斜义务；graduationCriteria 留空，发现阶段退出条件在 recommendations prose 中复述"},
+    {"id": "publication", "statement": "最终报告由 zj-research 编译器产出，横向模块矩阵作为 brief criteria 与 IR comparisons 的输入，不手写竞争版报告"}
+  ],
+  "assumptions": [
+    "ALIGNMENT ITEM：沿用 charter 的假设——产品面向单人 owner、可能跨设备与多项目、以 ZAgenticOPN 为参照物；若产品边界改为多人组织协作，模块清单与三层分工需重做。",
+    "ALIGNMENT ITEM：假设本轮「多个类似项目」的候选池可由 zjj 按五类（协作控制面 / Agent 运行时 / 执行编排 / 多 Agent 框架与协议 / 共享状态与知识层）自主扩充，zj 只硬性指定 yc-software/qm。",
+    "假设统一 brief 的短语未在某仓库 README 命中时，该格标 unknown 而非 absent；这是采集方法边界，不是项目能力判断。",
+    "假设 README 与 AGENTS/PRD 文档代表项目声明的产品意图与工程约束，实现行为、兼容性、安全边界与版本偏斜一律保留为待验证。",
+    "假设 zj 继续遵循不自动 commit/push、严格 skill 边界与验证证据优先的协作约定。"
+  ],
+  "stage": "problem-discovery",
+  "decisionScope": "确定本阶段调研的证据范围与模块维度，并给出发现阶段的退出条件与下一步动作选项；不裁决产品架构、技术选型或采用形态",
+  "options": [
+    {"id": "deepen-evidence", "name": "补采判别性证据：针对 81 个 unknown 与 docs/**/*.md 技术设计文档重采一轮，压低不确定性"},
+    {"id": "calibrate-modules", "name": "先校准模块清单：由 zj 把 charter 的 10 个草案模块改成认可的地图，再按新维度重切矩阵"},
+    {"id": "expand-pool", "name": "继续扩候选池：补齐 Agent 运行时与共享状态类别，或纳入前轮 herdr / orca 以统一证据基座"},
+    {"id": "enter-solution-discussion", "name": "结束发现阶段：带当前矩阵与分歧清单进入总体产品方案 / 技术方案讨论（本阶段非目标，需 zj 显式触发）"}
+  ]
+}

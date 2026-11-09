@@ -1,0 +1,99 @@
+{
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "herdrdev/herdr as a persistent terminal runtime for coding agents in ZOnePersonNetwork: adoption shape, reusable unit capabilities, semantic fit against a lightweight coordination control plane, ownership cost, and validation gates",
+    "criteria": [
+      {
+        "id": "product-position",
+        "question": "What is the declared product positioning and the boundary of what herdr owns?",
+        "critical": true,
+        "keywords": ["README.md", "the runtime your coding agents live on."]
+      },
+      {
+        "id": "persistence-detach",
+        "question": "What survives closing the client, losing SSH, or restarting the server or machine?",
+        "critical": true,
+        "keywords": ["detach without stopping work"]
+      },
+      {
+        "id": "multi-machine",
+        "question": "How are local work and remote SSH machines combined, and what is the reconnect model?",
+        "critical": true,
+        "keywords": ["several machines, one window"]
+      },
+      {
+        "id": "agent-state-detection",
+        "question": "How does the product surface tell which agent is working, blocked, or idle?",
+        "critical": true,
+        "keywords": ["every pane is marked working, blocked, or idle"]
+      },
+      {
+        "id": "agent-native-control",
+        "question": "Which agent-controllable surfaces exist for spawning panes, prompting other agents, and waiting on state?",
+        "critical": true,
+        "keywords": ["agents drive herdr through the cli and socket api"]
+      },
+      {
+        "id": "agent-compat",
+        "question": "Which coding agents are supported and what does compatibility imply about who owns the agent process?",
+        "critical": true,
+        "keywords": ["herdr doesn't wrap or replace them; it owns their terminals"]
+      },
+      {
+        "id": "single-binary",
+        "question": "What runtime and deployment shape must be operated?",
+        "critical": true,
+        "keywords": ["one rust binary, no electron"]
+      },
+      {
+        "id": "install-surface",
+        "question": "What installation and platform surfaces are declared?",
+        "critical": true,
+        "keywords": ["curl -fsSL https://herdr.dev/install.sh"]
+      },
+      {
+        "id": "license-governance",
+        "question": "What license is declared at the product surface?",
+        "critical": true,
+        "keywords": ["Herdr is licensed under the"]
+      },
+      {
+        "id": "engineering-state",
+        "question": "What architectural invariant separates state from runtime, and what does it imply for testability?",
+        "critical": true,
+        "keywords": ["AGENTS.md", "State is separated from runtime."]
+      },
+      {
+        "id": "runtime-client-boundary",
+        "question": "Which direction is the server/client boundary migrating, and what coupling guardrail applies?",
+        "critical": true,
+        "keywords": ["Herdr is migrating toward a server-owned runtime protocol"]
+      },
+      {
+        "id": "endpoint-contract",
+        "question": "What compatibility contract governs published codecs and client endpoints?",
+        "critical": true,
+        "keywords": ["Named core codecs are immutable."]
+      },
+      {
+        "id": "detection-evidence",
+        "question": "How is agent status detection required to be validated and scoped?",
+        "critical": true,
+        "keywords": ["Screen detection is evidence-based."]
+      },
+      {
+        "id": "manifest-scope",
+        "question": "What manifest-level identity, version, and packaging scope are declared?",
+        "critical": true,
+        "keywords": ["Cargo.toml", "terminal workspace manager for AI coding agents"]
+      }
+    ],
+    "repositories": [
+      {"owner": "herdrdev", "name": "herdr"}
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {"maxFiles": 40, "maxBytes": 3000000, "deadlineMs": 240000}
+  }
+}

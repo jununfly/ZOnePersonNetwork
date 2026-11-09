@@ -1,0 +1,173 @@
+{
+  "schema": "zj-research-collection-status/v1",
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "state": "fresh-collection",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "ZAgenticOPN as a coordination control plane for ZOnePersonNetwork: adoption scope, reusable unit capabilities, ownership boundaries, and validation evidence",
+    "criteria": [
+      {
+        "id": "product-scope",
+        "question": "What product boundary, lifecycle stage, supported slice, and explicit non-goals does the repository declare?",
+        "critical": true,
+        "keywords": [
+          "Experience Version",
+          "coordination control plane",
+          "same device",
+          "owner-only",
+          "non-goals",
+          "Current limits",
+          "README"
+        ]
+      },
+      {
+        "id": "activation",
+        "question": "How is Human-triggered activation, the strict JSON contract, scope resolution, discover, claim, and handoff defined and constrained?",
+        "critical": true,
+        "keywords": [
+          "activation",
+          "intent_id",
+          "pre_model_handoff_injection",
+          "discover",
+          "claim",
+          "handoff",
+          "scope",
+          "receipt"
+        ]
+      },
+      {
+        "id": "coordination",
+        "question": "What work-item lifecycle, review, result publication, reopen, and private-context semantics does the coordination seam own?",
+        "critical": true,
+        "keywords": [
+          "CoordinationProtocol",
+          "work_items",
+          "awaiting_agent_review",
+          "publish_result",
+          "review",
+          "reopen",
+          "private_context",
+          "revision"
+        ]
+      },
+      {
+        "id": "state-ownership",
+        "question": "Where does shared state live, who owns it, and what atomicity, conflict, provenance, and migration guarantees are implemented?",
+        "critical": true,
+        "keywords": [
+          "sqlite",
+          "shared_store_path",
+          "activation_claims",
+          "active_work_claim",
+          "IntegrityError",
+          "events",
+          "references",
+          "commit"
+        ]
+      },
+      {
+        "id": "integration-seam",
+        "question": "How do host integrations, the installed runtime, version matching, and install/rollback/uninstall keep the consuming project decoupled?",
+        "critical": true,
+        "keywords": [
+          "host-activate",
+          "PYTHONPATH",
+          "runtime.json",
+          "release_id",
+          "doctor",
+          "rollback",
+          "uninstall",
+          "Install.command",
+          "manifest.json",
+          "plugin"
+        ]
+      },
+      {
+        "id": "security",
+        "question": "Which approval, checksum, permission, isolation, provenance, and recovery controls are implemented versus deferred?",
+        "critical": true,
+        "keywords": [
+          "confirmation_required",
+          "sha256",
+          "chmod",
+          "source_tree_dirty",
+          "approval",
+          "credential",
+          "ACL",
+          "sandbox",
+          "fail closed"
+        ]
+      },
+      {
+        "id": "validation",
+        "question": "What test, conformance, scorecard, and real-experiment evidence exists, and which value gates remain unproven?",
+        "critical": true,
+        "keywords": [
+          "unittest",
+          "C1",
+          "C8",
+          "scorecard",
+          "48/48",
+          "NOT PROVEN",
+          "three-cycle",
+          "Human intervention",
+          "activation"
+        ]
+      },
+      {
+        "id": "lifecycle-gaps",
+        "question": "Which capabilities are explicitly deferred, out of scope, or documented as open problems for later lifecycle stages?",
+        "critical": true,
+        "keywords": [
+          "deferred",
+          "Out of Scope",
+          "roadmap",
+          "automatic discovery",
+          "multi-device",
+          "multi-user",
+          "HA",
+          "SLO",
+          "team governance",
+          "open decisions"
+        ]
+      }
+    ],
+    "repositories": [
+      {
+        "owner": "jununfly",
+        "name": "ZAgenticOPN"
+      }
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {
+      "maxFiles": 48,
+      "maxBytes": 2000000,
+      "deadlineMs": 180000
+    }
+  },
+  "briefFingerprint": "80e7b4c3045d98bc4916e59a36efd9c737d74933c3267ca0fb5833db030ac72a",
+  "preflight": {
+    "schema": "zj-research-github-preflight/v1",
+    "provider": "github",
+    "authentication": {
+      "mode": "authenticated",
+      "tokenConfigured": true
+    },
+    "rateLimit": {
+      "resource": "core",
+      "limit": 5000,
+      "remaining": 4992,
+      "resetAt": "2026-11-08T02:22:23Z"
+    },
+    "canCollect": true
+  },
+  "ledger": {
+    "relationship": "fresh-collection",
+    "source": null
+  },
+  "fallback": {
+    "automatic": false,
+    "oldLedgerUsed": false
+  }
+}

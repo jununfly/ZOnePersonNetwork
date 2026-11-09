@@ -1,0 +1,121 @@
+{
+  "schema": "zj-research-report-ir/v1",
+  "family": "technical-c4/v1",
+  "title": "ZAgenticOPN 在 ZOnePersonNetwork 的采用决策：整体并入、单元能力复用还是仅作参考",
+  "summary": "基于 commit 2ff40cc 的 sealed evidence，ZAgenticOPN 是一个把 Work Item 共享事实、严格激活 JSON-Call、Human 显式 reopen 与 SQLite 状态所有权收在自身边界内的 Experience Version 控制面。它适合以「单元能力复用」形态经 narrow host adapter 接入 ZOnePersonNetwork，而不适合整体并入消费项目。但本次 sealed 采集有 integration-seam 与 security 两个 unknown criteria，且远端 main 与本地未推送 checkout 存在 10 个 commit 的基线漂移，因此推荐是有条件的：先由 zj 固定基线，再用 clean-room 安装/激活/回滚验证补齐证据，之后才允许一个可丢弃的同设备单项目纵向切片；验证不过则退回仅参考或不采用。",
+  "ledgerFingerprint": "60332d31d8a91b620255d603e775320453c4d7d8ba9ef0b5223b4fb575989160",
+  "informationGaps": {
+    "status": "has-gaps",
+    "rationale": "sealed ledger 的 unknownCriteria 明确含 integration-seam 与 security 两项，构成本次 run 的显式信息缺口；6 条 Evidence 只来自 README.md 与 docs/experience-version-coordination.md 两个文件，测试/scorecard 证据未进入 sealed 范围，远端 main 与本地未推送 checkout 还有版本基线漂移。这些都是未验证项，不是能力缺失，不得写成 absent。"
+  },
+  "concepts": [
+    {"key": "Decision frame（含对齐项）", "value": "zj 未给出决策问题，本报告按 alignment 假设其 job 是：判断 ZAgenticOPN 能否以及如何作为 ZOnePersonNetwork 的跨 Agent 协作控制面。基线是空仓库加人工搬运上下文；目标是一个可观测、可丢弃的同设备单项目闭环。若真实目标是跨设备/多用户平台，选项排序需重做。"},
+    {"key": "Fit model", "value": "按八个维度判语义契合：产品语义、状态/上下文、身份/scope、执行/sandbox、传输/API、可观测、部署、生命周期所有权。每格标 native（源证明直接提供）、adapted（需指定 adapter）、absent（源明确不提供或已退役）、unknown（本轮证据不足）。unknown 永不降级为 absent，stars/topicMatch 永不作为能力分数。"},
+    {"key": "Ownership model", "value": "ZAgenticOPN 拥有共享 Work Item 事实、claim、review、事件、scorecard 与产品 SQLite；ZOnePersonNetwork 只拥有 Agent 任务工作区与 Git artifact；host adapter 是 transport，不是语义所有者；Human 拥有方向、权限、异常 reopen、基线固定与安装卸载授权。"},
+    {"key": "Lifecycle stage", "value": "Experience Version。sealed README 把授权范围收窄为 same-device、single-project vertical slice，deployment、production operations 与 deferred collaboration capabilities 明确 out of scope。本报告不引入 HA、RBAC、SLO、多用户或生产凭证设计，也不产生 dogfood/release 的版本偏斜义务。"},
+    {"key": "Evidence boundary", "value": "GitHub 能力结论只引用 pinned commit 2ff40cc 的 6 条 sealed Evidence ID；本地分支 6e473da 的 401 行 README、用户侧 release、v2 intent 等观察显式标为非 sealed 补充事实，只用于风险与对齐，不作能力断言。"},
+    {"key": "Baseline drift", "value": "远端 main = 2ff40cc，sealed 证据里的 intent 是 zagenticopn.activation.check_shared_context.v1；本地 codex/manual-baseline-a = 6e473da 且 ahead 10 未推送，README 已演进到用户侧 release 与 activate.v2。采用前必须二选一固定基线，否则契约、文档与实现三者不一致。"},
+    {"key": "Recommendation", "value": "有条件选择单元能力复用：以 narrow host adapter 调用已安装 runtime 的 activation/claim/handoff/review seam；P0 固定基线，P1 clean-room 补齐 integration/security 证据，P2 一个可丢弃纵向切片，P3 复核价值门后再谈阶段晋级。"}
+  ],
+  "diagrams": [
+    {
+      "title": "决策全景：用户、系统边界、四个选项与被选中的 seam",
+      "kind": "landscape",
+      "mermaid": "flowchart LR\n  H[Human Lead zj] --> B{P0 固定基线}\n  B -->|远端 main 2ff40cc| S[sealed evidence]\n  B -->|本地 6e473da ahead 10| L[非 sealed 补充观察]\n  H --> CP[ZAgenticOPN 控制面]\n  CP --> ST[(产品 SQLite 与事件)]\n  CP --> SM[CoordinationProtocol 与 activation runner JSON-Call]\n  SM --> AD[narrow host adapter 推荐 seam]\n  AD --> WB[WorkBuddy 或 Codex host]\n  WB --> C[ZOnePersonNetwork 消费项目]\n  C --> G[Git artifact 与任务工作区]\n  CP -. 不得跨过 .-> C\n  O1[整体并入] -.拒绝.-> B\n  O2[单元能力复用] -.推荐.-> AD\n  O3[仅作参考] -.回退.-> B\n  O4[不采用] -.回退.-> B"
+    },
+    {
+      "title": "容器与所有权：控制面、消费项目、host 与验证边界",
+      "kind": "container",
+      "mermaid": "flowchart TB\n  subgraph Control[ZAgenticOPN 拥有的控制面]\n    WI[Work Item 状态机]\n    CL[原子 claim 与 activation_claims]\n    EV[事件与 scorecard]\n    DB[(shared.sqlite3)]\n    WI --> CL --> EV --> DB\n  end\n  subgraph Transport[host 只做 transport]\n    HK[UserPromptSubmit hook]\n    HC[严格 JSON-Call 与回执]\n    HD[pre_model_handoff_injection]\n    HK --> HC --> HD\n  end\n  subgraph Consumer[ZOnePersonNetwork 拥有]\n    WS[Agent 任务工作区]\n    GA[Git commit 文件与测试结果]\n    ADR[采用基线与 ADR]\n  end\n  subgraph Gates[待验证门]\n    V1[integration-seam unknown]\n    V2[security unknown]\n    V3[clean-room install doctor rollback]\n  end\n  HC --> WI\n  HD --> WS\n  WS --> GA\n  GA -. Git reference provenance .-> WI\n  Gates -. 落地前必须通过 .-> HC"
+    },
+    {
+      "title": "一次纵向切片的主题流：从显式发布到评审完成",
+      "kind": "topic",
+      "mermaid": "sequenceDiagram\n  participant H as Human Lead\n  participant R as installed runtime\n  participant A as Agent in consumer workspace\n  participant V as reviewer Agent\n  H->>R: host-publish objective 与 acceptance\n  H->>R: /zagenticopn-activate 触发\n  R->>R: 一次 discover 与至多一次 claim\n  R-->>A: claimed 回执与 handoff\n  A->>A: 在消费项目内执行并产生 Git artifact\n  A->>R: publish_result 带 commit 文件 测试证据\n  H->>R: /zagenticopn-activate 触发评审\n  R-->>V: 原子 claim review\n  V->>R: accept 或 request_changes 或 escalate\n  Note over H,R: 异常时只允许 Human 显式 reopen 不得伪造结果"
+    }
+  ],
+  "candidates": [
+    {
+      "repository": {"owner": "jununfly", "name": "ZAgenticOPN"},
+      "stars": 0,
+      "topicMatch": 0,
+      "evidenceIds": [
+        "24c521a1983ee68dafa9544d",
+        "0b78ab7e1b5659a7c049d4f6",
+        "4132ea9292deeab3cf164ca5",
+        "53ce90d514f1eb59d753635b",
+        "b006b887f99616e81bf87d09",
+        "ce263a867539ddd51588ed09"
+      ]
+    }
+  ],
+  "cards": [
+    {
+      "title": "jununfly/ZAgenticOPN（唯一 serious candidate，pin 2ff40cc）",
+      "summary": "角色：Human 触发、异构 Agent 自服务协作的 coordination control plane，不是消费项目的库。最强能力：严格版本化 activation JSON-Call、结构化回执、Human 显式 reopen 异常路径，以及把 SQLite/事件/scorecard 收为实现细节的 CoordinationProtocol seam。主要缺口：本轮 sealed 证据未覆盖 install/version matching 与 security 控制，验证证据也只命中设计文档首段；另有远端 main 与本地未推送 checkout 的基线漂移。证据强度：6 条 canonical Evidence、5 个文件、2 个 unknownCriteria，属于「方向可用、落地前必须补证」级别，不足以支持 dogfood 或 release 判断。stars=0 / topicMatch=0 是 sealed 原值，说明它是 owner-only 私有开发仓库，不作为能力或成熟度信号。",
+      "claimIds": ["c-scope", "c-lifecycle", "c-activation", "c-nodb", "c-reopen", "c-state", "c-seam", "c-intent-v1", "c-host-adapter", "c-evidence-concentration", "c-integration-unknown", "c-security-unknown", "c-validation-weak", "c-drift", "c-popularity"]
+    }
+  ],
+  "claims": [
+    {"id": "c-scope", "text": "sealed README 声明项目处于 Experience Version，C 路线实现只对 same-device、single-project vertical slice 授权，deployment、production operations 与 deferred collaboration capabilities 明确 out of scope。", "critical": true, "evidenceIds": ["24c521a1983ee68dafa9544d"]},
+    {"id": "c-lifecycle", "text": "同一 sealed 摘录把 Product Spec、Experience Version Spec 与 Candidate-neutral technical design 列为规范入口，说明能力边界由 Spec 与 roadmap 治理，而不是由 README 特性清单推导。", "critical": true, "evidenceIds": ["0b78ab7e1b5659a7c049d4f6"]},
+    {"id": "c-activation", "text": "activation runner 的 JSON-Call 需要 schema_version、intent_id、activation_id、scope、agent_profile 与受控 host_capabilities，并返回 claimed、no_eligible_work、claim_conflict、unsupported_host、invalid_contract、invalid_runtime_config 等结构化回执。", "critical": true, "evidenceIds": ["4132ea9292deeab3cf164ca5"]},
+    {"id": "c-nodb", "text": "sealed 文档明确 activation 请求从不携带本地数据库路径；数据库位置属于产品侧输入，不是 host 传给 Agent 的任务上下文。", "critical": true, "evidenceIds": ["4132ea9292deeab3cf164ca5", "b006b887f99616e81bf87d09"]},
+    {"id": "c-reopen", "text": "Agent scope 错误或 claim 后消失时，不得伪造结果、不得直接编辑 SQLite；Human 只能显式 reopen claimed 或 blocked 的 Work Item。异常恢复因此是 Human 授权路径，不是自动 retry 能力。", "critical": true, "evidenceIds": ["53ce90d514f1eb59d753635b"]},
+    {"id": "c-state", "text": "sealed 示例以 DB=.zagenticopn/shared.sqlite3 与 SCOPE=zagenticopn/experience-version 调用产品 CLI 的 publish，证明 store 路径与 scope 是 ZAgenticOPN 侧的输入参数，共享状态所有权属于产品而非消费项目。", "critical": true, "evidenceIds": ["b006b887f99616e81bf87d09"]},
+    {"id": "c-seam", "text": "首版实现被描述为带 SQLite shared context 的小型 Python 模块，Agent 通过 in-process CoordinationProtocol 或 canonical activation_runner JSON-Call 接入；SQLite、event projection 与 scorecard formatting 均是实现细节。", "critical": true, "evidenceIds": ["ce263a867539ddd51588ed09"]},
+    {"id": "c-host-adapter", "text": "task-agnostic activation 别名由 ZAgenticOPN 自有的 zj-opn-activation Skill / host adapter 解析，runner 只接受版本化 intent；host 侧因此是 transport 集成，不是 scope、claim 或 review 语义的所有者。", "critical": true, "evidenceIds": ["ce263a867539ddd51588ed09"]},
+    {"id": "c-intent-v1", "text": "sealed 基线中的版本化 intent 是 zagenticopn.activation.check_shared_context.v1；这一字符串与本地工作副本的 activate.v2 不同，是可观察的契约版本差异。", "critical": true, "evidenceIds": ["ce263a867539ddd51588ed09"]},
+    {"id": "c-evidence-concentration", "text": "本轮 6 条 substantive Evidence 只来自 README.md 与 docs/experience-version-coordination.md 两个文件，其中 README 两条摘录相同；验证 criterion 命中的是设计文档首段而非测试报告或 scorecard。", "critical": true, "evidenceIds": ["24c521a1983ee68dafa9544d", "0b78ab7e1b5659a7c049d4f6", "4132ea9292deeab3cf164ca5", "53ce90d514f1eb59d753635b", "b006b887f99616e81bf87d09", "ce263a867539ddd51588ed09"]},
+    {"id": "c-integration-unknown", "text": "sealed ledger 的 unknownCriteria 含 integration-seam：本轮没有为安装、版本匹配、rollback、host 解耦选出 canonical evidence。这是 run 的覆盖状态，不是产品不提供该能力的证据。", "critical": true, "evidenceIds": ["ce263a867539ddd51588ed09", "24c521a1983ee68dafa9544d"]},
+    {"id": "c-security-unknown", "text": "sealed ledger 的 unknownCriteria 含 security：本轮没有为审批门、checksum、权限、fail-closed 或恢复控制选出 canonical evidence，因此这些控制在报告中保持 unknown，不得写成 absent 或 native。", "critical": true, "evidenceIds": ["53ce90d514f1eb59d753635b", "4132ea9292deeab3cf164ca5"]},
+    {"id": "c-validation-weak", "text": "sealed 范围内没有测试通过率、三周期恢复或 Human 价值 scorecard 的 canonical evidence；48/48 测试、C1–C8 与 NOT PROVEN 价值门等结论不进入本报告的能力断言，只能作为后续复核对象。", "critical": true, "evidenceIds": ["ce263a867539ddd51588ed09", "b006b887f99616e81bf87d09"]},
+    {"id": "c-drift", "text": "非 sealed 补充观察：远端 main 2ff40cc 的 README 只有 10 行，本地 codex/manual-baseline-a 6e473da ahead 10 且未推送，其 401 行 README 描述用户侧 release bundle 与 activate.v2；结合 c-intent-v1 可见契约基线漂移。此观察来自本机 git，需 zj 对齐，不作为 GitHub 能力证据。", "critical": false, "evidenceIds": ["24c521a1983ee68dafa9544d", "ce263a867539ddd51588ed09"]},
+    {"id": "c-popularity", "text": "sealed candidates 记录 stars=0、topicMatch=0、origin=explicit；这只说明是显式指定的 owner-only 开发仓库，热度与主题匹配度不能换算成能力覆盖、语义契合或所有权成本。", "critical": false, "evidenceIds": ["24c521a1983ee68dafa9544d"]}
+  ],
+  "comparisons": [
+    {"id": "cmp-role-families", "text": "角色族：ZAgenticOPN 是控制面（Work Item 状态、claim、review、事件、SQLite）；ZOnePersonNetwork 是消费项目（任务工作区与 Git artifact）；WorkBuddy/Codex 是 transport（hook、JSON-Call、handoff 注入）；Human 是治理面（方向、权限、reopen、基线、安装授权）。sealed 证据把这条分工写在 CoordinationProtocol seam、strict activation 与 Human reopen 三处，任何让消费项目拥有控制面事实的方案都与之冲突。", "claimIds": ["c-seam", "c-state", "c-activation", "c-reopen", "c-host-adapter"]},
+    {"id": "cmp-whole-product", "text": "约束 decoupling → 选项「整体并入」→ 证据：store/scope 是产品侧输入，activation 请求不携带 DB 路径，SQLite 与事件是实现细节 → tradeoff：并入会让消费项目同时成为控制面 owner，版本升级、schema 迁移、claim 冲突与产品生命周期责任全部内化 → decision：拒绝。sealed README 的 Experience Version 边界进一步说明它当前不是一个可被内联的稳定平台。", "claimIds": ["c-nodb", "c-state", "c-seam", "c-scope"]},
+    {"id": "cmp-unit-capability", "text": "约束 ownership 与最小集成面 → 选项「单元能力复用」→ 证据：唯一公共 seam 是 CoordinationProtocol / activation_runner JSON-Call，host adapter 只解析别名、runner 只接受版本化 intent，回执是结构化状态 → tradeoff：得到 discover/claim/handoff/review 的共享事实，但必须自己承担 host adapter 的严格 JSON、scope binding、版本匹配与失败回执治理 → decision：推荐，且以 clean-room 验证为前置条件。", "claimIds": ["c-activation", "c-seam", "c-nodb", "c-host-adapter"]},
+    {"id": "cmp-reference-only", "text": "约束 evidence 与基线 → 选项「仅作设计参考」→ 证据：边界由 Spec/roadmap 治理，本轮证据集中在设计文档而非可运行产物 → tradeoff：零集成风险、可吸收状态机与 scorecard 方法，但拿不到任何共享 claim 事实 → decision：作为 P0 基线未定或 P1 验证失败时的回退路径，而非首选。", "claimIds": ["c-lifecycle", "c-evidence-concentration", "c-validation-weak"]},
+    {"id": "cmp-no-adoption", "text": "约束可验证性 → 选项「不采用」→ 证据：integration-seam/security 为 unknown、验证证据未进入 sealed 范围、远端与本地基线漂移 → tradeoff：维持人工交接的已知成本，但避免把未验证契约写进 ZOnePersonNetwork → decision：当 P1 clean-room 门不过、或 zj 拒绝固定基线时立即回退，不追加工程量。", "claimIds": ["c-integration-unknown", "c-security-unknown", "c-validation-weak", "c-drift"]},
+    {"id": "cmp-capability-matrix", "text": "单元能力组合矩阵（cell = 标签 / 集成后 owner）：产品语义 native / ZAgenticOPN；状态与上下文 native（CoordinationProtocol 与 SQLite）/ ZAgenticOPN；身份与 scope adapted（需用户级 binding 且不得从 cwd 推断）/ Human 与 ZAgenticOPN；执行与 sandbox unknown（sealed 未覆盖消费项目内执行隔离）/ zj；传输与 API native（strict JSON-Call 与回执）/ host adapter；可观测性 unknown（scorecard 只在 sealed 文档中被提为实现细节，未见证据）/ zj 与 Pilot operator；部署 unknown（integration-seam 无 canonical evidence）/ zj；生命周期所有权 native（Experience Version 边界与 Human reopen）/ ZAgenticOPN 与 Human。absent 一栏为空：本轮没有 primary source 明确宣告任何上述能力被移除或退役。", "claimIds": ["c-state", "c-activation", "c-seam", "c-reopen", "c-integration-unknown", "c-security-unknown", "c-validation-weak"]},
+    {"id": "cmp-ownership-risk", "text": "所有权与风险对照：Human reopen 把异常恢复留在治理面，避免 Agent 伪造结果，但也意味着没有自动 retry/claim TTL 的兜底；状态与事件留在产品 SQLite 保证单一事实源，却让 ZOnePersonNetwork 的故障排查依赖产品侧可观测能力；而 integration/security 的 unknown 与基线漂移意味着「集成后谁负责升级、回滚、数据保留」尚未由 sealed 证据回答，必须在 P1 用可复核产物指定 owner。", "claimIds": ["c-reopen", "c-state", "c-integration-unknown", "c-security-unknown", "c-drift"]},
+    {"id": "cmp-evidence-gaps", "text": "证据覆盖对照：本轮 6 条 Evidence、2 个文件、2 个 unknownCriteria；三次采集（v1/v2/v3）都未把 install_release.py、Uninstall.command、tests 或 scorecard 选为 canonical evidence，因此不能据此判断这些能力 absent。热度维度另计：stars=0 / topicMatch=0 只是 sealed 原值，与语义契合、组合可行性、证据强度、所有权成本四个评分轴完全分离。", "claimIds": ["c-evidence-concentration", "c-integration-unknown", "c-security-unknown", "c-popularity", "c-validation-weak"]},
+    {"id": "cmp-baseline", "text": "约束 baseline → 证据：sealed 基线的 intent 是 check_shared_context.v1，而远端 README 仅 10 行、本地 checkout 已是另一套交付形态 → tradeoff：以远端为基线可复现但契约旧；以本地为基线功能新但第三方无法复现且未推送 → decision：把「固定 commit / release 并把基线写入 ADR」设为 P0，任何选项在 P0 完成前都不进入施工。", "claimIds": ["c-intent-v1", "c-drift", "c-scope", "c-lifecycle"]}
+  ],
+  "recommendations": [
+    {"id": "rec-primary", "text": "总选择：有条件采用「单元能力复用」，不采用「整体并入」。ZOnePersonNetwork 以 narrow host adapter 调用已安装 runtime 的 activation/claim/handoff/review seam，消费项目只保留任务工作区与 Git artifact；控制面事实、事件、scorecard 与 SQLite 继续由 ZAgenticOPN 拥有。条件一：zj 先固定基线（远端 main 2ff40cc 或本地 6e473da 对齐后重采）；条件二：integration-seam 与 security 两个 unknown 必须由 clean-room 可复核产物补齐；条件三：验证门不过则退回仅参考或不采用。本结论以 sealed commit 2ff40cc 为界，不把本地未推送实现当作能力证据。", "comparisonIds": ["cmp-role-families", "cmp-whole-product", "cmp-unit-capability", "cmp-baseline", "cmp-evidence-gaps"]},
+    {"id": "rec-constraint-table", "text": "约束→选择表（prose）：lifecycle → 只做 Experience Version 可丢弃切片，不写 HA/RBAC/SLO；ownership → 控制面事实留 ZAgenticOPN，ZOnePersonNetwork 不建第二份任务状态；decoupling → 禁止 import、PYTHONPATH 与产品 SQLite 落进消费项目，用 CI 检查守住；activation → 严格 JSON-Call 与一次 discover/至多一次 claim，禁止轮询重试；scope → 只接受显式或用户级 binding，禁止从 cwd/Git remote 推断；evidence → 能力结论只引用 sealed Evidence ID，本地观察标为非 sealed；security → 安装/卸载/版本切换保留 Human 确认与 fail-closed，未验证项不默认 native；baseline → 先固定 commit 再谈接入。", "comparisonIds": ["cmp-role-families", "cmp-capability-matrix", "cmp-baseline"]},
+    {"id": "rec-phased", "text": "分阶段落地：P0 基线对齐——由 zj 决定采用 commit，把 source_commit、release_id 与 intent 版本写入 ZOnePersonNetwork 的 ADR，必要时先合并/推送本地 10 个 commit 并重采 sealed ledger；P1 证据补齐——用正式 release bundle 在 clean-room 用户目录跑 Install.command、doctor、一次激活 smoke、rollback 与 keep-data uninstall，逐项记录回执与 checksum/Human 确认结果，使 unknown_criteria_count 归零；P2 纵向切片——一个 Work Item 走完 publish→activate→claim→publish_result→review→completed，采集 decouple 违规、provenance 完整性与 Human 介入次数；P3 价值复核——连续重复实验后对照人工基线决定是否晋级 usefulness-validation，未达标则保持 Experience Version 或回退。", "comparisonIds": ["cmp-baseline", "cmp-unit-capability", "cmp-evidence-gaps"]},
+    {"id": "rec-avoid", "text": "应避免的路径：把 ZAgenticOPN checkout 复制/submodule 进 ZOnePersonNetwork；让消费项目直接读写 shared.sqlite3；用本地未推送的 401 行 README 作为第三方可复核证据；把 integration-seam/security 的 unknown 写成已实现或明确缺失；在 Evidence Version 阶段就铺多用户权限、跨设备同步、自动发现、HA 与生产 SLO；用 stars/topicMatch 或文件数量做选型排序；以及未经 zj 显式确认就 commit/push 或执行安装卸载。", "comparisonIds": ["cmp-whole-product", "cmp-evidence-gaps", "cmp-ownership-risk"]},
+    {"id": "rec-risks", "text": "剩余风险（与结构化 riskRegister 一致）：① 远端 main 与本地 ahead 10 未推送 commit 的基线漂移，可能导致 host/runtime 契约不一致；② integration-seam 未验证，首次激活可能返回 scope_unbound、unsupported_host 或 handoff 失败；③ security 控制未验证，安装/卸载/版本切换可能误改用户数据或 host 注册；④ 所有权渗透，手工调试绕过 adapter 直接读产品 SQLite；⑤ Human 仍需跨 host 搬运 review 结论，价值门可能无法闭合；⑥ 证据覆盖不足，把 unknown 误读为已具备能力。以上每项均有明确机制与 residual owner（Human Lead / Pilot operator / ZOnePersonNetwork maintainer / Research report owner），详见报告 IR 的 riskRegister，编译器当前不渲染该结构化字段。", "comparisonIds": ["cmp-ownership-risk", "cmp-evidence-gaps", "cmp-no-adoption"]},
+    {"id": "rec-gaps", "text": "信息缺口与对齐项：ledger 的 unknownCriteria 为 integration-seam 与 security，informationGaps.status = has-gaps；6 条 Evidence 集中于 2 个文件，测试与 scorecard 结论未进入 sealed 范围；远端与本地版本基线漂移属未验证项。另需 zj 确认三个 alignment 假设：真实决策问题、是否确实需要单人同设备多 Agent 控制面、是否以 GitHub main 为证据基线。在缺口闭合前，本报告只能支持「有条件采用」而不是阶段晋级结论。", "comparisonIds": ["cmp-evidence-gaps", "cmp-baseline", "cmp-no-adoption"]}
+  ],
+  "metrics": [
+    {"key": "activation_contract_conformance", "definition": "激活 JSON-Call 字段集合、intent 版本与结构化回执类型符合固定基线契约的运行占比", "unit": "%", "method": "对每次 host-activate 记录请求字段与回执状态，和 ADR 中的 pinned contract 逐字段比对", "condition": "P1 clean-room 与 P2 纵向切片的每一次激活，失败与成功都计入", "expected": "100%，任何 invalid_contract 或 unsupported_host 都算不达标"},
+    {"key": "claim_uniqueness", "definition": "单次 activation_id 实际产生的 claim 次数", "unit": "次/激活", "method": "用 activation_claims 主键与 events 表按 activation_id 做去重计数", "condition": "含并发竞争窗口与 claim_conflict 场景", "expected": "≤ 1，且冲突场景返回 claim_conflict 不重试"},
+    {"key": "scope_resolution_explicit_rate", "definition": "scope 来自显式输入或用户级 workspace binding、而非 cwd/Git remote/项目文件推断的比例", "unit": "%", "method": "审计 host adapter 的 scope 解析路径并注入无 binding 与歧义 binding 的负例", "condition": "P1 与 P2 全部激活运行，含 scope_unbound 负例", "expected": "100%，负例必须 fail closed 且返回 scope_unbound"},
+    {"key": "result_provenance_completeness", "definition": "publish_result 中带 commit SHA、changed files、test command 与 test result 的 Git reference 完整率", "unit": "%", "method": "读取结果引用并与 Git 对象及测试输出逐项核对", "condition": "每个 completed Work Item 至少一次", "expected": "100%，缺任一项即判失败"},
+    {"key": "consumer_decoupling_violations", "definition": "ZOnePersonNetwork 内出现 import zagentic_opn、PYTHONPATH 注入或产品 SQLite 文件/路径的次数", "unit": "次", "method": "CI 静态扫描加运行时环境变量审计，按文件与提交记录命中", "condition": "P2 每次提交与每次激活", "expected": "0"},
+    {"key": "clean_room_gate_pass_rate", "definition": "clean-room 安装、doctor、激活 smoke、rollback、keep-data uninstall 五项验证通过率", "unit": "%", "method": "在隔离用户目录执行固定命令链并保存 JSON 回执与日志", "condition": "固定基线后、P2 开始前", "expected": "100%，未通过则维持仅参考或不采用"},
+    {"key": "baseline_drift_commits", "definition": "被选为采用基线的远端 commit 与本地工作分支 HEAD 之间的未推送 commit 数", "unit": "个", "method": "git log --oneline main..HEAD 与 git rev-parse HEAD 对比，并核对 release manifest 的 source_commit", "condition": "P0 决策时与每次重采 sealed ledger 前", "expected": "0，或明确记录差异并重新采集证据"},
+    {"key": "evidence_coverage_rate", "definition": "sealed ledger 中获得 canonical Evidence 的 critical criterion 占比", "unit": "%", "method": "用 8 个 brief criteria 减去 unknownCriteria 后除以 8", "condition": "每次采集后复核，跨 ledger 不复用旧结论", "expected": "100% 才允许进入 dogfood 讨论；本次实测 75% 且 informationGaps=has-gaps"},
+    {"key": "human_task_specific_interventions", "definition": "单个 Work Item 闭环期间 Human 为搬运任务上下文、review 结论或下一步所做的任务特定介入次数", "unit": "次/任务", "method": "用统一 Human action 提取口径记录 role=user 动作，人工标注是否任务特定", "condition": "连续 3 个同构任务，与人工方案 A 基线分开统计", "expected": "≤ 1 且相对人工基线不劣，否则价值门保持 NOT PROVEN"}
+  ],
+  "riskRegister": [
+    {"risk": "远端 main 与本地未推送 checkout 的契约基线漂移导致接入对象不确定", "trigger": "P0 未固定 commit 就开始写 host adapter 或安装 release", "impact": "intent 版本、README 声明的交付形态与 installed runtime 实际行为不一致，验证结果无法复现", "mitigation": "在 ZOnePersonNetwork 写一条 ADR 固定 source_commit 与 release_id，安装前用 git rev-parse 加 release manifest 的 source_commit 双重校验，基线变化时重新采集 sealed ledger", "residualRisk": "本地 10 个 commit 若继续未推送，第三方仍无法复现本次评估所用契约", "owner": "zj（Human Lead）"},
+    {"risk": "integration-seam 仍为 unknown，首次激活可能 fail closed 或交付 handoff 失败", "trigger": "P2 在 ZOnePersonNetwork 首次执行 /zagenticopn-activate", "impact": "拿不到 claimed 回执，纵向切片无法开始，且失败原因可能被误判为产品缺陷", "mitigation": "P1 先在 clean-room 用户目录执行 Install.command、doctor、一次激活 smoke，保存每次 JSON 回执与版本匹配输出，再按回执状态逐项修复 binding 或 host capability", "residualRisk": "clean-room 通过不等于两个 host 长期混合运行稳定", "owner": "Pilot operator"},
+    {"risk": "security 控制未获 sealed evidence，安装卸载或版本切换可能误改用户数据与 host 注册", "trigger": "执行 install、rollback、uninstall 或带 --yes 的底层命令", "impact": "共享 SQLite、backups、logs 或 host plugin 注册被非预期删除或替换", "mitigation": "强制 Human 确认与只读 confirmation preview，校验 bundle checksum 与 source_tree_dirty，先做 keep-data 演练并保留导出副本，Agent 禁止自行追加 --yes", "residualRisk": "release 签名校验、凭证与 ACL 治理仍属 deferred，不能由本轮验证覆盖", "owner": "zj（Human Lead）"},
+    {"risk": "控制面所有权渗透，消费项目开始持有第二份任务状态或直连产品 SQLite", "trigger": "手工调试或临时脚本绕过 narrow adapter 直接读写 shared.sqlite3", "impact": "claim 与 review 事实出现双写，冲突时无法判定权威来源，provenance 链断裂", "mitigation": "adapter 只暴露 JSON-Call，CI 扫描禁止 import、PYTHONPATH 与产品 DB 路径，代码评审清单要求所有控制面读写经 CoordinationProtocol seam", "residualRisk": "本地一次性调试脚本可能不进 CI 覆盖范围", "owner": "ZOnePersonNetwork maintainer"},
+    {"risk": "Human 仍需跨 host 搬运 review 结论，Experience Version 的价值门无法闭合", "trigger": "连续实验中出现任务特定的 review 结论转述或下一步手工安排", "impact": "human_task_specific_interventions 超标，方案相对人工基线没有可重复优势", "mitigation": "用统一 Human action 提取口径把任务特定介入计入 scorecard，并把它设为 graduationCriteria 的硬阈值，未达标就保持当前阶段", "residualRisk": "产品本身在当前切片未自动化该传输层，只能靠流程约束", "owner": "Pilot operator"},
+    {"risk": "证据覆盖不足被误读为能力已验证或明确缺失", "trigger": "后续读者仅凭本报告的 recommendation 做阶段晋级判断", "impact": "把 integration-seam/security 的 unknown 当成 native 或 absent，产生错误施工或错误否决", "mitigation": "以本次 unknownCriteria 为清单重新采集 pinned evidence，绑定新的 ledgerFingerprint 重建 findings 与 Report IR，并在 ADR 中记录每次采集的 filesRead 与 evidence 数", "residualRisk": "本地 checkout 的内容不在任何 sealed ledger 范围内，仍需人工复核", "owner": "Research report owner"}
+  ],
+  "graduationCriteria": [
+    {"condition": "基线固定后 clean-room 安装、doctor 与一次激活 smoke 全部通过", "threshold": "clean_room_gate_pass_rate = 100% 且激活返回 claimed，scope 来自显式 binding，0 次 scope_unbound 或 unsupported_host", "metric": "clean_room_gate_pass_rate,scope_resolution_explicit_rate", "promoteTo": "usefulness-validation"},
+    {"condition": "一个 Work Item 走完 publish 到 completed 的完整闭环且消费项目没有解耦违规", "threshold": "闭环 1/1 成功，consumer_decoupling_violations = 0，result_provenance_completeness = 100%，claim_uniqueness ≤ 1", "metric": "consumer_decoupling_violations,result_provenance_completeness,claim_uniqueness", "promoteTo": "usefulness-validation"},
+    {"condition": "integration-seam 与 security 两个信息缺口被 pinned evidence 覆盖", "threshold": "unknown_criteria_count = 0 且 evidence_coverage_rate = 100%，并产出新的 ledgerFingerprint", "metric": "evidence_coverage_rate", "promoteTo": "usefulness-validation"},
+    {"condition": "Human 价值门在连续重复实验中相对人工基线可重复改善", "threshold": "连续 3 个同构任务 human_task_specific_interventions ≤ 1 且不劣于人工方案 A 基线", "metric": "human_task_specific_interventions", "promoteTo": "dogfood"},
+    {"condition": "rollback 与 keep-data uninstall 演练通过且数据保留可核对", "threshold": "版本切换后 doctor 仍 healthy，Human 确认生效，runtime.json 与 data 目录保留完整，baseline_drift_commits = 0", "metric": "clean_room_gate_pass_rate,baseline_drift_commits", "promoteTo": "dogfood"}
+  ]
+}

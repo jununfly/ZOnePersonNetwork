@@ -1,0 +1,206 @@
+{
+  "schema": "zj-research-collection-status/v1",
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "state": "fresh-collection",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "Sealed technical evidence for multica-ai/multica (main HEAD) to fill the ZOnePersonNetwork cross-comparison: which of the 12 personal-collaboration-network modules are declared, and how. Commit-pinned. No adoption ranking. v3: anchor every criterion to the English root README.md via the path-unique keyword 'readme.md' (does NOT match README.ja.md/README.zh.md); removed collision keywords (Lark/Feishu/Slack/review/replay/workspace) and the 'Docker' keyword that hijacked runtime-integration into Dockerfile. All evidence should resolve to README.md (canonical, English, on-topic).",
+    "criteria": [
+      {
+        "id": "mod-task-workitem",
+        "question": "Which projects declare a task/work-item module, and what lifecycle or board semantics does it expose?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "issue board",
+          "assign",
+          "sub-issues",
+          "work item",
+          "track tasks"
+        ]
+      },
+      {
+        "id": "mod-identity-scope",
+        "question": "How are people, agents, rooms and scopes modeled as distinct identities?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "Build the team",
+          "roles and access scopes",
+          "security model",
+          "agents as teammates",
+          "owner, admin, and member"
+        ]
+      },
+      {
+        "id": "mod-session-context",
+        "question": "What session lifecycle, restart safety and context handoff are declared?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "steer a running agent",
+          "stay connected to the same issue",
+          "attach the repos and docs agents need as context"
+        ]
+      },
+      {
+        "id": "mod-execution-workspace",
+        "question": "What execution isolation unit is used (worktree, sandbox, pane) and how is parallel work arranged?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "runtime you control",
+          "Your own runtime",
+          "Agent daemon runs on your machine",
+          "local daemon",
+          "execution log"
+        ]
+      },
+      {
+        "id": "mod-approval-human",
+        "question": "Which Human approval, security posture or intervention gates are declared?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "review gate",
+          "Inbox",
+          "approval",
+          "you decide what ships",
+          "human approval"
+        ]
+      },
+      {
+        "id": "mod-result-provenance",
+        "question": "How are results, reviews, audit history and provenance recorded?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "pull request",
+          "diff",
+          "linked to the issue",
+          "provenance",
+          "changelog"
+        ]
+      },
+      {
+        "id": "mod-memory-knowledge",
+        "question": "What shared memory or knowledge layer exists, and what is its source of truth?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "Skills",
+          "playbook",
+          "Turn a solved problem",
+          "every agent reuses",
+          "reuse a playbook"
+        ]
+      },
+      {
+        "id": "mod-observability",
+        "question": "How are progress, status, stalls and health made observable?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "usage analytics",
+          "execution log",
+          "metrics",
+          "what did it cost",
+          "tracing"
+        ]
+      },
+      {
+        "id": "mod-config-strategy",
+        "question": "How are skills, configuration, policies and deployment directories owned?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "squads",
+          "autopilots",
+          "access scopes",
+          "team configuration",
+          "policy"
+        ]
+      },
+      {
+        "id": "mod-runtime-integration",
+        "question": "What runtime and integration shape is declared (local-first, own cloud, interface abstraction)?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "self-host",
+          "desktop app",
+          "mobile app",
+          "26 agent CLIs",
+          "CLI and API",
+          "Helm"
+        ]
+      },
+      {
+        "id": "mod-agent-protocol",
+        "question": "Is there an explicit agent-to-agent protocol, typed message format or agent discovery surface?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "daemon",
+          "WebSocket",
+          "agent CLIs",
+          "spawns",
+          "Agent Discovery",
+          "no lock-in"
+        ]
+      },
+      {
+        "id": "mod-tech-design",
+        "question": "What technical design facts are declared: core loop, persistence substrate, tool surface, storage?",
+        "critical": true,
+        "keywords": [
+          "readme.md",
+          "Go backend",
+          "PostgreSQL 17",
+          "Next.js",
+          "WebSocket",
+          "CI workflows",
+          "Architecture"
+        ]
+      }
+    ],
+    "repositories": [
+      {
+        "owner": "multica-ai",
+        "name": "multica",
+        "revision": "v0.8.1"
+      }
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {
+      "maxFiles": 250,
+      "maxBytes": 16000000,
+      "deadlineMs": 600000
+    }
+  },
+  "briefFingerprint": "9edcd32b434599f6a56fba002891db248de211d19c036eb806d9e73eb8d19cee",
+  "preflight": {
+    "schema": "zj-research-github-preflight/v1",
+    "provider": "github",
+    "authentication": {
+      "mode": "authenticated",
+      "tokenConfigured": true
+    },
+    "rateLimit": {
+      "resource": "core",
+      "limit": 5000,
+      "remaining": 4997,
+      "resetAt": "2026-11-09T07:59:49Z"
+    },
+    "canCollect": true
+  },
+  "ledger": {
+    "relationship": "fresh-collection",
+    "source": null
+  },
+  "fallback": {
+    "automatic": false,
+    "oldLedgerUsed": false
+  }
+}

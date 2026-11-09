@@ -1,0 +1,1258 @@
+{
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "result": {
+    "schema": "zj-verified-evidence-ledger/v1",
+    "compilerVersion": "research/v1",
+    "briefFingerprint": "60332d31d8a91b620255d603e775320453c4d7d8ba9ef0b5223b4fb575989160",
+    "policyVersion": "public-github/v1",
+    "observedAt": "2026-11-08T02:02:39.669Z",
+    "repositories": [
+      {
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        },
+        "revision": {
+          "sha": "2ff40cc052aae12fc7a324f89691e9f194985d24",
+          "branch": "main",
+          "url": "https://github.com/jununfly/ZAgenticOPN/commit/2ff40cc052aae12fc7a324f89691e9f194985d24"
+        },
+        "tree": [
+          {
+            "path": ".gitignore",
+            "sha": "94539a45db3629575de00950d64dffbc02900514",
+            "type": "blob",
+            "size": 64
+          },
+          {
+            "path": "AGENTS.md",
+            "sha": "d846e4c4a3973cec5621a087964e76d34f55defa",
+            "type": "blob",
+            "size": 1554
+          },
+          {
+            "path": "README.md",
+            "sha": "cba9ee2578a58a8782dcd65dfd1c9e1ed6c31951",
+            "type": "blob",
+            "size": 687
+          },
+          {
+            "path": "docs",
+            "sha": "b139d334c67894da3c26e30a2b2feac7ff24553b",
+            "type": "tree"
+          },
+          {
+            "path": "docs/designs",
+            "sha": "090d3877f8129ba6dc9b4ce0048117b509ec0872",
+            "type": "tree"
+          },
+          {
+            "path": "docs/designs/agent-self-service-collaboration-experience-version-alignment.md",
+            "sha": "458af6b0164c534501aa935e30e66611c18b47c6",
+            "type": "blob",
+            "size": 10923
+          },
+          {
+            "path": "docs/designs/agent-self-service-collaboration-selective-reuse-capability-map.md",
+            "sha": "e4481b071f1e8e954ffe5a4b4ad0d94cb69bdb61",
+            "type": "blob",
+            "size": 5242
+          },
+          {
+            "path": "docs/designs/agent-self-service-collaboration.md",
+            "sha": "4f3fc37c4e02aa14d086b328e9429eed6092719c",
+            "type": "blob",
+            "size": 11243
+          },
+          {
+            "path": "docs/experience-version-coordination.md",
+            "sha": "49ce7202141fe4a751ff049524a4c7e135e16964",
+            "type": "blob",
+            "size": 6291
+          },
+          {
+            "path": "docs/plans",
+            "sha": "5415c5682c89a293effdf8b8089e8dc612a60004",
+            "type": "tree"
+          },
+          {
+            "path": "docs/plans/agent-self-service-collaboration-roadmap.json",
+            "sha": "2e6cae78547ee1c64ce18c03e4996dfb433fed5b",
+            "type": "blob",
+            "size": 97110
+          },
+          {
+            "path": "docs/plans/agent-self-service-collaboration-roadmap.md",
+            "sha": "818d8023b352409788d03e9cedf7a740a7f664a9",
+            "type": "blob",
+            "size": 1775
+          },
+          {
+            "path": "docs/prds",
+            "sha": "2d0c7f1d0f91b698d8d82c280eb62f5589389069",
+            "type": "tree"
+          },
+          {
+            "path": "docs/prds/agent-self-service-collaboration-experience-version.md",
+            "sha": "ff31f52034224f03587a3cb8909297f69036b2de",
+            "type": "blob",
+            "size": 15520
+          },
+          {
+            "path": "docs/prds/agent-self-service-collaboration.md",
+            "sha": "6a8b09dfcae3e282f98e749604c4e7abdefc9b9c",
+            "type": "blob",
+            "size": 8706
+          },
+          {
+            "path": "integrations",
+            "sha": "cbc77525c7e8c082439a417bb047898e7a9a634b",
+            "type": "tree"
+          },
+          {
+            "path": "integrations/.codebuddy-plugin",
+            "sha": "44b1c9dbc107622a84d7273784baeb9330d36edc",
+            "type": "tree"
+          },
+          {
+            "path": "integrations/.codebuddy-plugin/marketplace.json",
+            "sha": "3d9aefd5c0dbd312e261db200df6af22eb57369c",
+            "type": "blob",
+            "size": 430
+          },
+          {
+            "path": "integrations/workbuddy",
+            "sha": "c28ae78ea2be53f3ef9ed62f63753ac942ca7fdc",
+            "type": "tree"
+          },
+          {
+            "path": "integrations/workbuddy/.codebuddy-plugin",
+            "sha": "7da7cafa48e9b82dfbcfcc0a844361a8b37064ce",
+            "type": "tree"
+          },
+          {
+            "path": "integrations/workbuddy/.codebuddy-plugin/plugin.json",
+            "sha": "2997fe8f773d1fca9432bb83c8810aec831870d9",
+            "type": "blob",
+            "size": 205
+          },
+          {
+            "path": "integrations/workbuddy/README.md",
+            "sha": "9e00db6466b26f0afc3ad9f71d34062851c7a8e9",
+            "type": "blob",
+            "size": 2361
+          },
+          {
+            "path": "integrations/workbuddy/hooks",
+            "sha": "75d0d35a183180be07a4090e574a44cb6242e143",
+            "type": "tree"
+          },
+          {
+            "path": "integrations/workbuddy/hooks/hooks.json",
+            "sha": "40ddf7a34d4e8ab5e960e41f057dd3f8740700a3",
+            "type": "blob",
+            "size": 268
+          },
+          {
+            "path": "integrations/workbuddy/hooks/user-prompt-submit.py",
+            "sha": "b0160245d11b2677f2d0c5513a5ac295ff4af343",
+            "type": "blob",
+            "size": 7709
+          },
+          {
+            "path": "research",
+            "sha": "bc301b12ba24959183f418547e4eb1e296238675",
+            "type": "tree"
+          },
+          {
+            "path": "research/activation-routing",
+            "sha": "d17d5d71c065df11ca167121f02b52d6a76b50ba",
+            "type": "tree"
+          },
+          {
+            "path": "research/activation-routing/2026-08-24-c4-workbuddy-result.md",
+            "sha": "caabd0f47d698125523170df9bdd8ad711e24d91",
+            "type": "blob",
+            "size": 8245
+          },
+          {
+            "path": "research/activation-routing/2026-08-24-findings.md",
+            "sha": "f39d5a714c675c71eaae842156290bd10822494c",
+            "type": "blob",
+            "size": 1637
+          },
+          {
+            "path": "research/activation-routing/2026-08-24-results.json",
+            "sha": "39f0ca45fd834b5c9e505f1e3a3e756d79f6982c",
+            "type": "blob",
+            "size": 969
+          },
+          {
+            "path": "research/activation-routing/2026-08-24-workbuddy-claim-block.md",
+            "sha": "25e5ecc6aacdc47bf2e88c83d407656c0db16ca5",
+            "type": "blob",
+            "size": 1657
+          },
+          {
+            "path": "research/activation-routing/2026-08-24-workbuddy-cli-replay.md",
+            "sha": "8b18a62b4445abdf2a56856ac898dbffcc635a0f",
+            "type": "blob",
+            "size": 1544
+          },
+          {
+            "path": "research/activation-routing/2026-08-24-workbuddy-runtime-replay.md",
+            "sha": "49992ba919cf483b8b88f36cb994be96e3770edc",
+            "type": "blob",
+            "size": 2429
+          },
+          {
+            "path": "research/activation-routing/2026-08-25-workbuddy-proxy-ui-replay.md",
+            "sha": "e85d3f073f049684f4125f7d477e639b86c50866",
+            "type": "blob",
+            "size": 11086
+          },
+          {
+            "path": "research/activation-routing/2026-08-25-workbuddy-ui-submit-failure.md",
+            "sha": "de42d622479c4645959cd7d364276fde825d89b0",
+            "type": "blob",
+            "size": 2201
+          },
+          {
+            "path": "research/activation-routing/2026-08-28-experience-version-scorecard.md",
+            "sha": "bddcd5e85b43ed34b259d356cf3e0b4aed0b3971",
+            "type": "blob",
+            "size": 6076
+          },
+          {
+            "path": "research/activation-routing/2026-08-28-value-experiment-1-zj-research-report-preflight.md",
+            "sha": "8633e809e70b368fdc958183fdd6e2708479a3e6",
+            "type": "blob",
+            "size": 12787
+          },
+          {
+            "path": "research/agentrq-candidate",
+            "sha": "a805926adfe4ce15721cdfba4d00e72a653c33c7",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-agentrq-adapter-black-box.json",
+            "sha": "f5c726849311d76b9e7a4a4a4176aa349a4d8507",
+            "type": "blob",
+            "size": 1971
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-agentrq-adapter-black-box.md",
+            "sha": "61ebb7a9c74b91c5bf0e622967f5b6cc4d2a35fa",
+            "type": "blob",
+            "size": 1156
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study",
+            "sha": "b4fab128e0617be34ebe841d448d770e5b403178",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/facts",
+            "sha": "cbdee61b077eb84f8fdb0e899c765065a1ade796",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/facts/claims.jsonl",
+            "sha": "9598738bdb14920d7048e998358b1f5d30f8dd01",
+            "type": "blob",
+            "size": 20391
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/facts/diagrams.jsonl",
+            "sha": "c71a78343193558433e9f9d2c364cc900a0e3f7f",
+            "type": "blob",
+            "size": 1588
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/facts/evidence.jsonl",
+            "sha": "f5948355cdce8000919ce38c3620ed6aa222658d",
+            "type": "blob",
+            "size": 648260
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/facts/flows.jsonl",
+            "sha": "0acdbf11c753ce89c37b678b81548e3da3575f00",
+            "type": "blob",
+            "size": 142104
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/facts/relationships.jsonl",
+            "sha": "2b211d999a951155e5c9481106cc068b286f7ffc",
+            "type": "blob",
+            "size": 1910
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/facts/risks.jsonl",
+            "sha": "189403c92b637dc1b08f6b245005c9ff6d895f74",
+            "type": "blob",
+            "size": 1189
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/facts/scope.json",
+            "sha": "1d19ca5ea38aa1f2cb5d02b88008d3f91a90c6c0",
+            "type": "blob",
+            "size": 1125
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/facts/unknowns.jsonl",
+            "sha": "0258da15fc31680b24994671bde95011ff577766",
+            "type": "blob",
+            "size": 146
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/manifest.json",
+            "sha": "36740c9480f4f794034ecf9c89da867b2f3a0550",
+            "type": "blob",
+            "size": 2710
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/navigation",
+            "sha": "be431188a547beea3fbaed7d6920d7ad4e6c1e4a",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/navigation/follow-up-targets.json",
+            "sha": "bd01acf8cf7624a26d0f64a71c37ebc30a8e5e7d",
+            "type": "blob",
+            "size": 10960
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/views",
+            "sha": "4fdfc57b4bd22fc6f2db23872a6dcbaf80b11087",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/views/study.html",
+            "sha": "6a5a3127f6561a50308422c0fc5c1aa1974d71a7",
+            "type": "blob",
+            "size": 25712
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-backend-study/views/study.md",
+            "sha": "abe2f68833da2491125e537952bf76d1c2c68f47",
+            "type": "blob",
+            "size": 23974
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-brief.request.json",
+            "sha": "2942ef0db2a1f70cbad2ec082531a991f7420eb5",
+            "type": "blob",
+            "size": 3137
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-code-brief.request.json",
+            "sha": "445885c73178380cb026528e0d2e7cc138964d59",
+            "type": "blob",
+            "size": 2240
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-code-ledger-response.json",
+            "sha": "4d93681cec2e91c64c13ea6e1f4697f65b3c4b7a",
+            "type": "blob",
+            "size": 64102
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-draft.html",
+            "sha": "1cb3ebbcbe30a59d2c5aaaeaff07bb44c2ac596b",
+            "type": "blob",
+            "size": 3579511
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-draft.md",
+            "sha": "57bbfe34a55913562f8ae81a7b277ced51e07b82",
+            "type": "blob",
+            "size": 11889
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-findings.md",
+            "sha": "68aa1e545dcbb13dd8054a793aea8035739b80a5",
+            "type": "blob",
+            "size": 13106
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-ledger-response.json",
+            "sha": "96101ed5c65e9f5c18e8041d007325e017e6572e",
+            "type": "blob",
+            "size": 68447
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study",
+            "sha": "83f327dcf143ab9d7ce5892cc3f05dc222dfa6d6",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/facts",
+            "sha": "414eaec3d25a9ea20ef6d1f604d5c81fcdc27951",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/facts/claims.jsonl",
+            "sha": "1995edbdc80ab584baf3e798678138f8abf151e3",
+            "type": "blob",
+            "size": 15383
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/facts/diagrams.jsonl",
+            "sha": "30cbebec8b24b8ca288d6c579cfedfe427620054",
+            "type": "blob",
+            "size": 6982
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/facts/evidence.jsonl",
+            "sha": "b7a831b91cbffba68ce669336f10ad7c0e26b82e",
+            "type": "blob",
+            "size": 110819
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/facts/flows.jsonl",
+            "sha": "5b7786d48aef0fc1c39aa84dd36767e50fced28c",
+            "type": "blob",
+            "size": 9180
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/facts/relationships.jsonl",
+            "sha": "5825323b4f6a2107bb3f3419ec4a88aa926214ea",
+            "type": "blob",
+            "size": 10769
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/facts/risks.jsonl",
+            "sha": "c705cd16356f8a80dd169c48e6fbe9574a0f17f8",
+            "type": "blob",
+            "size": 1123
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/facts/scope.json",
+            "sha": "fbb3c136026161b7afecfca52a477de73883bdb5",
+            "type": "blob",
+            "size": 938
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/facts/unknowns.jsonl",
+            "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "type": "blob",
+            "size": 0
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/manifest.json",
+            "sha": "7b9737871868b8683d2261a619c1bf9946be6d74",
+            "type": "blob",
+            "size": 2706
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/navigation",
+            "sha": "28b67ca8247a8ad88c864bad579070291339b503",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/navigation/follow-up-targets.json",
+            "sha": "add6b62e33062c0534cb9041227453a1a833e94e",
+            "type": "blob",
+            "size": 10958
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/views",
+            "sha": "3b2223973d86bc358c470df25625638d0b3a46cf",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/views/study.html",
+            "sha": "142a6345c1619948d4be97520d76188673e78899",
+            "type": "blob",
+            "size": 19328
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-plugin-study/views/study.md",
+            "sha": "27ceb9b22e88af4c75e8af4d65c2495ba3bb46b9",
+            "type": "blob",
+            "size": 17884
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-receipt.json",
+            "sha": "60aadd47447367b83bb29e150591bba1876db2c0",
+            "type": "blob",
+            "size": 1922
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-report-ir.json",
+            "sha": "e26f9c348b97aa859caaa369aaaad384742ce9e6",
+            "type": "blob",
+            "size": 13274
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map",
+            "sha": "16c78391a48bbf495a380c44885f02578472a54b",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/facts",
+            "sha": "e7e15d3b878209804e3be82d543652e958395a64",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/facts/integrations.jsonl",
+            "sha": "cb399ca355ce0bdd6cf2d4ad4fa78d16cef654e8",
+            "type": "blob",
+            "size": 3475
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/facts/packages.jsonl",
+            "sha": "633b15ce409ccc208c47d888e7fc8bcfa22f143d",
+            "type": "blob",
+            "size": 552
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/facts/summary.json",
+            "sha": "71eae21f38e8a21d4cbd05c105aa54d8abab278f",
+            "type": "blob",
+            "size": 1134
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/facts/tree.jsonl",
+            "sha": "0f5d5d229a556dfa8c75301328367587b1249710",
+            "type": "blob",
+            "size": 56595
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/facts/workflows.jsonl",
+            "sha": "43a2d53db85c5a284d07c9888aae79336f012bb9",
+            "type": "blob",
+            "size": 585
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/manifest.json",
+            "sha": "18eac0a380d2d1b9074a01427bbad1e3e2d3281a",
+            "type": "blob",
+            "size": 1900
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/navigation",
+            "sha": "a9738f33b7b863e637f55de66e1291a5ae3c6fe9",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/navigation/targets.json",
+            "sha": "d5a2234e502a141549c81db4efb03d3e609e768d",
+            "type": "blob",
+            "size": 8915
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/views",
+            "sha": "61d7ac559863addd5e56863f73a59bcabc70e2b5",
+            "type": "tree"
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/views/map.html",
+            "sha": "be6fd63f8449b6dc18d8e54f0cbdff52f97ad774",
+            "type": "blob",
+            "size": 5099
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-repository-map/views/map.md",
+            "sha": "b5fbc06458275f0ec85ff6de9afae632af70c12d",
+            "type": "blob",
+            "size": 4658
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-source-brief.request.json",
+            "sha": "f0305b0fc708b8c19b09e7afdf713ba361a8c862",
+            "type": "blob",
+            "size": 3852
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-source-ledger-response.json",
+            "sha": "121d78afb6679af5c16899095692b462aeb4e659",
+            "type": "blob",
+            "size": 69428
+          },
+          {
+            "path": "research/agentrq-candidate/2026-08-24-technical-decision-brief.json",
+            "sha": "d63533a6a4e14243d3a6d6c3ae981398d06a2532",
+            "type": "blob",
+            "size": 4069
+          },
+          {
+            "path": "research/open-source-capability-fit",
+            "sha": "8ed9827cf3965a88581acacf8e5f6fb0f8134949",
+            "type": "tree"
+          },
+          {
+            "path": "research/open-source-capability-fit/2026-08-20-brief.request.json",
+            "sha": "843342c13f281fa30931e530e362d627b70cbc65",
+            "type": "blob",
+            "size": 3457
+          },
+          {
+            "path": "research/open-source-capability-fit/2026-08-20-draft.html",
+            "sha": "0ba7115c5cf4ce11501b13e7f15d6832fd67816a",
+            "type": "blob",
+            "size": 20907
+          },
+          {
+            "path": "research/open-source-capability-fit/2026-08-20-draft.md",
+            "sha": "6d023cd90149fba936bf16a0c6d3604450dd552a",
+            "type": "blob",
+            "size": 18491
+          },
+          {
+            "path": "research/open-source-capability-fit/2026-08-20-ext-discovery-ledger-response.json",
+            "sha": "01921582190acf27561d1a33503ce506b866964e",
+            "type": "blob",
+            "size": 609
+          },
+          {
+            "path": "research/open-source-capability-fit/2026-08-20-ext-discovery.request.json",
+            "sha": "2f44c606d53fe4d91f34121e0a3d20e2729c615e",
+            "type": "blob",
+            "size": 2661
+          },
+          {
+            "path": "research/open-source-capability-fit/2026-08-20-findings.md",
+            "sha": "c0984c26264f5e76f21be33ae547713af3bff73a",
+            "type": "blob",
+            "size": 7026
+          },
+          {
+            "path": "research/open-source-capability-fit/2026-08-20-ledger-response.json",
+            "sha": "dc0725f4c07b1caa49c1d4e498d7f537f9b0b851",
+            "type": "blob",
+            "size": 4416692
+          },
+          {
+            "path": "research/open-source-capability-fit/2026-08-20-receipt.json",
+            "sha": "c7e123e66b532d3fd440e5a37332435c4a45a42e",
+            "type": "blob",
+            "size": 1037
+          },
+          {
+            "path": "research/open-source-capability-fit/2026-08-20-report-ir.json",
+            "sha": "22ff05b478d340533277f93db85d5c495df9749b",
+            "type": "blob",
+            "size": 16426
+          },
+          {
+            "path": "research/qm-similar-open-source",
+            "sha": "9b5bf64216ce303428c6e0f1e86ad912f08a365d",
+            "type": "tree"
+          },
+          {
+            "path": "research/qm-similar-open-source/2026-08-20-brief.request.json",
+            "sha": "d69b1121adc80d321f5824b206a0886da4901db3",
+            "type": "blob",
+            "size": 5723
+          },
+          {
+            "path": "research/qm-similar-open-source/2026-08-20-draft.html",
+            "sha": "4a99e63e01e4231133d6c08ddbd429defebf0c55",
+            "type": "blob",
+            "size": 21287
+          },
+          {
+            "path": "research/qm-similar-open-source/2026-08-20-draft.md",
+            "sha": "d7759a4c66e74b7c14564ef6ed07610a6ad55469",
+            "type": "blob",
+            "size": 18730
+          },
+          {
+            "path": "research/qm-similar-open-source/2026-08-20-findings.md",
+            "sha": "ec5aac5df88734271566c58ce7adaeb3238d4645",
+            "type": "blob",
+            "size": 8712
+          },
+          {
+            "path": "research/qm-similar-open-source/2026-08-20-ledger-response.json",
+            "sha": "779e317aae36f07381b4f69e5a8ed12baeac4c11",
+            "type": "blob",
+            "size": 12876281
+          },
+          {
+            "path": "research/qm-similar-open-source/2026-08-20-receipt.json",
+            "sha": "08acb782524ed661e947a3a053149f5ddaf675bf",
+            "type": "blob",
+            "size": 1033
+          },
+          {
+            "path": "research/qm-similar-open-source/2026-08-20-report-ir.json",
+            "sha": "15c66b7664600ae959fe8bef6a9ca1965021e0fc",
+            "type": "blob",
+            "size": 22579
+          },
+          {
+            "path": "research/routa-qm-conformance",
+            "sha": "d077971bc90e356f0a95d3d7944ee7e35826620c",
+            "type": "tree"
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-avernet-work-item-brief.request.json",
+            "sha": "7536ead96fb2c0d4409aaef1a05b882d03994d77",
+            "type": "blob",
+            "size": 1430
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-avernet-work-item-current-brief.request.json",
+            "sha": "9760fbebcb59cd5cbb716bb27c8f8477e3086f00",
+            "type": "blob",
+            "size": 1462
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-avernet-work-item-current-ledger-response.json",
+            "sha": "eb151976bb266a06f1fff2bfd1153259f97daa26",
+            "type": "blob",
+            "size": 2207187
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-avernet-work-item-ledger-response.json",
+            "sha": "566ca795bdc159951a462f717c965d7e39019bde",
+            "type": "blob",
+            "size": 2205555
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-avernet-work-item-noop-current-brief.request.json",
+            "sha": "0f8f38eb0d9c4fed55236649749259a619a60e7b",
+            "type": "blob",
+            "size": 754
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-avernet-work-item-noop-current-ledger-response.json",
+            "sha": "b082800a2bd214944ab82b658d36be3471974d98",
+            "type": "blob",
+            "size": 2205248
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-avernet-work-item-source-brief.request.json",
+            "sha": "0b13f399628fad136f9b4405e0203442abc35fe3",
+            "type": "blob",
+            "size": 1677
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-avernet-work-item-source-ledger-response.json",
+            "sha": "4db5be3e4eaf193b0e882b86db3db49afd5886df",
+            "type": "blob",
+            "size": 2205554
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-black-box-fixture-protocol.md",
+            "sha": "b53d4181b88571f51690ff3dc88c712f5f36c90c",
+            "type": "blob",
+            "size": 3932
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-black-box-fixture-results.md",
+            "sha": "37ca1b47f174e4ff7d3536f18932ef887072c845",
+            "type": "blob",
+            "size": 3952
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-black-box-qm.json",
+            "sha": "35ff073a9386ec0e547e4e9c27a069dbd251d45f",
+            "type": "blob",
+            "size": 55759
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-black-box-routa.json",
+            "sha": "63eba4aabab04cf370fefab7e6db8881cc00bc47",
+            "type": "blob",
+            "size": 122545
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-brief.request.json",
+            "sha": "714a448e9a143c28ec2fbda9e61327e00dec34ba",
+            "type": "blob",
+            "size": 4204
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-conformance-assessment.md",
+            "sha": "5c359fee2c76dfa03e6c9bcac0acc7ee6d16328e",
+            "type": "blob",
+            "size": 11829
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-conformance-fixture-mapping.md",
+            "sha": "6cdf089dcd3ae962c7c47ef4a06a640f782607b1",
+            "type": "blob",
+            "size": 4221
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-draft.html",
+            "sha": "0d79fa4f0235ca8bb762faeb869b3088cbaf4ecd",
+            "type": "blob",
+            "size": 3582612
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-draft.md",
+            "sha": "6ccb8afa12f9812c22bb57eee05f2b5080ebb06e",
+            "type": "blob",
+            "size": 14400
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-round-brief.request.json",
+            "sha": "2420f168367f6f7e6e92c7014c8cf4f8035ea8c8",
+            "type": "blob",
+            "size": 3893
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-round-ledger-response.json",
+            "sha": "7c75179b88310536a0fa8890bf6eacd645f540ed",
+            "type": "blob",
+            "size": 3887421
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-round-prescreen.md",
+            "sha": "7462d0df4c4f4b5eaba49c70ae62aa07c311bedd",
+            "type": "blob",
+            "size": 5853
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-round-results.md",
+            "sha": "b3f43d279c4d7c56707ec0fb3d6793e4d44748b9",
+            "type": "blob",
+            "size": 2981
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-runtime-brief.request.json",
+            "sha": "4525c7af0201c5dddc8dc0754e50c96a56c932cd",
+            "type": "blob",
+            "size": 2974
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-runtime-findings.md",
+            "sha": "037b37f515eef434c8f3168c7042655f9401b464",
+            "type": "blob",
+            "size": 5137
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-runtime-ledger-response.json",
+            "sha": "f60dc07c5196cb545d54e0b090ce85a653f5d07b",
+            "type": "blob",
+            "size": 3111277
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-runtime-paths-brief.request.json",
+            "sha": "7c3d0638667f20d1b2b2d4e76299aa8676f483bf",
+            "type": "blob",
+            "size": 2755
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-runtime-paths-ledger-response.json",
+            "sha": "f5b881de8a68a47c865b59665e0fa22e4026b59f",
+            "type": "blob",
+            "size": 3105945
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-runtime-source-brief.request.json",
+            "sha": "f60e05d74859968ba0c7c74bd187a94f02a0229c",
+            "type": "blob",
+            "size": 2136
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-runtime-source-ledger-response.json",
+            "sha": "5ac81802942cb3e215ae9766173949f2e9e867a7",
+            "type": "blob",
+            "size": 3105029
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-runtime-surface-brief.request.json",
+            "sha": "4d84a85f74d10d5cc8645c244a0fa78383f99656",
+            "type": "blob",
+            "size": 1667
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ext-runtime-surface-ledger-response.json",
+            "sha": "05e878ea3702f9e7b600c0e6ee572e81bbd5fccf",
+            "type": "blob",
+            "size": 3102921
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-findings.md",
+            "sha": "54e5ac6d61a4c3744e924d9e980dab39b7bf380f",
+            "type": "blob",
+            "size": 3625
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-ledger-response.json",
+            "sha": "f37ac993871c1e1b5b05957adf1fca830e35eea7",
+            "type": "blob",
+            "size": 1073587
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-receipt.json",
+            "sha": "2b7a55b113015e2e61de66a61a776f387fff3354",
+            "type": "blob",
+            "size": 1029
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-report-ir.json",
+            "sha": "2809463758277db8362978195ea2cd52df0097d8",
+            "type": "blob",
+            "size": 14960
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-runtime-brief.request.json",
+            "sha": "213ae76299d54fc547b1ca390268032177492b90",
+            "type": "blob",
+            "size": 3810
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-runtime-draft.html",
+            "sha": "5e630182379df1e80a2072c35f317deed4e1b9b4",
+            "type": "blob",
+            "size": 3581444
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-runtime-draft.md",
+            "sha": "78053e72903e5900baf9964147ea7d77a19d9b37",
+            "type": "blob",
+            "size": 13224
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-runtime-findings.md",
+            "sha": "d67463e0ba50ffa11b80d6bc7b62846d5e74f5e8",
+            "type": "blob",
+            "size": 4536
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-runtime-ledger-response.json",
+            "sha": "27b90f9b6e0b706e191a2efc8ec0a3818bde95e1",
+            "type": "blob",
+            "size": 1074854
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-runtime-receipt.json",
+            "sha": "af772a43e90dec5489e802265f3a6bf32a7e5478",
+            "type": "blob",
+            "size": 1046
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-runtime-report-ir.json",
+            "sha": "8abe2bc7edbce3333adcb7bd790a898a5d266bbf",
+            "type": "blob",
+            "size": 13675
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-runtime-rerun.md",
+            "sha": "8111e2e8fc3b93f2d3106d403914c2b82bffb100",
+            "type": "blob",
+            "size": 6853
+          },
+          {
+            "path": "research/routa-qm-conformance/2026-08-20-runtime-source-findings.md",
+            "sha": "d352be2c120643ab0c57ebf06c16d78f5fd7a5ab",
+            "type": "blob",
+            "size": 8820
+          },
+          {
+            "path": "research/routa-qm-conformance/run_c1_c4_black_box.py",
+            "sha": "92d1a60cfb3267cf93e718d8c30b0b6547f76711",
+            "type": "blob",
+            "size": 24683
+          },
+          {
+            "path": "scripts",
+            "sha": "f58598ad8199daed928ed5ff0ff448698b8f1f6d",
+            "type": "tree"
+          },
+          {
+            "path": "scripts/activate_agent.py",
+            "sha": "ace5a17dcf276557367ecdb3ae432a790314c8f2",
+            "type": "blob",
+            "size": 2140
+          },
+          {
+            "path": "scripts/agent_integration_proxy.py",
+            "sha": "e24dd12f4ce1b077fcfd17cc03bc1b29fe38e5d2",
+            "type": "blob",
+            "size": 2328
+          },
+          {
+            "path": "scripts/run_agentrq_adapter_black_box.py",
+            "sha": "3f18ad59dd449eb8f3d9254d8f5771063d00b6ba",
+            "type": "blob",
+            "size": 2501
+          },
+          {
+            "path": "scripts/run_same_device_smoke.py",
+            "sha": "e3fc0089ebe8caf8ab721fcc128e8ee4bd824b95",
+            "type": "blob",
+            "size": 4358
+          },
+          {
+            "path": "skills",
+            "sha": "80fff70dc32f29ddd7e8c38133911ec05f886a07",
+            "type": "tree"
+          },
+          {
+            "path": "skills/zj-opn-activation",
+            "sha": "1bf845197eb60e09baff05a1c1d534ec92ef1cc6",
+            "type": "tree"
+          },
+          {
+            "path": "skills/zj-opn-activation/SKILL.md",
+            "sha": "55761ce86b83e899f1f72fe55234569293588b8a",
+            "type": "blob",
+            "size": 2433
+          },
+          {
+            "path": "skills/zj-opn-activation/references",
+            "sha": "4664cf6381fd3f85929f4ba3a69015fd1b8defdc",
+            "type": "tree"
+          },
+          {
+            "path": "skills/zj-opn-activation/references/activation-state-machine.md",
+            "sha": "e0e62a9a595ef8d66014cf5eb7d0dfbb155f2ece",
+            "type": "blob",
+            "size": 2539
+          },
+          {
+            "path": "tests",
+            "sha": "da87d5c421d66f5e7dd5cb8e88cdc1791fbbded3",
+            "type": "tree"
+          },
+          {
+            "path": "tests/__init__.py",
+            "sha": "646594f84b767670e1f73a83b72fa6dbbe2bcb0f",
+            "type": "blob",
+            "size": 47
+          },
+          {
+            "path": "tests/agentrq_blackbox.py",
+            "sha": "0031baa55023f0dba91f0136765a89b1fd7763ad",
+            "type": "blob",
+            "size": 10967
+          },
+          {
+            "path": "tests/test_activation.py",
+            "sha": "a13e379f0ce21a4946f68bcbdc79d1d4b4d2df2c",
+            "type": "blob",
+            "size": 4144
+          },
+          {
+            "path": "tests/test_activation_runner.py",
+            "sha": "8440f013c28963dc671d58401096a92a967d24ac",
+            "type": "blob",
+            "size": 8700
+          },
+          {
+            "path": "tests/test_agentrq_adapter_blackbox.py",
+            "sha": "3f372070767d4454dbe67484834e7cba306e5e62",
+            "type": "blob",
+            "size": 775
+          },
+          {
+            "path": "tests/test_coordination.py",
+            "sha": "691c6d61f365b9d0b9d0dac27974738a21d07a0f",
+            "type": "blob",
+            "size": 12715
+          },
+          {
+            "path": "tests/test_proxy.py",
+            "sha": "b130f5f87f3d0a71910cfac34d8f258b586a7d59",
+            "type": "blob",
+            "size": 13321
+          },
+          {
+            "path": "zagentic_opn",
+            "sha": "1121247e52d3c5e6de58e29187899a9182036435",
+            "type": "tree"
+          },
+          {
+            "path": "zagentic_opn/__init__.py",
+            "sha": "fbcf31326473da9b0cb9a66ff57e02cfd8a91b93",
+            "type": "blob",
+            "size": 1654
+          },
+          {
+            "path": "zagentic_opn/__main__.py",
+            "sha": "71db71c74fab1e9ecb057748e7468cf5adba1564",
+            "type": "blob",
+            "size": 120
+          },
+          {
+            "path": "zagentic_opn/activation.py",
+            "sha": "c56ddc554bd0f98499d250f40afacfcb6800302a",
+            "type": "blob",
+            "size": 2740
+          },
+          {
+            "path": "zagentic_opn/activation_contract.py",
+            "sha": "9c059c95168653f84563eb75c2d1587b4eb95287",
+            "type": "blob",
+            "size": 5943
+          },
+          {
+            "path": "zagentic_opn/activation_runner.py",
+            "sha": "dea51d0d8ff8ccae584fc0c2ce91de2d19cd0b0b",
+            "type": "blob",
+            "size": 11522
+          },
+          {
+            "path": "zagentic_opn/agentrq_adapter.py",
+            "sha": "9942f5913c4aa5f7dddad9b3be223bd30b37d5b4",
+            "type": "blob",
+            "size": 8486
+          },
+          {
+            "path": "zagentic_opn/cli.py",
+            "sha": "442de1927bd560b1920cb83b7580f0179d52cf5a",
+            "type": "blob",
+            "size": 7523
+          },
+          {
+            "path": "zagentic_opn/coordination.py",
+            "sha": "0424752d2c3b5f2bbfc725060f1f7fd33a67d0de",
+            "type": "blob",
+            "size": 32819
+          },
+          {
+            "path": "zagentic_opn/proxy.py",
+            "sha": "fe9dbb98d3e443dea8db8afaf4819bdc1a42c87f",
+            "type": "blob",
+            "size": 3564
+          },
+          {
+            "path": "zagentic_opn/runtime_config.py",
+            "sha": "ce2e94c02491162d972e6d49a004d87de4867d29",
+            "type": "blob",
+            "size": 12313
+          }
+        ]
+      }
+    ],
+    "candidates": [
+      {
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        },
+        "stars": 0,
+        "topicMatch": 0,
+        "origin": "explicit"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "24c521a1983ee68dafa9544d",
+        "criterionId": "product-scope",
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        },
+        "revision": "2ff40cc052aae12fc7a324f89691e9f194985d24",
+        "path": "README.md",
+        "sourceUrl": "https://github.com/jununfly/ZAgenticOPN/blob/2ff40cc052aae12fc7a324f89691e9f194985d24/README.md",
+        "excerpt": "\nThe project is in **Experience Version**. The C-route implementation is authorized for the same-device, single-project vertical slice; deployment, production operations, and deferred collaboration capabilities remain out of scope.\n\n- [Product Spec](docs/prds/agent-self-service-collaboration.md)\n- [Experience Version Spec](docs/prds/agent-self-service-collaboration-experience-version.md)\n- [Candidate-neutral technical design](docs/designs/agent-self-service-collaboration.md)",
+        "kind": "canonical"
+      },
+      {
+        "id": "0b78ab7e1b5659a7c049d4f6",
+        "criterionId": "lifecycle-gaps",
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        },
+        "revision": "2ff40cc052aae12fc7a324f89691e9f194985d24",
+        "path": "README.md",
+        "sourceUrl": "https://github.com/jununfly/ZAgenticOPN/blob/2ff40cc052aae12fc7a324f89691e9f194985d24/README.md",
+        "excerpt": "\nThe project is in **Experience Version**. The C-route implementation is authorized for the same-device, single-project vertical slice; deployment, production operations, and deferred collaboration capabilities remain out of scope.\n\n- [Product Spec](docs/prds/agent-self-service-collaboration.md)\n- [Experience Version Spec](docs/prds/agent-self-service-collaboration-experience-version.md)\n- [Candidate-neutral technical design](docs/designs/agent-self-service-collaboration.md)",
+        "kind": "canonical"
+      },
+      {
+        "id": "4132ea9292deeab3cf164ca5",
+        "criterionId": "activation",
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        },
+        "revision": "2ff40cc052aae12fc7a324f89691e9f194985d24",
+        "path": "docs/experience-version-coordination.md",
+        "sourceUrl": "https://github.com/jununfly/ZAgenticOPN/blob/2ff40cc052aae12fc7a324f89691e9f194985d24/docs/experience-version-coordination.md",
+        "excerpt": "`python -m zagentic_opn.activation_runner`. It requires `schema_version`,\n`intent_id`, `activation_id`, `scope`, `agent_profile`, and the controlled\n`host_capabilities` list. The request never carries a local database path.\nThe runner returns `claimed`, `no_eligible_work`, `claim_conflict`,\n`unsupported_host`, `invalid_contract`, or `invalid_runtime_config` as a\nstructured receipt; a host handoff failure is reported as",
+        "kind": "canonical"
+      },
+      {
+        "id": "53ce90d514f1eb59d753635b",
+        "criterionId": "coordination",
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        },
+        "revision": "2ff40cc052aae12fc7a324f89691e9f194985d24",
+        "path": "docs/experience-version-coordination.md",
+        "sourceUrl": "https://github.com/jununfly/ZAgenticOPN/blob/2ff40cc052aae12fc7a324f89691e9f194985d24/docs/experience-version-coordination.md",
+        "excerpt": "\n## Human exception: reopen a stale claim\n\nIf an Agent runtime activates the wrong project scope or disappears after a\nclaim, do not fabricate a result and do not edit SQLite directly. Human may\nexplicitly reopen only a `claimed` or `blocked` Work Item:",
+        "kind": "canonical"
+      },
+      {
+        "id": "b006b887f99616e81bf87d09",
+        "criterionId": "state-ownership",
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        },
+        "revision": "2ff40cc052aae12fc7a324f89691e9f194985d24",
+        "path": "docs/experience-version-coordination.md",
+        "sourceUrl": "https://github.com/jununfly/ZAgenticOPN/blob/2ff40cc052aae12fc7a324f89691e9f194985d24/docs/experience-version-coordination.md",
+        "excerpt": "```sh\nDB=.zagenticopn/shared.sqlite3\nSCOPE=zagenticopn/experience-version\n\npython -m zagentic_opn --db \"$DB\" publish \\\n  --scope \"$SCOPE\" \\",
+        "kind": "canonical"
+      },
+      {
+        "id": "ce263a867539ddd51588ed09",
+        "criterionId": "validation",
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        },
+        "revision": "2ff40cc052aae12fc7a324f89691e9f194985d24",
+        "path": "docs/experience-version-coordination.md",
+        "sourceUrl": "https://github.com/jununfly/ZAgenticOPN/blob/2ff40cc052aae12fc7a324f89691e9f194985d24/docs/experience-version-coordination.md",
+        "excerpt": "\nThe first implementation is a small Python module with a SQLite shared context. Agents use the public `CoordinationProtocol` interface directly in-process or through the canonical `python -m zagentic_opn.activation_runner` JSON-Call, while SQLite, event projection, and scorecard formatting remain implementation details.\n\nThe task-agnostic activation alias is resolved by the ZAgenticOPN-owned\n`zj-opn-activation` Skill/host adapter. The runner accepts only the versioned\nintent `zagenticopn.activation.check_shared_context.v1`; it performs one",
+        "kind": "canonical"
+      }
+    ],
+    "unknownCriteria": [
+      {
+        "criterionId": "integration-seam",
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        }
+      },
+      {
+        "criterionId": "security",
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        }
+      }
+    ],
+    "navigation": [
+      {
+        "adapter": "heuristic",
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        },
+        "status": "used"
+      },
+      {
+        "adapter": "heuristic",
+        "repository": {
+          "owner": "jununfly",
+          "name": "ZAgenticOPN"
+        },
+        "status": "used"
+      }
+    ],
+    "collection": {
+      "filesRead": 5,
+      "sourceBytesRead": 26634,
+      "durationMs": 6091,
+      "cacheHit": false
+    }
+  }
+}

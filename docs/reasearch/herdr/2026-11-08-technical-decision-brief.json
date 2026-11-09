@@ -1,0 +1,66 @@
+{
+  "schema": "technical-decision-brief/v1",
+  "user": {
+    "actor": "zj（jununfly/ZOnePersonNetwork 的 owner 与技术架构决策者）",
+    "job": "判断 herdrdev/herdr 能否、以及以何种形态作为 ZOnePersonNetwork 的 coding agent 常驻终端运行时：整体采用为默认运行时、复用单元能力、与轻量协作控制面组合、仅作参考，还是不采用"
+  },
+  "baseline": {
+    "workflow": "ZOnePersonNetwork 仍是一个近似空仓库（README.md + docs/reasearch 三轮调研产物），没有运行中的 Agent 宿主线程、没有共享状态存储、也没有任何自动化代码。前两轮调研分别把 ZAgenticOPN 定位为 owner-only 的 Work Item / claim / review 协作控制面（pin 2ff40cc），把 stablyai/orca 定位为 worktree 隔离、coordinator/worker 拆分与 diff 注解的执行编排工作台（pin 4f06ffd6）。本轮 herdr 落在更下面一层：终端/进程的常驻与可观测。当前跨 Agent 交接靠人工搬运上下文与 ad-hoc 文档，客户端关闭、SSH 断开或机器重启会直接丢掉正在跑的会话，谁卡住需要回答只能逐个终端查看。",
+    "failureModes": [
+      "Agent 会话随客户端 detach、SSH 断连或机器重启中断，恢复时只能重建上下文，缺少 preserved process 与 saved layout 的分离记录",
+      "没有统一的 working / blocked / idle 可观测信号，Human 必须逐个终端巡检才能发现等待审批的 Agent",
+      "把屏幕检测推断出的 idle / done 当成任务完成或控制面的 claim/review 事实，导致未经 Human 确认就推进 Work Item",
+      "若整体采用一个自带 server / session / socket / SSH machine / 平台分支的单二进制运行时，版本偏斜、凭证、恢复与 Windows/Linux/macOS 差异责任会一次性内化",
+      "docs/next 下的 .mdx 是未发布草稿、skills/herdr/SKILL.md 跟随 stable release，若把 master 草稿当稳定契约，adapter 会随 preview CI 静默变化",
+      "上游明确不接受 unsolicited PR，发现缺陷时无法走常规 upstream 修复路径，只能 fork 并自行承担长期维护",
+      "编译器的 canonical 路径过滤使关键 .mdx / SKILL.md / CONTRIBUTING.md 无法成为 sealed evidence，容易把非 sealed 阅读误写成已验证能力"
+    ]
+  },
+  "targetOutcome": "一个可观测、可丢弃的同设备纵向切片：ZOnePersonNetwork 内至少两个 Agent 在隔离 pane 中并行运行，客户端 detach 后进程仍在、blocked 信号能被 Human 显式看到并授权，结果以结构化 provenance 回传；Work Item / claim / review 事实仍由轻量协作控制面持有，屏幕检测状态只作为提示信号而不作为事实。全过程不 fork herdr 源码、不启用 saved SSH machine 或 remote mutation、不引入生产凭证、不把 49,141 stars 当作能力证明。",
+  "goals": [
+    "区分「进程常驻与可观测」的运行时层与「Work Item / claim / review」的协作控制面语义，避免把检测状态升级成声明式事实",
+    "为整体采用、单元能力复用、组合、仅参考、不采用五条路径给出 constraint → evidence → tradeoff → decision",
+    "把 popularity、topic relevance、product fit、semantic match、组合可行性、证据强度、所有权成本分开",
+    "把 v1→v2 采集错配、canonical 路径覆盖限制、docs 三层治理与上游 PR gate 显式记录为可复核的限制",
+    "给出可复现的验证场景、阈值、Human 审批/凭证/隔离/恢复安全门与阶段退出条件"
+  ],
+  "nonGoals": [
+    "不 fork / vendoring herdr 源码，也不把 3,112 blob 级 Rust workspace 纳入 ZOnePersonNetwork",
+    "不批准生产部署、多用户、团队权限、saved SSH machine 或 remote mutation 上线",
+    "不设计 HA / RBAC / SLO / 灾备等后续生命周期能力，也不写 dogfood/release 才需要的版本偏斜承诺",
+    "不因热度高就默认替代 ZAgenticOPN 控制面或 orca 执行编排层，也不在本报告里裁决三层架构的最终选型",
+    "不实现代码、不安装 herdr、不执行任何安装脚本或 SSH 认证动作、不自动 commit 或 push",
+    "不把 sealed 范围外的 .mdx 文档、SKILL.md、CONTRIBUTING.md 内容写成已验证能力",
+    "不把 stars / topicMatch / README 长度 / 文件数量当作能力评分，不把 unknownCriteria 为空当作证据充分"
+  ],
+  "constraints": [
+    {"id": "layer", "statement": "Work Item、claim、review、事件与 provenance 的语义所有权必须留在轻量协作控制面；herdr 只能作为进程/终端运行时层候选，orca 类执行编排层另算一层"},
+    {"id": "runtime-state-semantics", "statement": "working / blocked / idle / done / unknown 是屏幕检测推断的运行时信号（F4、F15），不得当作控制面的声明式任务事实；idle 不证明后台任务完成、unknown 不证明完成"},
+    {"id": "persistence", "statement": "detach 保进程、server restart 只恢复 layout、agent 对话仅在 native session restore 时恢复（F2）；进程持久化不等于事实持久化，控制面事实不得存在 session.json 里"},
+    {"id": "evidence", "statement": "GitHub 能力结论只能引用 commit ee5bfb50 的 v2 sealed Evidence ID（16 条）；非 sealed 一手阅读明确标注，只用于风险与验证门"},
+    {"id": "canonical-coverage", "statement": "docs/next/*.mdx、skills/herdr/SKILL.md、CONTRIBUTING.md 因编译器 canonical 路径过滤无法成为 sealed Evidence，属于覆盖限制而非能力缺失，需单独复核"},
+    {"id": "security", "statement": "agent 可 spawn pane、prompt 其他 agent、等待状态；凭证、审批、危险操作、隔离、provenance 与恢复必须保留 Human 门与 fail-closed 回执，HERDR_ENV / SSH 认证 / setup 默认 No 不得由 agent 代劳"},
+    {"id": "lifecycle", "statement": "按 Experience Version 定深：一个可丢弃纵向切片，不引入生产运维义务或 dogfood/release 的版本偏斜承诺"},
+    {"id": "ownership-cost", "statement": "整体采用意味着继承单二进制内的 server / session / socket / SSH machine、ghostty-vt 与 portable-pty vendor、三平台分支、stable + 每日 preview 双轨发版责任"},
+    {"id": "upstream-governance", "statement": "CONTRIBUTING.md 明确关闭 unsolicited implementation PR；任何缺陷修复或定制不能依赖 upstream 合并，必须按 fork 成本核算并 pin 到 release tag"},
+    {"id": "baseline", "statement": "docs/next 是 committed drafts、preview 由 CI 拥有、versions 才是发布文档（F10）；skills/herdr/SKILL.md 跟随 stable release（F11）；落地前以 release-matched herdr --skill 与 herdr api schema 为契约来源"},
+    {"id": "popularity", "statement": "stars=49141 与 topicMatch=0 是 sealed 原值，不参与能力或成熟度排序"}
+  ],
+  "assumptions": [
+    "ALIGNMENT ITEM：zj 只给了仓库 URL 与输出目录，未给决策问题；本报告沿用前两轮 ZAgenticOPN / orca 的语境，假设其 job 是评估 herdr 作为 ZOnePersonNetwork 的常驻终端运行时层。若真实目标是替换协作控制面或执行编排层，选项排序需重做。",
+    "ALIGNMENT ITEM：假设 ZOnePersonNetwork 仍是单人 owner、同设备、单项目的早期工作区，且没有生产凭证需要托管。",
+    "ALIGNMENT ITEM：假设首个落地是 Experience Version 可丢弃切片，而不是把 herdr 作为长期工作台承诺。",
+    "ALIGNMENT ITEM：假设以 GitHub master 的 sealed commit ee5bfb50 为证据基线；本地不存在 herdr checkout，因此无本地/远端漂移，但存在 stable 与每日 preview 双轨漂移。",
+    "ALIGNMENT ITEM：假设 zj 继续使用 WorkBuddy 与 Codex 一类 CLI agent，并遵循不自动 commit/push、严格 skill 边界的协作约定。",
+    "假设 README / AGENTS.md / Cargo.toml 的声明代表产品意图与仓库级工程约束，而非已验证实现；实现行为与权限边界一律保留为待验证。"
+  ],
+  "stage": "experience-version",
+  "decisionScope": "选择 herdr 在 ZOnePersonNetwork 的采用形态（整体运行时 / 单元能力复用 / 与控制面组合 / 仅参考 / 不采用），并定义与协作控制面、执行编排层的 seam、所有权边界、安全门、验证门与阶段退出条件",
+  "options": [
+    {"id": "whole-product", "name": "整体采用：把 herdr 作为 ZOnePersonNetwork 所有 Agent 的默认常驻运行时与唯一终端入口"},
+    {"id": "unit-capability", "name": "单元能力复用：只吸收 saved layout / 进程常驻分离、证据驱动的 blocked 检测、CLI+socket 的窄动作面、generation-1 端点兼容契约四类设计"},
+    {"id": "hybrid", "name": "组合：herdr 承担进程常驻与可观测，轻量协作控制面继续持有 Work Item / claim / review 事实，中间用 narrow adapter 只传提示信号"},
+    {"id": "reference-only", "name": "仅作设计参考：读其状态/运行时分离与端点契约，不安装、不接入运行时"},
+    {"id": "no-adoption", "name": "不采用：维持人工交接，等状态检测准确率、socket 权限与上游治理风险评估完成后再决定"}
+  ]
+}

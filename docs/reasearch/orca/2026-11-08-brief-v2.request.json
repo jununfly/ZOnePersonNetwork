@@ -1,0 +1,75 @@
+{
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "stablyai/orca as a multi-agent orchestration and execution layer for ZOnePersonNetwork: adoption scope, reusable unit capabilities, semantic fit against a lightweight coordination control plane, ownership cost, and validation gates",
+    "criteria": [
+      {
+        "id": "product-scope",
+        "question": "What is the declared product positioning and execution model?",
+        "critical": true,
+        "keywords": ["The AI Orchestrator for 100x builders", "Run Claude Code, Codex"]
+      },
+      {
+        "id": "orchestration",
+        "question": "How are coordinator agents, worker agents, and isolated worktrees described?",
+        "critical": true,
+        "keywords": ["Hand a big task to one agent", "Quickly split tasks into isolated environments"]
+      },
+      {
+        "id": "agent-compat",
+        "question": "Which agent CLIs are supported and what does terminal-level compatibility imply?",
+        "critical": true,
+        "keywords": ["Works with **any CLI agent**", "if it runs in a terminal", "CodeBuddy"]
+      },
+      {
+        "id": "cli-automation",
+        "question": "What agent-controllable CLI, automation, and scheduling surfaces are declared?",
+        "critical": true,
+        "keywords": ["Anything you can do in Orca", "schedule prompts to run on any repo"]
+      },
+      {
+        "id": "review-provenance",
+        "question": "How are diffs, line annotations, commit/PR drafting, and check feedback connected back to agents?",
+        "critical": true,
+        "keywords": ["Review diffs, leave notes", "Draft commit messages and pull requests"]
+      },
+      {
+        "id": "runtime-ownership",
+        "question": "What remote, SSH, mobile pairing, and always-on execution ownership does adoption inherit?",
+        "critical": true,
+        "keywords": ["Pair a Remote Orca Server", "keep running when your laptop sleeps", "Pair Orca with the mobile app"]
+      },
+      {
+        "id": "install-deployment",
+        "question": "What installation and platform surfaces must be operated?",
+        "critical": true,
+        "keywords": ["Download from onOrca.dev", "brew install --cask", "macOS Apple Silicon"]
+      },
+      {
+        "id": "license-governance",
+        "question": "What license, release cadence, and feature-list governance apply?",
+        "critical": true,
+        "keywords": ["Orca is free and open source under the [MIT License]", "we ship daily", "We ship fast"]
+      },
+      {
+        "id": "engineering-maturity",
+        "question": "What package manager, test runner, and repository-level tooling are declared in the manifest?",
+        "critical": true,
+        "keywords": ["packageManager", "vitest", "test:node"]
+      },
+      {
+        "id": "privacy-security",
+        "question": "What privacy and telemetry posture is declared at the product surface?",
+        "critical": true,
+        "keywords": ["privacy &amp; telemetry docs", "anonymous usage data", "opt out"]
+      }
+    ],
+    "repositories": [
+      {"owner": "stablyai", "name": "orca"}
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {"maxFiles": 60, "maxBytes": 3000000, "deadlineMs": 240000}
+  }
+}

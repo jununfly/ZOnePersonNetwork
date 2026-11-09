@@ -1,0 +1,59 @@
+{
+  "schema": "technical-decision-brief/v1",
+  "user": {
+    "actor": "zj（jununfly/ZOnePersonNetwork 的 owner 与技术架构决策者）",
+    "job": "判断 ZAgenticOPN 能否、以及以何种形态作为 ZOnePersonNetwork 的跨 Agent 协作控制面：整体并入、单元能力复用、仅作设计参考，还是不采用"
+  },
+  "baseline": {
+    "workflow": "ZOnePersonNetwork 当前是一个仅有 README.md 的空仓库（git ls-files 仅 1 个文件）；没有共享 Work Item 状态、claim、review、Git provenance 或 Human 干预记账。跨 Agent 任务交接依赖人工搬运上下文与 ad-hoc 文档，控制面事实与 Git artifact 分离。",
+    "failureModes": [
+      "任务状态与 claim 无法共享，重复执行或并发冲突只能靠人记忆与口头约定",
+      "review 结论需要 Human 在不同 Agent host 之间手工搬运，OPN seam 未覆盖这一段",
+      "结果 provenance 没有强制结构，Git commit / 变更文件 / 测试证据与任务状态脱节",
+      "ZAgenticOPN 远端 main 与本地未推送 checkout 存在 10 个 commit 的基线漂移，采用哪个契约尚未确定"
+    ]
+  },
+  "targetOutcome": "一个可观测、可丢弃的同设备单项目纵向切片：ZOnePersonNetwork 作为消费项目，通过已安装 runtime 与版本匹配的 host 集成完成 publish → activate → claim → publish_result → review → completed 一次闭环；消费项目不 import runtime、不加入 PYTHONPATH、不持有产品 SQLite，且一次激活恰好一次 discover、至多一次 claim。",
+  "goals": [
+    "固定采用基线（commit / release）并让能力结论可复核",
+    "区分 whole-product adoption 与 unit-capability reuse，明确集成 seam 与所有权归属",
+    "为每条重要结论给出可复现验证场景、观测值、阈值与阶段退出条件",
+    "把 unknown 与 absent 分开，不把未采集到的证据写成能力缺失",
+    "给出 owner-only private dogfood 边界内的分阶段落地路径与回退路径"
+  ],
+  "nonGoals": [
+    "不把 ZAgenticOPN 源码合并、vendoring 或复制进 ZOnePersonNetwork",
+    "不批准公开发布、多用户、跨设备共享状态或多项目协调",
+    "不设计 HA / RBAC / SLO / 生产凭证 / 灾备等后续生命周期能力",
+    "不复活 ZAgenticLoop，也不把它当作默认复用来源",
+    "不实现代码、不安装到 zj 本机、不自动 commit 或 push",
+    "不把 stars / topicMatch / README 长度当作能力评分",
+    "不以本地未推送 checkout 的文件内容替代 GitHub sealed evidence 作能力断言"
+  ],
+  "constraints": [
+    {"id": "lifecycle", "statement": "ZAgenticOPN 已声明 Experience Version；报告深度必须与同设备、单项目、多 Agent、owner-only private dogfood 的切片相称"},
+    {"id": "ownership", "statement": "共享 Work Item 事实、claim、review、事件与产品 SQLite 的所有权必须留在 ZAgenticOPN；ZOnePersonNetwork 只保留任务工作区与 Git artifact"},
+    {"id": "decoupling", "statement": "消费项目不得 import ZAgenticOPN checkout、不得加入 PYTHONPATH、不得存放产品 SQLite 数据库"},
+    {"id": "activation", "statement": "一次激活只允许一次 discover、至多一次 claim；禁止轮询、自动重试、猜测 Work Item id 或跨 scope 搜索"},
+    {"id": "scope", "statement": "scope 必须显式给出或来自用户级 workspace binding，不得从 cwd、Git remote、项目文件推断"},
+    {"id": "evidence", "statement": "GitHub 能力结论只能引用 commit-pinned sealed ledger 的 Evidence ID；本地 checkout 观察必须显式标注为非 sealed"},
+    {"id": "security", "statement": "涉及安装、卸载、版本切换与危险操作的动作必须保留 Human 确认与 fail-closed 回执；sealed 证据未覆盖的部分不得默认视为已实现"},
+    {"id": "baseline", "statement": "采用前必须由 zj 固定基线：远端 main 2ff40cc 与本地 6e473da（ahead 10、未推送）二选一并对齐"}
+  ],
+  "assumptions": [
+    "ALIGNMENT ITEM：zj 只给出仓库 URL 与输出目录，未给决策问题；本报告假设其 job 是评估 ZAgenticOPN 在 ZOnePersonNetwork 中的采用形态与集成 seam。若真实目标不同，选项排序需重做。",
+    "ALIGNMENT ITEM：假设 ZOnePersonNetwork 需要的是一个人使用、多 Agent 协作的控制面，而非团队/多用户平台。",
+    "ALIGNMENT ITEM：假设首个落地是 Experience Version 的可丢弃纵向切片，而不是 dogfood/release 承诺。",
+    "ALIGNMENT ITEM：假设 sealed ledger 以 GitHub main 为准；本地未推送的 10 个 commit 只作为基线漂移风险，不作为能力证据。",
+    "ALIGNMENT ITEM：假设 zj 继续使用 WorkBuddy 与 Codex 作为 host，且遵循不自动 commit/push 的协作约定。",
+    "候选仓库的 stars 与 topicMatch 由 sealed ledger 固定，不代表项目质量或采用优先级。"
+  ],
+  "stage": "experience-version",
+  "decisionScope": "选择 ZAgenticOPN 在 ZOnePersonNetwork 的采用形态（整体并入 / 单元能力复用 / 仅参考 / 不采用），并定义集成 seam、所有权边界、验证门与阶段退出条件",
+  "options": [
+    {"id": "whole-product", "name": "整体采用：把 ZAgenticOPN 控制面并入 ZOnePersonNetwork 或使其成为项目内依赖"},
+    {"id": "unit-capability", "name": "单元能力复用：以 narrow host adapter 接入已安装 runtime 的 activation/claim/handoff/review seam"},
+    {"id": "reference-only", "name": "仅作设计参考：吸收契约/状态机/scorecard 方法，不接入运行时"},
+    {"id": "no-adoption", "name": "不采用：维持人工交接，等基线统一与价值门闭合后再评估"}
+  ]
+}

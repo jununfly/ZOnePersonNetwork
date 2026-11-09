@@ -1,0 +1,75 @@
+{
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "stablyai/orca as a multi-agent orchestration and execution layer for ZOnePersonNetwork: adoption scope, reusable unit capabilities, semantic fit against a lightweight coordination control plane, ownership cost, and validation gates",
+    "criteria": [
+      {
+        "id": "product-scope",
+        "question": "What is the declared product positioning, supported surfaces, and execution model?",
+        "critical": true,
+        "keywords": ["README.md", "AI Orchestrator", "parallel", "worktree", "own subscription", "desktop", "mobile", "remote"]
+      },
+      {
+        "id": "orchestration",
+        "question": "How are coordinator agents, worker agents, parallel worktrees, and task splitting modelled?",
+        "critical": true,
+        "keywords": ["orchestration", "coordinator", "worker agents", "worktree", "split", "workspaces"]
+      },
+      {
+        "id": "agent-compat",
+        "question": "Which agent CLIs are supported and what does provider-neutral integration imply for a WorkBuddy or Codex based workflow?",
+        "critical": true,
+        "keywords": ["Supported Agents", "any CLI agent", "Claude Code", "Codex", "CodeBuddy", "terminal"]
+      },
+      {
+        "id": "cli-automation",
+        "question": "What agent-controllable CLI, automation, scheduling, and computer-use surfaces exist?",
+        "critical": true,
+        "keywords": ["orca CLI", "automations", "computer use", "schedule prompts", "out/cli/index.js", "bin"]
+      },
+      {
+        "id": "security-trust",
+        "question": "Which trust boundaries, credential, injection, and unauthenticated-service risks does the project itself declare?",
+        "critical": true,
+        "keywords": ["SECURITY.md", "IPC", "RPC trust boundaries", "credentials", "command or path injection", "unauthenticated access"]
+      },
+      {
+        "id": "engineering-maturity",
+        "question": "What runtime versions, test tooling, cross-platform obligations, and quality gates does the repository declare?",
+        "critical": true,
+        "keywords": ["CONTRIBUTING.md", "package.json", "Node 24", "pnpm", "Vitest", "cross-platform", "ratchet"]
+      },
+      {
+        "id": "runtime-ownership",
+        "question": "What remote, SSH, daemon, cloud relay, mobile pairing, and telemetry ownership does adoption inherit?",
+        "critical": true,
+        "keywords": ["remote", "SSH", "daemon", "relay", "mobile app", "pairing", "telemetry", "privacy"]
+      },
+      {
+        "id": "review-provenance",
+        "question": "How are diffs, line annotations, commit/PR drafting, and failing checks connected back to agents?",
+        "critical": true,
+        "keywords": ["Review AI Output", "annotate", "diff", "commit", "pull request", "Git Integration", "failing checks"]
+      },
+      {
+        "id": "license-governance",
+        "question": "What license, release cadence, supported-version policy, and disclosure process apply?",
+        "critical": true,
+        "keywords": ["MIT License", "LICENSE", "Supported Versions", "daily ships", "Disclosure", "version"]
+      },
+      {
+        "id": "limits-gaps",
+        "question": "What is explicitly out of scope, third-party dependent, or deferred?",
+        "critical": true,
+        "keywords": ["Out of scope", "third-party agent CLIs", "upstream dependencies", "opt out", "telemetry", "deferred"]
+      }
+    ],
+    "repositories": [
+      {"owner": "stablyai", "name": "orca"}
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {"maxFiles": 60, "maxBytes": 3000000, "deadlineMs": 240000}
+  }
+}
