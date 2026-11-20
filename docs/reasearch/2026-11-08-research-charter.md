@@ -1,3 +1,9 @@
+---
+doc-kind: design
+authority: supporting
+authority-id: opn.research-charter
+---
+
 # 调研章程：个人即协同网络（2026-11-08）
 
 > 本文件是**跨主题对齐修正与调研框架**，不是产品方案、技术方案，也不是编译器产出的决策报告。

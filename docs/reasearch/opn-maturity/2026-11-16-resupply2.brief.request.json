@@ -1,0 +1,64 @@
+{
+  "_note_zh": "补采第二轮（2026-11-16）：专攻第一轮 5 个 unknown 中的 4 格 — herdr-M5 / loop-now-M5 / orca-M6 / orca-M12(替换弱证据)。每个 criterion 只放单仓库专属短语，且为正文长句（非路径子串），避免 excerpt 被 README hero 段抢先命中。采集前须过 precheck 碰撞=0。orca SHA 仍为采集时 HEAD，会漂移。",
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "Targeted second-pass sealed collection for four previously-unknown repository/module cells: herdr M5 git-worktree isolation (AGENTS.md methodology), loop-now M5 task workspace clone isolation (concepts.md), orca M6 performance/telemetry observability, orca M12 deployment architecture beyond the README hero paragraph.",
+    "criteria": [
+      {
+        "id": "cell-herdr-m5-worktree",
+        "question": "herdr: is task work with git worktree isolation documented (dedicated worktree per task, no nested worktrees, edits/tests inside worktree)? — M5",
+        "critical": true,
+        "keywords": [
+          "If the current session is already inside an isolated task worktree",
+          "Do all code edits, tests, and validation inside the task worktree",
+          "Small changes or small tasks are fine in the default main worktree",
+          "use a dedicated worktree instead",
+          "Do not create nested worktrees"
+        ]
+      },
+      {
+        "id": "cell-loopnow-m5-clone",
+        "question": "loop-now: does each task use a separate cloned workspace (APFS clone copy) that the agent reuses? — M5",
+        "critical": true,
+        "keywords": [
+          "clones the agent folder (APFS clone copy on macOS)",
+          "Tasks** use separate copies",
+          "fixes the workflow, configuration, permis",
+          "Each participant works in its task context"
+        ]
+      },
+      {
+        "id": "cell-orca-m6-observability",
+        "question": "orca: is there observability/material on performance, telemetry, or status signals (not the README hero paragraph)? — M6",
+        "critical": true,
+        "keywords": [
+          "render performance",
+          "frame timing",
+          "performance contracts",
+          "telemetry milestone",
+          "p95 render latency",
+          "performance budget regression"
+        ]
+      },
+      {
+        "id": "cell-orca-m12-deploy",
+        "question": "orca: deployment/architecture substrate documented beyond the hero paragraph (cloud VM, SSH remote server, laptop)? — M12",
+        "critical": true,
+        "keywords": [
+          "give a worktree its own cloud VM",
+          "Pair a Remote Orca Server, work on any SSH host",
+          "Your agents keep running when your laptop sleeps"
+        ]
+      }
+    ],
+    "repositories": [
+      {"owner": "herdrdev", "name": "herdr"},
+      {"owner": "AI-for-anyone", "name": "loop-now"},
+      {"owner": "stablyai", "name": "orca"}
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {"maxFiles": 120, "maxBytes": 8000000, "deadlineMs": 600000}
+  }
+}

@@ -1,0 +1,90 @@
+{
+  "schema": "zj-research-collection-status/v1",
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "state": "fresh-collection",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "Third-pass targeted sealed collection using path-navigation keywords to force non-README canonical files: herdr AGENTS.md worktree isolation (M5), loop-now docs/guide/concepts.md task workspace clone (M5), orca docs/readme/terminal-perf.md performance observability (M6).",
+    "criteria": [
+      {
+        "id": "nav-herdr-m5",
+        "question": "herdr AGENTS.md: git worktree isolation methodology for tasks — M5",
+        "critical": true,
+        "keywords": [
+          "AGENTS.md",
+          "dedicated worktree",
+          "nested worktrees",
+          "task worktree"
+        ]
+      },
+      {
+        "id": "nav-loopnow-m5",
+        "question": "loop-now concepts.md: task workspace clone isolation — M5",
+        "critical": true,
+        "keywords": [
+          "guide/concepts.md",
+          "clones the agent folder",
+          "APFS clone copy",
+          "separate copies"
+        ]
+      },
+      {
+        "id": "nav-orca-m6",
+        "question": "orca terminal-perf doc: performance/observability telemetry — M6",
+        "critical": true,
+        "keywords": [
+          "terminal-perf.md",
+          "render",
+          "latency",
+          "frame",
+          "performance"
+        ]
+      }
+    ],
+    "repositories": [
+      {
+        "owner": "herdrdev",
+        "name": "herdr"
+      },
+      {
+        "owner": "AI-for-anyone",
+        "name": "loop-now"
+      },
+      {
+        "owner": "stablyai",
+        "name": "orca"
+      }
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {
+      "maxFiles": 120,
+      "maxBytes": 8000000,
+      "deadlineMs": 600000
+    }
+  },
+  "briefFingerprint": "8eaf4eb5d42c32df0da06e10a341b6358cbefd6bc00bd37de8f3714252f82c26",
+  "preflight": {
+    "schema": "zj-research-github-preflight/v1",
+    "provider": "github",
+    "authentication": {
+      "mode": "authenticated",
+      "tokenConfigured": true
+    },
+    "rateLimit": {
+      "resource": "core",
+      "limit": 5000,
+      "remaining": 4880,
+      "resetAt": "2026-11-16T10:31:34Z"
+    },
+    "canCollect": true
+  },
+  "ledger": {
+    "relationship": "fresh-collection",
+    "source": null
+  },
+  "fallback": {
+    "automatic": false,
+    "oldLedgerUsed": false
+  }
+}

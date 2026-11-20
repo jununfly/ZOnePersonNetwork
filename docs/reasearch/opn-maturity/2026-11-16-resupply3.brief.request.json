@@ -1,0 +1,65 @@
+{
+  "_note_zh": "补采第三轮（2026-11-16）：用「路径导航 keyword」强制 locate 选中非 README 文档（编译器 locate 只认路径子串 hint，否则 fallback README）。每个 criterion 的路径 keyword 经 tree 验证只命中目标文档；正文短语负责 excerpt 定位。这是针对 herdr-M5 / loop-now-M5 / orca-M6 三格的最后一轮 sealed 尝试，失败则按 charter 第8节降级非 sealed primary-source reading。",
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "Third-pass targeted sealed collection using path-navigation keywords to force non-README canonical files: herdr AGENTS.md worktree isolation (M5), loop-now docs/guide/concepts.md task workspace clone (M5), orca docs/readme/terminal-perf.md performance observability (M6).",
+    "criteria": [
+      {
+        "id": "nav-herdr-m5",
+        "question": "herdr AGENTS.md: git worktree isolation methodology for tasks — M5",
+        "critical": true,
+        "keywords": [
+          "AGENTS.md",
+          "dedicated worktree",
+          "nested worktrees",
+          "task worktree"
+        ]
+      },
+      {
+        "id": "nav-loopnow-m5",
+        "question": "loop-now concepts.md: task workspace clone isolation — M5",
+        "critical": true,
+        "keywords": [
+          "guide/concepts.md",
+          "clones the agent folder",
+          "APFS clone copy",
+          "separate copies"
+        ]
+      },
+      {
+        "id": "nav-orca-m6",
+        "question": "orca terminal-perf doc: performance/observability telemetry — M6",
+        "critical": true,
+        "keywords": [
+          "terminal-perf.md",
+          "render",
+          "latency",
+          "frame",
+          "performance"
+        ]
+      }
+    ],
+    "repositories": [
+      {
+        "owner": "herdrdev",
+        "name": "herdr"
+      },
+      {
+        "owner": "AI-for-anyone",
+        "name": "loop-now"
+      },
+      {
+        "owner": "stablyai",
+        "name": "orca"
+      }
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {
+      "maxFiles": 120,
+      "maxBytes": 8000000,
+      "deadlineMs": 600000
+    }
+  }
+}

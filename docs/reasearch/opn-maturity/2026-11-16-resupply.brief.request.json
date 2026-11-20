@@ -1,0 +1,62 @@
+{
+  "_note_zh": "R3 补采 brief（2026-11-16，替代路径 A）：M5 执行与工作区隔离 / M6 可观测与回放 / M12 技术设计与部署 的 sealed 能力证据。三仓库均重 pin 到当前默认分支 HEAD（编译器只钉 HEAD，历史 SHA 无法采集，见 2026-11-16-sealed-resupply-blocked.md）。keywords 为从目标仓库文档正文验证过的判别性长短语，采集前须过 precheck 碰撞=0。",
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "Reveal sealed capability evidence for three product modules of a single-user agent collaboration network: M5 execution & workspace isolation (git worktree per task, isolated agent workspace), M6 observability & replay (audit/run logs, events, scorecard, task node inspection), M12 technical design & deployment (architecture substrate, SQLite/persistence layout, local/container deployment). Problem-discovery stage; no adoption ranking.",
+    "criteria": [
+      {
+        "id": "mod-m5-workspace-isolation",
+        "question": "M5: does the project isolate each task/agent in its own git worktree or cloned workspace, keeping parallel work from interfering?",
+        "critical": true,
+        "keywords": [
+          "each in its own worktree",
+          "Quickly split tasks into isolated environments",
+          "the platform clones the agent folder",
+          "APFS clone copy on macOS",
+          "task worktrees: `../herdr-worktrees/<task-slug>`",
+          "Do all code edits, tests, and validation inside the task worktree",
+          "Don't assume every workspace is a git worktree",
+          "starts worker agents in their own workspaces"
+        ]
+      },
+      {
+        "id": "mod-m6-observability-replay",
+        "question": "M6: does the project expose observability or replay — audit/run logs, persisted events, task-node inspection, health/status signals?",
+        "critical": true,
+        "keywords": [
+          "run and audit logs live in a second file",
+          "automatic replay of in-flight work",
+          "Every observation event in the catalog",
+          "Follow task nodes, conditional branches, bounded review loops",
+          "State is separated from runtime",
+          "Shared runtime/session fact: belongs in server state",
+          "exposed through the JSON API/event path"
+        ]
+      },
+      {
+        "id": "mod-m12-tech-design-deploy",
+        "question": "M12: does the project document its technical architecture substrate and deployment model (persistence layout, local/container/cloud deployment, platform abstraction)?",
+        "critical": true,
+        "keywords": [
+          "SQLite** in the data directory stores platform state",
+          "The local filesystem holds agent workspaces",
+          "no parallel joins, multi-replica deployment, or elastic scaling",
+          "The `loopdata` named volume stores the database",
+          "Containers do not automatically see host directories",
+          "Platform code is isolated",
+          "on your laptop or in the cloud",
+          "give a worktree its own cloud VM"
+        ]
+      }
+    ],
+    "repositories": [
+      {"owner": "stablyai", "name": "orca"},
+      {"owner": "AI-for-anyone", "name": "loop-now"},
+      {"owner": "herdrdev", "name": "herdr"}
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {"maxFiles": 120, "maxBytes": 8000000, "deadlineMs": 600000}
+  }
+}

@@ -1,3 +1,9 @@
+---
+doc-kind: reference
+authority: supporting
+authority-id: opn.module-matrix
+---
+
 # 横向模块矩阵：个人即协同网络的候选项目（2026-11-08）
 
 > 本文件是本轮调研的**统一 SoT**。它不是产品方案、技术方案，也不是编译器产出的决策报告；最终报告由 `zj-tech-research-report` 编译器产出，本矩阵作为 brief criteria 与 Report IR `comparisons` / `metrics` 的输入。

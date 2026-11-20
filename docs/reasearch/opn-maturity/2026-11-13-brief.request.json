@@ -1,0 +1,108 @@
+{
+  "_draft_note_zh": "成熟度证据补采 brief 草案（2026-11-13），未提交采集。口径面向「已成形可用→摄取 / 不成熟→待 PoC」分池，不补能力声明。每个 criterion 的中文目的见同目录 2026-11-13-brief.criteria.md。keywords 一律为判别性长短语（正文匹配词），采集前须通过 2026-11-13-precheck.py 的 keyword×tree 碰撞预检。",
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "brief": {
+    "schema": "zj-research-brief/v1",
+    "topic": "Maturity evidence (not capability claims) for splitting OPN-like projects into 'formed & actually usable -> ingest' vs 'immature / in-design -> PoC backlog': is there an installable/runnable implementation, a reviewable behavior contract or test gate, release & version-skew handling, upstream governance & license (modifiable vs fork-only), and contract fixtures? Problem-discovery stage; no adoption ranking, no solution design, no capability scoring.",
+    "criteria": [
+      {
+        "id": "mat-installable-runnable",
+        "question": "Is there an installable / runnable implementation rather than a README-only declaration (install command, build-from-source, runtime requirement, published binary or package)?",
+        "critical": true,
+        "keywords": [
+          "install it globally with npm install -g",
+          "to build from source, run",
+          "requires Node.js 20 or Python 3.11 or newer",
+          "prebuilt binaries are published for macOS and Linux",
+          "start the server with docker compose up",
+          "a single compiled binary with no runtime dependencies",
+          "published to the npm registry / PyPI"
+        ]
+      },
+      {
+        "id": "mat-behavior-contract-testgate",
+        "question": "Is there a reviewable behavior contract or test gate (CI, test command, assertions, merge gate, contract or snapshot tests)?",
+        "critical": true,
+        "keywords": [
+          "run the full test suite with",
+          "all tests must pass before a pull request can be merged",
+          "continuous integration runs on every push",
+          "contract tests assert the request and response shape",
+          "coverage must not fall below",
+          "the state machine transitions are verified by",
+          "snapshot / golden-file comparison is committed"
+        ]
+      },
+      {
+        "id": "mat-release-version-skew",
+        "question": "Are there tagged releases, a changelog, semantic versioning, migration / breaking-change notes and explicit version-skew handling between components?",
+        "critical": true,
+        "keywords": [
+          "released under semantic versioning",
+          "see the changelog for breaking changes",
+          "this version requires a migration from",
+          "the server and client must be on the same minor version",
+          "pinned to a specific commit in the manifest",
+          "a deprecation policy for the public API",
+          "tagged releases are published on a fixed cadence"
+        ]
+      },
+      {
+        "id": "mat-license-forkability",
+        "question": "What is the license and upstream governance: can it be modified and contributed to, or is fork-only / docs-only / archived the only option?",
+        "critical": true,
+        "keywords": [
+          "licensed under the Apache License, Version 2.0",
+          "released under the MIT License",
+          "we do not accept code contributions, only documentation",
+          "all contributors must sign a Contributor License Agreement",
+          "pull requests are reviewed and merged by the maintainers",
+          "fork the repository to customize it for your own deployment",
+          "the project is archived and no longer maintained"
+        ]
+      },
+      {
+        "id": "mat-contract-fixtures",
+        "question": "Do contract fixtures exist (golden / snapshot / testdata / black-box contract examples) that pin expected behavior?",
+        "critical": true,
+        "keywords": [
+          "golden files are stored alongside the tests",
+          "black-box contract fixtures define the expected behavior",
+          "the testdata directory contains reproducible inputs and outputs",
+          "snapshot tests are committed to the repository",
+          "a minimal reproducible example is provided",
+          "the fixture pins the wire format"
+        ]
+      },
+      {
+        "id": "mat-impl-beyond-readme",
+        "question": "Is there implementation-layer documentation beyond the root README (design spec, ADR, state-machine / protocol / schema / persistence specification)?",
+        "critical": true,
+        "keywords": [
+          "as specified in the design document",
+          "the architecture decision record describes",
+          "the state machine transitions are defined as",
+          "the wire protocol is specified in",
+          "the schema is enforced at runtime",
+          "the persistence substrate is",
+          "see the dedicated specification page for"
+        ]
+      }
+    ],
+    "repositories": [
+      {"owner": "yc-software", "name": "qm", "pin": "605c259b"},
+      {"owner": "makifbaysal", "name": "tasktrooper", "pin": "ae5fb965"},
+      {"owner": "JF3Env", "name": "opencode-coordination", "pin": "2c9dd06f"},
+      {"owner": "alamops", "name": "agetor", "pin": "897b70af"},
+      {"owner": "lanes-sh", "name": "app", "pin": "7b9cb385"},
+      {"owner": "usemozzie", "name": "mozzie", "pin": "80f35156"},
+      {"owner": "songs-aaa", "name": "shared-memory-vault", "pin": "59f0b121"},
+      {"owner": "themanojdesai", "name": "python-a2a", "pin": "40b969a4"},
+      {"owner": "standardagents", "name": "dmux", "pin": "8cb3d926"},
+      {"owner": "jununfly", "name": "ZAgenticOPN", "pin": "2ff40cc0"}
+    ],
+    "policyVersion": "public-github/v1",
+    "budget": {"maxFiles": 120, "maxBytes": 8000000, "deadlineMs": 600000}
+  }
+}
