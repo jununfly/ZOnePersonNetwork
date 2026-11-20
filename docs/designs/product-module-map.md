@@ -73,7 +73,7 @@ authority-id: opn.product-module-map
 |---|---|---|
 | M1 Work Item 生命周期 | ② 状态机自研 + ① ledger 机械 | Q9 Work Item 一等公民 → 状态机必须自研；ledger 机械可复制 [证据] |
 | M2 身份与 scope | ② 契约重写 | matrix §5 必须自研，qm≠ZAgenticOPN 不可互推 [证据] |
-| M3 审批与 Human 门 | ② 契约重写 + 需 zj 裁决模型 | matrix §6 四表达冲突，未裁决 [证据] |
+| M3 审批与 Human 门 | ② 契约重写（准入+准出双门，其余可配置） | zj 2026-11-20 裁决 → 功能设计权威页 `designs/human-gate-model.md`（`opn.human-gate-model`）；原分歧见 matrix §6 [证据/裁决] |
 | M4 结果与 provenance | ① ledger 复制 + ② provenance 语义 | matrix §5 append-only ledger 是明确契约 [证据] |
 | M5 执行与工作区隔离 | ① 复制 | matrix §5 native；实现源闸门全过 [证据]，但 sealed 功能证据在另一批 commit [⚠] |
 | M6 可观测与回放 | ① 复制 + 适配 | matrix §5 adapted [证据]，实现源同 M5 [⚠] |
@@ -164,7 +164,7 @@ authority-id: opn.product-module-map
 
 **切片目标**：让「一个人类用户 + 多 Agent」跑通一条 Work Item：`创建 → claim → 执行(worktree) → 结果+provenance → Human 门 → 完成`。
 
-**该切片需要的模块**：M1(②)、M2(②)、M3(② 先选一种 Human 模型)、M4(① ledger + ② prov)、M5(①)、M10(①)、M11(①)。
+**该切片需要的模块**：M1(②)、M2(②)、M3(② 契约重写：准入+准出双门，其余可配置——见 `designs/human-gate-model.md`)、M4(① ledger + ② prov)、M5(①)、M10(①)、M11(①)。
 
 **自建模块数（Q8 硬门）**：L1 语义自研单元 = M1 状态机、M2 身份/scope、M3 Human 门、M4 provenance、M8 边界 ≈ **4–5 个**。建议 **N=5**（最小切片内自建 ≤5），其余走 ① 复制。
 
@@ -178,7 +178,7 @@ authority-id: opn.product-module-map
 
 ## 5. 待 zj 裁决 / 待验证
 
-1. **Human 门四种模型（M3）**：tasktrooper 全自动 / ZAgenticOPN 例外处理 / qm 三姿态 / mozzie review——须在 Coding 前定一种（matrix §6 明示不裁决）。这是 L1 自研语义的第一个硬决策。
+1. **Human 门模型（M3）—— 已定型，不再是待办**：zj 2026-11-20 拍板采用 multica 模型，默认**准入 + 准出**两道强制 Human 门，其他时机通过配置增删；功能设计权威页为 `docs/designs/human-gate-model.md`（`opn.human-gate-model`, authority: primary），Coding Agent 以此为唯一契约输入。原四种分歧（tasktrooper / ZAgenticOPN / qm / mozzie）及后补的 multica / orca 见该页背景段；M3 走 ② 自研契约，不摄 multica 代码。~~须在 Coding 前定一种~~ 已闭合。
 2. **multica license 复核**：Apache+附加条件，① 前需你确认附加条件。
 3. **L1 语义 fixture 验证**：matrix §5/§9 标注「复用边界是分析层推断，待 fixture 验证」。M2/M3/M8 边界建议先写黑盒契约 fixture 再定 ①/②。
 4. **ZAgenticOPN 迁入补 license**：自有仓库无牌，迁入 ZOnePersonNetwork 后补一份 license 声明（避免新仓库代码成无牌状态）。
