@@ -23,10 +23,13 @@ for de in b["difference-entries"]:
 def cell(v):
     return {"native": "●", "adapted": "◐", "unsupported": "✕", "unknown": "·"}.get(v, "?")
 
+RAT = b["scene-set"].get("ratification", {})
+
 out = []
-out.append("# 个人即协同网络 · 多项目场景锚定横比报告（过程材料 / PROVISIONAL）\n")
-out.append("> 仪器：`zj-graphical-cross-comparison`。本报告由机械闸门 CHK-01..10 全过（0 ERROR / 0 WARN）后签发，"
-           "但**固定场景集为 zj 草稿、待 ratify**，故在 zj 一句话认可前仅为过程材料，不是已签发横比报告。\n")
+out.append("# 个人即协同网络 · 多项目场景锚定横比报告（已签发 / RATIFIED）\n")
+out.append("> 仪器：`zj-graphical-cross-comparison`。本报告由机械闸门 CHK-01..12 全过（0 ERROR / 0 WARN），"
+           "且固定场景集 `SCENE-SET::zopn-v1` 已由 zj 于 2026-11-20 ratify（见第 2 节签发留痕），"
+           "现为已签发横比报告。\n")
 out.append("> **范围声明**：本仪器只产出「场景×项目」差异条目。\"以 orca 启动本项目\"的采用/启动裁决属母模型 "
            "`zj-open-source-capability-fit`，不在本报告内（见第 7 节回灌素材）。\n")
 
@@ -43,10 +46,13 @@ for c in b["scene-set"]["context-entries"]:
     out.append(f"- **{c['id']}**（{c['kind']}）：{c['statement']}")
 
 # 2. 场景集
-out.append("\n## 2. 固定场景集（PROVISIONAL，待 zj ratify）\n")
+out.append("\n## 2. 固定场景集（RATIFIED，zj 2026-11-20）\n")
 out.append(f"- id：`{b['scene-set']['id']}`，version-pin：`{b['scene-set']['version-pin']}`")
 out.append(f"- source：`{b['scene-set']['source']}`")
-out.append(f"- derived-from-graphs：`{b['scene-set']['derived-from-graphs']}`（外部尺子，不来自任何项目图）\n")
+out.append(f"- derived-from-graphs：`{b['scene-set']['derived-from-graphs']}`（外部尺子，不来自任何项目图）")
+out.append(f"- 签发留痕：status=`{RAT.get('status')}`，ratified-by=`{RAT.get('ratified-by')}`，"
+           f"ratified-on=`{RAT.get('ratified-on')}`，trigger={RAT.get('trigger')}")
+out.append(f"- 签发范围：{RAT.get('scope')}\n")
 out.append("| 场景 | 起点 → 终点 → 可观察结果 |")
 out.append("|---|---|")
 for s in b["scene-set"]["scenes"]:
@@ -114,7 +120,8 @@ out.append("- 第三方 Agent 可凭 `bundle.json` 的 `difference-entries` 逐�
            "`evidence-refs`（native）或 `verification-plan`（unknown）。")
 out.append("- 来源三类区分：**evidence**=原生绑定 sealed Evidence ID；**human-ruling**=场景集与场景映射由 zj 给定；"
            "**assumption**=第 7 节回灌素材为分析层推断。")
-out.append("- ⚠️ **签发前阻塞项**：固定场景集（`SCENE-SET::zopn-v1`）为 zj 草稿，需 zj 一句话 ratify 后方从\"过程材料\"升为\"已签发横比报告\"。")
+out.append("- ✅ **签发状态**：固定场景集（`SCENE-SET::zopn-v1`）已由 zj 2026-11-20 ratify，报告已由\"过程材料\"升为\"已签发横比报告\"；"
+           "ratify 仅限场景集本身，差异条目裁决 / 证据绑定 / 摘要指标均未改动。")
 
 with open(os.path.join(HERE, "REPORT.md"), "w", encoding="utf-8") as f:
     f.write("\n".join(out) + "\n")

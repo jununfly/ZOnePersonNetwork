@@ -1,6 +1,6 @@
-# 个人即协同网络 · 多项目场景锚定横比报告（过程材料 / PROVISIONAL）
+# 个人即协同网络 · 多项目场景锚定横比报告（已签发 / RATIFIED）
 
-> 仪器：`zj-graphical-cross-comparison`。本报告由机械闸门 CHK-01..10 全过（0 ERROR / 0 WARN）后签发，但**固定场景集为 zj 草稿、待 ratify**，故在 zj 一句话认可前仅为过程材料，不是已签发横比报告。
+> 仪器：`zj-graphical-cross-comparison`。本报告由机械闸门 CHK-01..12 全过（0 ERROR / 0 WARN），且固定场景集 `SCENE-SET::zopn-v1` 已由 zj 于 2026-11-20 ratify（见第 2 节签发留痕），现为已签发横比报告。
 
 > **范围声明**：本仪器只产出「场景×项目」差异条目。"以 orca 启动本项目"的采用/启动裁决属母模型 `zj-open-source-capability-fit`，不在本报告内（见第 7 节回灌素材）。
 
@@ -27,11 +27,13 @@
 - **CTX::zopn-single-user**（constraint）：ZOnePersonNetwork 目标为单人个人协同网络；真实产品边界（单人/跨设备/多项目）是 alignment item
 - **CTX::zopn-no-adopt-verdict**（constraint）：本横比仪器只产出场景×项目差异条目；采用/启动裁决属母模型 zj-open-source-capability-fit，不在本报告内
 
-## 2. 固定场景集（PROVISIONAL，待 zj ratify）
+## 2. 固定场景集（RATIFIED，zj 2026-11-20）
 
-- id：`SCENE-SET::zopn-v1`，version-pin：`v1 (PROVISIONAL — zj draft 2026-11-09, pending ratification)`
-- source：`zj 2026-11-08 charter 模块草案 + opn-landscape 13-维度 brief（Human 给定草稿，待 ratify）`
+- id：`SCENE-SET::zopn-v1`，version-pin：`v1 (RATIFIED — zj draft 2026-11-09, ratified 2026-11-20)`
+- source：`zj 2026-11-08 charter 模块草案 + opn-landscape 13-维度 brief（Human 给定，zj 2026-11-20 ratify）`
 - derived-from-graphs：`False`（外部尺子，不来自任何项目图）
+- 签发留痕：status=`ratified`，ratified-by=`zj`，ratified-on=`2026-11-20`，trigger=zj 2026-11-20 一句话 ratify：'开始处理 横比场景集 SCENE-SET::zopn-v1 ratify'
+- 签发范围：仅 ratify 固定场景集本身（12 个可观察场景作为外部坐标系）；不重开差异条目裁决、证据绑定、场景内等价或摘要指标
 
 | 场景 | 起点 → 终点 → 可观察结果 |
 |---|---|
@@ -129,4 +131,4 @@
 
 - 第三方 Agent 可凭 `bundle.json` 的 `difference-entries` 逐条复核：每条含 `scene`/`project`/`verdict`/`evidence-refs`（native）或 `verification-plan`（unknown）。
 - 来源三类区分：**evidence**=原生绑定 sealed Evidence ID；**human-ruling**=场景集与场景映射由 zj 给定；**assumption**=第 7 节回灌素材为分析层推断。
-- ⚠️ **签发前阻塞项**：固定场景集（`SCENE-SET::zopn-v1`）为 zj 草稿，需 zj 一句话 ratify 后方从"过程材料"升为"已签发横比报告"。
+- ✅ **签发状态**：固定场景集（`SCENE-SET::zopn-v1`）已由 zj 2026-11-20 ratify，报告已由"过程材料"升为"已签发横比报告"；ratify 仅限场景集本身，差异条目裁决 / 证据绑定 / 摘要指标均未改动。

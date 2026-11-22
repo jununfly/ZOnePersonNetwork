@@ -7,8 +7,10 @@ Evidence base (all commit-pinned sealed Evidence IDs):
 - herdr: docs/reasearch/herdr/2026-11-08-findings.md (v2 sealed ledger)
 - loop-now: fresh primary-source read of README@v0.2.0 (NON-sealed -> all unknown w/ verification-plan)
 
-Scene set is a HUMAN-GIVEN DRAFT (translated from zj's 2026-11-08 charter module draft +
-opn-landscape 13-dimension brief). Marked PROVISIONAL / pending zj ratification.
+Scene set is HUMAN-GIVEN and RATIFIED by zj on 2026-11-20 (translated from zj's 2026-11-08
+charter module draft + opn-landscape 13-dimension brief). Ratification covers the fixed scene
+set only (external coordinate system); it does not reopen difference-entry verdicts, evidence
+bindings, equivalence rulings, or summary metrics.
 """
 import json
 import os
@@ -538,8 +540,15 @@ bundle = {
     "schema": "zj-graphical-cross-comparison/bundle/v1",
     "scene-set": {
         "id": "SCENE-SET::zopn-v1",
-        "version-pin": "v1 (PROVISIONAL — zj draft 2026-11-09, pending ratification)",
-        "source": "zj 2026-11-08 charter 模块草案 + opn-landscape 13-维度 brief（Human 给定草稿，待 ratify）",
+        "version-pin": "v1 (RATIFIED — zj draft 2026-11-09, ratified 2026-11-20)",
+        "source": "zj 2026-11-08 charter 模块草案 + opn-landscape 13-维度 brief（Human 给定，zj 2026-11-20 ratify）",
+        "ratification": {
+            "status": "ratified",
+            "ratified-by": "zj",
+            "ratified-on": "2026-11-20",
+            "trigger": "zj 2026-11-20 一句话 ratify：'开始处理 横比场景集 SCENE-SET::zopn-v1 ratify'",
+            "scope": "仅 ratify 固定场景集本身（12 个可观察场景作为外部坐标系）；不重开差异条目裁决、证据绑定、场景内等价或摘要指标",
+        },
         "derived-from-graphs": False,
         "scenes": [
             {"id": f"SC::{s}", "start": d["start"], "end": d["end"], "observable": d["observable"]}
@@ -587,7 +596,7 @@ bundle = {
          "body": "本横比只给差异条目。回灌母模型 zj-open-source-capability-fit 的素材：① orca 在 execution-workspace / runtime-integration / agent-protocol 为 native（L2 执行编排层种子，契合'以 orca 启动'）；② identity-scope / task-workitem 控制面在 orca 为 unknown，须自研语义所有权层（痛点 2 的 0→1 集中在语义层）；③ multica / loop-now 本轮已 collect 取 12/12 sealed Evidence（multica 偏 L1 多-agent 团队/权限/集成，loop-now 偏本地桌面 agent 编排），可作为执行编排层参照；multica 曾有的 5 条 Lark 子系统弱证据已通过 README 锚定 brief 修复（见 CTX::multica-evidence-anchored），两者均存在版本钉偏差（collect 忽略 brief.repositories[].revision，由 test_tag_pin.py 实证，请求 tag≠实际 HEAD）。引用前需语义复核。注意：本文件不产采用裁决。"},
         {"n": 8, "title": "完成标准自检",
          "sources": ["human-ruling"],
-         "body": "第三方 Agent 可凭 bundle.difference-entries 逐条复核：每条含 scene/project/verdict/evidence-refs 或 verification-plan；来源分 evidence(原生绑定 sealed ID) / human-ruling(场景集与映射) / assumption(回灌素材)。场景集本身为 PROVISIONAL，签发前需 zj 一句话 ratify。"},
+         "body": "第三方 Agent 可凭 bundle.difference-entries 逐条复核：每条含 scene/project/verdict/evidence-refs 或 verification-plan；来源分 evidence(原生绑定 sealed ID) / human-ruling(场景集与映射) / assumption(回灌素材)。固定场景集 SCENE-SET::zopn-v1 已由 zj 2026-11-20 ratify（见 scene-set.ratification），本报告已签发；ratify 仅限场景集本身，不改变任何差异条目裁决。"},
     ],
     "summary-metrics-usage": "display-only",
 }

@@ -2,8 +2,15 @@
   "schema": "zj-graphical-cross-comparison/bundle/v1",
   "scene-set": {
     "id": "SCENE-SET::zopn-v1",
-    "version-pin": "v1 (PROVISIONAL — zj draft 2026-11-09, pending ratification)",
-    "source": "zj 2026-11-08 charter 模块草案 + opn-landscape 13-维度 brief（Human 给定草稿，待 ratify）",
+    "version-pin": "v1 (RATIFIED — zj draft 2026-11-09, ratified 2026-11-20)",
+    "source": "zj 2026-11-08 charter 模块草案 + opn-landscape 13-维度 brief（Human 给定，zj 2026-11-20 ratify）",
+    "ratification": {
+      "status": "ratified",
+      "ratified-by": "zj",
+      "ratified-on": "2026-11-20",
+      "trigger": "zj 2026-11-20 一句话 ratify：'开始处理 横比场景集 SCENE-SET::zopn-v1 ratify'",
+      "scope": "仅 ratify 固定场景集本身（12 个可观察场景作为外部坐标系）；不重开差异条目裁决、证据绑定、场景内等价或摘要指标"
+    },
     "derived-from-graphs": false,
     "scenes": [
       {
@@ -5418,7 +5425,7 @@
       "sources": [
         "human-ruling"
       ],
-      "body": "第三方 Agent 可凭 bundle.difference-entries 逐条复核：每条含 scene/project/verdict/evidence-refs 或 verification-plan；来源分 evidence(原生绑定 sealed ID) / human-ruling(场景集与映射) / assumption(回灌素材)。场景集本身为 PROVISIONAL，签发前需 zj 一句话 ratify。"
+      "body": "第三方 Agent 可凭 bundle.difference-entries 逐条复核：每条含 scene/project/verdict/evidence-refs 或 verification-plan；来源分 evidence(原生绑定 sealed ID) / human-ruling(场景集与映射) / assumption(回灌素材)。固定场景集 SCENE-SET::zopn-v1 已由 zj 2026-11-20 ratify（见 scene-set.ratification），本报告已签发；ratify 仅限场景集本身，不改变任何差异条目裁决。"
     }
   ],
   "summary-metrics-usage": "display-only"
