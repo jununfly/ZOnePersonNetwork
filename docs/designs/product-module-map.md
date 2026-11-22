@@ -10,6 +10,7 @@ authority-id: opn.product-module-map
 > - `docs/reasearch/opn-landscape/2026-11-08-module-matrix.md` §4/§5（三层分工 + 复用边界信号，sealed Evidence）
 > - `docs/reasearch/opn-maturity/2026-11-13-maturity-evidence.md`（14 仓库 license/CI/test 事实，non-sealed，仅作验证门）
 > - R2 锁定的 Q5/Q6/Q7/Q8/Q9 规则
+> - `designs/reuse-evidence-ledger.md`（`opn.reuse-evidence-ledger`, supporting）：复用边界的**证据锚定账本**——按 `criterionId`(`mod-*`)×项目逐行绑定横比 sealed Evidence 的「能力存在」事实；本页 §2/§3 的复用形态判断为 **assumption**（待母模型裁决），其能力存在事实以该账本为准。
 >
 > **本文件不是 PRD、不是技术方案、不实现。** 每条判定标 `[证据]`（matrix sealed / maturity non-sealed）或 `[推断]`（分析层，待 fixture 验证）。闸门状态见 `ZJ-CONTEXT.md` 的「两池判定闸门」。
 
