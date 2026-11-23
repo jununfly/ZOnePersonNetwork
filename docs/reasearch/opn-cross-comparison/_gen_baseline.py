@@ -14,7 +14,10 @@ Design (zj 2026-11-23 repurposed the "mother-model R slice" into a context basel
 - The intersection area records conflicts/couplings WITHOUT adjudication or
   normalization (decision deferred to the planning/execution stage).
 - Gaps are first-class: 83 unknown + alignment items + version-pin deviations +
-  undefined adaptation-target are carried, not filled in.
+  undefined adaptation-target are carried, not filled in. The alignment item
+  single-user/cross-device/multi-project was ruled 2026-11-23 into a STAGING
+  working assumption (3 orthogonal axes, research upper-bound vs landing start),
+  encoded as a fail-closed constant table; the raw CTX statement is kept as history.
 - R splitting (granularity / acceptance / A B C D) happens LATER, from this baseline.
 
 This generator does no semantic rulings: it joins SoTs and fails closed if any
@@ -255,6 +258,43 @@ REF_FLOWS = [
     },
 ]
 
+# ---------------------------------------------------------------------------
+# Human ruling (zj 2026-11-23 grill: alignment item 单人/跨设备/多项目).
+# DECISION, not derivation. Three ORTHOGONAL boundary axes, each with a
+# research upper-bound and (where decided) a landing start point. Encoded as
+# explicit constant table; fail-closed against the facts it cites.
+# ---------------------------------------------------------------------------
+BOUNDARY_RULING = {
+    "qualification": "三词 = 三个正交边界轴（owner / 设备 / 项目），非三选一；斜杠并列是文档措辞缺陷",
+    "effect": "阶段性工作假设（charter §7 本阶段不做产品方案），非终局定稿",
+    "landing": "就地更新基线页 §6.2；不动横比 bundle/report（守 ratify 边界）",
+    "axes": [
+        {"axis": "owner", "upper": "多人", "start": "单人",
+         "rationale": "单人是多人的特例；先解决单人（多人问题太开放，短期难做可用产品）"},
+        {"axis": "设备", "upper": "跨设备", "start": "（Q8c：起点按原则推导，不逐轴锁死）",
+         "rationale": "EC-03 跨设备接续已采纳；参照物 roadmap 1-2-2 同向"},
+        {"axis": "项目", "upper": "多项目", "start": "（Q8c：起点按原则推导，不逐轴锁死）",
+         "rationale": "M2 身份 scope / M8 记忆边界冲突只有多项目下才暴露；取单项目会让缺口消失"},
+    ],
+    "principle": "先解决约束更强的特例，泛化延迟（Q8c）——不逐轴锁死起点值，规划阶段按同一原则推导",
+    "reopen": "进入产品方案阶段拆 R 时（Q7a）；风险留痕：调研中发现上界不可行不自动触发复核",
+    "ct_note": "CTX::zopn-single-user 原 statement『目标为单人个人协同网络』降为历史留痕：『单人』现为落地起点，非目标边界；上界已扩展为多人/跨设备/多项目",
+}
+
+# Fail closed: the ruling must cite facts that actually exist in the SoTs.
+if {ax["axis"] for ax in BOUNDARY_RULING["axes"]} != {"owner", "设备", "项目"}:
+    die("BOUNDARY_RULING axes must be exactly owner/设备/项目")
+if not any(ec["id"] == "EC-03" for ec in EC_LIST):
+    die("BOUNDARY_RULING cites EC-03 but it is absent from EC_LIST")
+# M2/M8 conflict lines must exist in pmap §2 (rationale for 项目上界)
+if "每人每房" not in pmap or "scope" not in pmap:
+    die("BOUNDARY_RULING cites M2 scope conflict but pmap §2 lacks it")
+if "mem-vault" not in pmap or "scope-memory" not in pmap:
+    die("BOUNDARY_RULING cites M8 memory conflict but pmap §2 lacks it")
+# CTX entry still present (already checked above at line 105); confirm statement hook
+if "单人个人协同网络" not in ctx["CTX::zopn-single-user"].get("statement", ""):
+    die("BOUNDARY_RULING ct_note hook missing from CTX::zopn-single-user statement")
+
 # Fail closed: every EVID cited in EC_LIST and REF_FLOWS must exist in the ledger.
 _cited = set()
 for ec in EC_LIST:
@@ -420,6 +460,23 @@ for cid in ("CTX::zopn-single-user", "CTX::zopn-no-adopt-verdict"):
     c = ctx[cid]
     o.append(f"- **{cid}**（{c.get('kind','')}）：{esc(c.get('statement',''))}")
 o.append("")
+o.append("> 上两条为横比 bundle 的原始留痕（已 ratify，不改写）。其中 `CTX::zopn-single-user` 已于 2026-11-23 由 zj 裁决消解为工作假设，见下表。")
+o.append("")
+o.append("**已裁决工作假设（zj 2026-11-23 grill，阶段性非终局）**")
+o.append("")
+o.append(f"- **定性**：{BOUNDARY_RULING['qualification']}")
+o.append(f"- **效力**：{BOUNDARY_RULING['effect']}")
+o.append(f"- **落点**：{BOUNDARY_RULING['landing']}")
+o.append("")
+o.append("| 边界轴 | 调研上界（本轮锁定） | 落地起点 | 依据 |")
+o.append("|---|---|---|---|")
+for ax in BOUNDARY_RULING["axes"]:
+    o.append(f"| {ax['axis']} | {ax['upper']} | {ax['start']} | {esc(ax['rationale'])} |")
+o.append("")
+o.append(f"- **落地序列原则**：{BOUNDARY_RULING['principle']}")
+o.append(f"- **重开条件**：{BOUNDARY_RULING['reopen']}")
+o.append(f"- **CTX 措辞处置**：{BOUNDARY_RULING['ct_note']}")
+o.append("")
 o.append("### 6.3 版本钉偏差（引用前须按实际 pin 复核）")
 o.append("")
 for proj, vp in pin_deviations:
@@ -436,6 +493,7 @@ o.append(f"- 六维 {len(SIX_DIMS)} 项全部命中 charter §4；模块 {len(mo
 o.append(f"- 模块→场景映射覆盖全部 12 场景（13 模块中 M13 为例外）；unknown 合计 {unknown_total}，与 bundle difference-entries 一致。")
 o.append(f"- 端到端维度 §4.1 含 {len(EC_LIST)} 条采纳 EC（+{len(EC_REJECTED)} 条否决留痕）、§4.2 含 {len(REF_FLOWS)} 家参考产品拓扑；全部由 zj 裁决常量表注入，每条引用 EVID 已通过 ledger 存在性校验（fail-closed），无手填 SHA。")
 o.append("- 交叉区只标注不裁决；所有 SHAs 机械派生自 SoT，无手填。")
+o.append(f"- 边界 alignment item 已于 2026-11-23 裁决为阶段性工作假设：{len(BOUNDARY_RULING['axes'])} 个正交轴，上界/起点分层，Q7a 重开条件与 Q8c 原则齐全；横比 CTX 原 statement 保留历史留痕未改写。")
 o.append("")
 
 with open(OUT, "w", encoding="utf-8") as f:

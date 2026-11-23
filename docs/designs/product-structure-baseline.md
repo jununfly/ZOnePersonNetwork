@@ -187,6 +187,24 @@ authority-id: opn.product-structure-baseline
 - **CTX::zopn-single-user**（constraint）：ZOnePersonNetwork 目标为单人个人协同网络；真实产品边界（单人/跨设备/多项目）是 alignment item
 - **CTX::zopn-no-adopt-verdict**（constraint）：本横比仪器只产出场景×项目差异条目；采用/启动裁决属母模型 zj-open-source-capability-fit，不在本报告内
 
+> 上两条为横比 bundle 的原始留痕（已 ratify，不改写）。其中 `CTX::zopn-single-user` 已于 2026-11-23 由 zj 裁决消解为工作假设，见下表。
+
+**已裁决工作假设（zj 2026-11-23 grill，阶段性非终局）**
+
+- **定性**：三词 = 三个正交边界轴（owner / 设备 / 项目），非三选一；斜杠并列是文档措辞缺陷
+- **效力**：阶段性工作假设（charter §7 本阶段不做产品方案），非终局定稿
+- **落点**：就地更新基线页 §6.2；不动横比 bundle/report（守 ratify 边界）
+
+| 边界轴 | 调研上界（本轮锁定） | 落地起点 | 依据 |
+|---|---|---|---|
+| owner | 多人 | 单人 | 单人是多人的特例；先解决单人（多人问题太开放，短期难做可用产品） |
+| 设备 | 跨设备 | （Q8c：起点按原则推导，不逐轴锁死） | EC-03 跨设备接续已采纳；参照物 roadmap 1-2-2 同向 |
+| 项目 | 多项目 | （Q8c：起点按原则推导，不逐轴锁死） | M2 身份 scope / M8 记忆边界冲突只有多项目下才暴露；取单项目会让缺口消失 |
+
+- **落地序列原则**：先解决约束更强的特例，泛化延迟（Q8c）——不逐轴锁死起点值，规划阶段按同一原则推导
+- **重开条件**：进入产品方案阶段拆 R 时（Q7a）；风险留痕：调研中发现上界不可行不自动触发复核
+- **CTX 措辞处置**：CTX::zopn-single-user 原 statement『目标为单人个人协同网络』降为历史留痕：『单人』现为落地起点，非目标边界；上界已扩展为多人/跨设备/多项目
+
 ### 6.3 版本钉偏差（引用前须按实际 pin 复核）
 
 - **loop-now**：main @ b7d6811877e6d7341ac539934ae87028df87b1e6 (collected HEAD; requested tag v0.2.0 = 8f504f61e8db628dacb52a4a00e6dc29567aa5af, collect ignores brief.repositories[].revision)
@@ -203,4 +221,5 @@ authority-id: opn.product-structure-baseline
 - 模块→场景映射覆盖全部 12 场景（13 模块中 M13 为例外）；unknown 合计 83，与 bundle difference-entries 一致。
 - 端到端维度 §4.1 含 5 条采纳 EC（+1 条否决留痕）、§4.2 含 4 家参考产品拓扑；全部由 zj 裁决常量表注入，每条引用 EVID 已通过 ledger 存在性校验（fail-closed），无手填 SHA。
 - 交叉区只标注不裁决；所有 SHAs 机械派生自 SoT，无手填。
+- 边界 alignment item 已于 2026-11-23 裁决为阶段性工作假设：3 个正交轴，上界/起点分层，Q7a 重开条件与 Q8c 原则齐全；横比 CTX 原 statement 保留历史留痕未改写。
 
