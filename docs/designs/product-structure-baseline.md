@@ -7,7 +7,7 @@ authority-id: opn.product-structure-baseline
 # 产品结构基线 · scope 内 context 结构化全集（supporting）
 
 > 本页是 **supporting 基线页**，不是 R 清单、不是产品方案、不是技术设计、不实现。它的唯一职责：在显式 scope 内把决策相关 context 收全，并列呈现两个抽象维度，显式标注冲突/耦合但**不裁决、不归一**，缺口随基线保留不填平。
-> 由 `docs/reasearch/opn-cross-comparison/_gen_baseline.py` 从 charter §4 / product-module-map §2 / 横比 bundle / human-gate-model 机械派生；端到端维度与交叉区因项目无现成材料，只提供骨架与待填位，**不编造**。
+> 由 `docs/reasearch/opn-cross-comparison/_gen_baseline.py` 从 charter §4 / product-module-map §2 / 横比 bundle / human-gate-model 机械派生；端到端维度 §4 由 zj 2026-11-23 grill 逐条裁决（作为带 EVID 存在性校验的显式常量表注入生成器，非 Agent 推断），交叉区只标注不裁决。
 > 从这份基线拆 R（定粒度、填 acceptance、跑 A/B/C/D）是**未来规划阶段**的事；本切片不做。
 
 ## 1. 契约与切片边界
@@ -27,7 +27,7 @@ authority-id: opn.product-structure-baseline
 | 产品模块构成 | 系统由哪些用户可见的功能单元组成？每个模块的职责边界与对外契约是什么？ | §3 模块维度（13 模块清单） |
 | 技术设计 | 每个模块的数据模型、状态机、协议/接口、持久化、隔离与安全、升级与版本偏斜、测试与验证方式 | §3 模块定义 + §6 缺口（M12 技术设计与部署） |
 | 复用边界 | 每个模块是「可直接用 / 适配可用 / 必须自研」？依据是哪条 sealed Evidence？ | §3 reuse_signal 列（assumption，事实以账本为准）+ §6 缺口 |
-| 组合顺序 | 模块间依赖关系是什么？最小可运行切片由哪几个模块组成？ | §5 交叉区骨架（端到端流程 × 模块依赖，待填） |
+| 组合顺序 | 模块间依赖关系是什么？最小可运行切片由哪几个模块组成？ | §4 EC 链路（跨越模块列）+ §5 交叉区耦合标注 |
 | 人机分工 | 哪些决策必须 Human、哪些可交给 Coding Agent、边界用什么机制表达（避免困在细节） | §2.4 Human 门六方 + §3 M3 行 |
 | 工作量信号 | 模块数、接口数、必须自研的比例、上游治理（能否贡献 / 是否只能 fork） | §3 模块数/复用信号 + §6 unknown 缺口清单 |
 
@@ -97,20 +97,59 @@ authority-id: opn.product-structure-baseline
 | M12 技术设计与部署 | L3 | 架构与部署模式 | L3 层事实 [matrix §4] | 见 reuse-evidence-ledger M12 行 |
 | M13 能力地图参考 | L3 | 能力抽取参照 | 仅 ZAgenticOPN；作参考不单独成模块 [matrix §7] | 见 reuse-evidence-ledger M13 行 |
 
-## 4. 维度 B：端到端能力（骨架 · 待 Human 填 · 不编造）
+## 4. 维度 B：端到端能力（Human 逐条梳理 · zj 2026-11-23）
 
-- **现状**：项目内**无成体系的端到端能力清单**。现有材料中「workflow」命中项均为 CI workflow / review workflow 等单点流程词，不是能力维度；因此本维度是净新增整理工作，不由账本派生。
-- **约束**：以下为空位模板，**不得由执行 Agent 依据模块名或 README 字面推断填充**（守 charter §7 非目标）。每条能力须 Human 逐条梳理并给出来源。
+> 本维度项目内原无成体系清单，是净新增整理工作。zj 2026-11-23 用三轮 grill 锁定口径后逐条裁决生成，执行 Agent **不依据模块名或 README 字面推断**（守 charter §7 非目标）。
+> **口径（Q1–Q5 锁定）**：① 参照物流程聚成候选种子、Human 逐条裁决；② 一条能力 = 一个**用户目标闭环**（起点→终点均 Human 可触发/可观察）；③ 起点/终点按 Human 主体记，非系统事件；④ 来源分「素材出处 + Human 裁决」两部分；⑤ ID 顺序编号不表语义。
 
-| 能力 ID | 能力名（用户完整流程） | 起点 | 终点 | 跨越模块 | 来源/依据 | 状态 |
+### 4.1 我方端到端能力清单（EC · 已采纳）
+
+| 能力 ID | 能力名（用户完整流程） | 起点（Human） | 终点（Human） | 跨越模块 | 素材出处 | Human 裁决 |
 |---|---|---|---|---|---|---|
-| EC-待填 | — | — | — | — | — | 待 Human 梳理 |
+| EC-01 | 提交目标 → 拿到可验收结果（主闭环） | Human 提交一个目标 / 创建 Work Item | Human 在 Human 门看到结果并验收完成 | M1 → M2 → M5 → M4 → M3 | EVID::a67400762c931df62135608d (multica assign-work→review) + ZAgenticOPN 最小切片 (pmap §4) | zj 2026-11-23 采纳 |
+| EC-02 | review 打回 → Agent 从拒绝历史学习 → 重做 | Human 在 Human 门 reject with feedback | Agent 带反馈重做后再次进入门 | M3 → M4 → M5 → M6 | EVID::3e8488d208de54fdd00a11c0 (mozzie reject-with-feedback) + loop-now review loops (pmap §3 M6) | zj 2026-11-23 采纳 |
+| EC-03 | 跨设备接续会话 | Human 在设备 A 发起会话 | Human 在设备 B 接续同一会话 | M7 → M8 → M10 | EVID::1eedaed644a280db74133572 (mem-vault session-blackboard/跨设备同步) | zj 2026-11-23 采纳 |
+| EC-05 | 共享事实沉淀与检索 | Human 完成一次协作并要求沉淀事实 | Human 后续检索 / 被复用到新会话 | M8 → M7 | EVID::d2423363b8e0d64ec8ce61cc (tasktrooper 四 scope memory) + ZAgenticOPN 结构化事实 (draft.md:77) | zj 2026-11-23 采纳 |
+| EC-06 | 运行诊断与回放 | Human 发现一次运行失败 / 想审计 | Human 定位到失败点并重放该 run | M6 → M4 | EVID::71dfad6640e6f45a720f8a69 (multica run transcript) + loop-now board/review loops (pmap §3 M6) | zj 2026-11-23 采纳（S4a 补漏） |
 
-> 已知线索（非清单）：product-module-map §4 写有一条最小可运行切片流程「创建 → claim → 执行(worktree) → 结果+provenance → Human 门 → 完成」，可作端到端能力的候选种子，但是否成立、如何拆多条能力仍待 Human 裁决。
+**已否决候选（留痕，不进清单）**：
+- EC-04 scope 内隔离执行 —— 起点是系统派发、终点是代码产出，Human 不可独立触发 → 属 Q2a 操作序列/技术设计，归维度 A 的 M5/M10，不作独立 EC（zj 2026-11-23 否决）
+
+> 这些 EC 是**用户目标闭环**，不是 R（可独立验收需求）：无 acceptance、无 priority/critical，粒度未定；拆 R 仍属未来规划阶段（§1）。
+
+### 4.2 参考产品端到端拓扑（单独拓扑 · 不归一、不裁决）
+
+> 四家为 zj 指定的**优先参考产品**（S3c）。其端到端链路均从 sealed 原文直抽，每节点挂 EVID；口径与我方 EC 不同（组织协作 / 工具运行 / 编排器 / board 自治），故**单独拓扑，不并入 §4.1、不裁决**——与基线「双维度并列、冲突只标注」一致。
+
+**multica** — 团队隐喻（assign like a teammate）
+
+- 链路：指派 issue `[EVID::a67400762c931df62135608d]` → 自主 pick up（受控 runtime） `[EVID::76fd261e3f84f3c9e33a84c6]` → 进度 + blockers（comment as it goes） `[EVID::76fd261e3f84f3c9e33a84c6]` → hand back（review gate） `[EVID::2cc46ac299adc52b807b122e]` → Inbox 叫人（needs a call） `[EVID::2cc46ac299adc52b807b122e]`
+- 每节点出处：`ledger-multica.json`
+- 口径差异（为何单独）：组织协作闭环：Human 把 agent 当队友指派，关注 hand-back 与 ship 决策；非我方单人目标闭环口径
+
+**orca** — 编排器隐喻（parallel worktree + remote run）
+
+- 链路：并行 worktree（any CLI agent） `[EVID::2ed6d70d48ae1d10a19026a0]` → diff 逐行批注（focused feedback） `[EVID::a16d037b586eabaa4c616d4a]` → Remote / SSH / cloud VM `[EVID::0a6cfe851c86d1535e2d2fdc]` → 持续运行（laptop 睡眠不断） `[EVID::0a6cfe851c86d1535e2d2fdc]`
+- 每节点出处：`2026-11-08-ledger-response-v2.json`
+- 口径差异（为何单独）：工具运行闭环：关注并行隔离、diff 批注与远程常驻；无 Work Item / 验收语义
+
+**mozzie** — 管理型 workforce 隐喻（managed workforce）
+
+- 链路：描述目标 → 拆 work items `[EVID::6676d3f26c9b4f77443c5d2a]` → 独立 worktree + 并行 agent `[EVID::3e8488d208de54fdd00a11c0]` → 依赖图 / blocked 自动触发 `[EVID::3e8488d208de54fdd00a11c0]` → review：approve / reject with feedback `[EVID::3e8488d208de54fdd00a11c0]`
+- 每节点出处：`2026-11-08-ledger-response.json`
+- 口径差异（为何单独）：目标拆解 + 依赖编排 + review 队列的桌面编排闭环；以 work item 为单元但其拆-item/依赖图语义属参照，不归一为我方 EC
+
+**tasktrooper** — board 自治隐喻（the board drives）
+
+- 链路：任务放上 board `[EVID::6a0463be6d4575650cc64979]` → 列拥有者 agent 自主 pick up `[EVID::6a0463be6d4575650cc64979]` → clone → plan → implement → test → PR `[EVID::90b8b4fc0e74bc12214889c4]` → 交下一列 / 人全程观察 run `[EVID::6a0463be6d4575650cc64979]`
+- 每节点出处：`2026-11-08-ledger-response.json`
+- 口径差异（为何单独）：列自治派发闭环（board 把任务交下一列，无人按 run）；全自动姿态与我方 Human 门语义冲突，仅作参照
+
+> 附：multica 的 Review gate + Inbox 已由 zj 2026-11-20 采纳为 M3 门模型基础（准入+准出双门，见 §2.4）——那是**模块级裁决**，与本节的端到端拓扑是不同层次，不冲突。
 
 ## 5. 交叉区：冲突 / 耦合标注（只标注，不裁决、不归一）
 
-> 两维度天然多对多。本区只登记冲突/耦合的**位置与来源**，不合并成单一 R、不选边、不消解。现在维度 B 未填 → 跨维度交叉位暂为空；先登记已在模块维度内显式的语义冲突作为参照。
+> 两维度天然多对多。本区只登记冲突/耦合的**位置与来源**，不合并成单一 R、不选边、不消解。维度 B 已在 §4 逐条裁决，先登记已在模块维度内显式的语义冲突作为参照；EC × 模块的精确耦合在规划阶段拆 R 时展开。
 
 | 交叉项 | 冲突/耦合描述 | 来源 | 处理 |
 |---|---|---|---|
@@ -118,7 +157,8 @@ authority-id: opn.product-structure-baseline
 | M2 身份 scope | qm 每人每房 vs ZAgenticOPN Human→device→agent_instance，不可互推 | product-module-map §2 M2 | 标注，待规划阶段裁决 |
 | M3 Human 门 | 六种门表达互不兼容（见 §2.4） | human-gate-model 背景 | 已裁基础模型，其余仅参照 |
 | M8 记忆边界 | mem-vault 纯 Markdown vs qm scope-memory+Postgres vs ZAgenticOPN 结构化事实 | product-module-map §2 M8 | 标注，待规划阶段裁决 |
-| 维度 B × 维度 A | — | — | 待 Human 填端到端能力后登记 |
+| EC-04 隔离执行 | 起点系统派发、终点代码产出，Human 不可独立触发 → 归 M5/M10 技术设计 | zj 2026-11-23 裁决（§4.1 否决留痕） | 已否决为独立 EC；执行段归入模块维度 |
+| 参考产品拓扑 × 我方 EC | multica 组织协作 / orca 工具运行 / mozzie 编排器 / tasktrooper board 自治，四种口径均≠我方用户目标闭环 | §4.2 sealed 原文 | 单独拓扑，不归一、不裁决 |
 
 ## 6. 缺口清单（不隐藏、不填平）
 
@@ -155,11 +195,12 @@ authority-id: opn.product-structure-baseline
 ### 6.4 契约缺口
 
 - **adaptation-target 未定义**：横比契约中该字段从未定义且属 Human 复核项，机械生成器不自判；adapted/unsupported 因此为空不是 bug。来源：2026-11-20 工作日志（复用边界收敛）。
-- **端到端能力维度无现成材料**：见 §4。
+- **我方 EC 的 acceptance 未定**：§4.1 的 5 条 EC 是用户目标闭环、无验收判据；拆 R（定粒度/填 acceptance/跑 A B C D）仍属未来规划阶段。
 
 ## 7. 一致性自检（机械）
 
 - 六维 6 项全部命中 charter §4；模块 13 项命中 pmap §2；场景 12 项命中 bundle；Human 门 6 方命中 human-gate-model。
 - 模块→场景映射覆盖全部 12 场景（13 模块中 M13 为例外）；unknown 合计 83，与 bundle difference-entries 一致。
-- 端到端维度与交叉区只含骨架/来源标注，无推断填充；所有 SHAs 机械派生自 SoT，无手填。
+- 端到端维度 §4.1 含 5 条采纳 EC（+1 条否决留痕）、§4.2 含 4 家参考产品拓扑；全部由 zj 裁决常量表注入，每条引用 EVID 已通过 ledger 存在性校验（fail-closed），无手填 SHA。
+- 交叉区只标注不裁决；所有 SHAs 机械派生自 SoT，无手填。
 
