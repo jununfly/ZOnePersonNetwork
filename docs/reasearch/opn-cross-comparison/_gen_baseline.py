@@ -13,11 +13,19 @@ Design (zj 2026-11-23 repurposed the "mother-model R slice" into a context basel
        sealed ledger index (fail closed); the agent never infers capabilities.
 - The intersection area records conflicts/couplings WITHOUT adjudication or
   normalization (decision deferred to the planning/execution stage).
-- Gaps are first-class: 83 unknown + alignment items + version-pin deviations +
-  undefined adaptation-target are carried, not filled in. The alignment item
+- Gaps are first-class: 83 unknown + alignment items + version-pin deviations
+  are carried, not filled in. adaptation-target was clarified 2026-11-23 as a
+  NON-gap (field exists but semantically undefined / Human-ruled / zero instances;
+  adapt/unsupported ruling belongs to the mother model). The alignment item
   single-user/cross-device/multi-project was ruled 2026-11-23 into a STAGING
   working assumption (3 orthogonal axes, research upper-bound vs landing start),
   encoded as a fail-closed constant table; the raw CTX statement is kept as history.
+- §6.1 carries the 83-unknown supplemental-collection PILOT result (zj 2026-11-23
+  ruling A: reached the literal gate but exposed risk). Numbers are read
+  mechanically from pilot-evidence-audit.json (dual-rate: mechanical hits vs
+  semantic-acceptable); every audited sealed ID is validated against the two
+  pilot ledgers (fail closed). Separate ledgers only — the ratified bundle is
+  untouched.
 - R splitting (granularity / acceptance / A B C D) happens LATER, from this baseline.
 
 This generator does no semantic rulings: it joins SoTs and fails closed if any
@@ -109,11 +117,39 @@ for need in ("CTX::zopn-single-user", "CTX::zopn-no-adopt-verdict"):
     if need not in ctx:
         die(f"missing scene-set context-entry: {need}")
 
-pin_deviations = []
+# Q1a (zj 2026-11-23): version-pin rows carry THREE distinct SHAs —
+#   requested tag (ignored by collect), bundle-recorded HEAD (may be stale),
+#   ledger revision.sha (the ACTUAL pin). The multica bundle record (41885a6d…)
+#   does not exist in the ledger; the real pin is 7a926b82…. Never hand-fill:
+#   read revision.sha mechanically from the sealed ledger and fail closed if absent.
+def ledger_actual_pin(project):
+    lf = os.path.join(COLLECT_DIR, f"ledger-{project}.json")
+    if not os.path.exists(lf):
+        die(f"version-pin: missing ledger for {project}: {lf}")
+        return None
+    ld = json.load(open(lf, encoding="utf-8"))
+    repos = ld.get("result", {}).get("repositories", [])
+    if len(repos) != 1:
+        die(f"version-pin: expected 1 repository in {lf}, got {len(repos)}")
+        return None
+    sha = repos[0].get("revision", {}).get("sha", "")
+    if not re.fullmatch(r"[0-9a-f]{40}", sha):
+        die(f"version-pin: invalid revision.sha in {lf}: {sha!r}")
+        return None
+    return sha
+
+pin_deviations = []  # (project, requested_tag, bundle_recorded_sha, ledger_actual_sha)
 for g in b["graphs"]:
     vp = g["version-pin"]
     if "requested tag" in vp:
-        pin_deviations.append((g["project"], vp))
+        proj = g["project"]
+        m = re.search(r"requested tag (\S+) = ([0-9a-f]+)", vp)
+        req_tag = m.group(1) if m else "?"
+        req_sha = m.group(2) if m else "?"
+        mh = re.match(r"^\S+ @ ([0-9a-f]{40})", vp)
+        bundle_sha = mh.group(1) if mh else "?"
+        actual_sha = ledger_actual_pin(proj)
+        pin_deviations.append((proj, req_tag, req_sha, bundle_sha, actual_sha))
 
 # ---------------------------------------------------------------------------
 # SoT 4: human-gate-model six expressions (verify presence, no extraction)
@@ -157,6 +193,54 @@ for _f in (_glob.glob(os.path.join(REASEARCH_DIR, "**", "collect", "ledger-*.jso
             for v in o:
                 _walk(v)
     _walk(_d)
+
+# ---------------------------------------------------------------------------
+# SoT 6: pilot supplemental-collection audit (83-unknown probe, zj 2026-11-23).
+# Numbers are read mechanically from the audit JSON — never hand-filled.
+# Fail closed: schema, arithmetic, and every audited sealed ID must reconcile
+# against the two pilot ledgers before §6.1 may be emitted.
+# ---------------------------------------------------------------------------
+AUDIT_JSON = os.path.join(COLLECT_DIR, "pilot-evidence-audit.json")
+PILOT_LEDGERS = {
+    "dmux": os.path.join(COLLECT_DIR, "pilot-dmux", "ledger-dmux.json"),
+    "mem-vault": os.path.join(COLLECT_DIR, "pilot-mem-vault", "ledger-mem-vault.json"),
+}
+audit = None
+if not os.path.exists(AUDIT_JSON):
+    die(f"pilot audit: missing {AUDIT_JSON}")
+else:
+    audit = json.load(open(AUDIT_JSON, encoding="utf-8"))
+    if audit.get("schema") != "zj-pilot-evidence-audit/v1":
+        die(f"pilot audit: unexpected schema {audit.get('schema')!r}")
+    # build the sealed-ID universe of the two pilot ledgers
+    pilot_ids = set()
+    for proj, lf in PILOT_LEDGERS.items():
+        if not os.path.exists(lf):
+            die(f"pilot audit: missing pilot ledger for {proj}: {lf}")
+            continue
+        _pd = json.load(open(lf, encoding="utf-8"))
+        for _e in _pd.get("result", {}).get("evidence", []):
+            pilot_ids.add(_e.get("id"))
+    _a_rows = audit.get("rows", [])
+    _mh = audit.get("mechanical_hits")
+    _tc = audit.get("targeted_cells")
+    _sc = audit.get("semantic_counts", {})
+    if _mh != len(_a_rows):
+        die(f"pilot audit: mechanical_hits {_mh} != len(rows) {len(_a_rows)}")
+    if sum(_sc.get(k, 0) for k in ("acceptable", "weak", "mismatched")) != _mh:
+        die(f"pilot audit: semantic_counts do not sum to mechanical_hits {_mh}")
+    if not isinstance(_tc, int) or _tc <= 0:
+        die(f"pilot audit: invalid targeted_cells {_tc!r}")
+    for _r in _a_rows:
+        if _r.get("sealed_id") not in pilot_ids:
+            die(f"pilot audit: sealed_id {str(_r.get('sealed_id'))[:12]} not found in pilot ledgers — refuse to emit (no hand-filled ID)")
+    # every duplicate-excerpt member must be a real row key (project/criterion)
+    _row_keys = {(r.get("project"), r.get("criterion_id")) for r in _a_rows}
+    for _dup_key, _members in audit.get("duplicate_excerpt_groups", {}).items():
+        for _m in _members:
+            _pp, _, _cc = _m.partition("/")
+            if (_pp, _cc) not in _row_keys:
+                die(f"pilot audit: duplicate-excerpt member {_m!r} not in rows")
 
 # ---------------------------------------------------------------------------
 # Human rulings (zj 2026-11-23 grill: rounds 1-3). These are DECISIONS, not
@@ -340,7 +424,7 @@ o.append("")
 o.append("- **产出物**：scope 内决策相关 context 的结构化全集 + 缺口清单；不是 R（可独立验收需求），因为 R 要求 `acceptance`，粒度未定则填不出真实验收判据。")
 o.append("- **双维度并列**：模块维度（功能构成）与端到端能力维度（用户完整流程）是两个**正交抽象维度**，不是二选一、不是层级；谁也不包含谁。")
 o.append("- **交叉区只标注**：一个端到端能力横跨多模块、一个模块参与多能力 → 天然冲突/耦合。本页只显式记录，**不归一成单一 R、不合并、不裁决**。")
-o.append("- **缺口是一等公民**：unknown、alignment item、版本钉偏差、未定义契约项全部随基线保留，不隐藏、不填平。")
+o.append("- **缺口是一等公民**：unknown、alignment item、版本钉偏差全部随基线保留，不隐藏、不填平；adaptation-target 已于 2026-11-23 改判为非缺口（见 §6.4）。")
 o.append("- **决策延迟**：粒度、冲突消解、耦合处理全部延迟到规划/执行阶段；本页只提供决策所需的完整 context。")
 o.append("")
 o.append("## 2. Scope 定义（四坐标）")
@@ -454,6 +538,25 @@ o.append(f"| **合计** | **{unknown_total}** |")
 o.append("")
 o.append("> unknown ≠ absent：以上只表示无 sealed 证据，不表示项目无该能力；不进复用判断、不填平。")
 o.append("")
+
+# Pilot supplemental-collection result (zj 2026-11-23 ruling A). All numbers
+# below are read from `audit` (validated fail-closed in SoT 6), never hand-filled.
+if audit is not None:
+    _mh = audit["mechanical_hits"]
+    _tc = audit["targeted_cells"]
+    _acc = audit["semantic_counts"]["acceptable"]
+    _weak = audit["semantic_counts"]["weak"]
+    _mis = audit["semantic_counts"]["mismatched"]
+    _dup_groups = audit.get("duplicate_excerpt_groups", {})
+    _dup_members = sum(len(v) for v in _dup_groups.values())
+    o.append("**补采试点（83 unknown 探针 · zj 2026-11-23 定性 A：达标但暴露风险）**")
+    o.append("")
+    o.append(f"- 为验证「补采 {unknown_total} unknown」是否可行，选 dmux（11 criteria）+ mem-vault（9 criteria）两仓做 fresh collect 试点；独立 ledger，**不回灌已 ratify 的 bundle**。新证据 sealed ID 经两仓 ledger 存在性校验（fail-closed），未手填。")
+    o.append(f"- **双口径结果**：目标格 {_tc}；机械 sealed 命中 **{_mh}/{_tc}（{100*_mh/_tc:.0f}%）**（Q6a 字面达标：≥1 条 sealed native）；但语义复核仅 **{_acc} 条合格**（dmux `mod-runtime-integration` HTTP Callback API；mem-vault `mod-result-provenance` handoff+changelog）→ 真实可补率 **{_acc}/{_tc}（{100*_acc/_tc:.0f}%）**；弱相关 {_weak}、明确错配 {_mis}（其中 {_dup_members} 条为**完全相同**的 README/CONTRIBUTING/AGENTS 文件清单摘录，被导航器误钉成 {_dup_members} 个不同场景——reconfirm「sealed ≠ 语义有效」陷阱）。")
+    o.append(f"- **结论**：按字面判据试点达标，但语义落差证明「全量补采 {unknown_total} unknown」若不逐条语义复核会灌入大量错配证据 → **全量补采不划算、且必须逐条语义复核**。此结论为分析层判断（assumption），随基线保留，不填平缺口、不改任何 native 判断。")
+    o.append("- **出处**：`docs/reasearch/opn-cross-comparison/collect/pilot-evidence-audit.json`（审计）、`collect/pilot-dmux/ledger-dmux.json` + `collect/pilot-mem-vault/ledger-mem-vault.json`（独立试点 ledger）。")
+    o.append("")
+
 o.append("### 6.2 alignment item / 边界约束")
 o.append("")
 for cid in ("CTX::zopn-single-user", "CTX::zopn-no-adopt-verdict"):
@@ -477,14 +580,28 @@ o.append(f"- **落地序列原则**：{BOUNDARY_RULING['principle']}")
 o.append(f"- **重开条件**：{BOUNDARY_RULING['reopen']}")
 o.append(f"- **CTX 措辞处置**：{BOUNDARY_RULING['ct_note']}")
 o.append("")
-o.append("### 6.3 版本钉偏差（引用前须按实际 pin 复核）")
+o.append("### 6.3 版本钉偏差（引用前须按 ledger 实际 pin 复核）")
 o.append("")
-for proj, vp in pin_deviations:
-    o.append(f"- **{proj}**：{esc(vp)}")
+o.append("> 根因：collect 编译器 `resolveRevision` 恒取默认分支 HEAD、忽略 brief 的 `repositories[].revision`，属仓库外固有限制（zj-research 为纯适配层，本仓库不可修）。下表三个 SHA **互不相同**：请求 tag（被忽略）、bundle 记录 HEAD（历史留痕，可能失准）、**ledger 实际 pin（引用时以此为唯一准绳，机械读取 `result.repositories[].revision.sha`，非手填）**。")
 o.append("")
-o.append("### 6.4 契约缺口")
+o.append("| 项目 | 请求 tag（被忽略） | bundle 记录 HEAD（历史） | ledger 实际 pin（采用） |")
+o.append("|---|---|---|---|")
+for proj, req_tag, req_sha, bundle_sha, actual_sha in pin_deviations:
+    if actual_sha is None:
+        die(f"version-pin render: {proj} has no ledger actual pin")
+        actual_sha = "<unverified>"
+    o.append(f"| {proj} | `{req_tag}` = `{req_sha}` | `{bundle_sha}` | **`{actual_sha}`** |")
 o.append("")
-o.append("- **adaptation-target 未定义**：横比契约中该字段从未定义且属 Human 复核项，机械生成器不自判；adapted/unsupported 因此为空不是 bug。来源：2026-11-20 工作日志（复用边界收敛）。")
+stale = [(p, bs, a) for p, _, _, bs, a in pin_deviations if a and bs != a]
+if stale:
+    parts = [f"{p}（bundle `{bs[:8]}…` → ledger 实际 `{a[:8]}…`）" for p, bs, a in stale]
+    o.append(f"- **失准标记**：{'；'.join(parts)}。bundle 记录 HEAD 在现存 sealed ledger 中不存在；引用这些项目的证据须按 ledger 实际 pin 复核。失准源于早期 bundle 手工记录，非 hash 伪造——已按 ledger 实值纠正展示，ratify 过的 bundle 原文不动。")
+else:
+    o.append("- **失准标记**：无（所有 bundle 记录 HEAD 均与 ledger 实际 pin 一致）。")
+o.append("")
+o.append("### 6.4 契约状态（原列为缺口，2026-11-23 认定为非缺口）")
+o.append("")
+o.append("- **adaptation-target：非缺口（契约未 exercised 区域）**。zj 2026-11-23 裁决：该字段名在横比契约中真实存在（`model-contract.md` / `cross_compare.py` CHK-06），CHK-06 仅在 adapted 条目**已存在**时校验其非空、无「必须四态齐全」断言；字段语义从未定义、属 Human 复核项、零 filled 实例——这是「未 exercised 的契约区域」，不是缺口。改判依据：上轮 Q4 已把「适配可用 / unsupported」判定权交母模型 `zj-open-source-capability-fit`（`FIT_OK` + `ALLOWED_ADAPT`/`FORBIDDEN_ADAPT`），横比只供 native/unknown 事实、不重复裁决（守 `CTX::zopn-no-adopt-verdict`）；母模型本身无 `adaptation-target` 字段，故「定义责任已转移」无落点，而是**该字段在两端都不参与判定**。adapted/unsupported 为空属预期。来源：2026-11-20 复用边界收敛 + 2026-11-23 zj 裁决。")
 o.append("- **我方 EC 的 acceptance 未定**：§4.1 的 5 条 EC 是用户目标闭环、无验收判据；拆 R（定粒度/填 acceptance/跑 A B C D）仍属未来规划阶段。")
 o.append("")
 o.append("## 7. 一致性自检（机械）")
@@ -492,11 +609,17 @@ o.append("")
 o.append(f"- 六维 {len(SIX_DIMS)} 项全部命中 charter §4；模块 {len(modules)} 项命中 pmap §2；场景 {len(scenes)} 项命中 bundle；Human 门 {len(GATE_SIX)} 方命中 human-gate-model。")
 o.append(f"- 模块→场景映射覆盖全部 12 场景（13 模块中 M13 为例外）；unknown 合计 {unknown_total}，与 bundle difference-entries 一致。")
 o.append(f"- 端到端维度 §4.1 含 {len(EC_LIST)} 条采纳 EC（+{len(EC_REJECTED)} 条否决留痕）、§4.2 含 {len(REF_FLOWS)} 家参考产品拓扑；全部由 zj 裁决常量表注入，每条引用 EVID 已通过 ledger 存在性校验（fail-closed），无手填 SHA。")
+o.append(f"- 版本钉：{len(pin_deviations)} 条偏差的 ledger 实际 pin 均机械读取 `result.repositories[].revision.sha`（非手填）；multica bundle 记录失准已标注、展示按实值纠正。")
+o.append("- adaptation-target 于 2026-11-23 改判为非缺口（契约未 exercised 区域），判定权归母模型；横比 bundle 原文未动（守 ratify 边界）。")
 o.append("- 交叉区只标注不裁决；所有 SHAs 机械派生自 SoT，无手填。")
 o.append(f"- 边界 alignment item 已于 2026-11-23 裁决为阶段性工作假设：{len(BOUNDARY_RULING['axes'])} 个正交轴，上界/起点分层，Q7a 重开条件与 Q8c 原则齐全；横比 CTX 原 statement 保留历史留痕未改写。")
+if audit is not None:
+    o.append(f"- 补采试点结论（§6.1）：机械命中 {audit['mechanical_hits']}/{audit['targeted_cells']}、语义合格 {audit['semantic_counts']['acceptable']}/{audit['targeted_cells']} 全部机械读自审计 JSON；每条 sealed ID 通过两仓 ledger 存在性校验（fail-closed），零手填；独立 ledger、未回灌 bundle。")
 o.append("")
 
 with open(OUT, "w", encoding="utf-8") as f:
     f.write("\n".join(o) + "\n")
 print(f"wrote {OUT}")
 print(f"modules={len(modules)} scenes={len(scenes)} dims={len(SIX_DIMS)} gates={len(GATE_SIX)} unknown={unknown_total} pin_dev={len(pin_deviations)} EC={len(EC_LIST)} rejected={len(EC_REJECTED)} ref_flows={len(REF_FLOWS)}")
+if audit is not None:
+    print(f"pilot: mechanical={audit['mechanical_hits']}/{audit['targeted_cells']} acceptable={audit['semantic_counts']['acceptable']} weak={audit['semantic_counts']['weak']} mismatched={audit['semantic_counts']['mismatched']}")

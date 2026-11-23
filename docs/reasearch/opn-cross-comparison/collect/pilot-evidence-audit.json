@@ -1,0 +1,140 @@
+{
+  "schema": "zj-pilot-evidence-audit/v1",
+  "method": "Human semantic reading of sealed excerpt vs claimed scenario (analysis layer, NOT sealed fact); sealed IDs/paths/excerpts mechanically matched to pilot ledgers.",
+  "mechanical_hits": 13,
+  "targeted_cells": 20,
+  "semantic_counts": {
+    "acceptable": 2,
+    "weak": 5,
+    "mismatched": 6
+  },
+  "duplicate_excerpt_groups": {
+    "- `README.md`: end-user overview and install/usage. - `CONTRIBUTING.md`: local development": [
+      "dmux/mod-approval-human",
+      "dmux/mod-identity-scope",
+      "dmux/mod-memory-knowledge",
+      "dmux/mod-observability",
+      "dmux/mod-task-workitem"
+    ]
+  },
+  "rows": [
+    {
+      "project": "dmux",
+      "sealed_id": "c298d17c14de8bd74e12904b",
+      "criterion_id": "mod-agent-protocol",
+      "path": ".dmux-hooks/AGENTS.md",
+      "verdict": "weak",
+      "reason": "Hooks-system 'Agent Reference' doc; hook authoring ≠ explicit agent-to-agent protocol / typed messages / discovery.",
+      "excerpt_prefix": "# dmux Hooks System - Agent Reference **Auto-generated documentation for AI agents** This "
+    },
+    {
+      "project": "dmux",
+      "sealed_id": "77345ef3b859a923d2fac8d8",
+      "criterion_id": "mod-config-strategy",
+      "path": ".dmux-hooks/AGENTS.md",
+      "verdict": "weak",
+      "reason": "Hook lifecycle table (before_pane_create etc.) mentions copying configs; hook config ≠ skills/policy/deployment ownership.",
+      "excerpt_prefix": "| `before_pane_create` | Before pane creation | Validation, notifications, pre-flight chec"
+    },
+    {
+      "project": "dmux",
+      "sealed_id": "ab4adc94e3cd56c5715d623a",
+      "criterion_id": "mod-result-provenance",
+      "path": ".dmux-hooks/AGENTS.md",
+      "verdict": "mismatched",
+      "reason": "Worktree lifecycle hooks (setup git / backup state); not result provenance / diff / changelog.",
+      "excerpt_prefix": "| `worktree_created` | After full setup | Install deps, copy configs, setup git | | `befor"
+    },
+    {
+      "project": "dmux",
+      "sealed_id": "12af09d881117b586026049b",
+      "criterion_id": "mod-runtime-integration",
+      "path": ".dmux-hooks/AGENTS.md",
+      "verdict": "acceptable",
+      "reason": "'HTTP Callback API ... update dmux UI via HTTP' — a genuine integration surface; partial evidence for runtime-integration.",
+      "excerpt_prefix": "## HTTP Callback API Interactive hooks (`run_test` and `run_dev`) can update dmux UI via H"
+    },
+    {
+      "project": "dmux",
+      "sealed_id": "5f9a5019c88902931474d6b8",
+      "criterion_id": "mod-session-context",
+      "path": ".dmux-hooks/AGENTS.md",
+      "verdict": "weak",
+      "reason": "'context via environment variables / priority resolution' is hook context, not session lifecycle / restart safety / handoff.",
+      "excerpt_prefix": "- **Silent failures**: Hook errors are logged but don't stop dmux - **Environment-based**:"
+    },
+    {
+      "project": "dmux",
+      "sealed_id": "849b1e64453a065c36d11648",
+      "criterion_id": "mod-tech-design",
+      "path": ".dmux-hooks/AGENTS.md",
+      "verdict": "weak",
+      "reason": "'Create executable bash scripts ... Quick Start' is hook authoring, not architecture / tech-stack design.",
+      "excerpt_prefix": "## Your Goal Create executable bash scripts in `.dmux-hooks/` that run automatically at ke"
+    },
+    {
+      "project": "dmux",
+      "sealed_id": "0a0e98b40bc445fc51b99e43",
+      "criterion_id": "mod-approval-human",
+      "path": "AGENTS.md",
+      "verdict": "mismatched",
+      "reason": "Boilerplate file-listing (README/CONTRIBUTING/AGENTS/CLAUDE); nothing about Human approval gates.",
+      "excerpt_prefix": "- `README.md`: end-user overview and install/usage. - `CONTRIBUTING.md`: local development"
+    },
+    {
+      "project": "dmux",
+      "sealed_id": "02ada1f0d169f9614bb05382",
+      "criterion_id": "mod-identity-scope",
+      "path": "AGENTS.md",
+      "verdict": "mismatched",
+      "reason": "SAME boilerplate file-listing excerpt; nothing about identity/scope modeling.",
+      "excerpt_prefix": "- `README.md`: end-user overview and install/usage. - `CONTRIBUTING.md`: local development"
+    },
+    {
+      "project": "dmux",
+      "sealed_id": "c7d162de2b8a5f89c3d77b5e",
+      "criterion_id": "mod-memory-knowledge",
+      "path": "AGENTS.md",
+      "verdict": "mismatched",
+      "reason": "SAME boilerplate file-listing excerpt; nothing about memory/knowledge reuse.",
+      "excerpt_prefix": "- `README.md`: end-user overview and install/usage. - `CONTRIBUTING.md`: local development"
+    },
+    {
+      "project": "dmux",
+      "sealed_id": "192ad91e8b823aeb1dc81b3e",
+      "criterion_id": "mod-observability",
+      "path": "AGENTS.md",
+      "verdict": "mismatched",
+      "reason": "SAME boilerplate file-listing excerpt; nothing about observability/metrics/tracing.",
+      "excerpt_prefix": "- `README.md`: end-user overview and install/usage. - `CONTRIBUTING.md`: local development"
+    },
+    {
+      "project": "dmux",
+      "sealed_id": "cd797eeba94de4d1ad391f66",
+      "criterion_id": "mod-task-workitem",
+      "path": "AGENTS.md",
+      "verdict": "mismatched",
+      "reason": "SAME boilerplate file-listing excerpt; nothing about task/work-item lifecycle.",
+      "excerpt_prefix": "- `README.md`: end-user overview and install/usage. - `CONTRIBUTING.md`: local development"
+    },
+    {
+      "project": "mem-vault",
+      "sealed_id": "0228670c52427ac2f8f7ae8f",
+      "criterion_id": "mod-agent-protocol",
+      "path": "README.md",
+      "verdict": "weak",
+      "reason": "README vision 'shared by every agent and every device'; multi-agent framing but no explicit protocol/discovery surface.",
+      "excerpt_prefix": "> **One knowledge base, shared by every agent and every device.** A memory governance engi"
+    },
+    {
+      "project": "mem-vault",
+      "sealed_id": "e9eab6bd639aedc2d8351119",
+      "criterion_id": "mod-result-provenance",
+      "path": "README.md",
+      "verdict": "acceptable",
+      "reason": "'Handoff: archive + changelog; next agent resumes via CONTEXT' — genuine provenance/audit-trail signal for result-provenance.",
+      "excerpt_prefix": "C --> D[\"④ Distill<br/>reflect + link\"] D --> E[\"⑤ Handoff<br/>archive + changelog\"] E -. "
+    }
+  ],
+  "note": "mechanical hit rate ≠ semantic validity. 'acceptable' rows alone count as usable native evidence; 'mismatched' rows are sealed but off-scenario and must not be booked as capability native."
+}

@@ -15,7 +15,7 @@ authority-id: opn.product-structure-baseline
 - **产出物**：scope 内决策相关 context 的结构化全集 + 缺口清单；不是 R（可独立验收需求），因为 R 要求 `acceptance`，粒度未定则填不出真实验收判据。
 - **双维度并列**：模块维度（功能构成）与端到端能力维度（用户完整流程）是两个**正交抽象维度**，不是二选一、不是层级；谁也不包含谁。
 - **交叉区只标注**：一个端到端能力横跨多模块、一个模块参与多能力 → 天然冲突/耦合。本页只显式记录，**不归一成单一 R、不合并、不裁决**。
-- **缺口是一等公民**：unknown、alignment item、版本钉偏差、未定义契约项全部随基线保留，不隐藏、不填平。
+- **缺口是一等公民**：unknown、alignment item、版本钉偏差全部随基线保留，不隐藏、不填平；adaptation-target 已于 2026-11-23 改判为非缺口（见 §6.4）。
 - **决策延迟**：粒度、冲突消解、耦合处理全部延迟到规划/执行阶段；本页只提供决策所需的完整 context。
 
 ## 2. Scope 定义（四坐标）
@@ -182,6 +182,13 @@ authority-id: opn.product-structure-baseline
 
 > unknown ≠ absent：以上只表示无 sealed 证据，不表示项目无该能力；不进复用判断、不填平。
 
+**补采试点（83 unknown 探针 · zj 2026-11-23 定性 A：达标但暴露风险）**
+
+- 为验证「补采 83 unknown」是否可行，选 dmux（11 criteria）+ mem-vault（9 criteria）两仓做 fresh collect 试点；独立 ledger，**不回灌已 ratify 的 bundle**。新证据 sealed ID 经两仓 ledger 存在性校验（fail-closed），未手填。
+- **双口径结果**：目标格 20；机械 sealed 命中 **13/20（65%）**（Q6a 字面达标：≥1 条 sealed native）；但语义复核仅 **2 条合格**（dmux `mod-runtime-integration` HTTP Callback API；mem-vault `mod-result-provenance` handoff+changelog）→ 真实可补率 **2/20（10%）**；弱相关 5、明确错配 6（其中 5 条为**完全相同**的 README/CONTRIBUTING/AGENTS 文件清单摘录，被导航器误钉成 5 个不同场景——reconfirm「sealed ≠ 语义有效」陷阱）。
+- **结论**：按字面判据试点达标，但语义落差证明「全量补采 83 unknown」若不逐条语义复核会灌入大量错配证据 → **全量补采不划算、且必须逐条语义复核**。此结论为分析层判断（assumption），随基线保留，不填平缺口、不改任何 native 判断。
+- **出处**：`docs/reasearch/opn-cross-comparison/collect/pilot-evidence-audit.json`（审计）、`collect/pilot-dmux/ledger-dmux.json` + `collect/pilot-mem-vault/ledger-mem-vault.json`（独立试点 ledger）。
+
 ### 6.2 alignment item / 边界约束
 
 - **CTX::zopn-single-user**（constraint）：ZOnePersonNetwork 目标为单人个人协同网络；真实产品边界（单人/跨设备/多项目）是 alignment item
@@ -205,14 +212,20 @@ authority-id: opn.product-structure-baseline
 - **重开条件**：进入产品方案阶段拆 R 时（Q7a）；风险留痕：调研中发现上界不可行不自动触发复核
 - **CTX 措辞处置**：CTX::zopn-single-user 原 statement『目标为单人个人协同网络』降为历史留痕：『单人』现为落地起点，非目标边界；上界已扩展为多人/跨设备/多项目
 
-### 6.3 版本钉偏差（引用前须按实际 pin 复核）
+### 6.3 版本钉偏差（引用前须按 ledger 实际 pin 复核）
 
-- **loop-now**：main @ b7d6811877e6d7341ac539934ae87028df87b1e6 (collected HEAD; requested tag v0.2.0 = 8f504f61e8db628dacb52a4a00e6dc29567aa5af, collect ignores brief.repositories[].revision)
-- **multica**：main @ 41885a6d816834663dad8e6944658e2ac8555844 (collected HEAD; requested tag v0.8.1 = b1ea927def64, collect ignores brief.repositories[].revision)
+> 根因：collect 编译器 `resolveRevision` 恒取默认分支 HEAD、忽略 brief 的 `repositories[].revision`，属仓库外固有限制（zj-research 为纯适配层，本仓库不可修）。下表三个 SHA **互不相同**：请求 tag（被忽略）、bundle 记录 HEAD（历史留痕，可能失准）、**ledger 实际 pin（引用时以此为唯一准绳，机械读取 `result.repositories[].revision.sha`，非手填）**。
 
-### 6.4 契约缺口
+| 项目 | 请求 tag（被忽略） | bundle 记录 HEAD（历史） | ledger 实际 pin（采用） |
+|---|---|---|---|
+| loop-now | `v0.2.0` = `8f504f61e8db628dacb52a4a00e6dc29567aa5af` | `b7d6811877e6d7341ac539934ae87028df87b1e6` | **`b7d6811877e6d7341ac539934ae87028df87b1e6`** |
+| multica | `v0.8.1` = `b1ea927def64` | `41885a6d816834663dad8e6944658e2ac8555844` | **`7a926b824fcf7a3687097f353d6a34f79d8b568d`** |
 
-- **adaptation-target 未定义**：横比契约中该字段从未定义且属 Human 复核项，机械生成器不自判；adapted/unsupported 因此为空不是 bug。来源：2026-11-20 工作日志（复用边界收敛）。
+- **失准标记**：multica（bundle `41885a6d…` → ledger 实际 `7a926b82…`）。bundle 记录 HEAD 在现存 sealed ledger 中不存在；引用这些项目的证据须按 ledger 实际 pin 复核。失准源于早期 bundle 手工记录，非 hash 伪造——已按 ledger 实值纠正展示，ratify 过的 bundle 原文不动。
+
+### 6.4 契约状态（原列为缺口，2026-11-23 认定为非缺口）
+
+- **adaptation-target：非缺口（契约未 exercised 区域）**。zj 2026-11-23 裁决：该字段名在横比契约中真实存在（`model-contract.md` / `cross_compare.py` CHK-06），CHK-06 仅在 adapted 条目**已存在**时校验其非空、无「必须四态齐全」断言；字段语义从未定义、属 Human 复核项、零 filled 实例——这是「未 exercised 的契约区域」，不是缺口。改判依据：上轮 Q4 已把「适配可用 / unsupported」判定权交母模型 `zj-open-source-capability-fit`（`FIT_OK` + `ALLOWED_ADAPT`/`FORBIDDEN_ADAPT`），横比只供 native/unknown 事实、不重复裁决（守 `CTX::zopn-no-adopt-verdict`）；母模型本身无 `adaptation-target` 字段，故「定义责任已转移」无落点，而是**该字段在两端都不参与判定**。adapted/unsupported 为空属预期。来源：2026-11-20 复用边界收敛 + 2026-11-23 zj 裁决。
 - **我方 EC 的 acceptance 未定**：§4.1 的 5 条 EC 是用户目标闭环、无验收判据；拆 R（定粒度/填 acceptance/跑 A B C D）仍属未来规划阶段。
 
 ## 7. 一致性自检（机械）
@@ -220,6 +233,9 @@ authority-id: opn.product-structure-baseline
 - 六维 6 项全部命中 charter §4；模块 13 项命中 pmap §2；场景 12 项命中 bundle；Human 门 6 方命中 human-gate-model。
 - 模块→场景映射覆盖全部 12 场景（13 模块中 M13 为例外）；unknown 合计 83，与 bundle difference-entries 一致。
 - 端到端维度 §4.1 含 5 条采纳 EC（+1 条否决留痕）、§4.2 含 4 家参考产品拓扑；全部由 zj 裁决常量表注入，每条引用 EVID 已通过 ledger 存在性校验（fail-closed），无手填 SHA。
+- 版本钉：2 条偏差的 ledger 实际 pin 均机械读取 `result.repositories[].revision.sha`（非手填）；multica bundle 记录失准已标注、展示按实值纠正。
+- adaptation-target 于 2026-11-23 改判为非缺口（契约未 exercised 区域），判定权归母模型；横比 bundle 原文未动（守 ratify 边界）。
 - 交叉区只标注不裁决；所有 SHAs 机械派生自 SoT，无手填。
 - 边界 alignment item 已于 2026-11-23 裁决为阶段性工作假设：3 个正交轴，上界/起点分层，Q7a 重开条件与 Q8c 原则齐全；横比 CTX 原 statement 保留历史留痕未改写。
+- 补采试点结论（§6.1）：机械命中 13/20、语义合格 2/20 全部机械读自审计 JSON；每条 sealed ID 通过两仓 ledger 存在性校验（fail-closed），零手填；独立 ledger、未回灌 bundle。
 

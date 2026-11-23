@@ -1,0 +1,299 @@
+{
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "result": {
+    "schema": "zj-verified-evidence-ledger/v1",
+    "compilerVersion": "research/v1",
+    "briefFingerprint": "ccbb8577d0d16d23a3f7e72e091a672eb4808ee4f77317babf564d55561c9f3f",
+    "policyVersion": "public-github/v1",
+    "observedAt": "2026-11-23T13:22:24.844Z",
+    "repositories": [
+      {
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        },
+        "revision": {
+          "sha": "59f0b12134622c0ad93ef59ef6373cfe587deaf3",
+          "branch": "main",
+          "url": "https://github.com/songs-aaa/shared-memory-vault/commit/59f0b12134622c0ad93ef59ef6373cfe587deaf3"
+        },
+        "tree": [
+          {
+            "path": ".gitignore",
+            "sha": "6c226375abe6ae5d780f969abef9bd2573b28e28",
+            "type": "blob",
+            "size": 138
+          },
+          {
+            "path": "LICENSE",
+            "sha": "915c0f9d53273ee924b64ddf165c1516c74bd7e1",
+            "type": "blob",
+            "size": 1089
+          },
+          {
+            "path": "README.md",
+            "sha": "cf62a57f63c6ed4da76cff261ffa7bf30dc58e95",
+            "type": "blob",
+            "size": 8263
+          },
+          {
+            "path": "SKILL.md",
+            "sha": "c7f0b25f339e26c7b90e2b1b38b8df11dd5a9b9c",
+            "type": "blob",
+            "size": 10053
+          },
+          {
+            "path": "references",
+            "sha": "17c241227f527072b33b9531decc018fd8ec059c",
+            "type": "tree"
+          },
+          {
+            "path": "references/DESIGN.md",
+            "sha": "9e2b82dd0a414b636223fa22f9d2afbdf9265741",
+            "type": "blob",
+            "size": 2401
+          },
+          {
+            "path": "references/research.md",
+            "sha": "344300ba114181ece0d4238f3c117711921c9597",
+            "type": "blob",
+            "size": 1724
+          },
+          {
+            "path": "scripts",
+            "sha": "0bda16a8b852aa21d8726dba2275863154ccfbd8",
+            "type": "tree"
+          },
+          {
+            "path": "scripts/context-update.py",
+            "sha": "e55fe416fbb2a623672fb857ecc7c2a9e7ad4422",
+            "type": "blob",
+            "size": 2371
+          },
+          {
+            "path": "scripts/decay-score.py",
+            "sha": "b75c3cd75f2a2fba44c19c84d7d40eb722910749",
+            "type": "blob",
+            "size": 3583
+          },
+          {
+            "path": "scripts/governance-score.py",
+            "sha": "91037071e595310dbf503be1ba3492e37fdbaee7",
+            "type": "blob",
+            "size": 5037
+          },
+          {
+            "path": "scripts/link-memory.py",
+            "sha": "be4c33cea17feb0993bfe33981a9c1e5baddfc5a",
+            "type": "blob",
+            "size": 3192
+          },
+          {
+            "path": "scripts/provenance-check.py",
+            "sha": "70218d753a35dcce7f84594ed83492d32ef28469",
+            "type": "blob",
+            "size": 1325
+          },
+          {
+            "path": "scripts/reflect.py",
+            "sha": "f05f976ddf51dc1bbf35a390de504dffddc22de0",
+            "type": "blob",
+            "size": 1560
+          },
+          {
+            "path": "scripts/search.py",
+            "sha": "e352087f8de9b243e9c91d8ece36aa32fd1eb624",
+            "type": "blob",
+            "size": 1456
+          },
+          {
+            "path": "scripts/vault-archive.py",
+            "sha": "7f5700db54070e441e723c68da91cee441c38aed",
+            "type": "blob",
+            "size": 1257
+          },
+          {
+            "path": "scripts/vault-index.py",
+            "sha": "edcf2005cfc5af7f95b7a98bd5653a0eafa92ed0",
+            "type": "blob",
+            "size": 2253
+          },
+          {
+            "path": "scripts/vault-init.sh",
+            "sha": "b5f878538f65fa1be2becee34a3bef24cd8a0f35",
+            "type": "blob",
+            "size": 1798
+          },
+          {
+            "path": "scripts/vault_lib.py",
+            "sha": "11079744489077b8cadf68e2437dab02875c301e",
+            "type": "blob",
+            "size": 2191
+          },
+          {
+            "path": "templates",
+            "sha": "d3a2a5facf2e30b1ab36fe1a1d22804ec98fdce9",
+            "type": "tree"
+          },
+          {
+            "path": "templates/CONTEXT.md",
+            "sha": "72539b80a6369b7c21d17fe9549abafdd5431597",
+            "type": "blob",
+            "size": 603
+          },
+          {
+            "path": "templates/FRONTMATTER_SPEC.md",
+            "sha": "0a111d5f28b45ea73a87f35c24c2d116837a2e8d",
+            "type": "blob",
+            "size": 3151
+          },
+          {
+            "path": "templates/MEMORY.md",
+            "sha": "53f9a77d580128c5b05c60038364d08b404fea47",
+            "type": "blob",
+            "size": 310
+          },
+          {
+            "path": "templates/constitution.md",
+            "sha": "1943849ac7459613ccc6f65cb4c881dd1dc401c6",
+            "type": "blob",
+            "size": 3456
+          },
+          {
+            "path": "templates/index-template.md",
+            "sha": "3c06dfef621ee59468e83f6fe9dde3f7e9c211de",
+            "type": "blob",
+            "size": 268
+          },
+          {
+            "path": "templates/log-template.md",
+            "sha": "e3d61e693118a98a2f8af275a2696361545eb735",
+            "type": "blob",
+            "size": 138
+          },
+          {
+            "path": "templates/reflection-template.md",
+            "sha": "03a749d3bede0e1fe9f90b4d1d81a478e57b10da",
+            "type": "blob",
+            "size": 269
+          }
+        ]
+      }
+    ],
+    "candidates": [
+      {
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        },
+        "stars": 100,
+        "topicMatch": 3,
+        "origin": "explicit"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "0228670c52427ac2f8f7ae8f",
+        "criterionId": "mod-agent-protocol",
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        },
+        "revision": "59f0b12134622c0ad93ef59ef6373cfe587deaf3",
+        "path": "README.md",
+        "sourceUrl": "https://github.com/songs-aaa/shared-memory-vault/blob/59f0b12134622c0ad93ef59ef6373cfe587deaf3/README.md",
+        "excerpt": "\n> **One knowledge base, shared by every agent and every device.** A memory governance engine for multi-agent cloud knowledge bases — collaborate without context loss, access from any device, consistency guaranteed.\n\n<p align=\"center\">\n  <img src=\"https://img.shields.io/badge/license-MIT-blue\" alt=\"License\">\n  <img src=\"https://img.shields.io/badge/python-3.8%2B-blue\" alt=\"Python\">",
+        "kind": "canonical"
+      },
+      {
+        "id": "e9eab6bd639aedc2d8351119",
+        "criterionId": "mod-result-provenance",
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        },
+        "revision": "59f0b12134622c0ad93ef59ef6373cfe587deaf3",
+        "path": "README.md",
+        "sourceUrl": "https://github.com/songs-aaa/shared-memory-vault/blob/59f0b12134622c0ad93ef59ef6373cfe587deaf3/README.md",
+        "excerpt": "    C --> D[\"④ Distill<br/>reflect + link\"]\n    D --> E[\"⑤ Handoff<br/>archive + changelog\"]\n    E -. next agent resumes via CONTEXT .-> A\n```\n\nNine governance actions fire automatically across the lifecycle:",
+        "kind": "canonical"
+      }
+    ],
+    "unknownCriteria": [
+      {
+        "criterionId": "mod-approval-human",
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        }
+      },
+      {
+        "criterionId": "mod-config-strategy",
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        }
+      },
+      {
+        "criterionId": "mod-execution-workspace",
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        }
+      },
+      {
+        "criterionId": "mod-identity-scope",
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        }
+      },
+      {
+        "criterionId": "mod-observability",
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        }
+      },
+      {
+        "criterionId": "mod-runtime-integration",
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        }
+      },
+      {
+        "criterionId": "mod-task-workitem",
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        }
+      }
+    ],
+    "navigation": [
+      {
+        "adapter": "heuristic",
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        },
+        "status": "used"
+      },
+      {
+        "adapter": "heuristic",
+        "repository": {
+          "owner": "songs-aaa",
+          "name": "shared-memory-vault"
+        },
+        "status": "used"
+      }
+    ],
+    "collection": {
+      "filesRead": 1,
+      "sourceBytesRead": 8263,
+      "durationMs": 6908,
+      "cacheHit": false
+    }
+  }
+}

@@ -1,0 +1,5594 @@
+{
+  "protocol": "zj-research-cli/v1",
+  "operation": "collect",
+  "result": {
+    "schema": "zj-verified-evidence-ledger/v1",
+    "compilerVersion": "research/v1",
+    "briefFingerprint": "feb66ee9bf88f54eeca97f45be5a0a26505a4fd8345a3d7d82835cd267d61fcd",
+    "policyVersion": "public-github/v1",
+    "observedAt": "2026-11-23T13:22:06.207Z",
+    "repositories": [
+      {
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": {
+          "sha": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+          "branch": "main",
+          "url": "https://github.com/standardagents/dmux/commit/8cb3d926631a9349ab67f7ece41d218427ac7e24"
+        },
+        "tree": [
+          {
+            "path": ".bumprc",
+            "sha": "642a4fade9877804c6c31e3bc491edea434a586c",
+            "type": "blob",
+            "size": 430
+          },
+          {
+            "path": ".claude",
+            "sha": "fd8f55ec28362e7f251f42e18abc874a8455658c",
+            "type": "tree"
+          },
+          {
+            "path": ".claude/dmux",
+            "sha": "01520e114df0f3bc3c78857d139fe979f366a9da",
+            "type": "tree"
+          },
+          {
+            "path": ".claude/dmux/dmux-1783365840646.json",
+            "sha": "9cc40433033d6f4211885aebc75dff1f886cb135",
+            "type": "blob",
+            "size": 3312
+          },
+          {
+            "path": ".claude/hooks",
+            "sha": "50ca34b53c91a668aae9b65024b3b9142bc6771e",
+            "type": "tree"
+          },
+          {
+            "path": ".claude/hooks/dmux-stop-hook.cjs",
+            "sha": "4d5af35c3f2f7abb86d3f04cde553bc771c9635b",
+            "type": "blob",
+            "size": 1484
+          },
+          {
+            "path": ".codex",
+            "sha": "c2c1b505756b59b088643a3e59a8eb51235d89ee",
+            "type": "tree"
+          },
+          {
+            "path": ".codex/dmux",
+            "sha": "c3f927d156c9c39f25c1dbc048832e421336fca8",
+            "type": "tree"
+          },
+          {
+            "path": ".codex/dmux/dmux-1776708264504.json",
+            "sha": "769f98e15525923727fd1cd80bc0331be279f84d",
+            "type": "blob",
+            "size": 1031
+          },
+          {
+            "path": ".codex/dmux/dmux-1776789665089.json",
+            "sha": "a5f8c4d9b3213cb4e3bd8d19f3c0dcf3fc4ef703",
+            "type": "blob",
+            "size": 1852
+          },
+          {
+            "path": ".codex/dmux/dmux-1778678856262.json",
+            "sha": "cfb14ac2657d32798dcff565262eecc33fffac70",
+            "type": "blob",
+            "size": 1920
+          },
+          {
+            "path": ".codex/dmux/dmux-1779734821852.json",
+            "sha": "0b7cf65de9e5014ebb2867fbe6bee1d09738adfc",
+            "type": "blob",
+            "size": 1809
+          },
+          {
+            "path": ".codex/hooks.json",
+            "sha": "ef985e6e37c620e9ec56a44a830030c2cf03cac0",
+            "type": "blob",
+            "size": 278
+          },
+          {
+            "path": ".codex/hooks",
+            "sha": "f448b437a208c9b8b403f96cfa27ba31e2747aed",
+            "type": "tree"
+          },
+          {
+            "path": ".codex/hooks/dmux-stop-hook.cjs",
+            "sha": "dcec0b86fa71ef10541935865daea64c240074a5",
+            "type": "blob",
+            "size": 1368
+          },
+          {
+            "path": ".dmux-hooks",
+            "sha": "112a780c62b939009a725a7f0e40ccbbdd83bff2",
+            "type": "tree"
+          },
+          {
+            "path": ".dmux-hooks/AGENTS.md",
+            "sha": "8072b79516e8aef2be7192ade66debd0083de901",
+            "type": "blob",
+            "size": 11853
+          },
+          {
+            "path": ".dmux-hooks/CLAUDE.md",
+            "sha": "8072b79516e8aef2be7192ade66debd0083de901",
+            "type": "blob",
+            "size": 11853
+          },
+          {
+            "path": ".dmux-hooks/README.md",
+            "sha": "202222ee974a79611303e3e5607957f49a0cf5c3",
+            "type": "blob",
+            "size": 1340
+          },
+          {
+            "path": ".dmux-hooks/examples",
+            "sha": "d6afa1ea57b6a9a456f6edc8e7eef27a5eec743c",
+            "type": "tree"
+          },
+          {
+            "path": ".dmux-hooks/examples/post_merge.example",
+            "sha": "9b5c58d11dadc9e31781539ee890fa857911df0e",
+            "type": "blob",
+            "size": 2097
+          },
+          {
+            "path": ".dmux-hooks/examples/pre_merge.example",
+            "sha": "991e0abb9055971634b0299cca950336366f6908",
+            "type": "blob",
+            "size": 391
+          },
+          {
+            "path": ".dmux-hooks/examples/run_dev.example",
+            "sha": "c2005f43d7ec48b2407b3ef894b1e028a953e670",
+            "type": "blob",
+            "size": 1888
+          },
+          {
+            "path": ".dmux-hooks/examples/run_test.example",
+            "sha": "6b286a1cefc9594be65a5bfd434f1c031a3a8846",
+            "type": "blob",
+            "size": 1327
+          },
+          {
+            "path": ".dmux-hooks/examples/worktree_created.example",
+            "sha": "ddbe28139d11a888c98a0fc659d4f3e4c5b53870",
+            "type": "blob",
+            "size": 1153
+          },
+          {
+            "path": ".dmux-hooks/pane_created",
+            "sha": "551d9a9018b036895819af864ec6c28bfe6e854a",
+            "type": "blob",
+            "size": 1223
+          },
+          {
+            "path": ".dmux-hooks/pre_merge",
+            "sha": "991e0abb9055971634b0299cca950336366f6908",
+            "type": "blob",
+            "size": 391
+          },
+          {
+            "path": ".dmux-hooks/worktree_created",
+            "sha": "ddbe28139d11a888c98a0fc659d4f3e4c5b53870",
+            "type": "blob",
+            "size": 1153
+          },
+          {
+            "path": ".github",
+            "sha": "86867ee11d60d914e07c6ab2e2051eb350672e06",
+            "type": "tree"
+          },
+          {
+            "path": ".github/workflows",
+            "sha": "f77584cdc8f458c6e5721ccb90bfc50cbfb138df",
+            "type": "tree"
+          },
+          {
+            "path": ".github/workflows/publish.yml",
+            "sha": "085ebd9874bf868b53bbd8410eb2bf3015961c9c",
+            "type": "blob",
+            "size": 1346
+          },
+          {
+            "path": ".gitignore",
+            "sha": "6673b5d9b5ce39fa004ac0be7c75ce970eeb1974",
+            "type": "blob",
+            "size": 261
+          },
+          {
+            "path": ".playwright-mcp",
+            "sha": "8e521aaa65ec65de8f4e634f6df1114dba2c3368",
+            "type": "tree"
+          },
+          {
+            "path": ".playwright-mcp/dmux-current-state.png",
+            "sha": "ca3034e193241a15c2d08920c78395d49eea1d71",
+            "type": "blob",
+            "size": 314448
+          },
+          {
+            "path": ".playwright-mcp/dmux-full-page.png",
+            "sha": "1b41102d7346cacb9d521d8ca354dba0aaf1fbe4",
+            "type": "blob",
+            "size": 524333
+          },
+          {
+            "path": ".playwright-mcp/dmux-hero-current.png",
+            "sha": "95ea52b0a4296526a56b75f79368420d40049404",
+            "type": "blob",
+            "size": 194951
+          },
+          {
+            "path": ".playwright-mcp/dmux-middle-section.png",
+            "sha": "80b28ef688a7ab924ccf0ce1f5c24b98a82a6a03",
+            "type": "blob",
+            "size": 302387
+          },
+          {
+            "path": ".playwright-mcp/docs-logo-after-wait.png",
+            "sha": "60eb03dd35c690a0e0a8b64dfcabaf9dd6ef6d2b",
+            "type": "blob",
+            "size": 203217
+          },
+          {
+            "path": ".playwright-mcp/docs-logo-animation.png",
+            "sha": "f1230372796203e21672e44234df92fdea51617e",
+            "type": "blob",
+            "size": 1324763
+          },
+          {
+            "path": ".playwright-mcp/final-breathing-logo-new.png",
+            "sha": "96fef963b97c6656f57a168db42a5658b2c3dd0e",
+            "type": "blob",
+            "size": 201551
+          },
+          {
+            "path": ".playwright-mcp/final-logo-breathing.png",
+            "sha": "b4b08baf8f6653d9b303981349caa51b33223701",
+            "type": "blob",
+            "size": 204257
+          },
+          {
+            "path": ".playwright-mcp/holographic-cards-view.png",
+            "sha": "eaf59673b8c0bcc7270e4a7b269672d74cc7c035",
+            "type": "blob",
+            "size": 991764
+          },
+          {
+            "path": ".playwright-mcp/improved-glitch-effect.png",
+            "sha": "205e40a0d186518b95638e55f5d62285bc8bcc1a",
+            "type": "blob",
+            "size": 193449
+          },
+          {
+            "path": ".playwright-mcp/new-intro-animation.png",
+            "sha": "8c1fc4dd5d05e71a6d78ff018f982897625606ab",
+            "type": "blob",
+            "size": 179479
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-15-12-744Z.png",
+            "sha": "70abb41e0db095104691f9f35736f840b73045da",
+            "type": "blob",
+            "size": 492550
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-16-29-890Z.png",
+            "sha": "1ac4b0b37f9282411653316173d54a7920c00483",
+            "type": "blob",
+            "size": 1022265
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-19-12-904Z.png",
+            "sha": "5848f449be0d32f2cbe1451d77dd0e2e851ee505",
+            "type": "blob",
+            "size": 529709
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-19-24-350Z.png",
+            "sha": "77a2721f870aa2cf8d40e2d126f1bcc6f4f7ec21",
+            "type": "blob",
+            "size": 553604
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-36-29-374Z.png",
+            "sha": "200c3094cfe5c4edfdae73816d177a37e7d8fa1e",
+            "type": "blob",
+            "size": 143271
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-37-04-848Z.png",
+            "sha": "e62d1c80eae7d19cfb09cdebf509e2873ed44f1e",
+            "type": "blob",
+            "size": 223891
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-40-07-441Z.png",
+            "sha": "8fb244ce65154bf8792554a32c6302e6890ffad7",
+            "type": "blob",
+            "size": 129614
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-41-03-455Z.png",
+            "sha": "0b26be8d1f4497b8e9119e7ba916881f2d0b2344",
+            "type": "blob",
+            "size": 133581
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-43-17-013Z.png",
+            "sha": "022a81b2753c6e9cdc7dd82f54fc579b3ce1a5c7",
+            "type": "blob",
+            "size": 148238
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-43-28-238Z.png",
+            "sha": "5eeb26177aef876215115928d4ecf5fd94a4b8ae",
+            "type": "blob",
+            "size": 421554
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-43-40-035Z.png",
+            "sha": "a1ce8c48d1d51a00c260436a11fb0077b34adfdf",
+            "type": "blob",
+            "size": 202314
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-48-11-126Z.png",
+            "sha": "83e3190764ab307a571135666f4f13fbe8db4da0",
+            "type": "blob",
+            "size": 1879730
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T18-48-28-401Z.png",
+            "sha": "5fde8ddf0260fb2b8cceacc2077c479fbf67d7a2",
+            "type": "blob",
+            "size": 3141221
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T19-01-01-309Z.png",
+            "sha": "a7aa14be6745baeb320084532eafb23c6e900bd2",
+            "type": "blob",
+            "size": 973729
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T19-52-39-422Z.png",
+            "sha": "4b1c77749a4b7d338b8a3c7d15913d1750524704",
+            "type": "blob",
+            "size": 275531
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T20-06-19-704Z.png",
+            "sha": "f608841d0d881c8fa4481e679b334256b243c746",
+            "type": "blob",
+            "size": 110297
+          },
+          {
+            "path": ".playwright-mcp/page-2025-10-03T20-09-39-764Z.png",
+            "sha": "a741abd00d02a661b8aa88be8c1e5d3021577798",
+            "type": "blob",
+            "size": 187615
+          },
+          {
+            "path": ".playwright-mcp/particles-test-1.png",
+            "sha": "4241666e2034b530fa0b00bac80570bfc497ed29",
+            "type": "blob",
+            "size": 327937
+          },
+          {
+            "path": ".playwright-mcp/updated-animation-1.png",
+            "sha": "2c192da7520e8751a218c9078d11d7581daeeefa",
+            "type": "blob",
+            "size": 1956721
+          },
+          {
+            "path": ".playwright-mcp/variable-size-particles.png",
+            "sha": "944cfe5d3da007bc31d51d9eafb47f31823e3e37",
+            "type": "blob",
+            "size": 194465
+          },
+          {
+            "path": "AGENTS.md",
+            "sha": "e1222d999ef6222a5733f1b26f6ce1974bc3d9cb",
+            "type": "blob",
+            "size": 8516
+          },
+          {
+            "path": "CLAUDE.md",
+            "sha": "47dc3e3d863cfb5727b87d785d09abf9743c0a72",
+            "type": "blob",
+            "size": 9
+          },
+          {
+            "path": "CONTRIBUTING.md",
+            "sha": "06304bff3829891020d64383d14cf851f7602007",
+            "type": "blob",
+            "size": 2967
+          },
+          {
+            "path": "LICENSE",
+            "sha": "eb1aca944fa85f6f821d2ad178d0a1440782f9f7",
+            "type": "blob",
+            "size": 1073
+          },
+          {
+            "path": "README.ja.md",
+            "sha": "36d96182bc8b002e30c613f3f8c2f9787f73f2bb",
+            "type": "blob",
+            "size": 5095
+          },
+          {
+            "path": "README.md",
+            "sha": "f16e4eca1ea359ddad0044884480215f6c766e38",
+            "type": "blob",
+            "size": 5298
+          },
+          {
+            "path": "__tests__",
+            "sha": "6aef2f3d961d0c13cd681e22655bde19c20b6d20",
+            "type": "tree"
+          },
+          {
+            "path": "__tests__/README.md",
+            "sha": "54f246231030758255d3bebc2ff901fd871831fa",
+            "type": "blob",
+            "size": 5312
+          },
+          {
+            "path": "__tests__/actions.devMode.test.ts",
+            "sha": "3a28930b06f7b1b7b2de769fd31dd27df52c6a1b",
+            "type": "blob",
+            "size": 2708
+          },
+          {
+            "path": "__tests__/actions",
+            "sha": "0bcf25187e82f9d13cae7b284257041ba0a0a2b8",
+            "type": "tree"
+          },
+          {
+            "path": "__tests__/actions/attachAgentDispatchAction.test.ts",
+            "sha": "0d5b22bcdbe8f9839c2bc0eb63766a8ab2e948e6",
+            "type": "blob",
+            "size": 1396
+          },
+          {
+            "path": "__tests__/actions/closeAction.test.ts",
+            "sha": "c315b3fafba73c917416fbe783cb19b17c9fc0cb",
+            "type": "blob",
+            "size": 21258
+          },
+          {
+            "path": "__tests__/actions/copyPathAction.test.ts",
+            "sha": "cce9c52389143e3b58010c7fd9da9a4cc8d008d5",
+            "type": "blob",
+            "size": 3358
+          },
+          {
+            "path": "__tests__/actions/createPullRequestAction.test.ts",
+            "sha": "85e0024949c31b8f5ea1e964d41746e59661cff8",
+            "type": "blob",
+            "size": 9738
+          },
+          {
+            "path": "__tests__/actions/duplicateAction.test.ts",
+            "sha": "591a5c854ae35bdd19b4d07d7cd8ca10e96334ca",
+            "type": "blob",
+            "size": 2641
+          },
+          {
+            "path": "__tests__/actions/openInEditorAction.test.ts",
+            "sha": "19159d3116fd324db98c6745fb21f40418cd4502",
+            "type": "blob",
+            "size": 4521
+          },
+          {
+            "path": "__tests__/actions/renameAction.test.ts",
+            "sha": "bf0d662aaab4c264733b7425d107dbdf27a0143c",
+            "type": "blob",
+            "size": 3662
+          },
+          {
+            "path": "__tests__/actions/toggleAutopilotAction.test.ts",
+            "sha": "b73a8960f4f8970ab41de1d9f116b15662b3c44e",
+            "type": "blob",
+            "size": 4363
+          },
+          {
+            "path": "__tests__/actions/viewAction.test.ts",
+            "sha": "524260facdaae47900c838eda9d8a55627a4054b",
+            "type": "blob",
+            "size": 3527
+          },
+          {
+            "path": "__tests__/agentChoiceSelection.test.ts",
+            "sha": "2c9f77688903f67feb608a63e40b48a3d03f4346",
+            "type": "blob",
+            "size": 1436
+          },
+          {
+            "path": "__tests__/agentLaunch.test.ts",
+            "sha": "1c1b6c96d08d63154434accecacdd6ee334aae12",
+            "type": "blob",
+            "size": 10368
+          },
+          {
+            "path": "__tests__/attachAgent.test.ts",
+            "sha": "9744a092119257c477cb419c2e6baccd615eef39",
+            "type": "blob",
+            "size": 1519
+          },
+          {
+            "path": "__tests__/baseBranchAndPrefix.test.ts",
+            "sha": "dd5a5257947415b98e1f7b2c3912a788c1e7c919",
+            "type": "blob",
+            "size": 14908
+          },
+          {
+            "path": "__tests__/claudeHooks.test.ts",
+            "sha": "4c55d632f999e77f6b4d9941f27c771274312834",
+            "type": "blob",
+            "size": 1353
+          },
+          {
+            "path": "__tests__/cleanTextInput.test.tsx",
+            "sha": "a3a5f6cbcc6f29bba710ea07c4b648bb0dc53029",
+            "type": "blob",
+            "size": 5280
+          },
+          {
+            "path": "__tests__/cleanTextInput.wrap.interactions.test.tsx",
+            "sha": "d5cac9d216dce59621bc6f196c200e12f23925b8",
+            "type": "blob",
+            "size": 5743
+          },
+          {
+            "path": "__tests__/codexHooks.test.ts",
+            "sha": "6c4d9d23a8a2ece0054ee553cb3bdf8b95fea0dd",
+            "type": "blob",
+            "size": 3319
+          },
+          {
+            "path": "__tests__/commands.test.ts",
+            "sha": "9a31814a2beeb453ad4e15baa2d1e5d63ce192c7",
+            "type": "blob",
+            "size": 520
+          },
+          {
+            "path": "__tests__/devSource.test.ts",
+            "sha": "fb12bce2db105bf5a738fde34122e204eb6040aa",
+            "type": "blob",
+            "size": 1216
+          },
+          {
+            "path": "__tests__/devWatchCommand.test.ts",
+            "sha": "b2e3dc3f1eee896895e1c7d0e4fb856a6649cec8",
+            "type": "blob",
+            "size": 885
+          },
+          {
+            "path": "__tests__/devWatchExit.test.ts",
+            "sha": "8e9d7d9ef719537b2f74d6597fd0f4fcaa372aff",
+            "type": "blob",
+            "size": 1026
+          },
+          {
+            "path": "__tests__/dmux.e2e.create-pane.test.ts",
+            "sha": "c8cba15611bf115fb38ceb546e5c583671464f5e",
+            "type": "blob",
+            "size": 5642
+          },
+          {
+            "path": "__tests__/dmux.e2e.new-pane-git-options.test.ts",
+            "sha": "7205f7670b05cb6a98dea216663a6ab18e4497a9",
+            "type": "blob",
+            "size": 24736
+          },
+          {
+            "path": "__tests__/dmux.e2e.wrap-interactions.test.ts",
+            "sha": "10a14056c103ba9c776d94f16c82971275fba433",
+            "type": "blob",
+            "size": 4724
+          },
+          {
+            "path": "__tests__/dmuxAttentionService.test.ts",
+            "sha": "8c0c6d2d75c38989c192d957bbccf677dc256d39",
+            "type": "blob",
+            "size": 12185
+          },
+          {
+            "path": "__tests__/dmuxCommand.test.ts",
+            "sha": "2c681f32b797528354c49bc1fd93f4787cbc7c85",
+            "type": "blob",
+            "size": 1892
+          },
+          {
+            "path": "__tests__/dmuxFocusService.test.ts",
+            "sha": "768b9b98877eee0c98113ca3c3e43f536c7c3d87",
+            "type": "blob",
+            "size": 1284
+          },
+          {
+            "path": "__tests__/dmuxFocusServiceSourceBuild.test.ts",
+            "sha": "5c09438f9ae6af2af9bf274f627864b940b72533",
+            "type": "blob",
+            "size": 1235
+          },
+          {
+            "path": "__tests__/dmuxNativeProgressiveEnhancement.test.ts",
+            "sha": "d03ad9853651a6ded5d7b3083d39bc41f16ff8ca",
+            "type": "blob",
+            "size": 1926
+          },
+          {
+            "path": "__tests__/durableShellPanes.test.ts",
+            "sha": "6bf32b75ae584c8e99cf16d868cacb6f6c1f852d",
+            "type": "blob",
+            "size": 738
+          },
+          {
+            "path": "__tests__/fileBrowser.test.ts",
+            "sha": "60917eb662f040329bc7cf778f17b7263b1b1484",
+            "type": "blob",
+            "size": 5563
+          },
+          {
+            "path": "__tests__/fixtures",
+            "sha": "5272c49632be89f5dfbe87b277d5471faae81e22",
+            "type": "tree"
+          },
+          {
+            "path": "__tests__/fixtures/integration",
+            "sha": "eeb62329b673458e276c1ac9ad7288c744ac3840",
+            "type": "tree"
+          },
+          {
+            "path": "__tests__/fixtures/integration/gitRepo.ts",
+            "sha": "3c1c1c769f1ceaccece323b11f08f95dc528a27f",
+            "type": "blob",
+            "size": 2188
+          },
+          {
+            "path": "__tests__/fixtures/integration/tmuxSession.ts",
+            "sha": "03248f4f9eb9bae07e6f3a6442fff2ce26627778",
+            "type": "blob",
+            "size": 1668
+          },
+          {
+            "path": "__tests__/fixtures/mockContext.ts",
+            "sha": "27196001ffab8e371661704b4ae5b1875af6303a",
+            "type": "blob",
+            "size": 650
+          },
+          {
+            "path": "__tests__/fixtures/mockPanes.ts",
+            "sha": "f0d9af1736fb78dd74f48a3e23db31bc3da8c9fb",
+            "type": "blob",
+            "size": 1017
+          },
+          {
+            "path": "__tests__/focusDetection.test.ts",
+            "sha": "64968eeb872281d94604da78bdf5a188311be084",
+            "type": "blob",
+            "size": 1888
+          },
+          {
+            "path": "__tests__/footerTips.test.ts",
+            "sha": "d2ba727781b76e3f79ee24d68477fb1febe247bc",
+            "type": "blob",
+            "size": 850
+          },
+          {
+            "path": "__tests__/githubPullRequest.test.ts",
+            "sha": "af7f665c3f329935a013f902c105f81adb611e9c",
+            "type": "blob",
+            "size": 1620
+          },
+          {
+            "path": "__tests__/grokBuildClient.test.ts",
+            "sha": "c09a0f9d719d6f5a6ec622fb4594be6b6beabf07",
+            "type": "blob",
+            "size": 1023
+          },
+          {
+            "path": "__tests__/grokHooks.test.ts",
+            "sha": "fcf0ad1d5ed74430496329fe50392d5c3038644e",
+            "type": "blob",
+            "size": 1606
+          },
+          {
+            "path": "__tests__/helpers",
+            "sha": "ee4bfdcffeadf1305e312bc6fd407f5f3c951edf",
+            "type": "tree"
+          },
+          {
+            "path": "__tests__/helpers/actionAssertions.ts",
+            "sha": "675dc29ba6c79d8f96ec51b6d79f6fdf879bdbcf",
+            "type": "blob",
+            "size": 2287
+          },
+          {
+            "path": "__tests__/helpers/integration",
+            "sha": "e77ab5596c2f377e09c135f9bbffe8eceba4281d",
+            "type": "tree"
+          },
+          {
+            "path": "__tests__/helpers/integration/mockCommands.ts",
+            "sha": "c0e11ebe65ea3a78ac6af943e15d890495e481f5",
+            "type": "blob",
+            "size": 4945
+          },
+          {
+            "path": "__tests__/hooksProgress.test.ts",
+            "sha": "29f1ee43122963a28df0ab94c490bc1fe755a09a",
+            "type": "blob",
+            "size": 3497
+          },
+          {
+            "path": "__tests__/i18n.test.ts",
+            "sha": "d2b82e868f6a261847e85501b92e55d81e10ae0d",
+            "type": "blob",
+            "size": 8547
+          },
+          {
+            "path": "__tests__/inferenceProviders.test.ts",
+            "sha": "99d00748c52bc5a3dfffb619a777444d8f19db6c",
+            "type": "blob",
+            "size": 4049
+          },
+          {
+            "path": "__tests__/inferenceService.test.ts",
+            "sha": "7f5e7a69256e11ab7e587088ac5ecc2b965a8961",
+            "type": "blob",
+            "size": 4338
+          },
+          {
+            "path": "__tests__/inferenceWizard.test.ts",
+            "sha": "3ffde247265602559eec6db8334b74c69afa60b8",
+            "type": "blob",
+            "size": 5929
+          },
+          {
+            "path": "__tests__/input.utils.test.ts",
+            "sha": "1bd1cacbe0c612475ef656dd127d856bdfb8c0fc",
+            "type": "blob",
+            "size": 11969
+          },
+          {
+            "path": "__tests__/integration",
+            "sha": "3c8826b558abac0d6cac4efb97c41ae990d8dbec",
+            "type": "tree"
+          },
+          {
+            "path": "__tests__/integration/gitOperations.test.ts",
+            "sha": "9d3079371dcb5e1553729d202afa916a8786601e",
+            "type": "blob",
+            "size": 18490
+          },
+          {
+            "path": "__tests__/integration/paneLifecycle.test.ts",
+            "sha": "a5e01e34e21fd30c1ad6e6628ef10cf71a6dae56",
+            "type": "blob",
+            "size": 32417
+          },
+          {
+            "path": "__tests__/kebabMenuClick.test.ts",
+            "sha": "0291a39e53c6bb245173dac9df5bb3435cadff95",
+            "type": "blob",
+            "size": 813
+          },
+          {
+            "path": "__tests__/kebabMenuPopup.test.tsx",
+            "sha": "ef5352ea6f289977be71038b22e05efd0b7554b9",
+            "type": "blob",
+            "size": 1529
+          },
+          {
+            "path": "__tests__/layout.test.ts",
+            "sha": "4a02b2301ecc57a61dce960d90a071d9a2b1b66d",
+            "type": "blob",
+            "size": 10615
+          },
+          {
+            "path": "__tests__/mergeTargets.test.ts",
+            "sha": "71fbda4383760e432e97c0457709863447827715",
+            "type": "blob",
+            "size": 5877
+          },
+          {
+            "path": "__tests__/mergeValidation.test.ts",
+            "sha": "b20a98d4a122762a9d0c898b808f88978f83b909",
+            "type": "blob",
+            "size": 1641
+          },
+          {
+            "path": "__tests__/newPaneFieldNavigation.test.ts",
+            "sha": "4d8d77b43eb3c4cc2d07485818514ecc27508c75",
+            "type": "blob",
+            "size": 756
+          },
+          {
+            "path": "__tests__/newPaneGitOptions.test.ts",
+            "sha": "62d6fcee87118a6bc63a29689b485d36cd7d74d6",
+            "type": "blob",
+            "size": 3617
+          },
+          {
+            "path": "__tests__/newPanePopup.test.tsx",
+            "sha": "d3d11ea0ca2e0e55edb606a57cb90a3e0967abd1",
+            "type": "blob",
+            "size": 1961
+          },
+          {
+            "path": "__tests__/notificationSoundPreview.test.ts",
+            "sha": "c5cb06903c64432eed9c05912776a792b3471aa2",
+            "type": "blob",
+            "size": 1060
+          },
+          {
+            "path": "__tests__/notificationSounds.test.ts",
+            "sha": "ab02c0d2005662e70038fc81566ca3880a6c08d5",
+            "type": "blob",
+            "size": 1429
+          },
+          {
+            "path": "__tests__/notificationSoundsPopup.test.tsx",
+            "sha": "9a57c8b897517b075d162f9401c59b4ea079e3f1",
+            "type": "blob",
+            "size": 2324
+          },
+          {
+            "path": "__tests__/openRouterApiKeySetup.test.ts",
+            "sha": "6a42585d80638798a87e2e74cc874d2c207dfdda",
+            "type": "blob",
+            "size": 3513
+          },
+          {
+            "path": "__tests__/paneAgentTracking.test.ts",
+            "sha": "dfa5ea9ef3dbd23a71d7d526d8983f29cc43cdc9",
+            "type": "blob",
+            "size": 3104
+          },
+          {
+            "path": "__tests__/paneAnalyzer.snapshot.test.ts",
+            "sha": "04b7873203860778c658cd93f6ab82d75b6155f4",
+            "type": "blob",
+            "size": 1117
+          },
+          {
+            "path": "__tests__/paneAnalyzer.test.ts",
+            "sha": "edc8dfeafb28ca9d353d4d43066eb65f42bd6b1d",
+            "type": "blob",
+            "size": 2668
+          },
+          {
+            "path": "__tests__/paneAttentionHeuristics.test.ts",
+            "sha": "b6cdda4d391aecbe714e8ad868af96ee6940ad25",
+            "type": "blob",
+            "size": 3231
+          },
+          {
+            "path": "__tests__/paneCapture.test.ts",
+            "sha": "f284b2ec1d58cb184ed7ca742ba39c2235f2a8c9",
+            "type": "blob",
+            "size": 704
+          },
+          {
+            "path": "__tests__/paneCard.test.tsx",
+            "sha": "efc451050c99d04aa5e3a35f2d97d2cac332b638",
+            "type": "blob",
+            "size": 2449
+          },
+          {
+            "path": "__tests__/paneGrouping.test.ts",
+            "sha": "ab8b53bc28df3c63112572c898613758eaa878d4",
+            "type": "blob",
+            "size": 2465
+          },
+          {
+            "path": "__tests__/paneMenuActions.test.ts",
+            "sha": "8d9c32ce0d9940727c66aaf9f23e5290acec24c5",
+            "type": "blob",
+            "size": 3002
+          },
+          {
+            "path": "__tests__/paneNaming.test.ts",
+            "sha": "6c57025e3a8f0bbb2108ebb3d181d0ccfde48ba1",
+            "type": "blob",
+            "size": 2950
+          },
+          {
+            "path": "__tests__/paneProject.test.ts",
+            "sha": "cb18b9716c5f0934497dbb99e057799fe6202a97",
+            "type": "blob",
+            "size": 1946
+          },
+          {
+            "path": "__tests__/paneRestore.test.ts",
+            "sha": "3e9611b9a6b55e6454c373a601cd0d12dd5837b7",
+            "type": "blob",
+            "size": 4175
+          },
+          {
+            "path": "__tests__/paneStatusMonitoring.test.ts",
+            "sha": "614c3331af2580e7333e351d3d85b3438a24c6ba",
+            "type": "blob",
+            "size": 1047
+          },
+          {
+            "path": "__tests__/paneTitle.test.ts",
+            "sha": "1f031bb2869c4b87e01401b84ad28f6272399289",
+            "type": "blob",
+            "size": 1700
+          },
+          {
+            "path": "__tests__/paneVisibility.test.ts",
+            "sha": "4d491a14a91e94fe91fd89b63e73bf2be103d2c3",
+            "type": "blob",
+            "size": 3407
+          },
+          {
+            "path": "__tests__/popupManager.agentChoice.test.ts",
+            "sha": "245d0c7304d54da768aa8083999e35d42d6fd516",
+            "type": "blob",
+            "size": 3155
+          },
+          {
+            "path": "__tests__/popupManager.choicePopup.test.ts",
+            "sha": "25ec4d1b50737cef8e4d51a62d32753ba59b578b",
+            "type": "blob",
+            "size": 3647
+          },
+          {
+            "path": "__tests__/popupManager.kebabMenu.test.ts",
+            "sha": "9f2085202606679b9caa606a2f4cc54e8cd12dc1",
+            "type": "blob",
+            "size": 1968
+          },
+          {
+            "path": "__tests__/popupManager.newPanePopup.test.ts",
+            "sha": "9e819924a591b0b83c96275784055c0640b57977",
+            "type": "blob",
+            "size": 6315
+          },
+          {
+            "path": "__tests__/popupManager.notificationSounds.test.ts",
+            "sha": "e78d2e6030158e05049f15ff8f4f734d3763e9d2",
+            "type": "blob",
+            "size": 3219
+          },
+          {
+            "path": "__tests__/popupManager.ready.test.ts",
+            "sha": "f72a884cf0b98e5ca80901170972843c9e98ad23",
+            "type": "blob",
+            "size": 3017
+          },
+          {
+            "path": "__tests__/popupManager.reopenWorktreePopup.test.ts",
+            "sha": "92541ecbdc66880cf63295fddd933a6d7cdda2cb",
+            "type": "blob",
+            "size": 4230
+          },
+          {
+            "path": "__tests__/popupPositioning.test.ts",
+            "sha": "6f429f68dd603df65afd5958b153207a3ecf0e1f",
+            "type": "blob",
+            "size": 685
+          },
+          {
+            "path": "__tests__/prSummary.test.ts",
+            "sha": "0a09a0406863a2e12e89c78781fd99d351abf78f",
+            "type": "blob",
+            "size": 1525
+          },
+          {
+            "path": "__tests__/processShutdown.test.ts",
+            "sha": "b9c5ac83503a55ae738109b9fc0abd98731b2efd",
+            "type": "blob",
+            "size": 930
+          },
+          {
+            "path": "__tests__/projectActions.test.ts",
+            "sha": "2e8f345362a22e61ea22359aa01e648ef7b3708c",
+            "type": "blob",
+            "size": 3242
+          },
+          {
+            "path": "__tests__/projectRoot.test.ts",
+            "sha": "96c3884108a4bcb1334cd2a184b6d5b54aa0a6ee",
+            "type": "blob",
+            "size": 2311
+          },
+          {
+            "path": "__tests__/projectSelectPopup.test.tsx",
+            "sha": "e6f890c53231eb89b9018c3fe4ca564b4c347b6e",
+            "type": "blob",
+            "size": 1888
+          },
+          {
+            "path": "__tests__/promptStore.test.ts",
+            "sha": "c8913944da75ac9a81ac38c8ef800cf82d440331",
+            "type": "blob",
+            "size": 1784
+          },
+          {
+            "path": "__tests__/remotePaneActions.test.ts",
+            "sha": "adcba37d9105b23a071b3baf73b8be9881788291",
+            "type": "blob",
+            "size": 3262
+          },
+          {
+            "path": "__tests__/reopenWorktree.test.ts",
+            "sha": "eb1dffb08b4b76c3ba43b88e48df676640246c7a",
+            "type": "blob",
+            "size": 4941
+          },
+          {
+            "path": "__tests__/reopenWorktreePopup.test.tsx",
+            "sha": "c636f8d86f55e07ef96ff025953e9589d430a6a6",
+            "type": "blob",
+            "size": 8088
+          },
+          {
+            "path": "__tests__/resumeBranches.test.ts",
+            "sha": "783e657eea00ac2e7d5cdf7d21ddb7f8ac288b62",
+            "type": "blob",
+            "size": 24757
+          },
+          {
+            "path": "__tests__/settingsManager.defaults.test.ts",
+            "sha": "3bcf4c63250bbdd24156170bdabaae7d52b7b4b7",
+            "type": "blob",
+            "size": 20593
+          },
+          {
+            "path": "__tests__/settingsManager.persistedGitOptions.test.ts",
+            "sha": "1168a896a85a087dee6a5d8ed3bdae239ff46404",
+            "type": "blob",
+            "size": 1206
+          },
+          {
+            "path": "__tests__/shellPaneDetection.test.ts",
+            "sha": "97217d9bb94770c0aeaa9f888ffa523e73a5a4a5",
+            "type": "blob",
+            "size": 909
+          },
+          {
+            "path": "__tests__/shortcutsPopup.test.tsx",
+            "sha": "925d7decc62c957947ca6aa494c8170c258866e3",
+            "type": "blob",
+            "size": 829
+          },
+          {
+            "path": "__tests__/sidebarClickMap.test.ts",
+            "sha": "5815fb18f58af1f79f5bb12d17ae43dbf585fd01",
+            "type": "blob",
+            "size": 5070
+          },
+          {
+            "path": "__tests__/sidebarMouse.test.ts",
+            "sha": "2d12c1db785f5e7521767f21cd889a7b3fb44ade",
+            "type": "blob",
+            "size": 6510
+          },
+          {
+            "path": "__tests__/sidebarProjects.test.ts",
+            "sha": "d6af89368bec80959a734eeb1d81414f0b43bea1",
+            "type": "blob",
+            "size": 5150
+          },
+          {
+            "path": "__tests__/slug.test.ts",
+            "sha": "d5a61f74494a6e739a35b899b85a5f63464321a0",
+            "type": "blob",
+            "size": 1333
+          },
+          {
+            "path": "__tests__/terminalPaneNaming.test.ts",
+            "sha": "b4e1987c979018f54c9e95c3806569e5fb33c88b",
+            "type": "blob",
+            "size": 13011
+          },
+          {
+            "path": "__tests__/test-env.test.ts",
+            "sha": "adaeaf658c78de8c42595f17fc0c9abbe7508e8a",
+            "type": "blob",
+            "size": 561
+          },
+          {
+            "path": "__tests__/tmuxConfigOnboarding.test.ts",
+            "sha": "731ce4d4c7ed4c1ccb4e4045f94b1f4bce0108be",
+            "type": "blob",
+            "size": 2765
+          },
+          {
+            "path": "__tests__/tmuxHookCommands.test.ts",
+            "sha": "5a3e583b42bd7ec737d1481e1783f013f50dc01f",
+            "type": "blob",
+            "size": 1589
+          },
+          {
+            "path": "__tests__/tmuxRuntimeCompatibility.test.ts",
+            "sha": "625c4cdd053181833e9dc31334c6a5005d0f38e1",
+            "type": "blob",
+            "size": 1753
+          },
+          {
+            "path": "__tests__/tmuxSendKeys.test.ts",
+            "sha": "a40fc1d83125ede59f60aeb5415d9cf244c97461",
+            "type": "blob",
+            "size": 1064
+          },
+          {
+            "path": "__tests__/tmuxSessionStart.test.ts",
+            "sha": "ed0c7f8cfc2fa2082c7fbf5ab7c3308d9a8cb754",
+            "type": "blob",
+            "size": 1711
+          },
+          {
+            "path": "__tests__/toastLayout.test.ts",
+            "sha": "92a520a0e427a290ddef4e44f1e3f322fbd40895",
+            "type": "blob",
+            "size": 877
+          },
+          {
+            "path": "__tests__/useInputHandling.reopenProjectSelection.test.tsx",
+            "sha": "cad3c56eb1ec0beb55fe474043b020b6e5ce9b00",
+            "type": "blob",
+            "size": 11665
+          },
+          {
+            "path": "__tests__/useNavigation.test.tsx",
+            "sha": "9582bb3e243811ab6c4974cd78619a5936e81106",
+            "type": "blob",
+            "size": 2074
+          },
+          {
+            "path": "__tests__/welcomePaneManager.test.ts",
+            "sha": "fa409209ad766082b419726cd4d2b06427f27b70",
+            "type": "blob",
+            "size": 3629
+          },
+          {
+            "path": "__tests__/worktreeCleanupService.test.ts",
+            "sha": "ba8997bd4443e8a6b72f3902011106732485acbe",
+            "type": "blob",
+            "size": 4673
+          },
+          {
+            "path": "__tests__/worktreeMetadata.test.ts",
+            "sha": "318008add4d611be90f48fc5c435e3a1ad4bf934",
+            "type": "blob",
+            "size": 1813
+          },
+          {
+            "path": "arnis-tile-cache",
+            "sha": "01643008e151e26f15ba2185e1f2a6499769c082",
+            "type": "tree"
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9114_y12658.png",
+            "sha": "591d2d597569bf7cb77a98ef5ca4bf6a4470ec10",
+            "type": "blob",
+            "size": 97600
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9114_y12659.png",
+            "sha": "e7dda83499ef8a196bc1e7a64013234c0cc871cd",
+            "type": "blob",
+            "size": 95529
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9114_y12660.png",
+            "sha": "112b8c9bd268c99be717616b16fcaa3bfaf5af5a",
+            "type": "blob",
+            "size": 103568
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9114_y12661.png",
+            "sha": "2a8d10c78fd5caaa0a858baee36100fbcef43364",
+            "type": "blob",
+            "size": 102485
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9114_y12662.png",
+            "sha": "01f57160bdeed6a4f5ca05f61fe8a8a3fc045a0b",
+            "type": "blob",
+            "size": 83491
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9115_y12658.png",
+            "sha": "5c03ed1ebe256a59052222d2c4f226450a29a814",
+            "type": "blob",
+            "size": 98920
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9115_y12659.png",
+            "sha": "627ff84e8f82649f9d0436b1e3a4bd54b806185b",
+            "type": "blob",
+            "size": 100223
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9115_y12660.png",
+            "sha": "61f5969594abe410da12bbfb27c55980424de121",
+            "type": "blob",
+            "size": 98294
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9115_y12661.png",
+            "sha": "3246382d9098419adadc9c0771cbd80cbd05fe41",
+            "type": "blob",
+            "size": 76641
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9115_y12662.png",
+            "sha": "3e7a03c5710df9b955be81d7650b14424d5b11b5",
+            "type": "blob",
+            "size": 90653
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9116_y12658.png",
+            "sha": "21d23c8ef901d75993b43ced635ba1ea9941ee72",
+            "type": "blob",
+            "size": 101708
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9116_y12659.png",
+            "sha": "21970b274bd36ccb888d6890f97acdd1106456c6",
+            "type": "blob",
+            "size": 102436
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9116_y12660.png",
+            "sha": "260f127289e4f6ad9c46ad82860f83b43045911c",
+            "type": "blob",
+            "size": 103195
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9116_y12661.png",
+            "sha": "cf1ca7aefa7cac1d58fceb266be74f7960958551",
+            "type": "blob",
+            "size": 83553
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9116_y12662.png",
+            "sha": "ca13cb098ddec70bc10c7e19998aacad9b4dc255",
+            "type": "blob",
+            "size": 102150
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9117_y12658.png",
+            "sha": "ac6d4bc686347dddbfdf5a220df04af03b4b0e21",
+            "type": "blob",
+            "size": 101752
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9117_y12659.png",
+            "sha": "6e3c3cc6b6bc4012ad46bc7fed93697c195bd1dd",
+            "type": "blob",
+            "size": 101454
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9117_y12660.png",
+            "sha": "b5bd91bee938c9ded70c1f531e73f854bba959ee",
+            "type": "blob",
+            "size": 93237
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9117_y12661.png",
+            "sha": "f9100f2b961f92b97cd4eaed856158ab755173c5",
+            "type": "blob",
+            "size": 91332
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9117_y12662.png",
+            "sha": "f60375472cd2e5b49283d1433f56e809af168ee4",
+            "type": "blob",
+            "size": 104531
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9118_y12658.png",
+            "sha": "fafc18c020444e4bd9cfd9601eeabb89cfc72b6e",
+            "type": "blob",
+            "size": 101110
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9118_y12659.png",
+            "sha": "458f416ea2cc48dce5e47f9d57cc11d7466cccd8",
+            "type": "blob",
+            "size": 85935
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9118_y12660.png",
+            "sha": "fea0a8e6f51dd1cbe6ed56d8939cfa5dacfcbfe3",
+            "type": "blob",
+            "size": 86194
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9118_y12661.png",
+            "sha": "39634e2c30a4b9f816e33a6d4a345269f9df527f",
+            "type": "blob",
+            "size": 95609
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9118_y12662.png",
+            "sha": "d611a0b960c8f5d8ee7070b2c092286aa4aae313",
+            "type": "blob",
+            "size": 104597
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9119_y12658.png",
+            "sha": "c602399c80a98d64a3348e66760cf3f59a07211b",
+            "type": "blob",
+            "size": 102966
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9119_y12659.png",
+            "sha": "fba345000898e022afeb8fba1ea5e9b2b0049fd2",
+            "type": "blob",
+            "size": 100573
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9119_y12660.png",
+            "sha": "e5dec3547f2d0c89711f66274e19905417fb4e30",
+            "type": "blob",
+            "size": 87712
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9119_y12661.png",
+            "sha": "dd310aac3fd1ae6b9dcf596a05a01b6d79e82ca1",
+            "type": "blob",
+            "size": 93821
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9119_y12662.png",
+            "sha": "13943144f149b8ec0066f9d42c19a54ba4d73031",
+            "type": "blob",
+            "size": 97292
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9120_y12658.png",
+            "sha": "b8fdc72c6e48edc20d27f507ae88ee45c46c148a",
+            "type": "blob",
+            "size": 99374
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9120_y12659.png",
+            "sha": "279449e07d8b7b01b1fe440ec1329551fc4ef15c",
+            "type": "blob",
+            "size": 92688
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9120_y12660.png",
+            "sha": "4a5197443c1dc11c719aa002e97e079743d941b4",
+            "type": "blob",
+            "size": 90482
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9120_y12661.png",
+            "sha": "69586b093a0f7960390c36a06df9b9180099a4d0",
+            "type": "blob",
+            "size": 103151
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9120_y12662.png",
+            "sha": "830b1c2967fbc7ec80e757dd0dd87acde33059ad",
+            "type": "blob",
+            "size": 85612
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9121_y12658.png",
+            "sha": "cff57f1ea0be67caec7f6540af3884e614148cf9",
+            "type": "blob",
+            "size": 96736
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9121_y12659.png",
+            "sha": "04185c3ee1995f4b805ae5b909f49e27cb140fd1",
+            "type": "blob",
+            "size": 84739
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9121_y12660.png",
+            "sha": "6d97674c080aa450dedc9b2542edbf60be86d6aa",
+            "type": "blob",
+            "size": 99936
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9121_y12661.png",
+            "sha": "deca53f4b6696f41cd653c651f8c31268a9afb22",
+            "type": "blob",
+            "size": 101156
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9121_y12662.png",
+            "sha": "8c07a0f0ea3d5d3c6f5e415d4306d898d1e45ead",
+            "type": "blob",
+            "size": 80994
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9235_y12632.png",
+            "sha": "337ee57f766d7f3acdab28dae529c59bd7a47b1b",
+            "type": "blob",
+            "size": 88798
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9235_y12633.png",
+            "sha": "39915ac36796a0564892ea8d2611e525bb77d091",
+            "type": "blob",
+            "size": 87476
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9235_y12634.png",
+            "sha": "c958ccfd6bed1e61eefa064433f6a233e6273e51",
+            "type": "blob",
+            "size": 86840
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9235_y12635.png",
+            "sha": "32ecc5e1305aa901d7912695a151aa5f815d5ea7",
+            "type": "blob",
+            "size": 89323
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9235_y12636.png",
+            "sha": "91ebba283ab5130f7cd7e868c89dfc2dae6b3171",
+            "type": "blob",
+            "size": 91430
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9235_y12637.png",
+            "sha": "50f4c9399e4feee42aad71ccbea8bfa4492a9c21",
+            "type": "blob",
+            "size": 93274
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9236_y12632.png",
+            "sha": "a242ae90e15b76ba9bedf71dfb66307e417d7503",
+            "type": "blob",
+            "size": 88342
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9236_y12633.png",
+            "sha": "be53d3374b877213a1dce9a9d0926d67d3a8c584",
+            "type": "blob",
+            "size": 84549
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9236_y12634.png",
+            "sha": "1368110b0e4c988713ba42e43768f88aff16d964",
+            "type": "blob",
+            "size": 88992
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9236_y12635.png",
+            "sha": "210545682beda603dea51e946d1ad3a93de04af7",
+            "type": "blob",
+            "size": 96251
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9236_y12636.png",
+            "sha": "5cd7cf1a13ab11fc210376883b30424bd9302049",
+            "type": "blob",
+            "size": 94031
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9236_y12637.png",
+            "sha": "a8addd3800e927c39fcc25b57d1c88e20c9e5472",
+            "type": "blob",
+            "size": 96475
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9237_y12632.png",
+            "sha": "1823adb69f652a3f7d3430bdca9af80a9bc5a368",
+            "type": "blob",
+            "size": 91122
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9237_y12633.png",
+            "sha": "bbf8150d725f3744afa3f9c7c1b83627152bd55c",
+            "type": "blob",
+            "size": 88453
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9237_y12634.png",
+            "sha": "cb484c25c74ea4b45ed104dc6a617b05d3fcc262",
+            "type": "blob",
+            "size": 83749
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9237_y12635.png",
+            "sha": "60e86deccfe83a46a3cfb3ea891082e94984f3d2",
+            "type": "blob",
+            "size": 82561
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9237_y12636.png",
+            "sha": "7c3a876f90e65a1caf9c38d7dd673210cedd2c1d",
+            "type": "blob",
+            "size": 87000
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9237_y12637.png",
+            "sha": "0a133e5392aac61136023ba56dbc5deb52794fcf",
+            "type": "blob",
+            "size": 90372
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9238_y12632.png",
+            "sha": "dfaa1c454b8a1abf1544fb18dc4e1707ff0f7454",
+            "type": "blob",
+            "size": 85696
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9238_y12633.png",
+            "sha": "2676554d5bb71ed4247e616b2e8337e9ce81f932",
+            "type": "blob",
+            "size": 87528
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9238_y12634.png",
+            "sha": "ce16308d7f6918d4665fbeb68af6a57c3e18786f",
+            "type": "blob",
+            "size": 85005
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9238_y12635.png",
+            "sha": "05b0a0401ef6cc1bb6e7229cd680fb51a70c7cfc",
+            "type": "blob",
+            "size": 82015
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9238_y12636.png",
+            "sha": "a47d20b82c40791f8984806b5673188eb2484188",
+            "type": "blob",
+            "size": 89983
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9238_y12637.png",
+            "sha": "f98426f3074e4b3e65c8d394289e8a570e8167c7",
+            "type": "blob",
+            "size": 91493
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9239_y12632.png",
+            "sha": "366496c5b813c2ac2b27188f847595dc7c5d57f5",
+            "type": "blob",
+            "size": 83746
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9239_y12633.png",
+            "sha": "62e8d93112241f0bd6240bf4d8968db35a349284",
+            "type": "blob",
+            "size": 91709
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9239_y12634.png",
+            "sha": "ba99f40d29a1339c4145d8f6fd7bab2bfb81fef0",
+            "type": "blob",
+            "size": 84799
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9239_y12635.png",
+            "sha": "c4fab2e7518e0891132e359bf551b225108c74a9",
+            "type": "blob",
+            "size": 70996
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9239_y12636.png",
+            "sha": "f405b4154f33ad99be9fdf0e0dc21b64f545db3f",
+            "type": "blob",
+            "size": 86285
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9239_y12637.png",
+            "sha": "f913eb71eea5e01cf47370e415ae0e285b5c9d48",
+            "type": "blob",
+            "size": 92588
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9240_y12632.png",
+            "sha": "d6008d55cb270f7f3e316291a5c490e93d6bdb37",
+            "type": "blob",
+            "size": 90995
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9240_y12633.png",
+            "sha": "734213cda78695ecea3334cacc6bce3f70111bdb",
+            "type": "blob",
+            "size": 88799
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9240_y12634.png",
+            "sha": "5ae33228db74bc0c482098621d300aeebdac86ac",
+            "type": "blob",
+            "size": 83977
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9240_y12635.png",
+            "sha": "39a0e3d48189de2e60417d75ca702a593dcf7c1b",
+            "type": "blob",
+            "size": 81977
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9240_y12636.png",
+            "sha": "1abc7e76a2a236118cbfa6951bc88e9c42cc1245",
+            "type": "blob",
+            "size": 79303
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9240_y12637.png",
+            "sha": "5796312cac00e960985f8615e1f08510ef354705",
+            "type": "blob",
+            "size": 84780
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9241_y12632.png",
+            "sha": "95a9e1e91b66f664c86a1f20e30b318dab4691dd",
+            "type": "blob",
+            "size": 88569
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9241_y12633.png",
+            "sha": "e652b774fcd67a461a136b3383be1c307f196dd3",
+            "type": "blob",
+            "size": 86068
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9241_y12634.png",
+            "sha": "1fe257649ac83003eb337cd128a7b26504e0ba24",
+            "type": "blob",
+            "size": 92970
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9241_y12635.png",
+            "sha": "b1096ae8c2c37ba65ae061a685936ab01f9feb15",
+            "type": "blob",
+            "size": 84410
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9241_y12636.png",
+            "sha": "89c36ebf754efba3e169bfe2d43677fe1fa57240",
+            "type": "blob",
+            "size": 81512
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9241_y12637.png",
+            "sha": "bc329612615f3d5c4c36c1cb9c371fd1d027dabe",
+            "type": "blob",
+            "size": 84879
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9242_y12632.png",
+            "sha": "9897f6a165e5897d03b85aac310bf3dd2b4d90bb",
+            "type": "blob",
+            "size": 92313
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9242_y12633.png",
+            "sha": "d0f350dc290f32e60db976d435cbf46e6e8bb8e2",
+            "type": "blob",
+            "size": 92004
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9242_y12634.png",
+            "sha": "23a160f4b4de2974b705c2b61e306c1b84e509c2",
+            "type": "blob",
+            "size": 82980
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9242_y12635.png",
+            "sha": "8d5ebbfc910d351c5bc1b06994e4a32f9af28ad7",
+            "type": "blob",
+            "size": 79235
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9242_y12636.png",
+            "sha": "3b6ad113f8af4b46860f4091fee1301786f127f7",
+            "type": "blob",
+            "size": 83610
+          },
+          {
+            "path": "arnis-tile-cache/z15_x9242_y12637.png",
+            "sha": "503658a898228233113573e08449f306136c7952",
+            "type": "blob",
+            "size": 91298
+          },
+          {
+            "path": "context",
+            "sha": "4d2562fa4f3931c1b91e45e2f20ac82771b9f82e",
+            "type": "tree"
+          },
+          {
+            "path": "context/API.md",
+            "sha": "d3c30b1ac22ce2cb07fe0460ff1676ba4076cdaf",
+            "type": "blob",
+            "size": 10597
+          },
+          {
+            "path": "context/BUNDLED_ASSETS.md",
+            "sha": "1c44b5b4d572bb07a44aa734d678c13bd3eac1bc",
+            "type": "blob",
+            "size": 7306
+          },
+          {
+            "path": "context/HOOKS.md",
+            "sha": "f6c8f869866ae4d224643534795af7e82467cff7",
+            "type": "blob",
+            "size": 20907
+          },
+          {
+            "path": "context/LAYOUT.md",
+            "sha": "94ffd7e200aed215dfb4f0ca00fb341b0bc053da",
+            "type": "blob",
+            "size": 37850
+          },
+          {
+            "path": "context/MERGE.md",
+            "sha": "f80de42995c5e5ebeb507373323e100045e7dc7e",
+            "type": "blob",
+            "size": 9296
+          },
+          {
+            "path": "context/POPUPS.md",
+            "sha": "6b2334476f5f8f9ecd328a1f09339cc5a3ec06fb",
+            "type": "blob",
+            "size": 9636
+          },
+          {
+            "path": "coverage",
+            "sha": "7ca0c5a8568020667dc5fd7c4263c75178f66693",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/base.css",
+            "sha": "f418035b469aff23689a74c912849662f442aed4",
+            "type": "blob",
+            "size": 5394
+          },
+          {
+            "path": "coverage/block-navigation.js",
+            "sha": "530d1ed2ba83fd9fdaee5c91dbdd31ee54aa5c4b",
+            "type": "blob",
+            "size": 2655
+          },
+          {
+            "path": "coverage/coverage-final.json",
+            "sha": "54ddc6f907d06ae56e7bb3c86dfe559ffac949ed",
+            "type": "blob",
+            "size": 2144741
+          },
+          {
+            "path": "coverage/favicon.png",
+            "sha": "c1525b811a167671e9de1fa78aab9f5c0b61cef7",
+            "type": "blob",
+            "size": 445
+          },
+          {
+            "path": "coverage/index.html",
+            "sha": "22858eacf14afb2b62713cebd09900452accd498",
+            "type": "blob",
+            "size": 20738
+          },
+          {
+            "path": "coverage/prettify.css",
+            "sha": "b317a7cda31a440fbd47540297ee3c68d51f343e",
+            "type": "blob",
+            "size": 676
+          },
+          {
+            "path": "coverage/prettify.js",
+            "sha": "b3225238f26e3ab49a5e41e9cb287a73c82740b7",
+            "type": "blob",
+            "size": 17590
+          },
+          {
+            "path": "coverage/sort-arrow-sprite.png",
+            "sha": "6ed68316eb3f65dec9063332d2f69bf3093bbfab",
+            "type": "blob",
+            "size": 138
+          },
+          {
+            "path": "coverage/sorter.js",
+            "sha": "4ed70ae5ac82ccc64cd6aa91766853bdd99e6bd9",
+            "type": "blob",
+            "size": 6731
+          },
+          {
+            "path": "coverage/src",
+            "sha": "713649389b5a60abde84a7df8d57e57477e5f0b2",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/DmuxApp.tsx.html",
+            "sha": "558559063ce62ee729a2bdea36bcf17dbb7b7b28",
+            "type": "blob",
+            "size": 147815
+          },
+          {
+            "path": "coverage/src/actions",
+            "sha": "b9e4df79afe241aa87f3b206d7d62fabbdeb43c9",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/actions/implementations",
+            "sha": "ccedb3d918adbee5fc3705ba128429aff082b5b5",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/actions/implementations/closeAction.ts.html",
+            "sha": "c7b51224cd6610fe854cb62b6c420ddf677efaef",
+            "type": "blob",
+            "size": 32378
+          },
+          {
+            "path": "coverage/src/actions/implementations/copyPathAction.ts.html",
+            "sha": "915f7f0204386e3ef2e5773539f26367a6db7c3c",
+            "type": "blob",
+            "size": 7599
+          },
+          {
+            "path": "coverage/src/actions/implementations/duplicateAction.ts.html",
+            "sha": "dbdc2b455cde256b05c0569a3f0a90ea29773b94",
+            "type": "blob",
+            "size": 6687
+          },
+          {
+            "path": "coverage/src/actions/implementations/index.html",
+            "sha": "f05c9564525fb8a9b37ba8384982893658286d1e",
+            "type": "blob",
+            "size": 10076
+          },
+          {
+            "path": "coverage/src/actions/implementations/index.ts.html",
+            "sha": "27f3aafebd4df01defeb59d077975eb42ca900cd",
+            "type": "blob",
+            "size": 5856
+          },
+          {
+            "path": "coverage/src/actions/implementations/mergeAction.ts.html",
+            "sha": "24a7e2a57a5fd9bbe03546a9df7c3421af0e4646",
+            "type": "blob",
+            "size": 16105
+          },
+          {
+            "path": "coverage/src/actions/implementations/openInEditorAction.ts.html",
+            "sha": "536388cd45eeec287c52a97e13d89fa92457c2a6",
+            "type": "blob",
+            "size": 7727
+          },
+          {
+            "path": "coverage/src/actions/implementations/renameAction.ts.html",
+            "sha": "750b5e28c18520d3f8f11629bb4823f958fe3a4c",
+            "type": "blob",
+            "size": 6011
+          },
+          {
+            "path": "coverage/src/actions/implementations/toggleAutopilotAction.ts.html",
+            "sha": "8b2a1b65b3327634b94e2e119cce834cd72ae39b",
+            "type": "blob",
+            "size": 8161
+          },
+          {
+            "path": "coverage/src/actions/implementations/viewAction.ts.html",
+            "sha": "a021dce3702f1c05eb47f9eff42b220cff8a5723",
+            "type": "blob",
+            "size": 6610
+          },
+          {
+            "path": "coverage/src/actions/index.html",
+            "sha": "3aebee5861856ba503de0b39dece7606cc2398ed",
+            "type": "blob",
+            "size": 5676
+          },
+          {
+            "path": "coverage/src/actions/index.ts.html",
+            "sha": "561adfad9d32ca01d7d37e7abffb9a76c8e36adf",
+            "type": "blob",
+            "size": 16098
+          },
+          {
+            "path": "coverage/src/actions/merge",
+            "sha": "fcd485d89f3525c10534459ad6b8944f7917da67",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/actions/merge/commitMessageHandler.ts.html",
+            "sha": "36dd0194568dab48b9250711641e8a8e708d432f",
+            "type": "blob",
+            "size": 23478
+          },
+          {
+            "path": "coverage/src/actions/merge/conflictResolution.ts.html",
+            "sha": "cf02fef6e042f1245be2a31244ac25462411f9a6",
+            "type": "blob",
+            "size": 24756
+          },
+          {
+            "path": "coverage/src/actions/merge/index.html",
+            "sha": "5d3035f22c90d99e82e416d0b83b5ca22e26ac08",
+            "type": "blob",
+            "size": 6020
+          },
+          {
+            "path": "coverage/src/actions/merge/issueHandlers",
+            "sha": "d4d47f7998e0e18350416d9c5cb2f74174a27138",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/actions/merge/issueHandlers/index.html",
+            "sha": "c38aa0bf4f6a1f791707ab2bc3cd64545c302555",
+            "type": "blob",
+            "size": 7418
+          },
+          {
+            "path": "coverage/src/actions/merge/issueHandlers/index.ts.html",
+            "sha": "006b90e4cba519c6a9c47acddcdd98b73ce26526",
+            "type": "blob",
+            "size": 4648
+          },
+          {
+            "path": "coverage/src/actions/merge/issueHandlers/mainDirtyHandler.ts.html",
+            "sha": "258eff50262a06cb29b4da64d0a003936432e8fa",
+            "type": "blob",
+            "size": 13886
+          },
+          {
+            "path": "coverage/src/actions/merge/issueHandlers/mergeConflictHandler.ts.html",
+            "sha": "94aeb1816c7e549fad9d3871743c3f6d68a1995d",
+            "type": "blob",
+            "size": 10989
+          },
+          {
+            "path": "coverage/src/actions/merge/issueHandlers/nothingToMergeHandler.ts.html",
+            "sha": "71af33e9a6533595bcf5e8b401cd445033815477",
+            "type": "blob",
+            "size": 4721
+          },
+          {
+            "path": "coverage/src/actions/merge/issueHandlers/worktreeUncommittedHandler.ts.html",
+            "sha": "574063b921427c5341f2f676a17f0b25779b451c",
+            "type": "blob",
+            "size": 11826
+          },
+          {
+            "path": "coverage/src/actions/merge/mergeExecution.ts.html",
+            "sha": "554095016e28bfaa980313ffc63e65beca1d7742",
+            "type": "blob",
+            "size": 38208
+          },
+          {
+            "path": "coverage/src/actions/paneActions.ts.html",
+            "sha": "a3f164a9ff12f2c128bf895f8e8dabbd097104d3",
+            "type": "blob",
+            "size": 6233
+          },
+          {
+            "path": "coverage/src/actions/types.ts.html",
+            "sha": "1461adfaab5a4196cb6eac3392aee9870be26f68",
+            "type": "blob",
+            "size": 44844
+          },
+          {
+            "path": "coverage/src/adapters",
+            "sha": "898ad02f7fbefca4160a848462e139eaaeb4165e",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/adapters/apiActionHandler.ts.html",
+            "sha": "9092a9577403007c1001decb080dd146a054f5e9",
+            "type": "blob",
+            "size": 49506
+          },
+          {
+            "path": "coverage/src/adapters/index.html",
+            "sha": "4683e521a360a2a3cbdf659086ff4016d3c7b256",
+            "type": "blob",
+            "size": 5101
+          },
+          {
+            "path": "coverage/src/adapters/tuiActionHandler.ts.html",
+            "sha": "dd27699a02df4276d804dbdf9a1fdd2c1433b7c5",
+            "type": "blob",
+            "size": 41767
+          },
+          {
+            "path": "coverage/src/components",
+            "sha": "676188644f786bf7d189d00d2564382c002927ce",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/components/dialogs",
+            "sha": "4e972a30319462b889dece02753c122d8948611b",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/components/dialogs/ActionChoiceDialog.tsx.html",
+            "sha": "2e40976816b2be641adb88d171c725dd2e2fb441",
+            "type": "blob",
+            "size": 14047
+          },
+          {
+            "path": "coverage/src/components/dialogs/ActionConfirmDialog.tsx.html",
+            "sha": "ad3dedda191baf4edca6d60e49bcac6bceed21aa",
+            "type": "blob",
+            "size": 16329
+          },
+          {
+            "path": "coverage/src/components/dialogs/ActionInputDialog.tsx.html",
+            "sha": "418fc16cd74ea0dfcf8d0836084e03f453874ff8",
+            "type": "blob",
+            "size": 18991
+          },
+          {
+            "path": "coverage/src/components/dialogs/ActionProgressDialog.tsx.html",
+            "sha": "31af7bb7cd21d5cc8c164600cc9d0b7a9550ada7",
+            "type": "blob",
+            "size": 10778
+          },
+          {
+            "path": "coverage/src/components/dialogs/AgentChoiceDialog.tsx.html",
+            "sha": "dd1d61680fac607618eb6941879544dae4f9d39d",
+            "type": "blob",
+            "size": 8089
+          },
+          {
+            "path": "coverage/src/components/dialogs/CloseOptionsDialog.tsx.html",
+            "sha": "eaf891ce44667df59a83fc8194d8b9c803bc8f1e",
+            "type": "blob",
+            "size": 12086
+          },
+          {
+            "path": "coverage/src/components/dialogs/CommandPromptDialog.tsx.html",
+            "sha": "de925cc7d582a660330bbf0a5f701e45488e2607",
+            "type": "blob",
+            "size": 9850
+          },
+          {
+            "path": "coverage/src/components/dialogs/DialogBox.tsx.html",
+            "sha": "b66070458206fd134171d2d9e7b0c98878418939",
+            "type": "blob",
+            "size": 10121
+          },
+          {
+            "path": "coverage/src/components/dialogs/HooksDialog.tsx.html",
+            "sha": "e15ea7ab8a07685669a47136c4b79e966d4f29a0",
+            "type": "blob",
+            "size": 18133
+          },
+          {
+            "path": "coverage/src/components/dialogs/MergeConfirmationDialog.tsx.html",
+            "sha": "d9740db324dd9389ad09dd4353d60519d89cf7e7",
+            "type": "blob",
+            "size": 7270
+          },
+          {
+            "path": "coverage/src/components/dialogs/SettingsDialog.tsx.html",
+            "sha": "fe09a77728b1b6a77c511ca226cfe7ed5c84a59d",
+            "type": "blob",
+            "size": 34146
+          },
+          {
+            "path": "coverage/src/components/dialogs/UpdateDialog.tsx.html",
+            "sha": "d26c2a7a722bad8ef8e347b31cf52f2d62b43b3f",
+            "type": "blob",
+            "size": 11076
+          },
+          {
+            "path": "coverage/src/components/dialogs/index.html",
+            "sha": "312da3727dabcd42852d54b1dc5f5f6c54c14a58",
+            "type": "blob",
+            "size": 11814
+          },
+          {
+            "path": "coverage/src/components/indicators",
+            "sha": "b88310779d42ab3beab4fdbd807a8ffdcb25a7b5",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/components/indicators/CreatingIndicator.tsx.html",
+            "sha": "2fa0d30a0d3cacac1991ac31e0f7064e156a6426",
+            "type": "blob",
+            "size": 6617
+          },
+          {
+            "path": "coverage/src/components/indicators/LoadingIndicator.tsx.html",
+            "sha": "a19798808cfd4aee8a134ea2ad0838def4f25626",
+            "type": "blob",
+            "size": 5518
+          },
+          {
+            "path": "coverage/src/components/indicators/RunningIndicator.tsx.html",
+            "sha": "a057f89bb451ff9d4ade60e2df82725109da265c",
+            "type": "blob",
+            "size": 5749
+          },
+          {
+            "path": "coverage/src/components/indicators/Spinner.tsx.html",
+            "sha": "aa364646adf497d9afda0b6d1a2c8aa115dd1205",
+            "type": "blob",
+            "size": 8060
+          },
+          {
+            "path": "coverage/src/components/indicators/UpdatingIndicator.tsx.html",
+            "sha": "d33650e02e8f8e16611aafcf2fa7dad7db8f45db",
+            "type": "blob",
+            "size": 5755
+          },
+          {
+            "path": "coverage/src/components/indicators/index.html",
+            "sha": "38c17e4a29548b27120b4e98faac241911df8393",
+            "type": "blob",
+            "size": 7746
+          },
+          {
+            "path": "coverage/src/components/indicators/index.ts.html",
+            "sha": "5a1ed698ee665ced700b066d1b2d3fa747f03ec2",
+            "type": "blob",
+            "size": 4358
+          },
+          {
+            "path": "coverage/src/components/inputs",
+            "sha": "14be39abe410d0da6f7ee72e0a591cb21f192d2b",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/components/inputs/CleanTextInput.tsx.html",
+            "sha": "338bbfa101f19dc07477f7853f56764b8b739cad",
+            "type": "blob",
+            "size": 145080
+          },
+          {
+            "path": "coverage/src/components/inputs/StyledTextInput.tsx.html",
+            "sha": "2e86c4ae0772d72afcf027b560047d32602382b2",
+            "type": "blob",
+            "size": 8621
+          },
+          {
+            "path": "coverage/src/components/inputs/index.html",
+            "sha": "afb1d768c620b759c810c356f20af135eaa4a1ec",
+            "type": "blob",
+            "size": 5828
+          },
+          {
+            "path": "coverage/src/components/inputs/index.ts.html",
+            "sha": "aadd7fd585eb66233d71e738a424e2c3227a8c90",
+            "type": "blob",
+            "size": 3716
+          },
+          {
+            "path": "coverage/src/components/panes",
+            "sha": "506928cc8cc9075dc1f52b76482a089b077d6506",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/components/panes/KebabMenu.tsx.html",
+            "sha": "dba99694304bfb52490337e3f0891c535aef77c2",
+            "type": "blob",
+            "size": 10352
+          },
+          {
+            "path": "coverage/src/components/panes/MergePane.tsx.html",
+            "sha": "d69971adbc8577e18688bc0fa09fb3d5b75c4810",
+            "type": "blob",
+            "size": 74064
+          },
+          {
+            "path": "coverage/src/components/panes/PaneCard.tsx.html",
+            "sha": "59cf08421045dc5a04a2abad9f2a77ea1c2199d2",
+            "type": "blob",
+            "size": 16381
+          },
+          {
+            "path": "coverage/src/components/panes/PanesGrid.tsx.html",
+            "sha": "e20cc9574083ce09f562b693145e8d3ef0a8fd31",
+            "type": "blob",
+            "size": 23567
+          },
+          {
+            "path": "coverage/src/components/panes/index.html",
+            "sha": "3a839ddf751c3029727b551ca37d01b5de07afa1",
+            "type": "blob",
+            "size": 7015
+          },
+          {
+            "path": "coverage/src/components/panes/index.ts.html",
+            "sha": "d5bf3568051be8a0263dfed9b9e70c76ba11c3ac",
+            "type": "blob",
+            "size": 4090
+          },
+          {
+            "path": "coverage/src/components/popups",
+            "sha": "fb96598f5b2c7015c7f5cc4e258819af9282ea5d",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/components/popups/agentChoicePopup.tsx.html",
+            "sha": "a92fd16d4dd35272244b60ffc0c1d5cc24f240ea",
+            "type": "blob",
+            "size": 22248
+          },
+          {
+            "path": "coverage/src/components/popups/choicePopup.tsx.html",
+            "sha": "bfae7b87ab2fda1d21f439c4d4c4244d2b78b6f4",
+            "type": "blob",
+            "size": 25302
+          },
+          {
+            "path": "coverage/src/components/popups/config.ts.html",
+            "sha": "fb74f6fd4eeb0f667cb804191d57293e9f7acf28",
+            "type": "blob",
+            "size": 11922
+          },
+          {
+            "path": "coverage/src/components/popups/confirmPopup.tsx.html",
+            "sha": "bb614e03a73690c0c44b1bb99961055657a951f6",
+            "type": "blob",
+            "size": 24722
+          },
+          {
+            "path": "coverage/src/components/popups/hooksPopup.tsx.html",
+            "sha": "b5dd639de1a7facd50a4eb679ba50248e9805951",
+            "type": "blob",
+            "size": 21692
+          },
+          {
+            "path": "coverage/src/components/popups/index.html",
+            "sha": "298de408d9b73317dc022eb005fff7da894758e2",
+            "type": "blob",
+            "size": 12977
+          },
+          {
+            "path": "coverage/src/components/popups/inputPopup.tsx.html",
+            "sha": "41af021e27ee0ef3812cba7f73b439318cc7b141",
+            "type": "blob",
+            "size": 20932
+          },
+          {
+            "path": "coverage/src/components/popups/kebabMenuPopup.tsx.html",
+            "sha": "591e5c7201291024c4f25a7cac2a1f7a0fac7955",
+            "type": "blob",
+            "size": 16695
+          },
+          {
+            "path": "coverage/src/components/popups/logsPopup.tsx.html",
+            "sha": "de4fe9c1888e8a0e6de89cd8fff74f628cb63490",
+            "type": "blob",
+            "size": 85911
+          },
+          {
+            "path": "coverage/src/components/popups/mergePopup.tsx.html",
+            "sha": "95feee6010cdae12017a464067a99f3cb2fb5b80",
+            "type": "blob",
+            "size": 85956
+          },
+          {
+            "path": "coverage/src/components/popups/newPanePopup.tsx.html",
+            "sha": "3c86b183006a19ba64aabe9eee75574b76e8cd26",
+            "type": "blob",
+            "size": 60238
+          },
+          {
+            "path": "coverage/src/components/popups/progressPopup.tsx.html",
+            "sha": "28a8b5a5818ffa9920edde14c14547a3178d0d37",
+            "type": "blob",
+            "size": 18641
+          },
+          {
+            "path": "coverage/src/components/popups/remotePopup.tsx.html",
+            "sha": "4ab34730864b2e6e561605f43f7dd87c48ab66b1",
+            "type": "blob",
+            "size": 43063
+          },
+          {
+            "path": "coverage/src/components/popups/settingsPopup.tsx.html",
+            "sha": "eeedeac431f347ab5793cbae4f6fde8bbd1bb65f",
+            "type": "blob",
+            "size": 57316
+          },
+          {
+            "path": "coverage/src/components/popups/shared",
+            "sha": "3975ea456dd500e67cd35c5adf491c750576830f",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/components/popups/shared/FileList.tsx.html",
+            "sha": "c04147b9af26f8c59c272aa0613cf348097d6f54",
+            "type": "blob",
+            "size": 22115
+          },
+          {
+            "path": "coverage/src/components/popups/shared/PopupContainer.tsx.html",
+            "sha": "a2196b59b623a3bcae4f3ebc561fb9503646ef97",
+            "type": "blob",
+            "size": 10041
+          },
+          {
+            "path": "coverage/src/components/popups/shared/PopupInputBox.tsx.html",
+            "sha": "139107734d16f47df3a6317098c4021f1911e62d",
+            "type": "blob",
+            "size": 7653
+          },
+          {
+            "path": "coverage/src/components/popups/shared/PopupWrapper.tsx.html",
+            "sha": "2f9618052a2a9864e67a552ba8720e705625ce59",
+            "type": "blob",
+            "size": 22961
+          },
+          {
+            "path": "coverage/src/components/popups/shared/index.html",
+            "sha": "6e87f2cc36b8e90faff5d236dd964bde03410842",
+            "type": "blob",
+            "size": 7095
+          },
+          {
+            "path": "coverage/src/components/popups/shared/index.ts.html",
+            "sha": "d5580646cee1de2a0d95913906e7ef857f8b9827",
+            "type": "blob",
+            "size": 5715
+          },
+          {
+            "path": "coverage/src/components/popups/shortcutsPopup.tsx.html",
+            "sha": "e7b6d1d68002923ad31ed6c09c6345978d65cd4e",
+            "type": "blob",
+            "size": 21748
+          },
+          {
+            "path": "coverage/src/components/popups/templates",
+            "sha": "db3843cb968303bccb9913b8ed5906981cb133e2",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/components/popups/templates/SimpleInputPopup.tsx.html",
+            "sha": "b5e676cd174e1432c92c88d80f4234cb5e29733a",
+            "type": "blob",
+            "size": 13763
+          },
+          {
+            "path": "coverage/src/components/popups/templates/index.html",
+            "sha": "74ee31cb2af538777983fb016907627307709143",
+            "type": "blob",
+            "size": 4518
+          },
+          {
+            "path": "coverage/src/components/ui",
+            "sha": "9576b83bd030eb8f5225adbe05b657a0bd535a1f",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/components/ui/FileCopyPrompt.tsx.html",
+            "sha": "2c335c42d4459480783c468d2279bfdfb7c86c12",
+            "type": "blob",
+            "size": 7427
+          },
+          {
+            "path": "coverage/src/components/ui/FooterHelp.tsx.html",
+            "sha": "f8b1042b9c6f622f6243eb5699e8fd5b9ad0456f",
+            "type": "blob",
+            "size": 25518
+          },
+          {
+            "path": "coverage/src/components/ui/QRCode.tsx.html",
+            "sha": "20e60419f6389617c186c4c5235b8c6d1956c62d",
+            "type": "blob",
+            "size": 8281
+          },
+          {
+            "path": "coverage/src/components/ui/index.html",
+            "sha": "e550c95b24ce93927a341d9d36e51b0d38deff67",
+            "type": "blob",
+            "size": 6373
+          },
+          {
+            "path": "coverage/src/components/ui/index.ts.html",
+            "sha": "a717e6fae3f7f3fc0519902f4a3438e649f2702f",
+            "type": "blob",
+            "size": 3892
+          },
+          {
+            "path": "coverage/src/constants",
+            "sha": "d7bd82b0c07285cb9118bc409481f29c44a0ba8b",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/constants/index.html",
+            "sha": "d8b6a2e17305ef240844afcea79e559bf7b96983",
+            "type": "blob",
+            "size": 4453
+          },
+          {
+            "path": "coverage/src/constants/timing.ts.html",
+            "sha": "01a96e00038a3350abc14608e2f6ab2044881b6d",
+            "type": "blob",
+            "size": 7342
+          },
+          {
+            "path": "coverage/src/hooks",
+            "sha": "f977150000f87e8f69326e1c2a0c0f994095183f",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/hooks/index.html",
+            "sha": "d5de8e07c97c7ce4c964d055a728022c096fbc7d",
+            "type": "blob",
+            "size": 16983
+          },
+          {
+            "path": "coverage/src/hooks/useActionSystem.ts.html",
+            "sha": "c26c53dbf9b00087c45b96843c4df9a0059cf92a",
+            "type": "blob",
+            "size": 50500
+          },
+          {
+            "path": "coverage/src/hooks/useAgentDetection.ts.html",
+            "sha": "591c7b6693f78cb7399416857425cefa71a138f4",
+            "type": "blob",
+            "size": 16779
+          },
+          {
+            "path": "coverage/src/hooks/useAgentStatus.ts.html",
+            "sha": "487fbc22dc5f0ce04795ad95a7901060aa4ccb45",
+            "type": "blob",
+            "size": 17233
+          },
+          {
+            "path": "coverage/src/hooks/useAutoUpdater.ts.html",
+            "sha": "81c7f3bde17da10756894e47cbe90d1bfbb2af80",
+            "type": "blob",
+            "size": 24377
+          },
+          {
+            "path": "coverage/src/hooks/useCommandRunner.ts.html",
+            "sha": "de6e6b7b10f22705ed2cc95385f568057eb955dc",
+            "type": "blob",
+            "size": 16397
+          },
+          {
+            "path": "coverage/src/hooks/useInputHandling.ts.html",
+            "sha": "72f7a048aeabfa609a653b485819a4157998c615",
+            "type": "blob",
+            "size": 78943
+          },
+          {
+            "path": "coverage/src/hooks/useLayoutManagement.ts.html",
+            "sha": "e3665763be7c8e117ed83402197dcd8a19ba9407",
+            "type": "blob",
+            "size": 17454
+          },
+          {
+            "path": "coverage/src/hooks/useNavigation.ts.html",
+            "sha": "0a49e7f399f20a3f83dac1a45d51db4c6f8fa2d3",
+            "type": "blob",
+            "size": 14709
+          },
+          {
+            "path": "coverage/src/hooks/usePaneCreation.ts.html",
+            "sha": "166112f6910cf6df1f5bb4c319c76793d1204c1d",
+            "type": "blob",
+            "size": 27305
+          },
+          {
+            "path": "coverage/src/hooks/usePaneLoading.ts.html",
+            "sha": "cecbf177972820dac089aa573bed326b7254c75c",
+            "type": "blob",
+            "size": 51752
+          },
+          {
+            "path": "coverage/src/hooks/usePaneRunner.ts.html",
+            "sha": "b3e536cd369f46294af4a0043ce701bf36a44e07",
+            "type": "blob",
+            "size": 33302
+          },
+          {
+            "path": "coverage/src/hooks/usePaneSync.ts.html",
+            "sha": "4aee5e228db56659a785dbb3d362793aadf82768",
+            "type": "blob",
+            "size": 51236
+          },
+          {
+            "path": "coverage/src/hooks/usePanes.ts.html",
+            "sha": "6cdc6fdd1a07bc50a6af752ab796fd8fe94f9e3b",
+            "type": "blob",
+            "size": 36193
+          },
+          {
+            "path": "coverage/src/hooks/useProjectSettings.ts.html",
+            "sha": "720e89fb591fdd591603eae80f6245da01d88a6e",
+            "type": "blob",
+            "size": 13836
+          },
+          {
+            "path": "coverage/src/hooks/useServices.ts.html",
+            "sha": "e457a7d92e0299d703416644842edd2c9710a897",
+            "type": "blob",
+            "size": 15021
+          },
+          {
+            "path": "coverage/src/hooks/useShellDetection.ts.html",
+            "sha": "eb90d2ab015a8e2e5c9d4b21aad80db04ddb52c0",
+            "type": "blob",
+            "size": 18294
+          },
+          {
+            "path": "coverage/src/hooks/useStatusMessages.ts.html",
+            "sha": "75dbcf491b26ac9ad3ef018e7eacb97e7345b0b1",
+            "type": "blob",
+            "size": 9389
+          },
+          {
+            "path": "coverage/src/hooks/useTemporaryStatus.ts.html",
+            "sha": "b17e328116e7b1f379115de62d6fbb249dd22924",
+            "type": "blob",
+            "size": 10174
+          },
+          {
+            "path": "coverage/src/hooks/useTerminalWidth.ts.html",
+            "sha": "f996540ba5c904c5a59c0f0344dfee9ab341d43d",
+            "type": "blob",
+            "size": 10676
+          },
+          {
+            "path": "coverage/src/hooks/useWorktreeActions.ts.html",
+            "sha": "d65eac23c154a2b73309ccb6594d3e383b5fde64",
+            "type": "blob",
+            "size": 42206
+          },
+          {
+            "path": "coverage/src/index.html",
+            "sha": "d0379e3ca35d47db47ce4ebee3afdd08576c5480",
+            "type": "blob",
+            "size": 5004
+          },
+          {
+            "path": "coverage/src/index.ts.html",
+            "sha": "0ed4f85b4fbbc0cfe8537bedf35eae40a6c85671",
+            "type": "blob",
+            "size": 126049
+          },
+          {
+            "path": "coverage/src/layout",
+            "sha": "124ffa480ef739fbf7a2f2db4f8acbf74cc4b5cb",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/layout/LayoutCalculator.ts.html",
+            "sha": "7cfcb3a21819d34ac8e48d5e5d5a7472462d1064",
+            "type": "blob",
+            "size": 28472
+          },
+          {
+            "path": "coverage/src/layout/SpacerManager.ts.html",
+            "sha": "8c289f32ab14de09492311a6ede160c60ea8e7e7",
+            "type": "blob",
+            "size": 31283
+          },
+          {
+            "path": "coverage/src/layout/TmuxLayoutApplier.ts.html",
+            "sha": "53a1543c9a75fa95d08657b23bbc78cb7ecb7aa2",
+            "type": "blob",
+            "size": 26336
+          },
+          {
+            "path": "coverage/src/layout/index.html",
+            "sha": "ac9584ab2b7efacf4c36de86997584d5c6a0019b",
+            "type": "blob",
+            "size": 5959
+          },
+          {
+            "path": "coverage/src/panes",
+            "sha": "e0ee22703b781a84068cf7ecccef03344402dee6",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/panes/decorative-pane.ts.html",
+            "sha": "039f24095aca76057a2ebd736b7262384564b8d2",
+            "type": "blob",
+            "size": 36619
+          },
+          {
+            "path": "coverage/src/panes/index.html",
+            "sha": "03d1b5b212a01f743a29c27978c2972174f3f286",
+            "type": "blob",
+            "size": 5073
+          },
+          {
+            "path": "coverage/src/panes/spacer-pane.ts.html",
+            "sha": "f694d86640b412873e7c09a0f94c9f7ed7d8a896",
+            "type": "blob",
+            "size": 11514
+          },
+          {
+            "path": "coverage/src/server",
+            "sha": "e99c3757a59e7b4c02aa9f1d436511395d5baf28",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/server/actionsApi.ts.html",
+            "sha": "45ede7840f893860ff2cd875e3f2797077187a59",
+            "type": "blob",
+            "size": 56482
+          },
+          {
+            "path": "coverage/src/server/index.html",
+            "sha": "9e4ccb6c27bfda096ff090be684bdbca1d61a7dc",
+            "type": "blob",
+            "size": 5678
+          },
+          {
+            "path": "coverage/src/server/index.ts.html",
+            "sha": "011b0cda226862fca002a393d9c1b0d80d3f22da",
+            "type": "blob",
+            "size": 23478
+          },
+          {
+            "path": "coverage/src/server/routes.ts.html",
+            "sha": "f0d203266a165d78eaffad2276aee022205da061",
+            "type": "blob",
+            "size": 6374
+          },
+          {
+            "path": "coverage/src/server/routes",
+            "sha": "2d265b773479947fd2fc1c98386b2fbb063291dc",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/server/routes/actionsRoutes.ts.html",
+            "sha": "1192f79d2063e07afcbf6862cce1eb4c7e9fec3d",
+            "type": "blob",
+            "size": 28762
+          },
+          {
+            "path": "coverage/src/server/routes/healthRoutes.ts.html",
+            "sha": "16012a6d3978635b685ef0cdbc6f3d4af061356f",
+            "type": "blob",
+            "size": 17470
+          },
+          {
+            "path": "coverage/src/server/routes/index.html",
+            "sha": "5976dbe0743a11b8da540279c83e9b3624db09cc",
+            "type": "blob",
+            "size": 9004
+          },
+          {
+            "path": "coverage/src/server/routes/index.ts.html",
+            "sha": "c67dd70bbcf3c024011e0e779141e50aba22588a",
+            "type": "blob",
+            "size": 17102
+          },
+          {
+            "path": "coverage/src/server/routes/keysRoutes.ts.html",
+            "sha": "28d63e3a6ca984043bda1218be531c8a1d2f3446",
+            "type": "blob",
+            "size": 26651
+          },
+          {
+            "path": "coverage/src/server/routes/panesRoutes.ts.html",
+            "sha": "6b0905ec0de0273001d399d987e670344d3519b3",
+            "type": "blob",
+            "size": 86725
+          },
+          {
+            "path": "coverage/src/server/routes/settingsRoutes.ts.html",
+            "sha": "4475ae09c5ae5fef4ac7c16946d5896dc9ffc611",
+            "type": "blob",
+            "size": 35572
+          },
+          {
+            "path": "coverage/src/server/routes/streamRoutes.ts.html",
+            "sha": "d9a4ce3a1f6bdf5a76cfba7898bfa507e58399be",
+            "type": "blob",
+            "size": 21461
+          },
+          {
+            "path": "coverage/src/server/routes/tunnelRoutes.ts.html",
+            "sha": "236e1cda62bacc6723072ad09ff0d22dd3bd5008",
+            "type": "blob",
+            "size": 8385
+          },
+          {
+            "path": "coverage/src/services",
+            "sha": "293c8c0934cb96490c6c4cd65f9e99a1a7941797",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/services/AutoUpdater.ts.html",
+            "sha": "5b895956daa40b392c558f217ec84dcc1548bc9d",
+            "type": "blob",
+            "size": 56566
+          },
+          {
+            "path": "coverage/src/services/ConfigWatcher.ts.html",
+            "sha": "98be9726322fd35a4507ffd6a06885021c845ae5",
+            "type": "blob",
+            "size": 23395
+          },
+          {
+            "path": "coverage/src/services/LogService.ts.html",
+            "sha": "a75229a706ba867d52035d78c02fa4e1d9668ad3",
+            "type": "blob",
+            "size": 49032
+          },
+          {
+            "path": "coverage/src/services/PaneAnalyzer.ts.html",
+            "sha": "1c1d215708233d0cba287ebc9ab7bebe04ada082",
+            "type": "blob",
+            "size": 62478
+          },
+          {
+            "path": "coverage/src/services/PaneWorkerManager.ts.html",
+            "sha": "5deec4cbd9277fbe337e8fdccc532330b5a59a9a",
+            "type": "blob",
+            "size": 67031
+          },
+          {
+            "path": "coverage/src/services/PopupManager.ts.html",
+            "sha": "62359a293d8f1bf456b9d1db47e0be303f72a0a0",
+            "type": "blob",
+            "size": 105620
+          },
+          {
+            "path": "coverage/src/services/StatusDetector.ts.html",
+            "sha": "280eeada070821acf49753454df46f64b6e0141c",
+            "type": "blob",
+            "size": 88421
+          },
+          {
+            "path": "coverage/src/services/TerminalDiffer.ts.html",
+            "sha": "47c50c9bf4b650b14256f72f6a700df662b76585",
+            "type": "blob",
+            "size": 99621
+          },
+          {
+            "path": "coverage/src/services/TerminalStreamer.ts.html",
+            "sha": "60019df5c6e3cd8b222b3e81e7bcb6dad467ba06",
+            "type": "blob",
+            "size": 111526
+          },
+          {
+            "path": "coverage/src/services/TunnelService.ts.html",
+            "sha": "3d9dd32357fbcfb3cfb6925b3d8fb45d6d023d96",
+            "type": "blob",
+            "size": 23725
+          },
+          {
+            "path": "coverage/src/services/WorkerMessageBus.ts.html",
+            "sha": "3b067ed69709d01206b64edf8a26a0c580935ae8",
+            "type": "blob",
+            "size": 30929
+          },
+          {
+            "path": "coverage/src/services/index.html",
+            "sha": "68cb914afc02a6d5044bfd09677f23598e554438",
+            "type": "blob",
+            "size": 11101
+          },
+          {
+            "path": "coverage/src/shared",
+            "sha": "a775b8f733cb79f40a9ada5b5083a3b3e1379198",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/shared/StateManager.ts.html",
+            "sha": "9a7f87766dbf76c7df37915c19e96ccda2e2525e",
+            "type": "blob",
+            "size": 52240
+          },
+          {
+            "path": "coverage/src/shared/StreamProtocol.ts.html",
+            "sha": "b5bafd3fe69a5cb1463125a57a845ed012bab1ef",
+            "type": "blob",
+            "size": 22206
+          },
+          {
+            "path": "coverage/src/shared/index.html",
+            "sha": "e7310faa332aa39bf31fa2d90ec88f6165af9c80",
+            "type": "blob",
+            "size": 5079
+          },
+          {
+            "path": "coverage/src/theme",
+            "sha": "626d5b40d5e39d7be515239e689161b8444a76ed",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/theme/colors.ts.html",
+            "sha": "c0e8125a191678b4cd0643ab05baba3ccb3f9a3e",
+            "type": "blob",
+            "size": 9982
+          },
+          {
+            "path": "coverage/src/theme/index.html",
+            "sha": "616133b94f2ab57a210f143fa9c1b7b171c3ec9b",
+            "type": "blob",
+            "size": 4393
+          },
+          {
+            "path": "coverage/src/utils",
+            "sha": "f36bd9628948040283be88aa485f50d92c57b8c6",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/utils/agentDetection.ts.html",
+            "sha": "1b7f0ac373241f23361d74e43da65a446257543d",
+            "type": "blob",
+            "size": 17392
+          },
+          {
+            "path": "coverage/src/utils/aiMerge.ts.html",
+            "sha": "30a0895544a2f26c569e75d9edf33a50e9eba757",
+            "type": "blob",
+            "size": 55335
+          },
+          {
+            "path": "coverage/src/utils/asciiArt.ts.html",
+            "sha": "6a25d3532e5289d1fc7f30da0befa785592ae3d1",
+            "type": "blob",
+            "size": 18909
+          },
+          {
+            "path": "coverage/src/utils/commands.ts.html",
+            "sha": "3f6e28b67efbd24df303957af6cad2932c57890e",
+            "type": "blob",
+            "size": 7786
+          },
+          {
+            "path": "coverage/src/utils/conflictMonitor.ts.html",
+            "sha": "b1018e70130a55c4f50787565e674bf225a46080",
+            "type": "blob",
+            "size": 19565
+          },
+          {
+            "path": "coverage/src/utils/conflictResolutionPane.ts.html",
+            "sha": "5e0368b16528685e35958ef52c13c9e1449383d1",
+            "type": "blob",
+            "size": 57034
+          },
+          {
+            "path": "coverage/src/utils/fileScanner.ts.html",
+            "sha": "b231ffb21fb61365015e9524790af381a0446c7a",
+            "type": "blob",
+            "size": 30824
+          },
+          {
+            "path": "coverage/src/utils/git.ts.html",
+            "sha": "b054f141e8608a6520e7a44d9fc6d261d84be43e",
+            "type": "blob",
+            "size": 17636
+          },
+          {
+            "path": "coverage/src/utils/hooks.ts.html",
+            "sha": "66e7d5089f11a0e4dfabcbc94cc1b1c3e4c05419",
+            "type": "blob",
+            "size": 65343
+          },
+          {
+            "path": "coverage/src/utils/hooksDocs.ts.html",
+            "sha": "64c7850eee8dc66b8ba581171a539cb1613c4529",
+            "type": "blob",
+            "size": 62295
+          },
+          {
+            "path": "coverage/src/utils/index.html",
+            "sha": "f3bc28754d5bc594f6ec4ea1b84a02c94485a895",
+            "type": "blob",
+            "size": 21519
+          },
+          {
+            "path": "coverage/src/utils/input.ts.html",
+            "sha": "7a1ea988f7bf55de58fcefafe622f68aecd7a92f",
+            "type": "blob",
+            "size": 16623
+          },
+          {
+            "path": "coverage/src/utils/layoutManager.ts.html",
+            "sha": "80311d1e975df76289f7ec22b8abc2ac06af7a3b",
+            "type": "blob",
+            "size": 55738
+          },
+          {
+            "path": "coverage/src/utils/mergeExecution.ts.html",
+            "sha": "b8964ffc09e1e4b76ebf70c6ae2d0957abc127a2",
+            "type": "blob",
+            "size": 35071
+          },
+          {
+            "path": "coverage/src/utils/mergeValidation.ts.html",
+            "sha": "5cc754e246d972779f9495f147cbfc76522bd924",
+            "type": "blob",
+            "size": 48625
+          },
+          {
+            "path": "coverage/src/utils/paneCapture.ts.html",
+            "sha": "c811de9c5f0fee050fe4011399e9258b84e9daa0",
+            "type": "blob",
+            "size": 20930
+          },
+          {
+            "path": "coverage/src/utils/paneCreation.ts.html",
+            "sha": "c0b56c63627e492ac4110c3e8ee87bf8f6c78c02",
+            "type": "blob",
+            "size": 85626
+          },
+          {
+            "path": "coverage/src/utils/paneRebinding.ts.html",
+            "sha": "ce3a4e8a74d53d41f3e380563387432ac4082ec5",
+            "type": "blob",
+            "size": 10253
+          },
+          {
+            "path": "coverage/src/utils/popup.ts.html",
+            "sha": "b63e001a89f50b043f5a39cb3be267b2d9033e49",
+            "type": "blob",
+            "size": 117066
+          },
+          {
+            "path": "coverage/src/utils/port.ts.html",
+            "sha": "68af8cf7ad6c6862aadbe3aff1010995094e86ef",
+            "type": "blob",
+            "size": 13959
+          },
+          {
+            "path": "coverage/src/utils/postPaneCleanup.ts.html",
+            "sha": "b7f2441a991a94fe723c60f3f23b046875748ac1",
+            "type": "blob",
+            "size": 12634
+          },
+          {
+            "path": "coverage/src/utils/settingsManager.ts.html",
+            "sha": "47659cb7f82fc2d43ecd0b586c8031a405bd2122",
+            "type": "blob",
+            "size": 29062
+          },
+          {
+            "path": "coverage/src/utils/shellPaneDetection.ts.html",
+            "sha": "40a2c99dfce025ef3330f22f62ff1e368b4cf453",
+            "type": "blob",
+            "size": 43712
+          },
+          {
+            "path": "coverage/src/utils/slug.ts.html",
+            "sha": "3c72852a7b5c67e7679c4b769c8eab0b057f6dac",
+            "type": "blob",
+            "size": 11766
+          },
+          {
+            "path": "coverage/src/utils/tmux.ts.html",
+            "sha": "f64b826eac759462a92da7d0e48d71060bc6af3c",
+            "type": "blob",
+            "size": 76225
+          },
+          {
+            "path": "coverage/src/utils/welcomePane.ts.html",
+            "sha": "035ed54bb8bb2fed0fa4cff38973a096835a4ef9",
+            "type": "blob",
+            "size": 23026
+          },
+          {
+            "path": "coverage/src/utils/welcomePaneManager.ts.html",
+            "sha": "8dcf763fe855157489b37ce37fb18c5214e58b6a",
+            "type": "blob",
+            "size": 31765
+          },
+          {
+            "path": "coverage/src/workers",
+            "sha": "9f66dbd32a0834084436b7edeb3073ae716f9318",
+            "type": "tree"
+          },
+          {
+            "path": "coverage/src/workers/PaneWorker.ts.html",
+            "sha": "47fccdf9adb72960215a1dc1624a77dc2b1a5364",
+            "type": "blob",
+            "size": 81413
+          },
+          {
+            "path": "coverage/src/workers/WorkerMessages.ts.html",
+            "sha": "5846d0dcf4013822827e93a538b8c0cd10110176",
+            "type": "blob",
+            "size": 13130
+          },
+          {
+            "path": "coverage/src/workers/index.html",
+            "sha": "51cf0086edf7b4c437a272d34f73366ed8886fc6",
+            "type": "blob",
+            "size": 5724
+          },
+          {
+            "path": "coverage/src/workers/updateChecker.ts.html",
+            "sha": "64f04bb4460240fc134b4fe3eeed5ccb03bf9e4b",
+            "type": "blob",
+            "size": 9077
+          },
+          {
+            "path": "dmux",
+            "sha": "ce0b70e8c8bd96f88c7046cfeb94df99ebc63361",
+            "type": "blob",
+            "size": 46
+          },
+          {
+            "path": "dmux.gif",
+            "sha": "662dd67b7bc03403a48cb9130291b3daab1aff74",
+            "type": "blob",
+            "size": 9384265
+          },
+          {
+            "path": "dmux.mp4",
+            "sha": "9dfe7928e86810f0eb92f542e2dac0b6d5ec6864",
+            "type": "blob",
+            "size": 2073349
+          },
+          {
+            "path": "dmux.png",
+            "sha": "4ca1cd8a00733d9c727394b47ec45481f59a4c20",
+            "type": "blob",
+            "size": 18442
+          },
+          {
+            "path": "dmux.svg",
+            "sha": "900557f30f117d97044e3d956fb0dd0482c0d283",
+            "type": "blob",
+            "size": 14720
+          },
+          {
+            "path": "dmux.webp",
+            "sha": "2a6e3d8f9fb9f2038a2ae0288533760b3a178ace",
+            "type": "blob",
+            "size": 2959478
+          },
+          {
+            "path": "docs",
+            "sha": "5dd3e63b971e9a4043645dfb1a0098af1e8eacbe",
+            "type": "tree"
+          },
+          {
+            "path": "docs/.gitignore",
+            "sha": "bdf89dfc9497bcd5dc27e9d743befec841eed3c4",
+            "type": "blob",
+            "size": 340
+          },
+          {
+            "path": "docs/README.md",
+            "sha": "78253e67d8b31b43042c61ae89702b2043ff36c4",
+            "type": "blob",
+            "size": 927
+          },
+          {
+            "path": "docs/package.json",
+            "sha": "38f0c5f3b388584799081bb132ac9fbfb933f563",
+            "type": "blob",
+            "size": 463
+          },
+          {
+            "path": "docs/public",
+            "sha": "fa2b1586da3218b3fd2f5995c2addc8d0e8364f0",
+            "type": "tree"
+          },
+          {
+            "path": "docs/public/0xboyd.jpg",
+            "sha": "780a88bd21f7a571236d3497d3dead8a5b68f491",
+            "type": "blob",
+            "size": 29454
+          },
+          {
+            "path": "docs/public/agents",
+            "sha": "926b99b8a41597e6638e2f9ee638ed465617b171",
+            "type": "tree"
+          },
+          {
+            "path": "docs/public/agents/amp.svg",
+            "sha": "0dfdde66de3dd8bd312e238910853b564f4ab803",
+            "type": "blob",
+            "size": 590
+          },
+          {
+            "path": "docs/public/agents/claude.svg",
+            "sha": "a5999338634fd8fda328e2243fb2ba55cd6a2a8a",
+            "type": "blob",
+            "size": 1916
+          },
+          {
+            "path": "docs/public/agents/cline.svg",
+            "sha": "dcbfbfc0efdc2f23c2016cf768dc6ef8a90c143b",
+            "type": "blob",
+            "size": 896
+          },
+          {
+            "path": "docs/public/agents/codex.svg",
+            "sha": "1ac2e44a55bb1a5b03a78801feac927af90fc5f0",
+            "type": "blob",
+            "size": 1565
+          },
+          {
+            "path": "docs/public/agents/copilot.svg",
+            "sha": "2f2a5c847092e5c8850e95b9d85fdef809f7894b",
+            "type": "blob",
+            "size": 1731
+          },
+          {
+            "path": "docs/public/agents/crush.svg",
+            "sha": "206833b01522b4044a6b8faa9513cd375f92d4dc",
+            "type": "blob",
+            "size": 385
+          },
+          {
+            "path": "docs/public/agents/cursor.svg",
+            "sha": "99df41a0b09a0b04252880d139d8c6840a9951a5",
+            "type": "blob",
+            "size": 763
+          },
+          {
+            "path": "docs/public/agents/gemini.svg",
+            "sha": "5a545ba112a086d560608e6d0c2006c08a6b768b",
+            "type": "blob",
+            "size": 389
+          },
+          {
+            "path": "docs/public/agents/grok.svg",
+            "sha": "c77c4e16e69b41d7f0b8136824185b4b31159d11",
+            "type": "blob",
+            "size": 562
+          },
+          {
+            "path": "docs/public/agents/opencode.svg",
+            "sha": "8c87617e912f1fe6184906cb309ce2421cb2e612",
+            "type": "blob",
+            "size": 235
+          },
+          {
+            "path": "docs/public/agents/pi.svg",
+            "sha": "fe36e0b03b43de3797bd3aa9f32086492045b43a",
+            "type": "blob",
+            "size": 258
+          },
+          {
+            "path": "docs/public/agents/png",
+            "sha": "492d984638f6899b22b4feac80ddd1fde424cb9c",
+            "type": "tree"
+          },
+          {
+            "path": "docs/public/agents/png/amp.png",
+            "sha": "e53ccdc8032b218b16db325d18974935463ffc9b",
+            "type": "blob",
+            "size": 20101
+          },
+          {
+            "path": "docs/public/agents/png/claude.png",
+            "sha": "eb4eb4d1eba37a96fcb206456ca39f67fed4ff77",
+            "type": "blob",
+            "size": 31208
+          },
+          {
+            "path": "docs/public/agents/png/cline.png",
+            "sha": "2113a2563ba7bee2ca6b3c5b1745298addf2eb3b",
+            "type": "blob",
+            "size": 17928
+          },
+          {
+            "path": "docs/public/agents/png/codex.png",
+            "sha": "c0c8829b359fbad1564408ff87d427aed00a81dc",
+            "type": "blob",
+            "size": 27867
+          },
+          {
+            "path": "docs/public/agents/png/copilot.png",
+            "sha": "aef12b357b0917252bdf7f893ee009cc87185fca",
+            "type": "blob",
+            "size": 16769
+          },
+          {
+            "path": "docs/public/agents/png/crush.png",
+            "sha": "41f5a0138b3e04df624ebbe2ccf6468c1629f994",
+            "type": "blob",
+            "size": 2558
+          },
+          {
+            "path": "docs/public/agents/png/cursor.png",
+            "sha": "ee5b7d7f21a30fbc873e8b01d45c18c76aee308f",
+            "type": "blob",
+            "size": 13285
+          },
+          {
+            "path": "docs/public/agents/png/gemini.png",
+            "sha": "d88d1191c0c6786f6cba1ccbf45e06bf8372dd5b",
+            "type": "blob",
+            "size": 13180
+          },
+          {
+            "path": "docs/public/agents/png/opencode.png",
+            "sha": "f4f874b56dae99bb746a62a056cfc9765e580e15",
+            "type": "blob",
+            "size": 1891
+          },
+          {
+            "path": "docs/public/agents/png/pi.png",
+            "sha": "4182f9509d852fe7873681f0fd32772c19ecbb3e",
+            "type": "blob",
+            "size": 1845
+          },
+          {
+            "path": "docs/public/agents/png/qwen.png",
+            "sha": "efc57db1aa9a40c8334eaeb80385c50fd8f47ad7",
+            "type": "blob",
+            "size": 32848
+          },
+          {
+            "path": "docs/public/agents/qwen.svg",
+            "sha": "038633b2ad13499335c0f3c21b0ac75d74ef0801",
+            "type": "blob",
+            "size": 1606
+          },
+          {
+            "path": "docs/public/dmux.mp4",
+            "sha": "5c07edc310de8281521ff5787d5a9a2018f9d1ac",
+            "type": "blob",
+            "size": 14273549
+          },
+          {
+            "path": "docs/public/dmux.png",
+            "sha": "4ca1cd8a00733d9c727394b47ec45481f59a4c20",
+            "type": "blob",
+            "size": 18442
+          },
+          {
+            "path": "docs/public/dmux.svg",
+            "sha": "900557f30f117d97044e3d956fb0dd0482c0d283",
+            "type": "blob",
+            "size": 14720
+          },
+          {
+            "path": "docs/public/favicon.png",
+            "sha": "4071672e7c3a115e44c961fa93488f6172d7ea5b",
+            "type": "blob",
+            "size": 13212
+          },
+          {
+            "path": "docs/public/favicon.svg",
+            "sha": "73185feb6d0f459b90a64f7c1710cedbfff55659",
+            "type": "blob",
+            "size": 3789
+          },
+          {
+            "path": "docs/public/jpschroeder.jpg",
+            "sha": "6795720226340ac34c7c47a7d1932fadc2530d5f",
+            "type": "blob",
+            "size": 9953
+          },
+          {
+            "path": "docs/public/og.jpg",
+            "sha": "ddcad37dc3cfb3675dd7b981bdbbf705f1088a9f",
+            "type": "blob",
+            "size": 557010
+          },
+          {
+            "path": "docs/src",
+            "sha": "6f61443a7496662ff8f112c0f85bf42c8d09e44d",
+            "type": "tree"
+          },
+          {
+            "path": "docs/src/code-highlight.js",
+            "sha": "a2410fb21c6d253922e7ab3c07364609bde10f4a",
+            "type": "blob",
+            "size": 4857
+          },
+          {
+            "path": "docs/src/content",
+            "sha": "ed3860654415a3f86ad01a4ca8218cb7231d0f62",
+            "type": "tree"
+          },
+          {
+            "path": "docs/src/content/agents.js",
+            "sha": "c4f473e06166a3c0714ca7e0c83a7a05650f6c7d",
+            "type": "blob",
+            "size": 5388
+          },
+          {
+            "path": "docs/src/content/configuration.js",
+            "sha": "47eb60eff65425693cbda6f2b8dc152a80c04724",
+            "type": "blob",
+            "size": 15829
+          },
+          {
+            "path": "docs/src/content/core-concepts.js",
+            "sha": "3e28c754bb32fbe3dc6c9d47f4d8720736729d61",
+            "type": "blob",
+            "size": 7782
+          },
+          {
+            "path": "docs/src/content/getting-started.js",
+            "sha": "67950e9f911fdc8e4f06d718cad6c838646b35d8",
+            "type": "blob",
+            "size": 8351
+          },
+          {
+            "path": "docs/src/content/hooks.js",
+            "sha": "9305c663f827f4ab5066cd77c55a6f7f6e2a93e7",
+            "type": "blob",
+            "size": 11438
+          },
+          {
+            "path": "docs/src/content/index.js",
+            "sha": "da20d111db046c16587e42bf0e01f00f78418156",
+            "type": "blob",
+            "size": 1747
+          },
+          {
+            "path": "docs/src/content/introduction.js",
+            "sha": "27005286d5f8505cb12100a7820682515cd30feb",
+            "type": "blob",
+            "size": 12992
+          },
+          {
+            "path": "docs/src/content/keyboard-shortcuts.js",
+            "sha": "9f2041c9bdedd7bafe09ca0058c3f313f3652a33",
+            "type": "blob",
+            "size": 6701
+          },
+          {
+            "path": "docs/src/content/merging.js",
+            "sha": "8bcdb6539eed607b5dbebb2f843f245620aefbc5",
+            "type": "blob",
+            "size": 3855
+          },
+          {
+            "path": "docs/src/content/multi-agent.js",
+            "sha": "68cc7b980eb0555a23ee4d00c3ec1f558da4a499",
+            "type": "blob",
+            "size": 4595
+          },
+          {
+            "path": "docs/src/content/multi-project.js",
+            "sha": "7b5227f27316b44e30e55e5522eca7a8d2c8c3f6",
+            "type": "blob",
+            "size": 4172
+          },
+          {
+            "path": "docs/src/hero.js",
+            "sha": "f7285943e98a39e3c2a8b4370f3fc4aa265a567f",
+            "type": "blob",
+            "size": 5396
+          },
+          {
+            "path": "docs/src/index.html",
+            "sha": "d56b0052467576b87d7490c9dbc094e6b58698ed",
+            "type": "blob",
+            "size": 4962
+          },
+          {
+            "path": "docs/src/main.js",
+            "sha": "832d89f7a67cbcadf82e879e747a51db1c748ed5",
+            "type": "blob",
+            "size": 4621
+          },
+          {
+            "path": "docs/src/sidebar.js",
+            "sha": "3fad52a5e11238a33d1fa002f9288570151440c4",
+            "type": "blob",
+            "size": 1007
+          },
+          {
+            "path": "docs/src/style.css",
+            "sha": "97a3a053d69cae1e40633a4f6f0d859a664623d3",
+            "type": "blob",
+            "size": 15876
+          },
+          {
+            "path": "docs/vite.config.js",
+            "sha": "98da3f4bafc92de4498b0d70c64336953d9c5d8c",
+            "type": "blob",
+            "size": 337
+          },
+          {
+            "path": "docs/worker",
+            "sha": "9523d04fa3466c14a7fe1b96faed30b4f66aef46",
+            "type": "tree"
+          },
+          {
+            "path": "docs/worker/index.ts",
+            "sha": "cd7e67a9fd24066fcb1f477186470af676b0d602",
+            "type": "blob",
+            "size": 2932
+          },
+          {
+            "path": "docs/wrangler.json",
+            "sha": "fc2cfddaec741703d35126b327fb646bffb3373f",
+            "type": "blob",
+            "size": 356
+          },
+          {
+            "path": "frontend",
+            "sha": "649be5593611102313c5f0d69d8a7c47373712da",
+            "type": "tree"
+          },
+          {
+            "path": "frontend/dashboard-template.html",
+            "sha": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+            "type": "blob",
+            "size": 0
+          },
+          {
+            "path": "frontend/package-lock.json",
+            "sha": "02977789081a3d7890eaa67885eb8de2ed1b74c2",
+            "type": "blob",
+            "size": 41374
+          },
+          {
+            "path": "frontend/package.json",
+            "sha": "fec1811e607ee675c2ff18fb1eb02dbd9ae5009b",
+            "type": "blob",
+            "size": 187
+          },
+          {
+            "path": "frontend/src",
+            "sha": "d0d38dc296c1519c8512affd06c23837a73b27cc",
+            "type": "tree"
+          },
+          {
+            "path": "frontend/src/components",
+            "sha": "801fb625e589a06bab94d92e0697bc18d75861ce",
+            "type": "tree"
+          },
+          {
+            "path": "frontend/src/components/Dashboard.vue",
+            "sha": "a09a1092fc01fdc483cfeb0a98821bd6182e6204",
+            "type": "blob",
+            "size": 38533
+          },
+          {
+            "path": "frontend/src/components/Terminal.vue",
+            "sha": "11e7da3aada175183522a998a95f0e4bb85085fe",
+            "type": "blob",
+            "size": 25287
+          },
+          {
+            "path": "frontend/src/dashboard.html",
+            "sha": "94fc6f48616ca3e25ea204616039f036969c5f82",
+            "type": "blob",
+            "size": 298
+          },
+          {
+            "path": "frontend/src/dashboard.ts",
+            "sha": "4a373bddf6ecc8b540aace26f8992d27dc6d5da4",
+            "type": "blob",
+            "size": 139
+          },
+          {
+            "path": "frontend/src/styles.css",
+            "sha": "1172372ed09613c981e4b20c267340b38d39a062",
+            "type": "blob",
+            "size": 37546
+          },
+          {
+            "path": "frontend/src/terminal.html",
+            "sha": "3211f63cddc6d8b5786311fb59b46b4d30e29e7f",
+            "type": "blob",
+            "size": 557
+          },
+          {
+            "path": "frontend/src/terminal.ts",
+            "sha": "f0da80b0bff58816e91684949d940cf5d172545d",
+            "type": "blob",
+            "size": 136
+          },
+          {
+            "path": "frontend/template-clean.html",
+            "sha": "2ff4dcacbe2730ee90a368021f833af765fbfe03",
+            "type": "blob",
+            "size": 24702
+          },
+          {
+            "path": "frontend/template-cleaned.html",
+            "sha": "1dcfe0755799b96ab474e4348681802cc4395812",
+            "type": "blob",
+            "size": 12972
+          },
+          {
+            "path": "frontend/template-final.html",
+            "sha": "e1fcccaa490d96fcc927ea0f969e154ac3b310ec",
+            "type": "blob",
+            "size": 13070
+          },
+          {
+            "path": "frontend/template-raw.txt",
+            "sha": "f20d6e1216a5bda4a8b009dfe7959a8d9b15f528",
+            "type": "blob",
+            "size": 24735
+          },
+          {
+            "path": "frontend/vite.config.ts",
+            "sha": "b720fdbb8179e2f62d13cb185d01ddd8b95c56a1",
+            "type": "blob",
+            "size": 699
+          },
+          {
+            "path": "native",
+            "sha": "bd124d65a89cda2160bfc4435eec52c88fff2b5f",
+            "type": "tree"
+          },
+          {
+            "path": "native/macos",
+            "sha": "10e9810e6802fc620153dbf1809b6f80ceed165a",
+            "type": "tree"
+          },
+          {
+            "path": "native/macos/dmux-helper-Info.plist",
+            "sha": "6a83af20d9af3fd3103b1cf1c1744290898b9e99",
+            "type": "blob",
+            "size": 898
+          },
+          {
+            "path": "native/macos/dmux-helper-icon.png",
+            "sha": "4071672e7c3a115e44c961fa93488f6172d7ea5b",
+            "type": "blob",
+            "size": 13212
+          },
+          {
+            "path": "native/macos/dmux-helper.swift",
+            "sha": "b381ebbfc5884bbdf5d2c50a8ccdf7ea3927a9cc",
+            "type": "blob",
+            "size": 28026
+          },
+          {
+            "path": "native/macos/prebuilt",
+            "sha": "179f4ad5a24e7ded378b83fa9eb552eef83c539c",
+            "type": "tree"
+          },
+          {
+            "path": "native/macos/prebuilt/.gitignore",
+            "sha": "2f41fac0ac11dc0fe56921e230ca121583dc4d28",
+            "type": "blob",
+            "size": 26
+          },
+          {
+            "path": "native/macos/prebuilt/.npmignore",
+            "sha": "36e61800b7d8d71d6046d6e821fd3cb78d339f0c",
+            "type": "blob",
+            "size": 115
+          },
+          {
+            "path": "native/macos/sounds",
+            "sha": "46cedf7520c80ac3e31e878ca39167ea0a3aa438",
+            "type": "tree"
+          },
+          {
+            "path": "native/macos/sounds/dmux-braam.caf",
+            "sha": "971108304eb20a65748b8c3d041e54279bc1b66d",
+            "type": "blob",
+            "size": 259164
+          },
+          {
+            "path": "native/macos/sounds/dmux-brass.caf",
+            "sha": "78a8df760968bb5c44d895ba67ebe3f454ac79e2",
+            "type": "blob",
+            "size": 134724
+          },
+          {
+            "path": "native/macos/sounds/dmux-ding-bell.caf",
+            "sha": "f40aeef4f81a0a19b0ac3a61658e311489ada393",
+            "type": "blob",
+            "size": 216324
+          },
+          {
+            "path": "native/macos/sounds/dmux-future.caf",
+            "sha": "a3faf759ab45c3e33c83e81430d8d66d7f66c44a",
+            "type": "blob",
+            "size": 259164
+          },
+          {
+            "path": "native/macos/sounds/dmux-harp.caf",
+            "sha": "8b533971bc9d725cfd495db388616e55cd15b0f9",
+            "type": "blob",
+            "size": 157164
+          },
+          {
+            "path": "native/macos/sounds/dmux-quiet-bells.caf",
+            "sha": "3f2b12867a04868a3d0509fe86c05ab88e2488f4",
+            "type": "blob",
+            "size": 181644
+          },
+          {
+            "path": "native/macos/sounds/dmux-sonar.caf",
+            "sha": "6779cc09671954994f5bf11294280e0e8ddd096f",
+            "type": "blob",
+            "size": 157164
+          },
+          {
+            "path": "native/macos/sounds/dmux-success.caf",
+            "sha": "b307647d820383ff706585c5eb93787e6377fae6",
+            "type": "blob",
+            "size": 106164
+          },
+          {
+            "path": "native/macos/sounds/dmux-triumphant-trumpet.caf",
+            "sha": "4ebf117187584a5f730c10643f36e67eaddf9e5c",
+            "type": "blob",
+            "size": 55164
+          },
+          {
+            "path": "native/macos/sounds/dmux-war-horn.caf",
+            "sha": "cd1d5231ead4e5d4aa88e7699d7c995082b5ae23",
+            "type": "blob",
+            "size": 208164
+          },
+          {
+            "path": "package.json",
+            "sha": "b573326ed4d1a971490d4704983688de03b77db2",
+            "type": "blob",
+            "size": 3409
+          },
+          {
+            "path": "pnpm-lock.yaml",
+            "sha": "f51dab109c4968e47f83f8721a56c395d81079b7",
+            "type": "blob",
+            "size": 127044
+          },
+          {
+            "path": "pnpm-workspace.yaml",
+            "sha": "1b5330098109c1affcad144d2b73aa146d5d5d71",
+            "type": "blob",
+            "size": 68
+          },
+          {
+            "path": "screen.gif",
+            "sha": "2d050cb661f9092e3a7455a7238c59ee6007d559",
+            "type": "blob",
+            "size": 3427602
+          },
+          {
+            "path": "scripts",
+            "sha": "d4d69b98f708d44817da8545e86ec4cfe9e851ce",
+            "type": "tree"
+          },
+          {
+            "path": "scripts/build-macos-helper-bundle.js",
+            "sha": "e2d93ab6af19fd0fc7e5d0895ef7a50faabef6d9",
+            "type": "blob",
+            "size": 5358
+          },
+          {
+            "path": "scripts/dev-doctor.js",
+            "sha": "85a419160c921f8f945fd988a7d89269abbcbadf",
+            "type": "blob",
+            "size": 6404
+          },
+          {
+            "path": "scripts/dev-watch-run.js",
+            "sha": "e89d55c11b78d8f8f17ca41c86d1f81e0037c5ec",
+            "type": "blob",
+            "size": 3812
+          },
+          {
+            "path": "scripts/generate-hooks-docs.js",
+            "sha": "db4363ec1704e1a299fc46b6e8f678cab6542ada",
+            "type": "blob",
+            "size": 16278
+          },
+          {
+            "path": "scripts/guard-runtime-parity.js",
+            "sha": "3be9388a6dd537f15a25a1b4fd64289b46ce2e1a",
+            "type": "blob",
+            "size": 1540
+          },
+          {
+            "path": "scripts/install-local-hooks.sh",
+            "sha": "f82461f14f6b0bb93f7c31436228296c7e9f313f",
+            "type": "blob",
+            "size": 992
+          },
+          {
+            "path": "scripts/smoke-pack-install.js",
+            "sha": "64916979b56351fad9b6b1019f46ac4e382449c4",
+            "type": "blob",
+            "size": 2824
+          },
+          {
+            "path": "src",
+            "sha": "254674f840e5f9025c68cd8d4b56ac5e922661e5",
+            "type": "tree"
+          },
+          {
+            "path": "src/DmuxApp.tsx",
+            "sha": "5e6fca58867c3fd6144df5c6ec890fa9108cb4bc",
+            "type": "blob",
+            "size": 56867
+          },
+          {
+            "path": "src/FileBrowserApp.tsx",
+            "sha": "43d1278487166d4c5011c5fb8b7827cf25bb03ca",
+            "type": "blob",
+            "size": 29316
+          },
+          {
+            "path": "src/actions",
+            "sha": "233bedb79c4859e7dfea5103da3ed8b8db930228",
+            "type": "tree"
+          },
+          {
+            "path": "src/actions/implementations",
+            "sha": "e6a0c9c26f899cd69717e57b9d7dee1d56c2a8db",
+            "type": "tree"
+          },
+          {
+            "path": "src/actions/implementations/closeAction.ts",
+            "sha": "1b7caf4234265eaceb9d96e203632b269df07945",
+            "type": "blob",
+            "size": 14958
+          },
+          {
+            "path": "src/actions/implementations/copyPathAction.ts",
+            "sha": "8f48e7bae9c8df87207c9cb8cd9a373d09ed17d5",
+            "type": "blob",
+            "size": 941
+          },
+          {
+            "path": "src/actions/implementations/createPullRequestAction.ts",
+            "sha": "60d37515b5e64e00412f74323f14b33e1c10bb16",
+            "type": "blob",
+            "size": 9043
+          },
+          {
+            "path": "src/actions/implementations/duplicateAction.ts",
+            "sha": "5ebd2f27f6c5c79007b33989900043bcf71bc738",
+            "type": "blob",
+            "size": 984
+          },
+          {
+            "path": "src/actions/implementations/index.ts",
+            "sha": "17aa604c80a66a20f0f2687f7d8ce6a9f6b7084d",
+            "type": "blob",
+            "size": 794
+          },
+          {
+            "path": "src/actions/implementations/mergeAction.ts",
+            "sha": "51f7c294cabf1ddd63c10d0e459b7dad1cedb9d0",
+            "type": "blob",
+            "size": 8862
+          },
+          {
+            "path": "src/actions/implementations/openInEditorAction.ts",
+            "sha": "ac8d30bf134c7900875a22518c4d271445536b9b",
+            "type": "blob",
+            "size": 952
+          },
+          {
+            "path": "src/actions/implementations/renameAction.ts",
+            "sha": "c62c6729c4e0b44118f6943999c84648227931f9",
+            "type": "blob",
+            "size": 3779
+          },
+          {
+            "path": "src/actions/implementations/toggleAutopilotAction.ts",
+            "sha": "820ae6c9b6536b9407361409a3207c5d11c7bdb4",
+            "type": "blob",
+            "size": 1259
+          },
+          {
+            "path": "src/actions/implementations/viewAction.ts",
+            "sha": "aed7c095d9b7b55c7ed1a9786731f391d85fcbcb",
+            "type": "blob",
+            "size": 989
+          },
+          {
+            "path": "src/actions/index.ts",
+            "sha": "f1244559d68a67f77ca23a81a4cf9387e7001983",
+            "type": "blob",
+            "size": 2887
+          },
+          {
+            "path": "src/actions/merge",
+            "sha": "83c77debae26a422314f59254eb9eba994b0842b",
+            "type": "tree"
+          },
+          {
+            "path": "src/actions/merge/commitMessageHandler.ts",
+            "sha": "986c26990c120dfc2b1b833693cc779a79d72a91",
+            "type": "blob",
+            "size": 6180
+          },
+          {
+            "path": "src/actions/merge/conflictResolution.ts",
+            "sha": "59c12dbfb56a290e62b6f9e1d187ade364a03ed9",
+            "type": "blob",
+            "size": 7045
+          },
+          {
+            "path": "src/actions/merge/issueHandlers",
+            "sha": "f6313b373b2865e51e4453c86de27d36d12a4b53",
+            "type": "tree"
+          },
+          {
+            "path": "src/actions/merge/issueHandlers/index.ts",
+            "sha": "95ed3c8722b0e7071ec0a1d13bd98e09dc87296c",
+            "type": "blob",
+            "size": 520
+          },
+          {
+            "path": "src/actions/merge/issueHandlers/mainDirtyHandler.ts",
+            "sha": "96eb09f62602a4ec74a477cd145884fa99b49d9b",
+            "type": "blob",
+            "size": 3012
+          },
+          {
+            "path": "src/actions/merge/issueHandlers/mergeConflictHandler.ts",
+            "sha": "fb72cefb22293916afb18f1724220c6f53b38245",
+            "type": "blob",
+            "size": 2503
+          },
+          {
+            "path": "src/actions/merge/issueHandlers/nothingToMergeHandler.ts",
+            "sha": "4d66149ba881cf8b670fc5784beba62bff28579e",
+            "type": "blob",
+            "size": 303
+          },
+          {
+            "path": "src/actions/merge/issueHandlers/worktreeUncommittedHandler.ts",
+            "sha": "e17368b59b9495e4d8618ee09ec369858fcba8c8",
+            "type": "blob",
+            "size": 2227
+          },
+          {
+            "path": "src/actions/merge/mergeExecution.ts",
+            "sha": "ff03e9a840d58582f0dd4b31e67d86700ca6dbbc",
+            "type": "blob",
+            "size": 8190
+          },
+          {
+            "path": "src/actions/merge/multiMergeOrchestrator.ts",
+            "sha": "66c62702053d6beacf319956b3fcbcbb1deab5d8",
+            "type": "blob",
+            "size": 27947
+          },
+          {
+            "path": "src/actions/merge/types.ts",
+            "sha": "a01312e53dd3f40e213204101fa6b87a370d4496",
+            "type": "blob",
+            "size": 1951
+          },
+          {
+            "path": "src/actions/paneActions.ts",
+            "sha": "0171ee6083bc19d89f6096151246c15317c9bae9",
+            "type": "blob",
+            "size": 449
+          },
+          {
+            "path": "src/actions/types.ts",
+            "sha": "5b586588c64bcaa4755ab2cfeb4eec016536f4cc",
+            "type": "blob",
+            "size": 11557
+          },
+          {
+            "path": "src/adapters",
+            "sha": "560dcecfb3e0ff840379636785d6abf5bb2f0f65",
+            "type": "tree"
+          },
+          {
+            "path": "src/adapters/apiActionHandler.ts",
+            "sha": "df1e842e35eecbc20228418ef92bfe01eacb9e46",
+            "type": "blob",
+            "size": 6009
+          },
+          {
+            "path": "src/adapters/tuiActionHandler.ts",
+            "sha": "ecd490fb0de25aa404c5f700ae01558bff21237a",
+            "type": "blob",
+            "size": 5654
+          },
+          {
+            "path": "src/assets",
+            "sha": "ab6049bd056f5eddfb870430efbb6aec29e549aa",
+            "type": "tree"
+          },
+          {
+            "path": "src/assets/claude.svg",
+            "sha": "879ad81261b34368adc88157297988b77ecef260",
+            "type": "blob",
+            "size": 4095
+          },
+          {
+            "path": "src/assets/codex.svg",
+            "sha": "74d9b1b44bcb6a33576dc4d854afc5f7da070718",
+            "type": "blob",
+            "size": 2422
+          },
+          {
+            "path": "src/assets/opencode.svg",
+            "sha": "3c81bbdb4c6201c36915c0abab6c7c655f95d15a",
+            "type": "blob",
+            "size": 377
+          },
+          {
+            "path": "src/components",
+            "sha": "f5d9efc9a443ce035fa540484a4fd963d2d69514",
+            "type": "tree"
+          },
+          {
+            "path": "src/components/dialogs",
+            "sha": "2f9a7c25e681611918b853041444271782940a8b",
+            "type": "tree"
+          },
+          {
+            "path": "src/components/dialogs/ActionChoiceDialog.tsx",
+            "sha": "823696d66eaae8257d3bb570466d43b978e1c09b",
+            "type": "blob",
+            "size": 1429
+          },
+          {
+            "path": "src/components/dialogs/ActionConfirmDialog.tsx",
+            "sha": "c98c804541113a8f6a3810d86a20d61764f943af",
+            "type": "blob",
+            "size": 1600
+          },
+          {
+            "path": "src/components/dialogs/ActionInputDialog.tsx",
+            "sha": "73d010b961110cdb6f2bcb773021275ce693393d",
+            "type": "blob",
+            "size": 2251
+          },
+          {
+            "path": "src/components/dialogs/ActionProgressDialog.tsx",
+            "sha": "55ba307cf77cb498364f4bb3786bd4e00d3a3373",
+            "type": "blob",
+            "size": 859
+          },
+          {
+            "path": "src/components/dialogs/AgentChoiceDialog.tsx",
+            "sha": "12cf4e82e5dfe736accff05d133eedd55587f5ae",
+            "type": "blob",
+            "size": 878
+          },
+          {
+            "path": "src/components/dialogs/CloseOptionsDialog.tsx",
+            "sha": "465a737350e0b2028051e2bea96f80f4eb6ccee4",
+            "type": "blob",
+            "size": 1635
+          },
+          {
+            "path": "src/components/dialogs/CommandPromptDialog.tsx",
+            "sha": "ebb9149390b7a907f3a63502c2e5c1d42993db29",
+            "type": "blob",
+            "size": 1128
+          },
+          {
+            "path": "src/components/dialogs/DialogBox.tsx",
+            "sha": "ce82a3b65b6f39d9014735a818520adb5526a4de",
+            "type": "blob",
+            "size": 884
+          },
+          {
+            "path": "src/components/dialogs/HooksDialog.tsx",
+            "sha": "a2e1c79d8035e932bd804895af8ab010bf58fa7b",
+            "type": "blob",
+            "size": 2468
+          },
+          {
+            "path": "src/components/dialogs/MergeConfirmationDialog.tsx",
+            "sha": "392e425cb55dda08a6d5d19c9ac3631aec1f0928",
+            "type": "blob",
+            "size": 633
+          },
+          {
+            "path": "src/components/dialogs/SettingsDialog.tsx",
+            "sha": "afdbb6e10bcdc29431c1cd616cfe0934194a35c3",
+            "type": "blob",
+            "size": 5729
+          },
+          {
+            "path": "src/components/dialogs/TmuxHooksPromptDialog.tsx",
+            "sha": "aadcb8d14750b4cbfe79f81b11be35cdfada0153",
+            "type": "blob",
+            "size": 1955
+          },
+          {
+            "path": "src/components/dialogs/UpdateDialog.tsx",
+            "sha": "58e7aa56edc7836a82af825d52d7802c61ccc82b",
+            "type": "blob",
+            "size": 1381
+          },
+          {
+            "path": "src/components/indicators",
+            "sha": "6e510fcc548eb3cc3d12cb850b864aa60dd692b4",
+            "type": "tree"
+          },
+          {
+            "path": "src/components/indicators/CreatingIndicator.tsx",
+            "sha": "de3ccc8feac3676db006c78b34f6f56b0563f64a",
+            "type": "blob",
+            "size": 454
+          },
+          {
+            "path": "src/components/indicators/LoadingIndicator.tsx",
+            "sha": "cb2c2ac73faa64078a414a635a3cdbef493863fd",
+            "type": "blob",
+            "size": 269
+          },
+          {
+            "path": "src/components/indicators/RunningIndicator.tsx",
+            "sha": "8acfd7fa22898fc3599a9cc7b5afb892ce5b660e",
+            "type": "blob",
+            "size": 334
+          },
+          {
+            "path": "src/components/indicators/Spinner.tsx",
+            "sha": "2cca6ee1f2952bc7a21ee405953c6fe69ed6a5d7",
+            "type": "blob",
+            "size": 853
+          },
+          {
+            "path": "src/components/indicators/UpdatingIndicator.tsx",
+            "sha": "f439db0dae82fbc39b7b5a33879fb0fe3abd0946",
+            "type": "blob",
+            "size": 338
+          },
+          {
+            "path": "src/components/indicators/index.ts",
+            "sha": "96bf879807f31626ed4e9f96999d87f4f43b639d",
+            "type": "blob",
+            "size": 331
+          },
+          {
+            "path": "src/components/inputs",
+            "sha": "3f75661a88ffca1143c1052b59da2a3f3ffc11ef",
+            "type": "tree"
+          },
+          {
+            "path": "src/components/inputs/CleanTextInput.tsx",
+            "sha": "124addd661552b0743d5c1d2c4bfafda53492a96",
+            "type": "blob",
+            "size": 26487
+          },
+          {
+            "path": "src/components/inputs/InlineCursorInput.tsx",
+            "sha": "0a967adff8b6145ba06138b70e21ce5840a7371e",
+            "type": "blob",
+            "size": 3654
+          },
+          {
+            "path": "src/components/inputs/StyledTextInput.tsx",
+            "sha": "976dc97b7b4d76b9e1d0a53a747c4bcb462cea91",
+            "type": "blob",
+            "size": 641
+          },
+          {
+            "path": "src/components/inputs/index.ts",
+            "sha": "45272096257b6536c19deeb989a9dc54b3c39021",
+            "type": "blob",
+            "size": 132
+          },
+          {
+            "path": "src/components/panes",
+            "sha": "01b1f8c1d0b8d842203eaba12c9e7850715f0f4e",
+            "type": "tree"
+          },
+          {
+            "path": "src/components/panes/KebabMenu.tsx",
+            "sha": "d83332a1fa2765b3741b31fff85710ca19cc0dcc",
+            "type": "blob",
+            "size": 1208
+          },
+          {
+            "path": "src/components/panes/MergePane.tsx",
+            "sha": "f490e7aedaacfb1f7cdde73d263e323596069de0",
+            "type": "blob",
+            "size": 12749
+          },
+          {
+            "path": "src/components/panes/PaneCard.tsx",
+            "sha": "7ce1aeba81233553b92371433107ccc7a8f59392",
+            "type": "blob",
+            "size": 5954
+          },
+          {
+            "path": "src/components/panes/PanesGrid.tsx",
+            "sha": "fd3a2e66814ee69c8eb814d47e0cce721311a2cd",
+            "type": "blob",
+            "size": 8230
+          },
+          {
+            "path": "src/components/panes/index.ts",
+            "sha": "d2a412f9cc4fd1a54f8ff1c76db2b40a74f52ba0",
+            "type": "blob",
+            "size": 218
+          },
+          {
+            "path": "src/components/popups",
+            "sha": "8551baca3ecf5c588c76c4b35621caf6d159e394",
+            "type": "tree"
+          },
+          {
+            "path": "src/components/popups/agentChoicePopup.tsx",
+            "sha": "d2d3225d43e3190a727755d2976b62d8f89602ee",
+            "type": "blob",
+            "size": 8801
+          },
+          {
+            "path": "src/components/popups/agentChoiceSelection.ts",
+            "sha": "5134d232d85ba48bf16293f3f4d564b9ff3f8386",
+            "type": "blob",
+            "size": 1428
+          },
+          {
+            "path": "src/components/popups/choicePopup.tsx",
+            "sha": "80282ac87d857821e31c78be020ab254f244007c",
+            "type": "blob",
+            "size": 3435
+          },
+          {
+            "path": "src/components/popups/config.ts",
+            "sha": "bc7cfc487dc35feaccf209404a040b829ac63ab2",
+            "type": "blob",
+            "size": 1441
+          },
+          {
+            "path": "src/components/popups/confirmPopup.tsx",
+            "sha": "c480fb3ce85dcef1a31cfffecea6d28a66456ca4",
+            "type": "blob",
+            "size": 3288
+          },
+          {
+            "path": "src/components/popups/diffPeekPopup.tsx",
+            "sha": "ea27195fe61c805f200689a92cd438c8d0f9eba8",
+            "type": "blob",
+            "size": 4122
+          },
+          {
+            "path": "src/components/popups/enabledAgentsPopup.tsx",
+            "sha": "20dfe163ac15d29318e8d92828d9a60fbd39bd39",
+            "type": "blob",
+            "size": 8054
+          },
+          {
+            "path": "src/components/popups/hooksPopup.tsx",
+            "sha": "0225a04cc0eee7e64a3e57e098d50eeab63b3112",
+            "type": "blob",
+            "size": 2958
+          },
+          {
+            "path": "src/components/popups/inferenceSetupPopup.tsx",
+            "sha": "6693985249ede4295593516254dd67922c56604a",
+            "type": "blob",
+            "size": 44784
+          },
+          {
+            "path": "src/components/popups/inputPopup.tsx",
+            "sha": "357e771b741e5faab4112680b175b7240f70fb18",
+            "type": "blob",
+            "size": 2706
+          },
+          {
+            "path": "src/components/popups/kebabMenuPopup.tsx",
+            "sha": "650cce717061f5a903e632c1c3304ff05db74094",
+            "type": "blob",
+            "size": 4972
+          },
+          {
+            "path": "src/components/popups/logsPopup.tsx",
+            "sha": "5e91d9b21faecf9f757722e852fc8661fdddc264",
+            "type": "blob",
+            "size": 15150
+          },
+          {
+            "path": "src/components/popups/mergePopup.tsx",
+            "sha": "f8ba198b4a2e09faffdf5547ccf480738ddfa1ab",
+            "type": "blob",
+            "size": 14212
+          },
+          {
+            "path": "src/components/popups/mergeUncommittedChoicePopup.tsx",
+            "sha": "32a575185e0f54c3daee882298b0e919a0644306",
+            "type": "blob",
+            "size": 13216
+          },
+          {
+            "path": "src/components/popups/newPaneFieldNavigation.ts",
+            "sha": "b7a6b5f06cdbb851abf405f3f9fc4281f60584d3",
+            "type": "blob",
+            "size": 638
+          },
+          {
+            "path": "src/components/popups/newPaneGitOptions.ts",
+            "sha": "7adb157df3db317a9689c83ac01c2d25bab4eaea",
+            "type": "blob",
+            "size": 3117
+          },
+          {
+            "path": "src/components/popups/newPanePopup.tsx",
+            "sha": "6c273aabf7d856bfecd2ec98c39b937c86631d06",
+            "type": "blob",
+            "size": 24782
+          },
+          {
+            "path": "src/components/popups/notificationSoundsPopup.tsx",
+            "sha": "f6350b3434956eddae461b3b3447d97c43ad5886",
+            "type": "blob",
+            "size": 7230
+          },
+          {
+            "path": "src/components/popups/prReviewPopup.tsx",
+            "sha": "c03ee0d25429743b8fe7c2e87593c0e9c0eb4b71",
+            "type": "blob",
+            "size": 12001
+          },
+          {
+            "path": "src/components/popups/progressPopup.tsx",
+            "sha": "72061dc785f34d82120b5a0d34b335f0118809b8",
+            "type": "blob",
+            "size": 2082
+          },
+          {
+            "path": "src/components/popups/projectSelectPopup.tsx",
+            "sha": "f6c5a1b1bdccbc88a126748cfe77a0a5454cb683",
+            "type": "blob",
+            "size": 5608
+          },
+          {
+            "path": "src/components/popups/reopenWorktreePopup.tsx",
+            "sha": "592a9913e67b12aa569a11ce4f1ca8cd63e40d14",
+            "type": "blob",
+            "size": 18654
+          },
+          {
+            "path": "src/components/popups/settingsPopup.tsx",
+            "sha": "ea6aef9bb18ada6cbb7337dec5634dac274e927d",
+            "type": "blob",
+            "size": 27504
+          },
+          {
+            "path": "src/components/popups/shared",
+            "sha": "7c871f31623b17df08d3513b92f4be1c10a701e7",
+            "type": "tree"
+          },
+          {
+            "path": "src/components/popups/shared/DirectoryList.tsx",
+            "sha": "136d8dcf5294dbc6f7207779437a89802a12fa8d",
+            "type": "blob",
+            "size": 2579
+          },
+          {
+            "path": "src/components/popups/shared/FileList.tsx",
+            "sha": "86d18ce59f00bf4afd10b9a952cfada3ea8c673f",
+            "type": "blob",
+            "size": 3017
+          },
+          {
+            "path": "src/components/popups/shared/PopupContainer.tsx",
+            "sha": "f5277a4f56d4c9a5e6429cd7b21f087e93b332a6",
+            "type": "blob",
+            "size": 1002
+          },
+          {
+            "path": "src/components/popups/shared/PopupInputBox.tsx",
+            "sha": "f41b8cf7aa38abf5a28ee651cdd65de341c32e95",
+            "type": "blob",
+            "size": 604
+          },
+          {
+            "path": "src/components/popups/shared/PopupWrapper.tsx",
+            "sha": "de278919f24caa387c74a4b3e132823b0743652d",
+            "type": "blob",
+            "size": 3052
+          },
+          {
+            "path": "src/components/popups/shared/index.ts",
+            "sha": "17117516b83eebd176789b4f656aa2abe2ed1839",
+            "type": "blob",
+            "size": 385
+          },
+          {
+            "path": "src/components/popups/shortcutsPopup.tsx",
+            "sha": "fe12e6f73b5b6562925148d45bb46bfd8a1b9a25",
+            "type": "blob",
+            "size": 4226
+          },
+          {
+            "path": "src/components/popups/singleAgentChoicePopup.tsx",
+            "sha": "0760e8dc17a03e60e6dc922e448d85307e44b865",
+            "type": "blob",
+            "size": 4528
+          },
+          {
+            "path": "src/components/popups/templates",
+            "sha": "8a4b54738cf2836e18b1790e02f0f567c5f2b042",
+            "type": "tree"
+          },
+          {
+            "path": "src/components/popups/templates/SimpleInputPopup.tsx",
+            "sha": "ac164d3148e127bb688907733f74ba29787d0eea",
+            "type": "blob",
+            "size": 1569
+          },
+          {
+            "path": "src/components/ui",
+            "sha": "95905c5c89f8c4f78ce8699512b8a426d0f55f13",
+            "type": "tree"
+          },
+          {
+            "path": "src/components/ui/FileCopyPrompt.tsx",
+            "sha": "7c3c769c3b0efd43779346ace12fea2a8f37798c",
+            "type": "blob",
+            "size": 652
+          },
+          {
+            "path": "src/components/ui/FooterHelp.tsx",
+            "sha": "4dce1ddfb2c0ebece98f2ee21d315e164cc9d0e2",
+            "type": "blob",
+            "size": 4589
+          },
+          {
+            "path": "src/components/ui/QRCode.tsx",
+            "sha": "53977d5fe40f1c920c50c602f01149a7d7fcf2e6",
+            "type": "blob",
+            "size": 658
+          },
+          {
+            "path": "src/components/ui/ToastNotification.tsx",
+            "sha": "5f3366b3cc538b3c598a916fc70e67ac198b2360",
+            "type": "blob",
+            "size": 930
+          },
+          {
+            "path": "src/components/ui/index.ts",
+            "sha": "a5237095c7838656553bf12c11fbd312957f6dae",
+            "type": "blob",
+            "size": 171
+          },
+          {
+            "path": "src/constants",
+            "sha": "d6b6ef8390c03f3abd92cb56a0970e24775f137d",
+            "type": "tree"
+          },
+          {
+            "path": "src/constants/layout.ts",
+            "sha": "cd1287923fa38cfff829fd57ffc2d9a68c45bf35",
+            "type": "blob",
+            "size": 383
+          },
+          {
+            "path": "src/constants/timing.ts",
+            "sha": "f8eeca99e85f297ad019554f2007941aeb849c66",
+            "type": "blob",
+            "size": 1766
+          },
+          {
+            "path": "src/hooks",
+            "sha": "e9c50e51e7121e9ca24745f5c5c4228b9299583e",
+            "type": "tree"
+          },
+          {
+            "path": "src/hooks/useActionSystem.ts",
+            "sha": "85639648fb528dfeaa6fa177f2e24582a88fe269",
+            "type": "blob",
+            "size": 10032
+          },
+          {
+            "path": "src/hooks/useAgentDetection.ts",
+            "sha": "add9c01b0d57a30edc023fa5ed4305b28d849877",
+            "type": "blob",
+            "size": 734
+          },
+          {
+            "path": "src/hooks/useAgentStatus.ts",
+            "sha": "0b36b266a994ff45e22c96765caff985e3327f1a",
+            "type": "blob",
+            "size": 3304
+          },
+          {
+            "path": "src/hooks/useAutoUpdater.ts",
+            "sha": "f90e25fa28a43e232a3790e08d3ea225167b420a",
+            "type": "blob",
+            "size": 4004
+          },
+          {
+            "path": "src/hooks/useCommandRunner.ts",
+            "sha": "c2369f986aa5791fda68b2632c2219b48cee16e3",
+            "type": "blob",
+            "size": 2157
+          },
+          {
+            "path": "src/hooks/useDebugInfo.ts",
+            "sha": "56b499212978a02a28c8a1da956754469b6fbc17",
+            "type": "blob",
+            "size": 1027
+          },
+          {
+            "path": "src/hooks/useDialogState.ts",
+            "sha": "86ba94ee49c0c8c21a875e27551b05c93241fea3",
+            "type": "blob",
+            "size": 1825
+          },
+          {
+            "path": "src/hooks/useInputHandling.ts",
+            "sha": "e7f3e98a69718a21aca740e603e7aba08fa7dd54",
+            "type": "blob",
+            "size": 52829
+          },
+          {
+            "path": "src/hooks/useLayoutManagement.ts",
+            "sha": "61a7ecd076ebf52ec4852e64142579fd591ec624",
+            "type": "blob",
+            "size": 3581
+          },
+          {
+            "path": "src/hooks/useNavigation.ts",
+            "sha": "4017a90e7ffb98759de5398bc01193c1b15b743d",
+            "type": "blob",
+            "size": 3203
+          },
+          {
+            "path": "src/hooks/usePaneCreation.ts",
+            "sha": "eff0be544850d8f9290f527f02f2232cd73e3747",
+            "type": "blob",
+            "size": 9821
+          },
+          {
+            "path": "src/hooks/usePaneLoading.ts",
+            "sha": "8340ae3fab64841c3fcfb4119bcd6b9d1b0e0f71",
+            "type": "blob",
+            "size": 16605
+          },
+          {
+            "path": "src/hooks/usePaneRunner.ts",
+            "sha": "90cfc06154821bb783ccdccad02919447af1c57b",
+            "type": "blob",
+            "size": 7204
+          },
+          {
+            "path": "src/hooks/usePaneSync.ts",
+            "sha": "de8e637d4b8e0dbabcfe5366b18125db6a000da0",
+            "type": "blob",
+            "size": 11104
+          },
+          {
+            "path": "src/hooks/usePanes.ts",
+            "sha": "4f11f88a0bd3a65c0d765cd47e55d58a7c37cdd9",
+            "type": "blob",
+            "size": 14665
+          },
+          {
+            "path": "src/hooks/useProjectActivity.ts",
+            "sha": "8344ba69733608fd96999a269e4c40f7e705c1f6",
+            "type": "blob",
+            "size": 2915
+          },
+          {
+            "path": "src/hooks/useProjectSettings.ts",
+            "sha": "1e3b833d9ccd5765dbd195cdeafb7f9d6367f582",
+            "type": "blob",
+            "size": 1839
+          },
+          {
+            "path": "src/hooks/useServices.ts",
+            "sha": "d28abbb48f6e1ab4b7cd512a1d1a90651aa32146",
+            "type": "blob",
+            "size": 1893
+          },
+          {
+            "path": "src/hooks/useShellDetection.ts",
+            "sha": "799a1ff679606edabfde300b9cac181094dd761a",
+            "type": "blob",
+            "size": 3448
+          },
+          {
+            "path": "src/hooks/useSidebarMouse.ts",
+            "sha": "a3223d6c6ce3aab787de97a0563b53c07d20348b",
+            "type": "blob",
+            "size": 2546
+          },
+          {
+            "path": "src/hooks/useStatusMessages.ts",
+            "sha": "76f5d4a4be0e6737b3088919ac331373520952c2",
+            "type": "blob",
+            "size": 804
+          },
+          {
+            "path": "src/hooks/useTemporaryStatus.ts",
+            "sha": "a1dc0b757d0f030ec12eb83c9282bcf2c6858d58",
+            "type": "blob",
+            "size": 1137
+          },
+          {
+            "path": "src/hooks/useTerminalWidth.ts",
+            "sha": "c54199509f75cd87606c209be3a4415361099572",
+            "type": "blob",
+            "size": 503
+          },
+          {
+            "path": "src/hooks/useWorktreeActions.ts",
+            "sha": "fc40d0149ab4abf97ae5159089eaa445fc3cd0df",
+            "type": "blob",
+            "size": 9135
+          },
+          {
+            "path": "src/i18n",
+            "sha": "0b29b10f7d6f1c75eff2621e355f4a3dc3472c42",
+            "type": "tree"
+          },
+          {
+            "path": "src/i18n/index.ts",
+            "sha": "e55b37b6ee909a1f54efdddb09a20162f45868e6",
+            "type": "blob",
+            "size": 2351
+          },
+          {
+            "path": "src/i18n/locales",
+            "sha": "b1775127b0a6825a1470de7796a52442402e7e6e",
+            "type": "tree"
+          },
+          {
+            "path": "src/i18n/locales/en.ts",
+            "sha": "7ee62ca8afcee999bd0169a1c715a6984825e319",
+            "type": "blob",
+            "size": 4851
+          },
+          {
+            "path": "src/i18n/locales/ja.ts",
+            "sha": "1e3b7d2039bf69e5e0308484dd42357b0c11b8a7",
+            "type": "blob",
+            "size": 6470
+          },
+          {
+            "path": "src/index.ts",
+            "sha": "75f50482f18af81fe83ccc136c7239325cb3ba62",
+            "type": "blob",
+            "size": 54969
+          },
+          {
+            "path": "src/layout",
+            "sha": "936a37bf8fb159c48fe9d26fec2cb7b2011949ed",
+            "type": "tree"
+          },
+          {
+            "path": "src/layout/LayoutCalculator.ts",
+            "sha": "f842d1b55c797b2c925fb9e7c5261c50056dedac",
+            "type": "blob",
+            "size": 7048
+          },
+          {
+            "path": "src/layout/SpacerManager.ts",
+            "sha": "9a2a07b5ad50b0930e81c6e4297eb47e9da17201",
+            "type": "blob",
+            "size": 7372
+          },
+          {
+            "path": "src/layout/TmuxLayoutApplier.ts",
+            "sha": "55e645b3937969fc2abf484b6a67a351674a7b69",
+            "type": "blob",
+            "size": 5906
+          },
+          {
+            "path": "src/panes",
+            "sha": "6d31a304429b329b69c95a1c68818f917b841d59",
+            "type": "tree"
+          },
+          {
+            "path": "src/panes/decorative-pane.ts",
+            "sha": "0ec0c376db9cb7415e57bd689e6fa0e37c71f3dd",
+            "type": "blob",
+            "size": 6335
+          },
+          {
+            "path": "src/panes/spacer-pane.ts",
+            "sha": "7b8087c0b0997fad7acfe2e9f3d459d80ca1e051",
+            "type": "blob",
+            "size": 1159
+          },
+          {
+            "path": "src/server",
+            "sha": "a0ad9a00362f788cb7bd47d6dcc99ca05e1bc1bf",
+            "type": "tree"
+          },
+          {
+            "path": "src/server/embedded-assets.ts",
+            "sha": "b41b084a624a91e79c8013c44cdda4bd4fccfd56",
+            "type": "blob",
+            "size": 239161
+          },
+          {
+            "path": "src/services",
+            "sha": "2dacfa10136bde534b3741db00c0d5aa46681206",
+            "type": "tree"
+          },
+          {
+            "path": "src/services/AutoUpdater.ts",
+            "sha": "916b77b5c269d7b3297d62d630aa3cafc82f00c4",
+            "type": "blob",
+            "size": 10568
+          },
+          {
+            "path": "src/services/CodexAppServerClient.ts",
+            "sha": "673c74ae145b02f0011902bc6740f5f80e946417",
+            "type": "blob",
+            "size": 10028
+          },
+          {
+            "path": "src/services/ConfigWatcher.ts",
+            "sha": "1113cb5681b312f2389ae5cad0af9b8a35d8b499",
+            "type": "blob",
+            "size": 3055
+          },
+          {
+            "path": "src/services/DmuxAttentionService.ts",
+            "sha": "d7ef815234e7dbf400fe3c72b743357753167c4c",
+            "type": "blob",
+            "size": 9936
+          },
+          {
+            "path": "src/services/DmuxFocusService.ts",
+            "sha": "228be27dd64e009e9eac872662a658ccd7888aa9",
+            "type": "blob",
+            "size": 31020
+          },
+          {
+            "path": "src/services/GrokBuildClient.ts",
+            "sha": "d5c2011712479e8ab40a7bfbdbcd6249e767449f",
+            "type": "blob",
+            "size": 5881
+          },
+          {
+            "path": "src/services/InferenceService.ts",
+            "sha": "cc75a4c181cd8d53c50ddb853d7525f2287b6c11",
+            "type": "blob",
+            "size": 14980
+          },
+          {
+            "path": "src/services/LogService.ts",
+            "sha": "7a9657df4b120a024bba010111269439a8e9a772",
+            "type": "blob",
+            "size": 10264
+          },
+          {
+            "path": "src/services/PaneAnalyzer.ts",
+            "sha": "6936e14c9088554329091ea378933ee1fbac0db1",
+            "type": "blob",
+            "size": 18877
+          },
+          {
+            "path": "src/services/PaneEventService.ts",
+            "sha": "7f0b2e02e5f1230184ba78aa211286bbc1e3a094",
+            "type": "blob",
+            "size": 8958
+          },
+          {
+            "path": "src/services/PaneLifecycleManager.ts",
+            "sha": "bd8a66956210a37caff0873b2bc9f746aac26ef9",
+            "type": "blob",
+            "size": 4131
+          },
+          {
+            "path": "src/services/PaneWorkerManager.ts",
+            "sha": "456a849a0497bfa25910b5e54fe96aa53131ea35",
+            "type": "blob",
+            "size": 10298
+          },
+          {
+            "path": "src/services/PopupManager.ts",
+            "sha": "31d654040a904eb712bffc56bbfea9f98034f3b2",
+            "type": "blob",
+            "size": 39370
+          },
+          {
+            "path": "src/services/StatusDetector.ts",
+            "sha": "b5f13977c2c1e15842ccf849791d01b34eae2b4f",
+            "type": "blob",
+            "size": 21140
+          },
+          {
+            "path": "src/services/TerminalDiffer.ts",
+            "sha": "f9b6ed5c7519e0a9351756c1c2bd2313ab72bea5",
+            "type": "blob",
+            "size": 14572
+          },
+          {
+            "path": "src/services/TerminalPaneNamingService.ts",
+            "sha": "c7a9f39917d62ebdaa14730c46797f5bb37407fd",
+            "type": "blob",
+            "size": 17670
+          },
+          {
+            "path": "src/services/TerminalStreamer.ts",
+            "sha": "946fe481ecf3850c5f32139cbeaf00cb2d340328",
+            "type": "blob",
+            "size": 17916
+          },
+          {
+            "path": "src/services/TmuxHookManager.ts",
+            "sha": "e438431be1e48822e066b67e7996df2873aecaba",
+            "type": "blob",
+            "size": 8252
+          },
+          {
+            "path": "src/services/TmuxService.ts",
+            "sha": "49ccb8913d255703cc24d344258536436162c7ff",
+            "type": "blob",
+            "size": 40985
+          },
+          {
+            "path": "src/services/ToastService.ts",
+            "sha": "4a3ba6b0c2eab0d57b3ba831a60f3498b9407474",
+            "type": "blob",
+            "size": 4459
+          },
+          {
+            "path": "src/services/WorkerMessageBus.ts",
+            "sha": "5d535a52dce7dd7727cd1b202282a53bed27d2c6",
+            "type": "blob",
+            "size": 4280
+          },
+          {
+            "path": "src/services/WorktreeCleanupService.ts",
+            "sha": "6b5c032e1c39549ffa115087b8755b6028801045",
+            "type": "blob",
+            "size": 6574
+          },
+          {
+            "path": "src/shared",
+            "sha": "b4f707e4913b88f92ec0c74e95a18134ae9fc93c",
+            "type": "tree"
+          },
+          {
+            "path": "src/shared/StateManager.ts",
+            "sha": "1bfbed93652ac93d733a44e7095939127be09df9",
+            "type": "blob",
+            "size": 8885
+          },
+          {
+            "path": "src/shared/StreamProtocol.ts",
+            "sha": "0c2f5d6a94ba754e717947d91714f39547ce0fa5",
+            "type": "blob",
+            "size": 2588
+          },
+          {
+            "path": "src/theme",
+            "sha": "1ddcb4003e2e2f7e9ecefc28337824d8dfd6d765",
+            "type": "tree"
+          },
+          {
+            "path": "src/theme/colors.ts",
+            "sha": "b18b95836dedea0349f2902c5b3eb80ed4f3ac4a",
+            "type": "blob",
+            "size": 6118
+          },
+          {
+            "path": "src/theme/themePalette.ts",
+            "sha": "612107650355f61b513d503a4c2008b8120ab1af",
+            "type": "blob",
+            "size": 586
+          },
+          {
+            "path": "src/types.ts",
+            "sha": "0b4a1dc1f8272cfc168909cd53bc7888f9f8ebab",
+            "type": "blob",
+            "size": 8223
+          },
+          {
+            "path": "src/types",
+            "sha": "ba1ccc9ab73d3e37de1ba5735a12d6fd7ed52ba6",
+            "type": "tree"
+          },
+          {
+            "path": "src/types/activity.ts",
+            "sha": "1c4443f3d16bdf68dd9966283493257af55a15c2",
+            "type": "blob",
+            "size": 276
+          },
+          {
+            "path": "src/utils",
+            "sha": "2616d5a58a03c3b56dab70587d31fc65c7d7dd10",
+            "type": "tree"
+          },
+          {
+            "path": "src/utils/agentDetection.ts",
+            "sha": "c0edd225438534cb821fb66f1774d4ac2b81fc38",
+            "type": "blob",
+            "size": 2490
+          },
+          {
+            "path": "src/utils/agentLaunch.ts",
+            "sha": "4c1792ca52af7aa9609661673d9b8385cfeed5da",
+            "type": "blob",
+            "size": 24226
+          },
+          {
+            "path": "src/utils/agentPromptDispatch.ts",
+            "sha": "0e98eecc46d1604b60ec085022c7ac8094b5feb9",
+            "type": "blob",
+            "size": 3689
+          },
+          {
+            "path": "src/utils/aiMerge.ts",
+            "sha": "cf511a192d4dbea9dbd45d5b3a64771b5aa8daf1",
+            "type": "blob",
+            "size": 8745
+          },
+          {
+            "path": "src/utils/asciiArt.ts",
+            "sha": "5d44a217fe1b7dbf1a6ba908905c6b3a728fb3ab",
+            "type": "blob",
+            "size": 3974
+          },
+          {
+            "path": "src/utils/atomicWrite.ts",
+            "sha": "48c9141e1cc8cf1dbee195735f5ee8c8594e867e",
+            "type": "blob",
+            "size": 3095
+          },
+          {
+            "path": "src/utils/attachAgent.ts",
+            "sha": "0e1fd37c3fb973b323c4c199c896c654494d7d1c",
+            "type": "blob",
+            "size": 7727
+          },
+          {
+            "path": "src/utils/claudeHooks.ts",
+            "sha": "3eb840adcd392bfa6a6d423affd45d5f3b33ccee",
+            "type": "blob",
+            "size": 3848
+          },
+          {
+            "path": "src/utils/codexHooks.ts",
+            "sha": "59f2f982ad103f4e809e90db2539dc589bcf52a3",
+            "type": "blob",
+            "size": 5634
+          },
+          {
+            "path": "src/utils/commands.ts",
+            "sha": "65e3ebf3c21bdaa97ba90ed6ea72e07df2ff2b58",
+            "type": "blob",
+            "size": 1223
+          },
+          {
+            "path": "src/utils/conflictMonitor.ts",
+            "sha": "c34cdceda42fb64fd5727241219ad2223f594267",
+            "type": "blob",
+            "size": 3976
+          },
+          {
+            "path": "src/utils/conflictResolutionPane.ts",
+            "sha": "aa9b705e4ab6b139c626f54973008f1d76130061",
+            "type": "blob",
+            "size": 10893
+          },
+          {
+            "path": "src/utils/controlPaneRecovery.ts",
+            "sha": "9ece5f7fe83a5213a4ae92b31ce39ebf180d282a",
+            "type": "blob",
+            "size": 4995
+          },
+          {
+            "path": "src/utils/devSource.ts",
+            "sha": "c8d8f8cb16b69b923d6f88dd115ffa067dfbd39a",
+            "type": "blob",
+            "size": 742
+          },
+          {
+            "path": "src/utils/devWatchCommand.ts",
+            "sha": "f2518c40f7676351b60b7696768c4c51b1a03e97",
+            "type": "blob",
+            "size": 1042
+          },
+          {
+            "path": "src/utils/devWatchExit.ts",
+            "sha": "d02c7c9bd92fe4628c588dc9ccfe8e2edc28099a",
+            "type": "blob",
+            "size": 310
+          },
+          {
+            "path": "src/utils/dirScanner.ts",
+            "sha": "fad384501dbb173fb05cb3156174eef4161a7a07",
+            "type": "blob",
+            "size": 3295
+          },
+          {
+            "path": "src/utils/dmuxCommand.ts",
+            "sha": "18b3bbf645211786ed584117d54451a7396f080a",
+            "type": "blob",
+            "size": 1047
+          },
+          {
+            "path": "src/utils/envKeySetup.ts",
+            "sha": "41a553c124f87ac7fe988ea813a5260051bb9b60",
+            "type": "blob",
+            "size": 2573
+          },
+          {
+            "path": "src/utils/errorHandling.ts",
+            "sha": "ccb43d87e99ec9603dd6f9d6b37c01026427cd25",
+            "type": "blob",
+            "size": 3790
+          },
+          {
+            "path": "src/utils/execAsync.ts",
+            "sha": "4ea10854f35e218313c89cb2788cb6b325981ab6",
+            "type": "blob",
+            "size": 4974
+          },
+          {
+            "path": "src/utils/fileBrowser.ts",
+            "sha": "e8d2e4dfee0b0d179cdbb0bfb8e45f6db89c59af",
+            "type": "blob",
+            "size": 20158
+          },
+          {
+            "path": "src/utils/fileScanner.ts",
+            "sha": "0ca690fbaa32ffb906de1b3d537fe14a5f102936",
+            "type": "blob",
+            "size": 4271
+          },
+          {
+            "path": "src/utils/focusDetection.ts",
+            "sha": "b2acc89ccd3a43ace0a934d05b36d0ddb677e56b",
+            "type": "blob",
+            "size": 2491
+          },
+          {
+            "path": "src/utils/footerTips.ts",
+            "sha": "64d7e2ff9999014eb8fccc2e197854638af7531e",
+            "type": "blob",
+            "size": 2041
+          },
+          {
+            "path": "src/utils/geminiTrust.ts",
+            "sha": "42eee9adb50edbc098fe6dd6b159aac07d1d6eef",
+            "type": "blob",
+            "size": 2319
+          },
+          {
+            "path": "src/utils/git.ts",
+            "sha": "d6669a508dd1777a8aff519a68fe46193e57d1a2",
+            "type": "blob",
+            "size": 11749
+          },
+          {
+            "path": "src/utils/githubPullRequest.ts",
+            "sha": "761f52758700649dcb4be0791e23887df7720306",
+            "type": "blob",
+            "size": 8420
+          },
+          {
+            "path": "src/utils/grokHooks.ts",
+            "sha": "22b9aab4f27e0a95b1a67d91f96907c79a4e47ec",
+            "type": "blob",
+            "size": 4290
+          },
+          {
+            "path": "src/utils/hooks.ts",
+            "sha": "1ff713230728350bfbe08c551e25708ee5386c47",
+            "type": "blob",
+            "size": 15145
+          },
+          {
+            "path": "src/utils/hooksDocs.ts",
+            "sha": "1c66db2565544eea58d3085484a845b84c90ce64",
+            "type": "blob",
+            "size": 9771
+          },
+          {
+            "path": "src/utils/inferenceProviders.ts",
+            "sha": "5785e57bcaaad8d50f60206cff9d438ed3ba1f4c",
+            "type": "blob",
+            "size": 9516
+          },
+          {
+            "path": "src/utils/inferenceSetup.ts",
+            "sha": "32aac87fc93e67e4923b8e72734f4fffd7824237",
+            "type": "blob",
+            "size": 1706
+          },
+          {
+            "path": "src/utils/inferenceWizard.ts",
+            "sha": "a93d2ca0ba55ab953cb897c88473b5bc2f99398e",
+            "type": "blob",
+            "size": 7182
+          },
+          {
+            "path": "src/utils/input.ts",
+            "sha": "5bc6d0a66ae94bc551180f255adeb13da9907e9a",
+            "type": "blob",
+            "size": 5376
+          },
+          {
+            "path": "src/utils/layoutManager.ts",
+            "sha": "527f3bd68e94a47871dcff25e90455680d6952ae",
+            "type": "blob",
+            "size": 20399
+          },
+          {
+            "path": "src/utils/mergeExecution.ts",
+            "sha": "46781e1ea3efc01cd91839f078682a4fba00c146",
+            "type": "blob",
+            "size": 5766
+          },
+          {
+            "path": "src/utils/mergeTargets.ts",
+            "sha": "3aa399cab25d84d83b34870e84c3b57f4fac2325",
+            "type": "blob",
+            "size": 5904
+          },
+          {
+            "path": "src/utils/mergeValidation.ts",
+            "sha": "72cec3e70b5cb614787ae6fe47f07db3d8b747f5",
+            "type": "blob",
+            "size": 12379
+          },
+          {
+            "path": "src/utils/notificationSoundPreview.ts",
+            "sha": "60a151ab809a51034af0c0287b77aa41e12b1164",
+            "type": "blob",
+            "size": 2088
+          },
+          {
+            "path": "src/utils/notificationSounds.ts",
+            "sha": "9f4baab488b4ff37b468323de048eee45cbdf5b2",
+            "type": "blob",
+            "size": 4083
+          },
+          {
+            "path": "src/utils/onboarding.ts",
+            "sha": "c8ab3a716c971f22e993cddb9c7e38f37c8cd338",
+            "type": "blob",
+            "size": 3314
+          },
+          {
+            "path": "src/utils/openRouterApiKeySetup.ts",
+            "sha": "cb60440c2c83f6bd671e8a50b4af28a06b062cc8",
+            "type": "blob",
+            "size": 6969
+          },
+          {
+            "path": "src/utils/paneAgentTracking.ts",
+            "sha": "25ad78a20c229ef9ded057e93382bdebbf1ff43f",
+            "type": "blob",
+            "size": 11284
+          },
+          {
+            "path": "src/utils/paneAttentionHeuristics.ts",
+            "sha": "7cce8c6e19514483591b75abca38d56b21a5ad9a",
+            "type": "blob",
+            "size": 8458
+          },
+          {
+            "path": "src/utils/paneBootstrapConfig.ts",
+            "sha": "f27ac485b8228bb230ec9d902f85ed341765b23d",
+            "type": "blob",
+            "size": 798
+          },
+          {
+            "path": "src/utils/paneBootstrapRunner.ts",
+            "sha": "51af9773cc4d1a1e81051472b1b916616e779060",
+            "type": "blob",
+            "size": 23153
+          },
+          {
+            "path": "src/utils/paneCapture.ts",
+            "sha": "ace34c778aaa3f8aa130a609a19264df737bbaec",
+            "type": "blob",
+            "size": 6630
+          },
+          {
+            "path": "src/utils/paneColors.ts",
+            "sha": "b4ca6059b4a08e60945df84ea1bc967b3f33514c",
+            "type": "blob",
+            "size": 2033
+          },
+          {
+            "path": "src/utils/paneCreation.ts",
+            "sha": "f1a93000385bc293414384dd1d4e4cd16f583791",
+            "type": "blob",
+            "size": 24274
+          },
+          {
+            "path": "src/utils/paneGrouping.ts",
+            "sha": "f1e54142bdda3617120ebd348d0ec4c30d29ca55",
+            "type": "blob",
+            "size": 2685
+          },
+          {
+            "path": "src/utils/paneNaming.ts",
+            "sha": "7a8d405f878f4afaa15273a123400f1bc66cb8a9",
+            "type": "blob",
+            "size": 1969
+          },
+          {
+            "path": "src/utils/paneProject.ts",
+            "sha": "9667027b505c7bdd16cbfa8497587443e92b0f58",
+            "type": "blob",
+            "size": 1429
+          },
+          {
+            "path": "src/utils/paneRebinding.ts",
+            "sha": "aa7d5df8812e55eb1e7ea25d3ed7728d15137b0d",
+            "type": "blob",
+            "size": 1765
+          },
+          {
+            "path": "src/utils/paneTitle.ts",
+            "sha": "119665b78f6ed72d44c2642ba2eb9054f4331b63",
+            "type": "blob",
+            "size": 4492
+          },
+          {
+            "path": "src/utils/paneTitlePrefix.ts",
+            "sha": "cec3cb07bb50de2d6cdceb6d978d46fb0d8323ad",
+            "type": "blob",
+            "size": 1215
+          },
+          {
+            "path": "src/utils/paneVisibility.ts",
+            "sha": "fae638c6a9cae0ef8918ed6645d53b8bb6f57c93",
+            "type": "blob",
+            "size": 2501
+          },
+          {
+            "path": "src/utils/pathEnvironment.ts",
+            "sha": "9b16f980786d1f4ddc2252439fc40afc4efcae30",
+            "type": "blob",
+            "size": 2258
+          },
+          {
+            "path": "src/utils/popup.ts",
+            "sha": "240929ea103ffb3e7cdeee5f0a422a8c17407ebb",
+            "type": "blob",
+            "size": 20753
+          },
+          {
+            "path": "src/utils/port.ts",
+            "sha": "2e4736b141b7296ee103ba3c41daad005d0812c1",
+            "type": "blob",
+            "size": 1461
+          },
+          {
+            "path": "src/utils/postPaneCleanup.ts",
+            "sha": "5dfc454c097b3c6c4a89b48558a2ea10351844a8",
+            "type": "blob",
+            "size": 1837
+          },
+          {
+            "path": "src/utils/prSummary.ts",
+            "sha": "ea26b44c0a43960a191235f51721896b6dc04a6c",
+            "type": "blob",
+            "size": 5222
+          },
+          {
+            "path": "src/utils/processShutdown.ts",
+            "sha": "180aa8b146d0fff21332409cdce16a87d141c58e",
+            "type": "blob",
+            "size": 981
+          },
+          {
+            "path": "src/utils/projectActions.ts",
+            "sha": "d53cb410d4e388770c7cbbc6075357c1d887a5cc",
+            "type": "blob",
+            "size": 7115
+          },
+          {
+            "path": "src/utils/projectRoot.ts",
+            "sha": "b09f374ee207df3f6abea4922b0ce2d74ec90d07",
+            "type": "blob",
+            "size": 4470
+          },
+          {
+            "path": "src/utils/promptStore.ts",
+            "sha": "ba6395ceb4044769c11365b5aa239b11713ab977",
+            "type": "blob",
+            "size": 2917
+          },
+          {
+            "path": "src/utils/remotePaneActions.ts",
+            "sha": "52d16db786a781b6903dc1b6504c892040f85935",
+            "type": "blob",
+            "size": 6897
+          },
+          {
+            "path": "src/utils/reopenWorktree.ts",
+            "sha": "9bb3f64aee8431b99a639bf4e6dd92b117533fe7",
+            "type": "blob",
+            "size": 9693
+          },
+          {
+            "path": "src/utils/resumeBranches.ts",
+            "sha": "b230a171fc382430bbb49351b03b2f449ccb0008",
+            "type": "blob",
+            "size": 27231
+          },
+          {
+            "path": "src/utils/runtimePaths.ts",
+            "sha": "1fb4125cf699cf16388529ff4c84a0017aab984c",
+            "type": "blob",
+            "size": 446
+          },
+          {
+            "path": "src/utils/settingsManager.ts",
+            "sha": "a0052a6826eef9a4869ccb5651bd760965933f68",
+            "type": "blob",
+            "size": 28839
+          },
+          {
+            "path": "src/utils/shellPaneDetection.ts",
+            "sha": "20f0d1bf1668e506495abd8f1c4604514356b453",
+            "type": "blob",
+            "size": 7408
+          },
+          {
+            "path": "src/utils/sidebarClickMap.ts",
+            "sha": "739316b2a04a4c4fa9d7e7a30a336931ef9fc724",
+            "type": "blob",
+            "size": 4275
+          },
+          {
+            "path": "src/utils/sidebarMouse.ts",
+            "sha": "6608857ff4270bc2c2fd3a221306cc0eca548cd1",
+            "type": "blob",
+            "size": 5459
+          },
+          {
+            "path": "src/utils/sidebarProjects.ts",
+            "sha": "2354e34e1260c53e708c37f130c6e5537ca94f7f",
+            "type": "blob",
+            "size": 9501
+          },
+          {
+            "path": "src/utils/sidebarScrollOffset.ts",
+            "sha": "2ef7927b43d08dd097c869faed0bc214ac34d512",
+            "type": "blob",
+            "size": 888
+          },
+          {
+            "path": "src/utils/slug.ts",
+            "sha": "cb08f07d4e0bb02511c05e0df828fe5ba6ae0957",
+            "type": "blob",
+            "size": 4569
+          },
+          {
+            "path": "src/utils/systemCheck.ts",
+            "sha": "432d3d245f1e9efc36afdd5ca9c86eb9e25a9d17",
+            "type": "blob",
+            "size": 4547
+          },
+          {
+            "path": "src/utils/tmux.ts",
+            "sha": "18183b2b084f93896cd18daacaf4c8ad4de932a0",
+            "type": "blob",
+            "size": 19478
+          },
+          {
+            "path": "src/utils/tmuxConfigOnboarding.tsx",
+            "sha": "02cff0cfdd83ed5017fc979d1c40b17750b82cc8",
+            "type": "blob",
+            "size": 12421
+          },
+          {
+            "path": "src/utils/tmuxHookCommands.ts",
+            "sha": "9be4a35f85d4def74418fe4474d05405f5869fe6",
+            "type": "blob",
+            "size": 2306
+          },
+          {
+            "path": "src/utils/tmuxRuntimeCompatibility.ts",
+            "sha": "7c2ce4d9e18af5f86d91eb01e3411a84b9245a1d",
+            "type": "blob",
+            "size": 2580
+          },
+          {
+            "path": "src/utils/tmuxSendKeys.ts",
+            "sha": "f2c9347a23b82b5da42cf53b9ec138b9a09e9d9c",
+            "type": "blob",
+            "size": 384
+          },
+          {
+            "path": "src/utils/tmuxSessionStart.ts",
+            "sha": "9fda6e6cf4b016d0e29ace7a976ed8b99316a6ab",
+            "type": "blob",
+            "size": 1220
+          },
+          {
+            "path": "src/utils/toastLayout.ts",
+            "sha": "2a89ca360ead19a372dd32e3b821b72dcda22156",
+            "type": "blob",
+            "size": 909
+          },
+          {
+            "path": "src/utils/welcomePane.ts",
+            "sha": "af7396a4ef0f9e16ac59d0c2add2629f78881cfe",
+            "type": "blob",
+            "size": 5420
+          },
+          {
+            "path": "src/utils/welcomePaneManager.ts",
+            "sha": "c3b5ef30b7e426ee7e4644e9aebb6542d4893c40",
+            "type": "blob",
+            "size": 7403
+          },
+          {
+            "path": "src/utils/worktreeDiscovery.ts",
+            "sha": "2a17c9d81c3173addfef19b6b00d4a4390ee6fef",
+            "type": "blob",
+            "size": 8264
+          },
+          {
+            "path": "src/utils/worktreeMetadata.ts",
+            "sha": "dc33f9bed11847a2e2778e771648d333ba26f7d2",
+            "type": "blob",
+            "size": 3696
+          },
+          {
+            "path": "src/workers",
+            "sha": "235c857e4c479e285f6efbad27d144577502566f",
+            "type": "tree"
+          },
+          {
+            "path": "src/workers/PaneWorker.ts",
+            "sha": "6a11b611ae91fc0e63617312e4b8ff52b8fd62a8",
+            "type": "blob",
+            "size": 15686
+          },
+          {
+            "path": "src/workers/WorkerMessages.ts",
+            "sha": "726b559b24f7be69267182e1da90092581672004",
+            "type": "blob",
+            "size": 2152
+          },
+          {
+            "path": "src/workers/panePollingWorker.ts",
+            "sha": "05406196397ae21fef5e1f27b58e8aeff87990f2",
+            "type": "blob",
+            "size": 4798
+          },
+          {
+            "path": "src/workers/updateChecker.ts",
+            "sha": "d78ec798eeba9fa6d2612b4f7538002b0ad5eb7d",
+            "type": "blob",
+            "size": 1634
+          },
+          {
+            "path": "tests",
+            "sha": "152fc8ab31774cd3d1aaa6f3c640f46c0ded63f3",
+            "type": "tree"
+          },
+          {
+            "path": "tests/actions",
+            "sha": "5e033d6cab43ac761268ba9a4798938d2b77c10a",
+            "type": "tree"
+          },
+          {
+            "path": "tests/actions/merge",
+            "sha": "c17d1c31680acfb9c9422ce348925d56afd92bed",
+            "type": "tree"
+          },
+          {
+            "path": "tests/actions/merge/commitMessageHandler.test.ts",
+            "sha": "39e00aff234924100bc0dc99030d9cf85fe6e23f",
+            "type": "blob",
+            "size": 9589
+          },
+          {
+            "path": "tests/actions/merge/conflictResolution.test.ts",
+            "sha": "1507d5adcd6f4788db0a435f08d85fd817f99c1f",
+            "type": "blob",
+            "size": 14614
+          },
+          {
+            "path": "tests/actions/merge/issueHandlers.test.ts",
+            "sha": "d37f8c5359163679309ab71aa5caf3f2fb2108cd",
+            "type": "blob",
+            "size": 10003
+          },
+          {
+            "path": "tests/actions/merge/mergeAction.integration.test.ts",
+            "sha": "dab139c2231dd40a3c555db33e0761b485e8e17a",
+            "type": "blob",
+            "size": 9898
+          },
+          {
+            "path": "tests/actions/merge/mergeExecution.test.ts",
+            "sha": "e45acf2d0485dbe384bbc7d0c5ca02e9b93aebae",
+            "type": "blob",
+            "size": 13670
+          },
+          {
+            "path": "tests/utils",
+            "sha": "dfe606e51f2fd225f850c040a8c361ac752f8b47",
+            "type": "tree"
+          },
+          {
+            "path": "tests/utils/conflictMonitor.test.ts",
+            "sha": "cdc68732c6ee2fab5745939976db1561704715e2",
+            "type": "blob",
+            "size": 9522
+          },
+          {
+            "path": "tests/utils/mergeValidation.test.ts",
+            "sha": "f50ba423e46ea621090304820ce62343c875f8e0",
+            "type": "blob",
+            "size": 3205
+          },
+          {
+            "path": "tsconfig.json",
+            "sha": "a9ee870093a157d6d41bac52fdebf149f3774b5b",
+            "type": "blob",
+            "size": 539
+          },
+          {
+            "path": "vitest.config.ts",
+            "sha": "395264fc89a91d1331ae39f0447328a2eecd43f9",
+            "type": "blob",
+            "size": 799
+          }
+        ]
+      }
+    ],
+    "candidates": [
+      {
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "stars": 1821,
+        "topicMatch": 5,
+        "origin": "explicit"
+      }
+    ],
+    "evidence": [
+      {
+        "id": "c298d17c14de8bd74e12904b",
+        "criterionId": "mod-agent-protocol",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+        "path": ".dmux-hooks/AGENTS.md",
+        "sourceUrl": "https://github.com/standardagents/dmux/blob/8cb3d926631a9349ab67f7ece41d218427ac7e24/.dmux-hooks/AGENTS.md",
+        "excerpt": "# dmux Hooks System - Agent Reference\n\n**Auto-generated documentation for AI agents**\n\nThis document contains everything an AI agent needs to create, modify, and understand dmux hooks. It is automatically generated from the dmux source code and embedded in the binary.",
+        "kind": "canonical"
+      },
+      {
+        "id": "77345ef3b859a923d2fac8d8",
+        "criterionId": "mod-config-strategy",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+        "path": ".dmux-hooks/AGENTS.md",
+        "sourceUrl": "https://github.com/standardagents/dmux/blob/8cb3d926631a9349ab67f7ece41d218427ac7e24/.dmux-hooks/AGENTS.md",
+        "excerpt": "| `before_pane_create` | Before pane creation | Validation, notifications, pre-flight checks |\n| `pane_created` | After pane, before worktree | Configure tmux settings, prepare environment |\n| `worktree_created` | After full setup | Install deps, copy configs, setup git |\n| `before_pane_close` | Before closing | Save state, backup uncommitted work |\n| `pane_closed` | After closed | Cleanup resources, analytics, notifications |\n",
+        "kind": "canonical"
+      },
+      {
+        "id": "ab4adc94e3cd56c5715d623a",
+        "criterionId": "mod-result-provenance",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+        "path": ".dmux-hooks/AGENTS.md",
+        "sourceUrl": "https://github.com/standardagents/dmux/blob/8cb3d926631a9349ab67f7ece41d218427ac7e24/.dmux-hooks/AGENTS.md",
+        "excerpt": "| `worktree_created` | After full setup | Install deps, copy configs, setup git |\n| `before_pane_close` | Before closing | Save state, backup uncommitted work |\n| `pane_closed` | After closed | Cleanup resources, analytics, notifications |\n\n### Worktree Lifecycle Hooks\n",
+        "kind": "canonical"
+      },
+      {
+        "id": "12af09d881117b586026049b",
+        "criterionId": "mod-runtime-integration",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+        "path": ".dmux-hooks/AGENTS.md",
+        "sourceUrl": "https://github.com/standardagents/dmux/blob/8cb3d926631a9349ab67f7ece41d218427ac7e24/.dmux-hooks/AGENTS.md",
+        "excerpt": "\n## HTTP Callback API\n\nInteractive hooks (`run_test` and `run_dev`) can update dmux UI via HTTP.\n\n### Update Test Status",
+        "kind": "canonical"
+      },
+      {
+        "id": "5f9a5019c88902931474d6b8",
+        "criterionId": "mod-session-context",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+        "path": ".dmux-hooks/AGENTS.md",
+        "sourceUrl": "https://github.com/standardagents/dmux/blob/8cb3d926631a9349ab67f7ece41d218427ac7e24/.dmux-hooks/AGENTS.md",
+        "excerpt": "- **Silent failures**: Hook errors are logged but don't stop dmux\n- **Environment-based**: All context passed via environment variables\n- **Version controlled**: Hooks in `.dmux-hooks/` are shared with team\n- **Priority resolution**: `.dmux-hooks/` → `.dmux/hooks/` → `~/.dmux/hooks/`\n\n## Available Hooks",
+        "kind": "canonical"
+      },
+      {
+        "id": "849b1e64453a065c36d11648",
+        "criterionId": "mod-tech-design",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+        "path": ".dmux-hooks/AGENTS.md",
+        "sourceUrl": "https://github.com/standardagents/dmux/blob/8cb3d926631a9349ab67f7ece41d218427ac7e24/.dmux-hooks/AGENTS.md",
+        "excerpt": "\n## Your Goal\n\nCreate executable bash scripts in `.dmux-hooks/` that run automatically at key lifecycle events.\n\n## Quick Start",
+        "kind": "canonical"
+      },
+      {
+        "id": "0a0e98b40bc445fc51b99e43",
+        "criterionId": "mod-approval-human",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+        "path": "AGENTS.md",
+        "sourceUrl": "https://github.com/standardagents/dmux/blob/8cb3d926631a9349ab67f7ece41d218427ac7e24/AGENTS.md",
+        "excerpt": "\n- `README.md`: end-user overview and install/usage.\n- `CONTRIBUTING.md`: local development loop and PR workflow.\n- `AGENTS.md` (this file): maintainer behavior, architecture landmarks, and current dev-mode workflow.\n\n`CLAUDE.md` is a symlink to this file for tool compatibility.",
+        "kind": "canonical"
+      },
+      {
+        "id": "02ada1f0d169f9614bb05382",
+        "criterionId": "mod-identity-scope",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+        "path": "AGENTS.md",
+        "sourceUrl": "https://github.com/standardagents/dmux/blob/8cb3d926631a9349ab67f7ece41d218427ac7e24/AGENTS.md",
+        "excerpt": "\n- `README.md`: end-user overview and install/usage.\n- `CONTRIBUTING.md`: local development loop and PR workflow.\n- `AGENTS.md` (this file): maintainer behavior, architecture landmarks, and current dev-mode workflow.\n\n`CLAUDE.md` is a symlink to this file for tool compatibility.",
+        "kind": "canonical"
+      },
+      {
+        "id": "c7d162de2b8a5f89c3d77b5e",
+        "criterionId": "mod-memory-knowledge",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+        "path": "AGENTS.md",
+        "sourceUrl": "https://github.com/standardagents/dmux/blob/8cb3d926631a9349ab67f7ece41d218427ac7e24/AGENTS.md",
+        "excerpt": "\n- `README.md`: end-user overview and install/usage.\n- `CONTRIBUTING.md`: local development loop and PR workflow.\n- `AGENTS.md` (this file): maintainer behavior, architecture landmarks, and current dev-mode workflow.\n\n`CLAUDE.md` is a symlink to this file for tool compatibility.",
+        "kind": "canonical"
+      },
+      {
+        "id": "192ad91e8b823aeb1dc81b3e",
+        "criterionId": "mod-observability",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+        "path": "AGENTS.md",
+        "sourceUrl": "https://github.com/standardagents/dmux/blob/8cb3d926631a9349ab67f7ece41d218427ac7e24/AGENTS.md",
+        "excerpt": "\n- `README.md`: end-user overview and install/usage.\n- `CONTRIBUTING.md`: local development loop and PR workflow.\n- `AGENTS.md` (this file): maintainer behavior, architecture landmarks, and current dev-mode workflow.\n\n`CLAUDE.md` is a symlink to this file for tool compatibility.",
+        "kind": "canonical"
+      },
+      {
+        "id": "cd797eeba94de4d1ad391f66",
+        "criterionId": "mod-task-workitem",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "revision": "8cb3d926631a9349ab67f7ece41d218427ac7e24",
+        "path": "AGENTS.md",
+        "sourceUrl": "https://github.com/standardagents/dmux/blob/8cb3d926631a9349ab67f7ece41d218427ac7e24/AGENTS.md",
+        "excerpt": "\n- `README.md`: end-user overview and install/usage.\n- `CONTRIBUTING.md`: local development loop and PR workflow.\n- `AGENTS.md` (this file): maintainer behavior, architecture landmarks, and current dev-mode workflow.\n\n`CLAUDE.md` is a symlink to this file for tool compatibility.",
+        "kind": "canonical"
+      }
+    ],
+    "unknownCriteria": [],
+    "navigation": [
+      {
+        "adapter": "heuristic",
+        "repository": {
+          "owner": "standardagents",
+          "name": "dmux"
+        },
+        "status": "used"
+      }
+    ],
+    "collection": {
+      "filesRead": 6,
+      "sourceBytesRead": 33246,
+      "durationMs": 14047,
+      "cacheHit": false
+    }
+  }
+}
