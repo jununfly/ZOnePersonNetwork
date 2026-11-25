@@ -12,6 +12,13 @@ Design (zj 2026-11-20 ratified decisions Q1-Q4 / Q5-Q8 / S1-S4):
 - unknown rows are evidence-gap notes only (unknown != absent).
 - This generator does no semantic rulings; it mechanically joins two SoTs and fails
   closed if the join does not reconcile (counts / ids / module coverage).
+- EXCEPTION (zj 2026-11-24 ruling B): M1 Work Item state machine adopts opencode's
+  sealed nine-state lifecycle as the semantic baseline, implementation stays
+  self-developed (module-map §3/Q9 unchanged). The nine-state excerpt is sealed in
+  bundle under SC::agent-protocol (M11), not SC::task-workitem (M1), so the M1×opencode
+  row lists it as an explicitly marked cross-module anchor (EVID::4e988871…). This
+  is a cross-reference only — the 1:1 criterionId↔module anchor rule is preserved;
+  no SHA is hand-filled (the ID is verified against bundle before emit).
 """
 import json
 import os
@@ -155,6 +162,35 @@ if problems:
     sys.exit(1)
 
 # ---------------------------------------------------------------------------
+# zj 2026-11-24 ruling B — cross-module sealed anchor for M1 nine-state baseline
+# ---------------------------------------------------------------------------
+# The M1 Work Item state machine adopts opencode-coordination's sealed nine-state
+# lifecycle as its SEMANTIC BASELINE; implementation stays self-developed (module-map
+# §3/Q9 and N=5 unchanged). The nine-state excerpt is sealed in bundle under
+# SC::agent-protocol (M11), not SC::task-workitem (M1). We therefore register it as
+# an explicitly-marked CROSS-MODULE anchor, NOT by appending to the evidence_refs
+# column (that column stays 1:1 and fit-matrix fails closed on >1 EVID per row).
+CROSS_ANCHOR = {
+    "module": "M1",
+    "project": "opencode-coordination",
+    "source_scene": "SC::agent-protocol",
+    "source_module": "M11",
+    "evidence": "EVID::4e9888715cf937cdeac6384a",
+}
+_ca_de = de_index.get((CROSS_ANCHOR["source_scene"], CROSS_ANCHOR["project"]))
+if _ca_de is None or _ca_de.get("verdict") != "native" \
+        or CROSS_ANCHOR["evidence"] not in _ca_de.get("evidence-refs", []):
+    die(f"cross-module anchor {CROSS_ANCHOR['evidence']} not sealed in bundle "
+        f"({CROSS_ANCHOR['source_scene']}, {CROSS_ANCHOR['project']})")
+if ("M1", "opencode-coordination") not in {(r[0], r[3]) for r in rows}:
+    die("cross-module anchor target row (M1, opencode-coordination) missing")
+if problems:
+    print("FAIL (cross-module anchor):", file=sys.stderr)
+    for p in problems:
+        print("  -", p, file=sys.stderr)
+    sys.exit(1)
+
+# ---------------------------------------------------------------------------
 # Render (deterministic; no timestamps/sha hand-fill)
 # ---------------------------------------------------------------------------
 def esc(s):
@@ -177,7 +213,7 @@ o.append("")
 o.append("- **事实层**：横比 bundle 的 `native/unknown` + `EVID::` 是 sealed Evidence 绑定的**能力存在**事实；仅此一层是 evidence。")
 o.append("- **判断层**：`reuse_form_hypothesis` 列抄录自 `product-module-map.md` §2，标 **assumption**（分析层推断，待母模型裁决）；`native` 推不出「可直接用/适配可用/必须自研」。")
 o.append("- **判定权归母模型** `zj-open-source-capability-fit`（`FIT_OK=0.9` + `ALLOWED_ADAPT/FORBIDDEN_ADAPT` 薄层判据）；本账本不产采用裁决（守 `CTX::zopn-no-adopt-verdict`）。")
-o.append("- **锚点**：sealed Evidence 的 `criterionId`(`mod-*`) 与模块 M1–M13 为 1:1；M13=`ref-capability-map` 为唯一例外，经 ZAgenticOPN 项目级 context-entry 承载，不进横比四态。")
+o.append("- **锚点**：sealed Evidence 的 `criterionId`(`mod-*`) 与模块 M1–M13 为 1:1；M13=`ref-capability-map` 为唯一例外，经 ZAgenticOPN 项目级 context-entry 承载，不进横比四态。§2.1 的 M1 九态补锚是**跨模块引用例外**（criterionId=M11），单独登记、不进 §2 表格 evidence_refs 列、不改 1:1 规则。")
 o.append("- **unknown 只作证据缺口**（unknown≠absent），不进复用判断、不进定量；版本钉偏差见 bundle 对应 graph 的 version-pin。")
 o.append("")
 o.append("## 2. 账本（每模块 × 每项目一行，13 × 14 = %d 行）" % len(rows))
@@ -187,13 +223,30 @@ o.append("")
 o.append("| module | criterion_id | 模块 | 项目 | pin | verdict | evidence_refs | reuse_form_hypothesis (assumption, 源自 primary §2) | ruling_status | gap_note (unknown 缺口) |")
 o.append("|---|---|---|---|---|---|---|---|---|---|")
 for r in rows:
-    o.append("| " + " | ".join(esc(x) for x in (r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], "待母模型裁决", r[8])) + " |")
+    note = r[8]
+    if r[0] == CROSS_ANCHOR["module"] and r[3] == CROSS_ANCHOR["project"]:
+        # M1×opencode: point to the cross-module nine-state anchor registered in §2.1.
+        # Do NOT append EVID to evidence_refs (1:1 rule + fit-matrix fails closed on >1).
+        note = "跨模块补锚见 §2.1：九态 sealed EVID（criterionId=mod-agent-protocol/M11）"
+    o.append("| " + " | ".join(esc(x) for x in (r[0], r[1], r[2], r[3], r[4], r[5], r[6], r[7], "待母模型裁决", note)) + " |")
+o.append("")
+o.append("### 2.1 跨模块补锚：M1 九态语义基准（zj 2026-11-24 裁决 B）")
+o.append("")
+o.append(f"> 本小节登记**唯一**跨模块 sealed 锚，不改变 §2 表格的 1:1 锚定规则，也不改写 bundle。M1 Work Item 状态机采用 opencode-coordination 的 sealed 九态生命周期作为**语义基准**；实现仍自研，`product-module-map.md` §3/Q9 与 N=5 不变。")
+o.append("")
+o.append("| 目标模块 | 项目 | 补锚 EVID | sealed 归属 criterionId / 模块 | 归属 scene | 说明 |")
+o.append("|---|---|---|---|---|---|")
+o.append(f"| {CROSS_ANCHOR['module']} | {CROSS_ANCHOR['project']} | `{CROSS_ANCHOR['evidence']}` | mod-agent-protocol / {CROSS_ANCHOR['source_module']} | {CROSS_ANCHOR['source_scene']} | 该 sealed 摘录正文含 Work Item 九态 `proposed→accepted→ready→assigned→in progress→in review→merged→measured→validated`；采集时归入 M11，正文同时承载 M1 生命周期语义，故补锚供 M1 引用 |")
+o.append("")
+o.append("- **为何补锚而非并列写进 evidence_refs**：该 EVID 的 sealed criterionId 是 `mod-agent-protocol`（M11），与 M1 非 1:1；且 §2 表格 evidence_refs 列保持单 EVID 是下游 `zj-open-source-capability-fit` 输入生成器的 fail-closed 约束（>1 会中止）。故在本小节显式登记跨模块引用，M1×opencode 行的 gap_note 指向此处。")
+o.append("- **裁决边界**：只确立「九态为 M1 语义基准」，不改变自研归属（②），不新增自研单元（N 仍为 5），不动 module-map §3/Q9。四态（ZAgenticOPN）仍是其自有 sealed 契约源，本补锚不抹除它。")
 o.append("")
 o.append("## 3. 一致性自检（机械）")
 o.append("")
 o.append(f"- 行数：{len(rows)}（期望 13×14=182）；native 计 {native_count-1}（M13 ref-only 另计 1），unknown 计 {unknown_count}，n/a 计 13。")
 o.append("- 每个 (criterion_id, project) 恰好一行；M13 仅 ZAgenticOPN 一行有证据（native·ref-only，sealed ref 为项目级 context-entry），其余 13 行 n/a。")
-o.append("- 所有 native 行的 evidence_refs 均指向 bundle 中 EVID:: sealed ID；M13 ref-only 指向 context-entry 裸 sealed ID；unknown 行无 EVID 且附验证计划。")
+o.append("- 所有 native 行的 evidence_refs 均指向 bundle 中 EVID:: sealed ID（每行恰好 1 条，下游 fail-closed 约束）；M13 ref-only 指向 context-entry 裸 sealed ID；unknown 行无 EVID 且附验证计划。")
+o.append(f"- 跨模块补锚 {CROSS_ANCHOR['evidence']} 已校验存在于 bundle 的 ({CROSS_ANCHOR['source_scene']}, {CROSS_ANCHOR['project']}) native 条目；仅登记于 §2.1，不计入 §2 行 evidence_refs。")
 o.append("- reuse_form_hypothesis 与 product-module-map.md §2 逐字一致（本页不改判断）。")
 o.append("")
 

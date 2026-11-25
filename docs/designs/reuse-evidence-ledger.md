@@ -14,7 +14,7 @@ authority-id: opn.reuse-evidence-ledger
 - **事实层**：横比 bundle 的 `native/unknown` + `EVID::` 是 sealed Evidence 绑定的**能力存在**事实；仅此一层是 evidence。
 - **判断层**：`reuse_form_hypothesis` 列抄录自 `product-module-map.md` §2，标 **assumption**（分析层推断，待母模型裁决）；`native` 推不出「可直接用/适配可用/必须自研」。
 - **判定权归母模型** `zj-open-source-capability-fit`（`FIT_OK=0.9` + `ALLOWED_ADAPT/FORBIDDEN_ADAPT` 薄层判据）；本账本不产采用裁决（守 `CTX::zopn-no-adopt-verdict`）。
-- **锚点**：sealed Evidence 的 `criterionId`(`mod-*`) 与模块 M1–M13 为 1:1；M13=`ref-capability-map` 为唯一例外，经 ZAgenticOPN 项目级 context-entry 承载，不进横比四态。
+- **锚点**：sealed Evidence 的 `criterionId`(`mod-*`) 与模块 M1–M13 为 1:1；M13=`ref-capability-map` 为唯一例外，经 ZAgenticOPN 项目级 context-entry 承载，不进横比四态。§2.1 的 M1 九态补锚是**跨模块引用例外**（criterionId=M11），单独登记、不进 §2 表格 evidence_refs 列、不改 1:1 规则。
 - **unknown 只作证据缺口**（unknown≠absent），不进复用判断、不进定量；版本钉偏差见 bundle 对应 graph 的 version-pin。
 
 ## 2. 账本（每模块 × 每项目一行，13 × 14 = 182 行）
@@ -30,7 +30,7 @@ authority-id: opn.reuse-evidence-ledger
 | M1 | mod-task-workitem | Work Item 生命周期 | herdr | master ee5bfb5041bb3e4a49d591c72308aae3c81ecdde | unknown | — | adapted：5 实现但状态机互不相容（opencode 九态 vs ZAgenticOPN 四态）[matrix §5] | 待母模型裁决 | 对 herdrdev/herdr@master ee5bfb5041bb3e4a49d591c72308aae3c81ecdde 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent |
 | M1 | mod-task-workitem | Work Item 生命周期 | qm | 605c259b28d54ee750c526b11925ddea3e0e6f59 | unknown | — | adapted：5 实现但状态机互不相容（opencode 九态 vs ZAgenticOPN 四态）[matrix §5] | 待母模型裁决 | 对 yc-software/qm@605c259b28d54ee750c526b11925ddea3e0e6f59 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent |
 | M1 | mod-task-workitem | Work Item 生命周期 | tasktrooper | ae5fb965c4758bbb25d2fac7f10f9bb26cb63823 | native | EVID::90b8b4fc0e74bc12214889c4 | adapted：5 实现但状态机互不相容（opencode 九态 vs ZAgenticOPN 四态）[matrix §5] | 待母模型裁决 | — |
-| M1 | mod-task-workitem | Work Item 生命周期 | opencode-coordination | 2c9dd06f21716d8fc5885a266b119e58e78f2a0d | native | EVID::9101cfa7145332b317a9353e | adapted：5 实现但状态机互不相容（opencode 九态 vs ZAgenticOPN 四态）[matrix §5] | 待母模型裁决 | — |
+| M1 | mod-task-workitem | Work Item 生命周期 | opencode-coordination | 2c9dd06f21716d8fc5885a266b119e58e78f2a0d | native | EVID::9101cfa7145332b317a9353e | adapted：5 实现但状态机互不相容（opencode 九态 vs ZAgenticOPN 四态）[matrix §5] | 待母模型裁决 | 跨模块补锚见 §2.1：九态 sealed EVID（criterionId=mod-agent-protocol/M11） |
 | M1 | mod-task-workitem | Work Item 生命周期 | agetor | 897b70afb6f7671dc418c6d1053dbf8fbc3c81e0 | unknown | — | adapted：5 实现但状态机互不相容（opencode 九态 vs ZAgenticOPN 四态）[matrix §5] | 待母模型裁决 | 对 alamops/agetor@897b70afb6f7671dc418c6d1053dbf8fbc3c81e0 用判别性短语补采该维度，或走 primary-source reading 核验；unknown≠absent |
 | M1 | mod-task-workitem | Work Item 生命周期 | lanes | 7b9cb385d1100ded8a74986f81472f8856840578 | native | EVID::fc77e9f1b10477d753e74fab | adapted：5 实现但状态机互不相容（opencode 九态 vs ZAgenticOPN 四态）[matrix §5] | 待母模型裁决 | — |
 | M1 | mod-task-workitem | Work Item 生命周期 | mozzie | 80f3515684722a8909fbc0c17a0526664ec0349a | native | EVID::14bb8d6ea36e18107fd51b3c | adapted：5 实现但状态机互不相容（opencode 九态 vs ZAgenticOPN 四态）[matrix §5] | 待母模型裁决 | — |
@@ -206,10 +206,22 @@ authority-id: opn.reuse-evidence-ledger
 | M13 | ref-capability-map | 能力地图参考 | python-a2a | 40b969a465f85e8156793b7cfac16c5e23ed0b86 | n/a | — | 仅 ZAgenticOPN；作参考不单独成模块 [matrix §7] | 待母模型裁决 | 非横比场景；M13 仅参照物有，其余项目不适用 |
 | M13 | ref-capability-map | 能力地图参考 | dmux | 8cb3d926631a9349ab67f7ece41d218427ac7e24 | n/a | — | 仅 ZAgenticOPN；作参考不单独成模块 [matrix §7] | 待母模型裁决 | 非横比场景；M13 仅参照物有，其余项目不适用 |
 
+### 2.1 跨模块补锚：M1 九态语义基准（zj 2026-11-24 裁决 B）
+
+> 本小节登记**唯一**跨模块 sealed 锚，不改变 §2 表格的 1:1 锚定规则，也不改写 bundle。M1 Work Item 状态机采用 opencode-coordination 的 sealed 九态生命周期作为**语义基准**；实现仍自研，`product-module-map.md` §3/Q9 与 N=5 不变。
+
+| 目标模块 | 项目 | 补锚 EVID | sealed 归属 criterionId / 模块 | 归属 scene | 说明 |
+|---|---|---|---|---|---|
+| M1 | opencode-coordination | `EVID::4e9888715cf937cdeac6384a` | mod-agent-protocol / M11 | SC::agent-protocol | 该 sealed 摘录正文含 Work Item 九态 `proposed→accepted→ready→assigned→in progress→in review→merged→measured→validated`；采集时归入 M11，正文同时承载 M1 生命周期语义，故补锚供 M1 引用 |
+
+- **为何补锚而非并列写进 evidence_refs**：该 EVID 的 sealed criterionId 是 `mod-agent-protocol`（M11），与 M1 非 1:1；且 §2 表格 evidence_refs 列保持单 EVID 是下游 `zj-open-source-capability-fit` 输入生成器的 fail-closed 约束（>1 会中止）。故在本小节显式登记跨模块引用，M1×opencode 行的 gap_note 指向此处。
+- **裁决边界**：只确立「九态为 M1 语义基准」，不改变自研归属（②），不新增自研单元（N 仍为 5），不动 module-map §3/Q9。四态（ZAgenticOPN）仍是其自有 sealed 契约源，本补锚不抹除它。
+
 ## 3. 一致性自检（机械）
 
 - 行数：182（期望 13×14=182）；native 计 85（M13 ref-only 另计 1），unknown 计 83，n/a 计 13。
 - 每个 (criterion_id, project) 恰好一行；M13 仅 ZAgenticOPN 一行有证据（native·ref-only，sealed ref 为项目级 context-entry），其余 13 行 n/a。
-- 所有 native 行的 evidence_refs 均指向 bundle 中 EVID:: sealed ID；M13 ref-only 指向 context-entry 裸 sealed ID；unknown 行无 EVID 且附验证计划。
+- 所有 native 行的 evidence_refs 均指向 bundle 中 EVID:: sealed ID（每行恰好 1 条，下游 fail-closed 约束）；M13 ref-only 指向 context-entry 裸 sealed ID；unknown 行无 EVID 且附验证计划。
+- 跨模块补锚 EVID::4e9888715cf937cdeac6384a 已校验存在于 bundle 的 (SC::agent-protocol, opencode-coordination) native 条目；仅登记于 §2.1，不计入 §2 行 evidence_refs。
 - reuse_form_hypothesis 与 product-module-map.md §2 逐字一致（本页不改判断）。
 

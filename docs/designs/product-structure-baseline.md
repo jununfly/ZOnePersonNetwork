@@ -9,6 +9,7 @@ authority-id: opn.product-structure-baseline
 > 本页是 **supporting 基线页**，不是 R 清单、不是产品方案、不是技术设计、不实现。它的唯一职责：在显式 scope 内把决策相关 context 收全，并列呈现两个抽象维度，显式标注冲突/耦合但**不裁决、不归一**，缺口随基线保留不填平。
 > 由 `docs/reasearch/opn-cross-comparison/_gen_baseline.py` 从 charter §4 / product-module-map §2 / 横比 bundle / human-gate-model 机械派生；端到端维度 §4 由 zj 2026-11-23 grill 逐条裁决（作为带 EVID 存在性校验的显式常量表注入生成器，非 Agent 推断），交叉区只标注不裁决。
 > 从这份基线拆 R（定粒度、填 acceptance、跑 A/B/C/D）是**未来规划阶段**的事；本切片不做。
+> **R 拆分进度补注（2026-11-24）**：本基线本身仍不拆 R、不裁决（定位不变）。但 supporting 页 [requirements-fit-matrix](requirements-fit-matrix.md)（`opn.requirements-fit-matrix`）已按 Human 可观察验收节点把这 5 条 EC 拆为 **15 条 R** 并逐条填了 acceptance；该拆分服务于 R×O 候选拟合分析，属**参考性质的 supporting 产物**——不是正式产品 R 清单、不进 backlog、不构成采用/自研裁决。正式 R 定稿、粒度终裁与自研判断仍在规划-执行阶段由 Human 作出。
 
 ## 1. 契约与切片边界
 
@@ -115,7 +116,7 @@ authority-id: opn.product-structure-baseline
 **已否决候选（留痕，不进清单）**：
 - EC-04 scope 内隔离执行 —— 起点是系统派发、终点是代码产出，Human 不可独立触发 → 属 Q2a 操作序列/技术设计，归维度 A 的 M5/M10，不作独立 EC（zj 2026-11-23 否决）
 
-> 这些 EC 是**用户目标闭环**，不是 R（可独立验收需求）：无 acceptance、无 priority/critical，粒度未定；拆 R 仍属未来规划阶段（§1）。
+> 这些 EC 是**用户目标闭环**，不是 R（可独立验收需求）：无 acceptance、无 priority/critical，粒度未定；拆 R 仍属未来规划阶段（§1）。**进度指针**：§1 补注说明的拟合矩阵页已把这 5 条 EC 拆为 15 条参考性 R 并填 acceptance（用于 R×O 拟合），非本基线产出、非正式产品 R 清单。
 
 ### 4.2 参考产品端到端拓扑（单独拓扑 · 不归一、不裁决）
 
@@ -149,14 +150,14 @@ authority-id: opn.product-structure-baseline
 
 ## 5. 交叉区：冲突 / 耦合标注（只标注，不裁决、不归一）
 
-> 两维度天然多对多。本区只登记冲突/耦合的**位置与来源**，不合并成单一 R、不选边、不消解。维度 B 已在 §4 逐条裁决，先登记已在模块维度内显式的语义冲突作为参照；EC × 模块的精确耦合在规划阶段拆 R 时展开。
+> 两维度天然多对多。本区登记冲突/耦合的**位置与来源**，默认不合并成单一 R、不选边、不消解。维度 B 已在 §4 逐条裁决；**例外**：zj 在 primary 层先行落定三项模块级裁决——2026-11-24 M1 状态机（见下表，选 sealed 九态为语义基准、实现仍自研）、2026-11-25 M2 身份 scope（见下表，选 qm 每人每房 scope 为语义基准、实现仍自研）、2026-11-25 M8 记忆边界（见下表，选 qm scope-memory 为语义基准 + mem-vault Markdown 目录为共享单位、边界仍自研）——与本页「不裁决」定位不冲突：本页只转录裁决结果，不自行产生裁决。M3 基础模型见 §2.4。EC × 模块的精确耦合在规划阶段拆 R 时展开。
 
 | 交叉项 | 冲突/耦合描述 | 来源 | 处理 |
 |---|---|---|---|
-| M1 状态机 | opencode 九态 vs ZAgenticOPN 四态，互不相容 | product-module-map §2 M1 | 标注，待规划阶段裁决 |
-| M2 身份 scope | qm 每人每房 vs ZAgenticOPN Human→device→agent_instance，不可互推 | product-module-map §2 M2 | 标注，待规划阶段裁决 |
+| M1 状态机 | opencode 九态 vs ZAgenticOPN 四态，互不相容 | product-module-map §2 M1 | zj 2026-11-24 裁决 B：以 opencode sealed 九态（`EVID::4e988871…`，criterionId=M11，见 reuse-evidence-ledger §2.1）为**语义基准**，实现仍自研；§3/Q9 与 N=5 不变，四态契约源不抹除。本项已裁，非开放项 |
+| M2 身份 scope | qm 每人每房 vs ZAgenticOPN Human→device→agent_instance，不可互推 | product-module-map §2 M2 | zj 2026-11-25 裁决：以 qm sealed `EVID::114f13c4…` 的**每人每房 scope** 为语义基准（理由：更通用）；实现仍自研（②契约重写），§3/Q9 与 N=5 不变，ZAgenticOPN `Human→device→agent_instance` 契约源不抹除，room 对单人场景的映射留规划-执行阶段。本项已裁，非开放项 |
 | M3 Human 门 | 六种门表达互不兼容（见 §2.4） | human-gate-model 背景 | 已裁基础模型，其余仅参照 |
-| M8 记忆边界 | mem-vault 纯 Markdown vs qm scope-memory+Postgres vs ZAgenticOPN 结构化事实 | product-module-map §2 M8 | 标注，待规划阶段裁决 |
+| M8 记忆边界 | mem-vault 纯 Markdown vs qm scope-memory+Postgres vs ZAgenticOPN 结构化事实 | product-module-map §2 M8 | zj 2026-11-25 裁决：以 qm sealed `EVID::e878e527…` 的 **scope-memory 资源模型**为语义基准（记忆作为 scope 内一类资源，按人/房隔离）；边界仍自研（②边界自研 + ①存储机械不变），§3/Q9 与 N=5 不变，ZAgenticOPN 契约源不抹除。**同日追加调整**：结合 mem-vault sealed `EVID::1eedaed6…`，共享单位取**普通云同步 Markdown 目录**，可作为 shared/scoped 知识库、shared/scoped context、shared/scoped memory（同一载体上的三种角色，不另建三套存储）；mem-vault 由「契约源不抹除」升为**显式纳入裁决**。**缺口如实保留**：qm sealed 证据只给容器、mem-vault 只给载体，沉淀/检索语义（场景 observable「检索命中、复用生效」）仍未被 sealed 证据覆盖，留规划-执行阶段补契约。本项已裁，非开放项 |
 | EC-04 隔离执行 | 起点系统派发、终点代码产出，Human 不可独立触发 → 归 M5/M10 技术设计 | zj 2026-11-23 裁决（§4.1 否决留痕） | 已否决为独立 EC；执行段归入模块维度 |
 | 参考产品拓扑 × 我方 EC | multica 组织协作 / orca 工具运行 / mozzie 编排器 / tasktrooper board 自治，四种口径均≠我方用户目标闭环 | §4.2 sealed 原文 | 单独拓扑，不归一、不裁决 |
 
@@ -199,17 +200,17 @@ authority-id: opn.product-structure-baseline
 **已裁决工作假设（zj 2026-11-23 grill，阶段性非终局）**
 
 - **定性**：三词 = 三个正交边界轴（owner / 设备 / 项目），非三选一；斜杠并列是文档措辞缺陷
-- **效力**：阶段性工作假设（charter §7 本阶段不做产品方案），非终局定稿
+- **效力**：阶段性工作假设（charter §7 本阶段不做产品方案），非终局定稿；起点部分已由 zj 2026-11-25 逐轴推导
 - **落点**：就地更新基线页 §6.2；不动横比 bundle/report（守 ratify 边界）
 
 | 边界轴 | 调研上界（本轮锁定） | 落地起点 | 依据 |
 |---|---|---|---|
 | owner | 多人 | 单人 | 单人是多人的特例；先解决单人（多人问题太开放，短期难做可用产品） |
-| 设备 | 跨设备 | （Q8c：起点按原则推导，不逐轴锁死） | EC-03 跨设备接续已采纳；参照物 roadmap 1-2-2 同向 |
-| 项目 | 多项目 | （Q8c：起点按原则推导，不逐轴锁死） | M2 身份 scope / M8 记忆边界冲突只有多项目下才暴露；取单项目会让缺口消失 |
+| 设备 | 跨设备 | 最小跨设备对（2 设备） | EC-03 跨设备接续已采纳（R3.1/R3.2/R3.3 均要求设备 A→B 接续）；参照物 roadmap 1-2-2 同向。zj 2026-11-25 按 Q8c「约束更强特例 = 最小可行实例」裁起点为 2 设备，不退化到单设备（否则 EC-03 三条 R 不可验收） |
+| 项目 | 多项目 | 最小多项目（2 项目） | M2 身份 scope / M8 记忆边界冲突只有多项目下才暴露；取单项目会让缺口消失。zj 2026-11-25 按同一解释裁起点为 2 项目，不退化到单项目（否则 M2/M8 裁决空转） |
 
-- **落地序列原则**：先解决约束更强的特例，泛化延迟（Q8c）——不逐轴锁死起点值，规划阶段按同一原则推导
-- **重开条件**：进入产品方案阶段拆 R 时（Q7a）；风险留痕：调研中发现上界不可行不自动触发复核
+- **落地序列原则**：先解决约束更强的特例，泛化延迟（Q8c）——zj 2026-11-25 逐轴裁定解释：owner 轴「更约束特例」= 单人（多人特例），设备/项目轴 = 最小可行实例（2 设备 / 2 项目），不退化到 1；三轴起点均已推导，上界不变
+- **重开条件**：Q7a 重开条件（进入产品方案阶段拆 R 时）已于 2026-11-25 触发并完成起点推导；风险留痕：调研中发现上界不可行须由 Human 重开，不自动触发复核
 - **CTX 措辞处置**：CTX::zopn-single-user 原 statement『目标为单人个人协同网络』降为历史留痕：『单人』现为落地起点，非目标边界；上界已扩展为多人/跨设备/多项目
 
 ### 6.3 版本钉偏差（引用前须按 ledger 实际 pin 复核）
@@ -226,7 +227,7 @@ authority-id: opn.product-structure-baseline
 ### 6.4 契约状态（原列为缺口，2026-11-23 认定为非缺口）
 
 - **adaptation-target：非缺口（契约未 exercised 区域）**。zj 2026-11-23 裁决：该字段名在横比契约中真实存在（`model-contract.md` / `cross_compare.py` CHK-06），CHK-06 仅在 adapted 条目**已存在**时校验其非空、无「必须四态齐全」断言；字段语义从未定义、属 Human 复核项、零 filled 实例——这是「未 exercised 的契约区域」，不是缺口。改判依据：上轮 Q4 已把「适配可用 / unsupported」判定权交母模型 `zj-open-source-capability-fit`（`FIT_OK` + `ALLOWED_ADAPT`/`FORBIDDEN_ADAPT`），横比只供 native/unknown 事实、不重复裁决（守 `CTX::zopn-no-adopt-verdict`）；母模型本身无 `adaptation-target` 字段，故「定义责任已转移」无落点，而是**该字段在两端都不参与判定**。adapted/unsupported 为空属预期。来源：2026-11-20 复用边界收敛 + 2026-11-23 zj 裁决。
-- **我方 EC 的 acceptance 未定**：§4.1 的 5 条 EC 是用户目标闭环、无验收判据；拆 R（定粒度/填 acceptance/跑 A B C D）仍属未来规划阶段。
+- **我方 EC 的 acceptance 在本基线未定**：§4.1 的 5 条 EC 是用户目标闭环、无验收判据；拆 R（定粒度/填 acceptance/跑 A B C D）仍属未来规划阶段。拟合矩阵页已拆出 15 条参考性 R 并填 acceptance（见 §1 补注），仅供 R×O 拟合，不构成正式产品 R 或采用/自研裁决。
 
 ## 7. 一致性自检（机械）
 
@@ -236,6 +237,6 @@ authority-id: opn.product-structure-baseline
 - 版本钉：2 条偏差的 ledger 实际 pin 均机械读取 `result.repositories[].revision.sha`（非手填）；multica bundle 记录失准已标注、展示按实值纠正。
 - adaptation-target 于 2026-11-23 改判为非缺口（契约未 exercised 区域），判定权归母模型；横比 bundle 原文未动（守 ratify 边界）。
 - 交叉区只标注不裁决；所有 SHAs 机械派生自 SoT，无手填。
-- 边界 alignment item 已于 2026-11-23 裁决为阶段性工作假设：3 个正交轴，上界/起点分层，Q7a 重开条件与 Q8c 原则齐全；横比 CTX 原 statement 保留历史留痕未改写。
+- 边界 alignment item 已于 2026-11-23 裁决为阶段性工作假设：3 个正交轴，上界/起点分层；2026-11-25 拆 R 阶段触发 Q7a 并按 Q8c「最小可行实例」逐轴推导起点（owner 单人 / 设备 2 设备 / 项目 2 项目），上界不变；横比 CTX 原 statement 保留历史留痕未改写。
 - 补采试点结论（§6.1）：机械命中 13/20、语义合格 2/20 全部机械读自审计 JSON；每条 sealed ID 通过两仓 ledger 存在性校验（fail-closed），零手填；独立 ledger、未回灌 bundle。
 
